@@ -1,0 +1,111 @@
+---
+import chat from "../assets/icons/chat.svg?raw";
+import tray from "../assets/icons/print-tray.svg?raw";
+import paper from "../assets/icons/print-paper.svg?raw";
+import top from "../assets/icons/print-top.svg?raw";
+---
+
+<div class="signup container">
+  <div class="signup__label">
+    <h2 class="signup__title" data-lines>Stay close to us</h2>
+    <span class="signup__rule"></span>
+  </div>
+
+  <div class="signup__options">
+    <!-- TODO: point at the real contact address / form -->
+    <a href="#contact" class="option" data-icon-anim>
+      <span class="tile tile--chat" aria-hidden="true" data-tile>
+        <span class="icon icon--chat" set:html={chat} />
+      </span>
+      <span class="option__text">
+        <span class="option__title">Contact</span>
+        <span class="option__body">Please feel free to contact us with any questions or inquiries.</span>
+      </span>
+    </a>
+
+    <a href="#newsletter" class="option" data-icon-anim>
+      <span class="tile tile--news" aria-hidden="true" data-tile>
+        <span class="icon icon--print">
+          <span class="print__top" set:html={top} />
+          <span class="print__tray" set:html={tray} />
+          <span class="print__paper"><span set:html={paper} /></span>
+          <span class="print__ink"><i data-icon-line></i><i data-icon-line></i></span>
+        </span>
+      </span>
+      <span class="option__text">
+        <span class="option__title">Newsletter</span>
+        <span class="option__body">
+          Occasional notes on what we are building and what we are learning. No spam, and we do not sell your details.
+        </span>
+      </span>
+    </a>
+  </div>
+</div>
+
+<style>
+  .signup {
+    max-width: calc(1234px + var(--gutter) * 2);
+    padding-top: 125px;
+    padding-bottom: 48px;
+    display: grid;
+    grid-template-columns: 456px 674px;
+    justify-content: space-between;
+    align-items: start;
+  }
+  .signup__label { display: flex; align-items: center; gap: 32px; margin-top: 105px; }
+  .signup__title { font-size: 24px; font-weight: 400; color: var(--paper); white-space: nowrap; }
+  .signup__rule { width: 250px; height: 1px; background: var(--rule); }
+
+  .signup__options { display: flex; flex-direction: column; gap: 48px; padding: 32px; }
+  .option { display: flex; align-items: center; gap: 48px; }
+  .option__text { display: flex; flex-direction: column; flex: 1; }
+  .option__title { font-size: 32px; font-weight: 700; color: var(--paper); }
+  .option__body { font-size: 16px; line-height: 26px; color: rgba(255, 255, 255, 0.85); }
+
+  .tile {
+    position: relative;
+    width: 160px;
+    height: 160px;
+    flex-shrink: 0;
+    border-radius: var(--radius-md);
+  }
+  .tile--chat { background: var(--beam-400); }
+  .tile--news { background: var(--cobalt-400); }
+
+  .icon { position: absolute; inset: 33.13%; }
+  .icon :global(svg) { width: 100%; height: 100%; }
+  .icon--print > span { position: absolute; }
+  .print__top { top: 12.5%; bottom: 70.83%; left: 25%; right: 25%; }
+  .print__top :global(svg) { position: absolute; inset: -22.22% -7.41% 0 -7.41%; width: auto; height: auto; }
+  .print__tray { top: 29.17%; bottom: 41.67%; left: 12.5%; right: 12.5%; }
+  .print__tray :global(svg) { position: absolute; inset: -12.7% -4.94%; width: auto; height: auto; }
+  .print__paper { top: 41.67%; bottom: 12.5%; left: 25%; right: 25%; container-type: size; }
+  .print__paper > span {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 100cqh;
+    height: 100cqw;
+    transform: translate(-50%, -50%) rotate(-90deg);
+  }
+  .print__paper :global(svg) { position: absolute; inset: -7.41% -8.08% -7.41% -8.03%; width: auto; height: auto; }
+  .print__ink { inset: 55.56% 38.89% 25.93% 38.89%; display: flex; flex-direction: column; gap: 2px; }
+  .print__ink i { display: block; height: 4px; border-radius: 10px; background: var(--ink); }
+  .print__ink i:first-child { width: 7px; }
+
+  @media (max-width: 1200px) {
+    .signup { grid-template-columns: 1fr; gap: 32px; padding-top: 96px; }
+    .signup__label { margin-top: 0; }
+    .signup__options { padding: 0; }
+  }
+  /* Phones: Figma mobile text sizes */
+  @media (max-width: 767px) {
+    .signup { padding-top: 72px; padding-bottom: 32px; }
+    .signup__title { font-size: 16px; }
+    .signup__rule { width: 80px; }
+    .option { gap: 20px; align-items: center; }
+    .tile { width: 112px; height: 112px; }
+    .option__title { font-size: 18px; }
+    .option__body { font-size: 14px; line-height: 18px; }
+  }
+</style>

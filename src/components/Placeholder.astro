@@ -1,0 +1,39 @@
+---
+import Base from "../layouts/Base.astro";
+import Nav from "./Nav.astro";
+import Footer from "./Footer.astro";
+import Button from "./Button.astro";
+
+interface Props {
+  title: string;
+}
+const { title } = Astro.props;
+---
+
+<Base title={`${title} — Learn Space`}>
+  <section class="layer layer--flat layer--white">
+    <Nav />
+    <div class="ph container">
+      <h1 class="ph__title" data-lines data-lines-immediate>{title}</h1>
+      <p class="ph__text" data-lines data-lines-immediate>This page is being designed. Check back soon.</p>
+      <Button href="/" label="Back to home" />
+    </div>
+  </section>
+  <footer class="layer layer--flat layer--navy">
+    <Footer />
+  </footer>
+</Base>
+
+<style>
+  .ph {
+    min-height: calc(100vh - 128px);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 24px;
+    padding-bottom: 160px;
+  }
+  .ph__title { font-size: clamp(48px, 9vw, 120px); line-height: 1; font-weight: 700; color: var(--ink-strong); }
+  .ph__text { font-size: 20px; line-height: 28px; color: var(--text-muted); }
+</style>

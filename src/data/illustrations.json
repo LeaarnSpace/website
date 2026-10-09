@@ -1,0 +1,2307 @@
+{
+ "hero": {
+  "width": 405.234,
+  "height": 228,
+  "background": "hero-bg.svg",
+  "pieces": [
+   {
+    "id": "3265:2698",
+    "box": {
+     "top": "6.14%",
+     "right": "23.35%",
+     "bottom": "19.19%",
+     "left": "57.59%"
+    },
+    "pad": {
+     "top": "-0.44%",
+     "right": "-0.97%",
+     "bottom": "-0.44%",
+     "left": "-0.97%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 1.7,
+     "end": 2.158,
+     "ease": "ease"
+    },
+    "file": "hero-3265-2698.svg"
+   },
+   {
+    "id": "3265:2699",
+    "box": {
+     "top": "18.65%",
+     "right": "18%",
+     "bottom": "67.56%",
+     "left": "63.23%"
+    },
+    "pad": {
+     "top": "-2.38%",
+     "right": "-0.99%",
+     "bottom": "-2.38%",
+     "left": "-0.99%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 2.58,
+     "end": 2.93,
+     "ease": "ease"
+    },
+    "file": "hero-3265-2699.svg"
+   },
+   {
+    "id": "3265:2700",
+    "box": {
+     "top": "32.24%",
+     "right": "18.63%",
+     "bottom": "59.79%",
+     "left": "65.64%"
+    },
+    "pad": {
+     "top": "-4.13%",
+     "right": "-1.18%",
+     "bottom": "-4.13%",
+     "left": "-1.18%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 2.857,
+     "end": 3.157,
+     "ease": "ease"
+    },
+    "file": "hero-3265-2700.svg"
+   },
+   {
+    "id": "3265:2701",
+    "box": {
+     "top": "51.1%",
+     "right": "31.78%",
+     "bottom": "43.17%",
+     "left": "62.19%"
+    },
+    "pad": {
+     "top": "-5.74%",
+     "right": "-3.07%",
+     "bottom": "-5.74%",
+     "left": "-3.07%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 2.666,
+     "end": 2.916,
+     "ease": "ease"
+    },
+    "file": "hero-3265-2701.svg"
+   },
+   {
+    "id": "3265:2702",
+    "box": {
+     "top": "51.1%",
+     "right": "31.78%",
+     "bottom": "47.31%",
+     "left": "67.66%"
+    },
+    "pad": {
+     "top": "-20.64%",
+     "right": "-32.97%",
+     "bottom": "-20.64%",
+     "left": "-32.94%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 2.57,
+     "end": 2.77,
+     "ease": "ease"
+    },
+    "file": "hero-3265-2702.svg"
+   },
+   {
+    "id": "3265:2703",
+    "box": {
+     "top": "37.35%",
+     "right": "34.14%",
+     "bottom": "57.54%",
+     "left": "63.14%"
+    },
+    "pad": {
+     "top": "-6.45%",
+     "right": "-6.81%",
+     "bottom": "-6.44%",
+     "left": "-6.81%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 2.68,
+     "end": 2.93,
+     "ease": "ease"
+    },
+    "file": "hero-3265-2703.svg"
+   },
+   {
+    "id": "3265:2704",
+    "box": {
+     "top": "61.04%",
+     "right": "32.46%",
+     "bottom": "36.54%",
+     "left": "63.49%"
+    },
+    "pad": {
+     "top": "-13.57%",
+     "right": "-4.58%",
+     "bottom": "-13.56%",
+     "left": "-4.58%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 2.79,
+     "end": 3.04,
+     "ease": "ease"
+    },
+    "file": "hero-3265-2704.svg"
+   },
+   {
+    "id": "3265:2705",
+    "box": {
+     "top": "41.61%",
+     "right": "27.7%",
+     "bottom": "54.88%",
+     "left": "67.65%"
+    },
+    "pad": {
+     "top": "-9.38%",
+     "right": "-3.98%",
+     "bottom": "-9.38%",
+     "left": "-3.99%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 2.91,
+     "end": 3.16,
+     "ease": "ease"
+    },
+    "file": "hero-3265-2705.svg"
+   },
+   {
+    "id": "3265:2706",
+    "box": {
+     "top": "65.1%",
+     "right": "33.47%",
+     "bottom": "32.8%",
+     "left": "64.78%"
+    },
+    "pad": {
+     "top": "-15.65%",
+     "right": "-10.58%",
+     "bottom": "-15.64%",
+     "left": "-10.58%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 3.02,
+     "end": 3.27,
+     "ease": "ease"
+    },
+    "file": "hero-3265-2706.svg"
+   },
+   {
+    "id": "3265:2708",
+    "box": {
+     "top": "29.99%",
+     "right": "54.24%",
+     "bottom": "61.05%",
+     "left": "40.12%"
+    },
+    "pad": {},
+    "anim": {
+     "kind": "fade",
+     "start": 1.221,
+     "end": 1.401,
+     "ease": "ease-out"
+    },
+    "file": "hero-3265-2708.svg"
+   },
+   {
+    "id": "3265:2709",
+    "box": {
+     "top": "30.11%",
+     "right": "55.72%",
+     "bottom": "65.95%",
+     "left": "40.12%"
+    },
+    "pad": {},
+    "anim": {
+     "kind": "fade",
+     "start": 1.136,
+     "end": 1.316,
+     "ease": "ease-out"
+    },
+    "file": "hero-3265-2709.svg"
+   },
+   {
+    "id": "3265:2710",
+    "box": {
+     "top": "31.1%",
+     "right": "56.94%",
+     "bottom": "67.52%",
+     "left": "40.89%"
+    },
+    "pad": {},
+    "anim": {
+     "kind": "fade",
+     "start": 1.094,
+     "end": 1.274,
+     "ease": "ease-out"
+    },
+    "file": "hero-3265-2710.svg"
+   },
+   {
+    "id": "3265:2711",
+    "box": {
+     "top": "33.73%",
+     "right": "55.07%",
+     "bottom": "61.05%",
+     "left": "40.83%"
+    },
+    "pad": {},
+    "anim": {
+     "kind": "fade",
+     "start": 1.263,
+     "end": 1.443,
+     "ease": "ease-out"
+    },
+    "file": "hero-3265-2711.svg"
+   },
+   {
+    "id": "3265:2712",
+    "box": {
+     "top": "29.99%",
+     "right": "54.24%",
+     "bottom": "66.15%",
+     "left": "43.99%"
+    },
+    "pad": {},
+    "anim": {
+     "kind": "fade",
+     "start": 1.347,
+     "end": 1.527,
+     "ease": "ease-out"
+    },
+    "file": "hero-3265-2712.svg"
+   },
+   {
+    "id": "3265:2713",
+    "box": {
+     "top": "31.77%",
+     "right": "56.85%",
+     "bottom": "67.08%",
+     "left": "41.8%"
+    },
+    "pad": {},
+    "anim": {
+     "kind": "fade",
+     "start": 1.179,
+     "end": 1.358,
+     "ease": "ease-out"
+    },
+    "file": "hero-3265-2713.svg"
+   },
+   {
+    "id": "3265:2714",
+    "box": {
+     "top": "61.4%",
+     "right": "58.52%",
+     "bottom": "19.44%",
+     "left": "23.88%"
+    },
+    "pad": {},
+    "anim": {
+     "kind": "fade",
+     "start": 0.884,
+     "end": 1.064,
+     "ease": "ease-out"
+    },
+    "file": "hero-3265-2714.svg"
+   },
+   {
+    "id": "3265:2715",
+    "box": {
+     "top": "44.85%",
+     "right": "51.49%",
+     "bottom": "48.11%",
+     "left": "38.37%"
+    },
+    "pad": {},
+    "anim": {
+     "kind": "fade",
+     "start": 1.515,
+     "end": 1.695,
+     "ease": "ease-out"
+    },
+    "file": "hero-3265-2715.svg"
+   },
+   {
+    "id": "3265:2716",
+    "box": {
+     "top": "50.88%",
+     "right": "56.66%",
+     "bottom": "38.54%",
+     "left": "28.23%"
+    },
+    "pad": {},
+    "anim": {
+     "kind": "fade",
+     "start": 0.926,
+     "end": 1.106,
+     "ease": "ease-out"
+    },
+    "file": "hero-3265-2716.svg"
+   },
+   {
+    "id": "3265:2717",
+    "box": {
+     "top": "43.89%",
+     "right": "21.86%",
+     "bottom": "25.48%",
+     "left": "69.2%"
+    },
+    "pad": {},
+    "anim": {
+     "kind": "fade",
+     "start": 2.315,
+     "end": 2.495,
+     "ease": "ease-out"
+    },
+    "file": "hero-3265-2717.svg"
+   },
+   {
+    "id": "3265:2718",
+    "box": {
+     "top": "67.21%",
+     "right": "43.53%",
+     "bottom": "13.78%",
+     "left": "44.77%"
+    },
+    "pad": {},
+    "anim": {
+     "kind": "fade",
+     "start": 2.189,
+     "end": 2.369,
+     "ease": "ease-out"
+    },
+    "file": "hero-3265-2718.svg"
+   },
+   {
+    "id": "3265:2719",
+    "box": {
+     "top": "42.75%",
+     "right": "16.88%",
+     "bottom": "49.8%",
+     "left": "77.39%"
+    },
+    "pad": {},
+    "anim": {
+     "kind": "fade",
+     "start": 2.567,
+     "end": 2.747,
+     "ease": "ease-out"
+    },
+    "file": "hero-3265-2719.svg"
+   },
+   {
+    "id": "3265:2720",
+    "box": {
+     "top": "42.75%",
+     "right": "16.88%",
+     "bottom": "53.76%",
+     "left": "80.17%"
+    },
+    "pad": {},
+    "anim": {
+     "kind": "fade",
+     "start": 2.694,
+     "end": 2.874,
+     "ease": "ease-out"
+    },
+    "file": "hero-3265-2720.svg"
+   },
+   {
+    "id": "3265:2721",
+    "box": {
+     "top": "43.29%",
+     "right": "17.48%",
+     "bottom": "53.99%",
+     "left": "80.17%"
+    },
+    "pad": {},
+    "anim": {
+     "kind": "fade",
+     "start": 2.61,
+     "end": 2.79,
+     "ease": "ease-out"
+    },
+    "file": "hero-3265-2721.svg"
+   },
+   {
+    "id": "3265:2722",
+    "box": {
+     "top": "47.04%",
+     "right": "20.8%",
+     "bottom": "50.71%",
+     "left": "77.92%"
+    },
+    "pad": {},
+    "anim": {
+     "kind": "fade",
+     "start": 2.525,
+     "end": 2.705,
+     "ease": "ease-out"
+    },
+    "file": "hero-3265-2722.svg"
+   },
+   {
+    "id": "3265:2723",
+    "box": {
+     "top": "47.04%",
+     "right": "20.92%",
+     "bottom": "50.89%",
+     "left": "78.05%"
+    },
+    "pad": {},
+    "anim": {
+     "kind": "fade",
+     "start": 2.483,
+     "end": 2.663,
+     "ease": "ease-out"
+    },
+    "file": "hero-3265-2723.svg"
+   },
+   {
+    "id": "3265:2724",
+    "box": {
+     "top": "69.43%",
+     "right": "56.99%",
+     "bottom": "11%",
+     "left": "34.97%"
+    },
+    "pad": {},
+    "anim": {
+     "kind": "fade",
+     "start": 1.894,
+     "end": 2.074,
+     "ease": "ease-out"
+    },
+    "file": "hero-3265-2724.svg"
+   },
+   {
+    "id": "3265:2725",
+    "box": {
+     "top": "60.49%",
+     "right": "18.31%",
+     "bottom": "19.28%",
+     "left": "73.8%"
+    },
+    "pad": {},
+    "anim": {
+     "kind": "fade",
+     "start": 2.736,
+     "end": 2.916,
+     "ease": "ease-out"
+    },
+    "file": "hero-3265-2725.svg"
+   },
+   {
+    "id": "3265:2726",
+    "box": {
+     "top": "13.44%",
+     "right": "58.13%",
+     "bottom": "80.51%",
+     "left": "31.48%"
+    },
+    "pad": {},
+    "anim": {
+     "kind": "fade",
+     "start": 0.253,
+     "end": 0.433,
+     "ease": "ease-out"
+    },
+    "file": "hero-3265-2726.svg"
+   },
+   {
+    "id": "3265:2727",
+    "box": {
+     "top": "26.53%",
+     "right": "50.22%",
+     "bottom": "61.5%",
+     "left": "45.58%"
+    },
+    "pad": {},
+    "anim": {
+     "kind": "fade",
+     "start": 1.852,
+     "end": 2.032,
+     "ease": "ease-out"
+    },
+    "file": "hero-3265-2727.svg"
+   },
+   {
+    "id": "3265:2728",
+    "box": {
+     "top": "27.87%",
+     "right": "52.95%",
+     "bottom": "69.17%",
+     "left": "45.72%"
+    },
+    "pad": {},
+    "anim": {
+     "kind": "fade",
+     "start": 1.389,
+     "end": 1.569,
+     "ease": "ease-out"
+    },
+    "file": "hero-3265-2728.svg"
+   },
+   {
+    "id": "3265:2729",
+    "box": {
+     "top": "30.02%",
+     "right": "52.55%",
+     "bottom": "69.4%",
+     "left": "46.36%"
+    },
+    "pad": {},
+    "anim": {
+     "kind": "fade",
+     "start": 1.473,
+     "end": 1.653,
+     "ease": "ease-out"
+    },
+    "file": "hero-3265-2729.svg"
+   },
+   {
+    "id": "3265:2730",
+    "box": {
+     "top": "74.64%",
+     "right": "25.48%",
+     "bottom": "15.57%",
+     "left": "66.14%"
+    },
+    "pad": {},
+    "anim": {
+     "kind": "fade",
+     "start": 2.357,
+     "end": 2.537,
+     "ease": "ease-out"
+    },
+    "file": "hero-3265-2730.svg"
+   },
+   {
+    "id": "3265:2731",
+    "box": {
+     "top": "32.1%",
+     "right": "59.94%",
+     "bottom": "62.26%",
+     "left": "32.97%"
+    },
+    "pad": {},
+    "anim": {
+     "kind": "fade",
+     "start": 0.631,
+     "end": 0.811,
+     "ease": "ease-out"
+    },
+    "file": "hero-3265-2731.svg"
+   },
+   {
+    "id": "3265:2732",
+    "box": {
+     "top": "79.55%",
+     "right": "27.57%",
+     "bottom": "9.79%",
+     "left": "67.68%"
+    },
+    "pad": {},
+    "anim": {
+     "kind": "fade",
+     "start": 2.399,
+     "end": 2.579,
+     "ease": "ease-out"
+    },
+    "file": "hero-3265-2732.svg"
+   },
+   {
+    "id": "3265:2733",
+    "box": {
+     "top": "57.31%",
+     "right": "71.92%",
+     "bottom": "33.31%",
+     "left": "22.56%"
+    },
+    "pad": {},
+    "anim": {
+     "kind": "fade",
+     "start": 0.168,
+     "end": 0.348,
+     "ease": "ease-out"
+    },
+    "file": "hero-3265-2733.svg"
+   },
+   {
+    "id": "3265:2734",
+    "box": {
+     "top": "83.65%",
+     "right": "37.87%",
+     "bottom": "9.24%",
+     "left": "56.64%"
+    },
+    "pad": {},
+    "anim": {
+     "kind": "fade",
+     "start": 2.231,
+     "end": 2.411,
+     "ease": "ease-out"
+    },
+    "file": "hero-3265-2734.svg"
+   },
+   {
+    "id": "3265:2735",
+    "box": {
+     "top": "50.95%",
+     "right": "56.54%",
+     "bottom": "42.18%",
+     "left": "41.36%"
+    },
+    "pad": {},
+    "anim": {
+     "kind": "fade",
+     "start": 1.641,
+     "end": 1.821,
+     "ease": "ease-out"
+    },
+    "file": "hero-3265-2735.svg"
+   },
+   {
+    "id": "3265:2736",
+    "box": {
+     "top": "30.05%",
+     "right": "52.29%",
+     "bottom": "65.24%",
+     "left": "45.52%"
+    },
+    "pad": {},
+    "anim": {
+     "kind": "fade",
+     "start": 1.557,
+     "end": 1.737,
+     "ease": "ease-out"
+    },
+    "file": "hero-3265-2736.svg"
+   },
+   {
+    "id": "3265:2737",
+    "box": {
+     "top": "31.92%",
+     "right": "52.29%",
+     "bottom": "65.24%",
+     "left": "46.09%"
+    },
+    "pad": {},
+    "anim": {
+     "kind": "fade",
+     "start": 1.768,
+     "end": 1.948,
+     "ease": "ease-out"
+    },
+    "file": "hero-3265-2737.svg"
+   },
+   {
+    "id": "3265:2738",
+    "box": {
+     "top": "30.86%",
+     "right": "52.72%",
+     "bottom": "67.11%",
+     "left": "46.44%"
+    },
+    "pad": {},
+    "anim": {
+     "kind": "fade",
+     "start": 1.684,
+     "end": 1.864,
+     "ease": "ease-out"
+    },
+    "file": "hero-3265-2738.svg"
+   },
+   {
+    "id": "3265:2739",
+    "box": {
+     "top": "41.25%",
+     "right": "66.93%",
+     "bottom": "50.59%",
+     "left": "30.62%"
+    },
+    "pad": {},
+    "anim": {
+     "kind": "fade",
+     "start": 0.379,
+     "end": 0.559,
+     "ease": "ease-out"
+    },
+    "file": "hero-3265-2739.svg"
+   },
+   {
+    "id": "3265:2740",
+    "box": {
+     "top": "18.22%",
+     "right": "57.25%",
+     "bottom": "77.14%",
+     "left": "36.97%"
+    },
+    "pad": {},
+    "anim": {
+     "kind": "fade",
+     "start": 0.673,
+     "end": 0.853,
+     "ease": "ease-out"
+    },
+    "file": "hero-3265-2740.svg"
+   },
+   {
+    "id": "3265:2741",
+    "box": {
+     "top": "61.28%",
+     "right": "55.55%",
+     "bottom": "33.13%",
+     "left": "41.19%"
+    },
+    "pad": {},
+    "anim": {
+     "kind": "fade",
+     "start": 2.02,
+     "end": 2.2,
+     "ease": "ease-out"
+    },
+    "file": "hero-3265-2741.svg"
+   },
+   {
+    "id": "3265:2742",
+    "box": {
+     "top": "50%",
+     "right": "17.22%",
+     "bottom": "40.04%",
+     "left": "81.5%"
+    },
+    "pad": {},
+    "anim": {
+     "kind": "fade",
+     "start": 2.82,
+     "end": 3.0,
+     "ease": "ease-out"
+    },
+    "file": "hero-3265-2742.svg"
+   },
+   {
+    "id": "3265:2743",
+    "box": {
+     "top": "78.6%",
+     "right": "33.87%",
+     "bottom": "16.65%",
+     "left": "61.89%"
+    },
+    "pad": {},
+    "anim": {
+     "kind": "fade",
+     "start": 2.273,
+     "end": 2.453,
+     "ease": "ease-out"
+    },
+    "file": "hero-3265-2743.svg"
+   },
+   {
+    "id": "3265:2744",
+    "box": {
+     "top": "29.17%",
+     "right": "70.48%",
+     "bottom": "63.39%",
+     "left": "28.07%"
+    },
+    "pad": {},
+    "anim": {
+     "kind": "fade",
+     "start": 0.084,
+     "end": 0.264,
+     "ease": "ease-out"
+    },
+    "file": "hero-3265-2744.svg"
+   },
+   {
+    "id": "3265:2745",
+    "box": {
+     "top": "15.5%",
+     "right": "55.17%",
+     "bottom": "79.22%",
+     "left": "42.35%"
+    },
+    "pad": {},
+    "anim": {
+     "kind": "fade",
+     "start": 1.01,
+     "end": 1.19,
+     "ease": "ease-out"
+    },
+    "file": "hero-3265-2745.svg"
+   },
+   {
+    "id": "3265:2746",
+    "box": {
+     "top": "37.36%",
+     "right": "66.76%",
+     "bottom": "57.23%",
+     "left": "30.95%"
+    },
+    "pad": {},
+    "anim": {
+     "kind": "fade",
+     "start": 0.295,
+     "end": 0.475,
+     "ease": "ease-out"
+    },
+    "file": "hero-3265-2746.svg"
+   },
+   {
+    "id": "3265:2747",
+    "box": {
+     "top": "27.64%",
+     "right": "56.32%",
+     "bottom": "70.34%",
+     "left": "40.45%"
+    },
+    "pad": {},
+    "anim": {
+     "kind": "fade",
+     "start": 1.052,
+     "end": 1.232,
+     "ease": "ease-out"
+    },
+    "file": "hero-3265-2747.svg"
+   },
+   {
+    "id": "3265:2748",
+    "box": {
+     "top": "45.07%",
+     "right": "61.3%",
+     "bottom": "51.25%",
+     "left": "36.54%"
+    },
+    "pad": {},
+    "anim": {
+     "kind": "fade",
+     "start": 0.968,
+     "end": 1.148,
+     "ease": "ease-out"
+    },
+    "file": "hero-3265-2748.svg"
+   },
+   {
+    "id": "3265:2749",
+    "box": {
+     "top": "23.22%",
+     "right": "70.28%",
+     "bottom": "71.28%",
+     "left": "28.18%"
+    },
+    "pad": {},
+    "anim": {
+     "kind": "fade",
+     "start": 0.0,
+     "end": 0.18,
+     "ease": "ease-out"
+    },
+    "file": "hero-3265-2749.svg"
+   },
+   {
+    "id": "3265:2750",
+    "box": {
+     "top": "27.32%",
+     "right": "63.02%",
+     "bottom": "65.71%",
+     "left": "34.67%"
+    },
+    "pad": {},
+    "anim": {
+     "kind": "fade",
+     "start": 0.505,
+     "end": 0.685,
+     "ease": "ease-out"
+    },
+    "file": "hero-3265-2750.svg"
+   },
+   {
+    "id": "3265:2751",
+    "box": {
+     "top": "40.71%",
+     "right": "53.98%",
+     "bottom": "56.07%",
+     "left": "42.78%"
+    },
+    "pad": {},
+    "anim": {
+     "kind": "fade",
+     "start": 1.431,
+     "end": 1.611,
+     "ease": "ease-out"
+    },
+    "file": "hero-3265-2751.svg"
+   },
+   {
+    "id": "3265:2752",
+    "box": {
+     "top": "19.55%",
+     "right": "68.63%",
+     "bottom": "76.99%",
+     "left": "29.46%"
+    },
+    "pad": {},
+    "anim": {
+     "kind": "fade",
+     "start": 0.042,
+     "end": 0.222,
+     "ease": "ease-out"
+    },
+    "file": "hero-3265-2752.svg"
+   },
+   {
+    "id": "3265:2753",
+    "box": {
+     "top": "36.31%",
+     "right": "69.35%",
+     "bottom": "59.03%",
+     "left": "29.13%"
+    },
+    "pad": {},
+    "anim": {
+     "kind": "fade",
+     "start": 0.126,
+     "end": 0.306,
+     "ease": "ease-out"
+    },
+    "file": "hero-3265-2753.svg"
+   },
+   {
+    "id": "3265:2754",
+    "box": {
+     "top": "20.42%",
+     "right": "53.4%",
+     "bottom": "73.8%",
+     "left": "44.44%"
+    },
+    "pad": {},
+    "anim": {
+     "kind": "fade",
+     "start": 1.305,
+     "end": 1.485,
+     "ease": "ease-out"
+    },
+    "file": "hero-3265-2754.svg"
+   },
+   {
+    "id": "3265:2755",
+    "box": {
+     "top": "39.47%",
+     "right": "51.33%",
+     "bottom": "55.41%",
+     "left": "47.35%"
+    },
+    "pad": {},
+    "anim": {
+     "kind": "fade",
+     "start": 2.147,
+     "end": 2.327,
+     "ease": "ease-out"
+    },
+    "file": "hero-3265-2755.svg"
+   },
+   {
+    "id": "3265:2756",
+    "box": {
+     "top": "43.04%",
+     "right": "64.3%",
+     "bottom": "55%",
+     "left": "33.47%"
+    },
+    "pad": {},
+    "anim": {
+     "kind": "fade",
+     "start": 0.589,
+     "end": 0.769,
+     "ease": "ease-out"
+    },
+    "file": "hero-3265-2756.svg"
+   },
+   {
+    "id": "3265:2757",
+    "box": {
+     "top": "49.78%",
+     "right": "18.95%",
+     "bottom": "45.96%",
+     "left": "79.05%"
+    },
+    "pad": {},
+    "anim": {
+     "kind": "fade",
+     "start": 2.652,
+     "end": 2.832,
+     "ease": "ease-out"
+    },
+    "file": "hero-3265-2757.svg"
+   },
+   {
+    "id": "3265:2758",
+    "box": {
+     "top": "44.42%",
+     "right": "52.25%",
+     "bottom": "53.99%",
+     "left": "45.84%"
+    },
+    "pad": {},
+    "anim": {
+     "kind": "fade",
+     "start": 2.104,
+     "end": 2.285,
+     "ease": "ease-out"
+    },
+    "file": "hero-3265-2758.svg"
+   },
+   {
+    "id": "3265:2759",
+    "box": {
+     "top": "23.94%",
+     "right": "63.12%",
+     "bottom": "73.13%",
+     "left": "35.98%"
+    },
+    "pad": {},
+    "anim": {
+     "kind": "fade",
+     "start": 0.421,
+     "end": 0.601,
+     "ease": "ease-out"
+    },
+    "file": "hero-3265-2759.svg"
+   },
+   {
+    "id": "3265:2760",
+    "box": {
+     "top": "48.52%",
+     "right": "21.65%",
+     "bottom": "48.76%",
+     "left": "77.14%"
+    },
+    "pad": {},
+    "anim": {
+     "kind": "fade",
+     "start": 2.441,
+     "end": 2.621,
+     "ease": "ease-out"
+    },
+    "file": "hero-3265-2760.svg"
+   },
+   {
+    "id": "3265:2761",
+    "box": {
+     "top": "52.42%",
+     "right": "17.99%",
+     "bottom": "43.83%",
+     "left": "80.74%"
+    },
+    "pad": {},
+    "anim": {
+     "kind": "fade",
+     "start": 2.778,
+     "end": 2.958,
+     "ease": "ease-out"
+    },
+    "file": "hero-3265-2761.svg"
+   },
+   {
+    "id": "3265:2762",
+    "box": {
+     "top": "43.75%",
+     "right": "62.46%",
+     "bottom": "54.34%",
+     "left": "36.38%"
+    },
+    "pad": {},
+    "anim": {
+     "kind": "fade",
+     "start": 0.8,
+     "end": 0.98,
+     "ease": "ease-out"
+    },
+    "file": "hero-3265-2762.svg"
+   },
+   {
+    "id": "3265:2763",
+    "box": {
+     "top": "39.37%",
+     "right": "63.53%",
+     "bottom": "57.34%",
+     "left": "35.83%"
+    },
+    "pad": {},
+    "anim": {
+     "kind": "fade",
+     "start": 0.716,
+     "end": 0.896,
+     "ease": "ease-out"
+    },
+    "file": "hero-3265-2763.svg"
+   },
+   {
+    "id": "3265:2764",
+    "box": {
+     "top": "42.01%",
+     "right": "63.11%",
+     "bottom": "56.03%",
+     "left": "36.16%"
+    },
+    "pad": {},
+    "anim": {
+     "kind": "fade",
+     "start": 0.758,
+     "end": 0.938,
+     "ease": "ease-out"
+    },
+    "file": "hero-3265-2764.svg"
+   },
+   {
+    "id": "3265:2765",
+    "box": {
+     "top": "39.29%",
+     "right": "54.16%",
+     "bottom": "59.04%",
+     "left": "44.76%"
+    },
+    "pad": {},
+    "anim": {
+     "kind": "fade",
+     "start": 1.726,
+     "end": 1.906,
+     "ease": "ease-out"
+    },
+    "file": "hero-3265-2765.svg"
+   },
+   {
+    "id": "3265:2766",
+    "box": {
+     "top": "41.17%",
+     "right": "51.89%",
+     "bottom": "57.51%",
+     "left": "46.46%"
+    },
+    "pad": {},
+    "anim": {
+     "kind": "fade",
+     "start": 2.062,
+     "end": 2.242,
+     "ease": "ease-out"
+    },
+    "file": "hero-3265-2766.svg"
+   },
+   {
+    "id": "3265:2767",
+    "box": {
+     "top": "38.78%",
+     "right": "65.78%",
+     "bottom": "58.8%",
+     "left": "33.11%"
+    },
+    "pad": {},
+    "anim": {
+     "kind": "fade",
+     "start": 0.463,
+     "end": 0.643,
+     "ease": "ease-out"
+    },
+    "file": "hero-3265-2767.svg"
+   },
+   {
+    "id": "3265:2768",
+    "box": {
+     "top": "38.38%",
+     "right": "52.24%",
+     "bottom": "60.37%",
+     "left": "46.86%"
+    },
+    "pad": {},
+    "anim": {
+     "kind": "fade",
+     "start": 1.978,
+     "end": 2.158,
+     "ease": "ease-out"
+    },
+    "file": "hero-3265-2768.svg"
+   },
+   {
+    "id": "3265:2769",
+    "box": {
+     "top": "38.85%",
+     "right": "53.55%",
+     "bottom": "59.87%",
+     "left": "45.63%"
+    },
+    "pad": {},
+    "anim": {
+     "kind": "fade",
+     "start": 1.81,
+     "end": 1.99,
+     "ease": "ease-out"
+    },
+    "file": "hero-3265-2769.svg"
+   },
+   {
+    "id": "3265:2770",
+    "box": {
+     "top": "35.78%",
+     "right": "66.92%",
+     "bottom": "63.48%",
+     "left": "31.52%"
+    },
+    "pad": {},
+    "anim": {
+     "kind": "fade",
+     "start": 0.21,
+     "end": 0.39,
+     "ease": "ease-out"
+    },
+    "file": "hero-3265-2770.svg"
+   },
+   {
+    "id": "3265:2771",
+    "box": {
+     "top": "37.58%",
+     "right": "53.79%",
+     "bottom": "61.5%",
+     "left": "45.02%"
+    },
+    "pad": {},
+    "anim": {
+     "kind": "fade",
+     "start": 1.599,
+     "end": 1.779,
+     "ease": "ease-out"
+    },
+    "file": "hero-3265-2771.svg"
+   },
+   {
+    "id": "3265:2772",
+    "box": {
+     "top": "26.41%",
+     "right": "62.78%",
+     "bottom": "72.18%",
+     "left": "36.49%"
+    },
+    "pad": {},
+    "anim": {
+     "kind": "fade",
+     "start": 0.547,
+     "end": 0.727,
+     "ease": "ease-out"
+    },
+    "file": "hero-3265-2772.svg"
+   },
+   {
+    "id": "3265:2773",
+    "box": {
+     "top": "39.08%",
+     "right": "52.8%",
+     "bottom": "59.69%",
+     "left": "46.38%"
+    },
+    "pad": {},
+    "anim": {
+     "kind": "fade",
+     "start": 1.936,
+     "end": 2.116,
+     "ease": "ease-out"
+    },
+    "file": "hero-3265-2773.svg"
+   },
+   {
+    "id": "3265:2774",
+    "box": {
+     "top": "29.05%",
+     "right": "59.38%",
+     "bottom": "69.34%",
+     "left": "39.76%"
+    },
+    "pad": {},
+    "anim": {
+     "kind": "fade",
+     "start": 0.842,
+     "end": 1.022,
+     "ease": "ease-out"
+    },
+    "file": "hero-3265-2774.svg"
+   },
+   {
+    "id": "3265:2775",
+    "box": {
+     "top": "40.59%",
+     "right": "67.09%",
+     "bottom": "58.3%",
+     "left": "32.39%"
+    },
+    "pad": {},
+    "anim": {
+     "kind": "fade",
+     "start": 0.337,
+     "end": 0.517,
+     "ease": "ease-out"
+    },
+    "file": "hero-3265-2775.svg"
+   }
+  ]
+ },
+ "child": {
+  "width": 298,
+  "height": 390,
+  "pieces": [
+   {
+    "id": "3265:2789",
+    "box": {
+     "top": "46.69%",
+     "right": "52.99%",
+     "bottom": "30.47%",
+     "left": "15.7%"
+    },
+    "pad": {
+     "top": "-0.84%",
+     "right": "-0.8%",
+     "bottom": "-1.3%",
+     "left": "-0.8%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 1.865,
+     "end": 3.76,
+     "ease": "cubic-bezier(0.22, 1, 0.36, 1)"
+    },
+    "file": "child-3265-2789.svg"
+   },
+   {
+    "id": "3265:2790",
+    "box": {
+     "top": "61.84%",
+     "right": "15.9%",
+     "bottom": "28.78%",
+     "left": "48.91%"
+    },
+    "pad": {
+     "top": "-2.05%",
+     "right": "-0.72%",
+     "bottom": "-2.05%",
+     "left": "-1.17%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 1.665,
+     "end": 3.56,
+     "ease": "cubic-bezier(0.22, 1, 0.36, 1)"
+    },
+    "file": "child-3265-2790.svg"
+   },
+   {
+    "id": "3265:2791",
+    "box": {
+     "top": "70.36%",
+     "right": "14.37%",
+     "bottom": "26.61%",
+     "left": "48.84%"
+    },
+    "pad": {},
+    "anim": {
+     "kind": "fade",
+     "start": 2.405,
+     "end": 2.585,
+     "ease": "ease-out"
+    },
+    "file": "child-3265-2791.svg"
+   },
+   {
+    "id": "3265:2792",
+    "box": {
+     "top": "31.49%",
+     "right": "28.18%",
+     "bottom": "52.75%",
+     "left": "51.04%"
+    },
+    "pad": {},
+    "anim": {
+     "kind": "fade",
+     "start": 2.665,
+     "end": 2.845,
+     "ease": "ease-out"
+    },
+    "file": "child-3265-2792.svg"
+   },
+   {
+    "id": "3265:2793",
+    "box": {
+     "top": "49.16%",
+     "right": "35.26%",
+     "bottom": "40.77%",
+     "left": "51.15%"
+    },
+    "pad": {},
+    "anim": {
+     "kind": "fade",
+     "start": 0.065,
+     "end": 0.245,
+     "ease": "ease-out"
+    },
+    "file": "child-3265-2793.svg"
+   },
+   {
+    "id": "3265:2794",
+    "box": {
+     "top": "49.13%",
+     "right": "20.31%",
+     "bottom": "38.6%",
+     "left": "66.33%"
+    },
+    "pad": {},
+    "anim": {
+     "kind": "fade",
+     "start": 1.17,
+     "end": 1.35,
+     "ease": "ease-out"
+    },
+    "file": "child-3265-2794.svg"
+   },
+   {
+    "id": "3265:2795",
+    "box": {
+     "top": "73.17%",
+     "right": "20.13%",
+     "bottom": "25.13%",
+     "left": "59.06%"
+    },
+    "pad": {},
+    "anim": {
+     "kind": "fade",
+     "start": 1.105,
+     "end": 1.285,
+     "ease": "ease-out"
+    },
+    "file": "child-3265-2795.svg"
+   },
+   {
+    "id": "3265:2796",
+    "box": {
+     "top": "73.33%",
+     "right": "40.61%",
+     "bottom": "24.86%",
+     "left": "38.91%"
+    },
+    "pad": {},
+    "anim": {
+     "kind": "fade",
+     "start": 3.02,
+     "end": 3.2,
+     "ease": "ease-out"
+    },
+    "file": "child-3265-2796.svg"
+   },
+   {
+    "id": "3265:2797",
+    "box": {
+     "top": "52.17%",
+     "right": "32.6%",
+     "bottom": "33.84%",
+     "left": "64.42%"
+    },
+    "pad": {},
+    "anim": {
+     "kind": "fade",
+     "start": 3.085,
+     "end": 3.265,
+     "ease": "ease-out"
+    },
+    "file": "child-3265-2797.svg"
+   },
+   {
+    "id": "3265:2798",
+    "box": {
+     "top": "46.34%",
+     "right": "46.92%",
+     "bottom": "40.69%",
+     "left": "47.14%"
+    },
+    "pad": {},
+    "anim": {
+     "kind": "fade",
+     "start": 1.43,
+     "end": 1.61,
+     "ease": "ease-out"
+    },
+    "file": "child-3265-2798.svg"
+   },
+   {
+    "id": "3265:2799",
+    "box": {
+     "top": "44.67%",
+     "right": "51.95%",
+     "bottom": "45.87%",
+     "left": "40.89%"
+    },
+    "pad": {},
+    "anim": {
+     "kind": "fade",
+     "start": 0.845,
+     "end": 1.025,
+     "ease": "ease-out"
+    },
+    "file": "child-3265-2799.svg"
+   },
+   {
+    "id": "3265:2800",
+    "box": {
+     "top": "66.61%",
+     "right": "51.94%",
+     "bottom": "28.32%",
+     "left": "40.94%"
+    },
+    "pad": {},
+    "anim": {
+     "kind": "fade",
+     "start": 0.715,
+     "end": 0.895,
+     "ease": "ease-out"
+    },
+    "file": "child-3265-2800.svg"
+   },
+   {
+    "id": "3265:2801",
+    "box": {
+     "top": "71.08%",
+     "right": "74.76%",
+     "bottom": "28.25%",
+     "left": "13.6%"
+    },
+    "pad": {},
+    "anim": {
+     "kind": "fade",
+     "start": 2.535,
+     "end": 2.715,
+     "ease": "ease-out"
+    },
+    "file": "child-3265-2801.svg"
+   },
+   {
+    "id": "3265:2802",
+    "box": {
+     "top": "38.48%",
+     "right": "47.97%",
+     "bottom": "56.44%",
+     "left": "47.86%"
+    },
+    "pad": {},
+    "anim": {
+     "kind": "fade",
+     "start": 2.86,
+     "end": 3.04,
+     "ease": "ease-out"
+    },
+    "file": "child-3265-2802.svg"
+   },
+   {
+    "id": "3265:2803",
+    "box": {
+     "top": "72.9%",
+     "right": "61.47%",
+     "bottom": "24.89%",
+     "left": "28.04%"
+    },
+    "pad": {},
+    "anim": {
+     "kind": "fade",
+     "start": 0.13,
+     "end": 0.31,
+     "ease": "ease-out"
+    },
+    "file": "child-3265-2803.svg"
+   },
+   {
+    "id": "3265:2804",
+    "box": {
+     "top": "52.1%",
+     "right": "35.67%",
+     "bottom": "43.92%",
+     "left": "58.79%"
+    },
+    "pad": {},
+    "anim": {
+     "kind": "fade",
+     "start": 3.185,
+     "end": 3.365,
+     "ease": "ease-out"
+    },
+    "file": "child-3265-2804.svg"
+   },
+   {
+    "id": "3265:2805",
+    "box": {
+     "top": "44.1%",
+     "right": "49.11%",
+     "bottom": "48.08%",
+     "left": "48.86%"
+    },
+    "pad": {},
+    "anim": {
+     "kind": "fade",
+     "start": 1.365,
+     "end": 1.545,
+     "ease": "ease-out"
+    },
+    "file": "child-3265-2805.svg"
+   },
+   {
+    "id": "3265:2806",
+    "box": {
+     "top": "40.1%",
+     "right": "31.22%",
+     "bottom": "56.18%",
+     "left": "61.56%"
+    },
+    "pad": {},
+    "anim": {
+     "kind": "fade",
+     "start": 0.65,
+     "end": 0.83,
+     "ease": "ease-out"
+    },
+    "file": "child-3265-2806.svg"
+   },
+   {
+    "id": "3265:2807",
+    "box": {
+     "top": "62.63%",
+     "right": "36.9%",
+     "bottom": "34.11%",
+     "left": "56.18%"
+    },
+    "pad": {},
+    "anim": {
+     "kind": "fade",
+     "start": 0.39,
+     "end": 0.57,
+     "ease": "ease-out"
+    },
+    "file": "child-3265-2807.svg"
+   },
+   {
+    "id": "3265:2808",
+    "box": {
+     "top": "60.31%",
+     "right": "69.75%",
+     "bottom": "35.09%",
+     "left": "22.9%"
+    },
+    "pad": {},
+    "anim": {
+     "kind": "fade",
+     "start": 2.47,
+     "end": 2.65,
+     "ease": "ease-out"
+    },
+    "file": "child-3265-2808.svg"
+   },
+   {
+    "id": "3265:2809",
+    "box": {
+     "top": "53%",
+     "right": "64.54%",
+     "bottom": "40.19%",
+     "left": "33.48%"
+    },
+    "pad": {},
+    "anim": {
+     "kind": "fade",
+     "start": 1.95,
+     "end": 2.13,
+     "ease": "ease-out"
+    },
+    "file": "child-3265-2809.svg"
+   },
+   {
+    "id": "3265:2810",
+    "box": {
+     "top": "60.43%",
+     "right": "23.45%",
+     "bottom": "35.13%",
+     "left": "69.75%"
+    },
+    "pad": {},
+    "anim": {
+     "kind": "fade",
+     "start": 1.56,
+     "end": 1.74,
+     "ease": "ease-out"
+    },
+    "file": "child-3265-2810.svg"
+   },
+   {
+    "id": "3265:2811",
+    "box": {
+     "top": "60.63%",
+     "right": "48%",
+     "bottom": "33.35%",
+     "left": "50.6%"
+    },
+    "pad": {},
+    "anim": {
+     "kind": "fade",
+     "start": 2.08,
+     "end": 2.26,
+     "ease": "ease-out"
+    },
+    "file": "child-3265-2811.svg"
+   },
+   {
+    "id": "3265:2812",
+    "box": {
+     "top": "59.79%",
+     "right": "57.72%",
+     "bottom": "35.51%",
+     "left": "37.4%"
+    },
+    "pad": {},
+    "anim": {
+     "kind": "fade",
+     "start": 2.21,
+     "end": 2.39,
+     "ease": "ease-out"
+    },
+    "file": "child-3265-2812.svg"
+   },
+   {
+    "id": "3265:2813",
+    "box": {
+     "top": "72.02%",
+     "right": "73.05%",
+     "bottom": "26.85%",
+     "left": "19.75%"
+    },
+    "pad": {},
+    "anim": {
+     "kind": "fade",
+     "start": 1.885,
+     "end": 2.065,
+     "ease": "ease-out"
+    },
+    "file": "child-3265-2813.svg"
+   },
+   {
+    "id": "3265:2814",
+    "box": {
+     "top": "54.45%",
+     "right": "52.66%",
+     "bottom": "44.66%",
+     "left": "40.83%"
+    },
+    "pad": {},
+    "anim": {
+     "kind": "fade",
+     "start": 3.12,
+     "end": 3.3,
+     "ease": "ease-out"
+    },
+    "file": "child-3265-2814.svg"
+   },
+   {
+    "id": "3265:2815",
+    "box": {
+     "top": "61.41%",
+     "right": "65.72%",
+     "bottom": "34.56%",
+     "left": "30.35%"
+    },
+    "pad": {},
+    "anim": {
+     "kind": "fade",
+     "start": 1.625,
+     "end": 1.805,
+     "ease": "ease-out"
+    },
+    "file": "child-3265-2815.svg"
+   },
+   {
+    "id": "3265:2816",
+    "box": {
+     "top": "71.56%",
+     "right": "57.26%",
+     "bottom": "27.55%",
+     "left": "35.67%"
+    },
+    "pad": {},
+    "anim": {
+     "kind": "fade",
+     "start": 2.275,
+     "end": 2.455,
+     "ease": "ease-out"
+    },
+    "file": "child-3265-2816.svg"
+   },
+   {
+    "id": "3265:2817",
+    "box": {
+     "top": "60.35%",
+     "right": "57.31%",
+     "bottom": "35%",
+     "left": "37.46%"
+    },
+    "pad": {},
+    "anim": {
+     "kind": "fade",
+     "start": 3.055,
+     "end": 3.235,
+     "ease": "ease-out"
+    },
+    "file": "child-3265-2817.svg"
+   },
+   {
+    "id": "3265:2818",
+    "box": {
+     "top": "61.42%",
+     "right": "30.62%",
+     "bottom": "35.07%",
+     "left": "65.9%"
+    },
+    "pad": {},
+    "anim": {
+     "kind": "fade",
+     "start": 2.015,
+     "end": 2.195,
+     "ease": "ease-out"
+    },
+    "file": "child-3265-2818.svg"
+   },
+   {
+    "id": "3265:2819",
+    "box": {
+     "top": "71.15%",
+     "right": "64.02%",
+     "bottom": "27.94%",
+     "left": "29.6%"
+    },
+    "pad": {},
+    "anim": {
+     "kind": "fade",
+     "start": 2.34,
+     "end": 2.52,
+     "ease": "ease-out"
+    },
+    "file": "child-3265-2819.svg"
+   },
+   {
+    "id": "3265:2820",
+    "box": {
+     "top": "68.61%",
+     "right": "55.26%",
+     "bottom": "29.26%",
+     "left": "40.07%"
+    },
+    "pad": {},
+    "anim": {
+     "kind": "fade",
+     "start": 2.925,
+     "end": 3.105,
+     "ease": "ease-out"
+    },
+    "file": "child-3265-2820.svg"
+   },
+   {
+    "id": "3265:2821",
+    "box": {
+     "top": "55.35%",
+     "right": "48.99%",
+     "bottom": "41.54%",
+     "left": "47.34%"
+    },
+    "pad": {},
+    "anim": {
+     "kind": "fade",
+     "start": 2.6,
+     "end": 2.78,
+     "ease": "ease-out"
+    },
+    "file": "child-3265-2821.svg"
+   },
+   {
+    "id": "3265:2822",
+    "box": {
+     "top": "39.03%",
+     "right": "41.89%",
+     "bottom": "58.75%",
+     "left": "53.12%"
+    },
+    "pad": {},
+    "anim": {
+     "kind": "fade",
+     "start": 1.69,
+     "end": 1.87,
+     "ease": "ease-out"
+    },
+    "file": "child-3265-2822.svg"
+   },
+   {
+    "id": "3265:2823",
+    "box": {
+     "top": "49.29%",
+     "right": "40.37%",
+     "bottom": "48.76%",
+     "left": "55.32%"
+    },
+    "pad": {},
+    "anim": {
+     "kind": "fade",
+     "start": 0.195,
+     "end": 0.375,
+     "ease": "ease-out"
+    },
+    "file": "child-3265-2823.svg"
+   },
+   {
+    "id": "3265:2824",
+    "box": {
+     "top": "56.26%",
+     "right": "40.99%",
+     "bottom": "41.22%",
+     "left": "55.4%"
+    },
+    "pad": {},
+    "anim": {
+     "kind": "fade",
+     "start": 1.235,
+     "end": 1.415,
+     "ease": "ease-out"
+    },
+    "file": "child-3265-2824.svg"
+   },
+   {
+    "id": "3265:2825",
+    "box": {
+     "top": "50.46%",
+     "right": "42.2%",
+     "bottom": "47.45%",
+     "left": "53%"
+    },
+    "pad": {},
+    "anim": {
+     "kind": "fade",
+     "start": 1.755,
+     "end": 1.935,
+     "ease": "ease-out"
+    },
+    "file": "child-3265-2825.svg"
+   },
+   {
+    "id": "3265:2826",
+    "box": {
+     "top": "45.13%",
+     "right": "42.57%",
+     "bottom": "52.96%",
+     "left": "54.02%"
+    },
+    "pad": {},
+    "anim": {
+     "kind": "fade",
+     "start": 1.3,
+     "end": 1.48,
+     "ease": "ease-out"
+    },
+    "file": "child-3265-2826.svg"
+   },
+   {
+    "id": "3265:2827",
+    "box": {
+     "top": "43.7%",
+     "right": "41.48%",
+     "bottom": "54.28%",
+     "left": "54.77%"
+    },
+    "pad": {},
+    "anim": {
+     "kind": "fade",
+     "start": 0.78,
+     "end": 0.96,
+     "ease": "ease-out"
+    },
+    "file": "child-3265-2827.svg"
+   },
+   {
+    "id": "3265:2828",
+    "box": {
+     "top": "48.14%",
+     "right": "35.76%",
+     "bottom": "50.49%",
+     "left": "60.84%"
+    },
+    "pad": {},
+    "anim": {
+     "kind": "fade",
+     "start": 0.585,
+     "end": 0.765,
+     "ease": "ease-out"
+    },
+    "file": "child-3265-2828.svg"
+   },
+   {
+    "id": "3265:2829",
+    "box": {
+     "top": "70.46%",
+     "right": "56.7%",
+     "bottom": "28.36%",
+     "left": "39.09%"
+    },
+    "pad": {},
+    "anim": {
+     "kind": "fade",
+     "start": 1.04,
+     "end": 1.22,
+     "ease": "ease-out"
+    },
+    "file": "child-3265-2829.svg"
+   },
+   {
+    "id": "3265:2830",
+    "box": {
+     "top": "39.08%",
+     "right": "37.99%",
+     "bottom": "59.57%",
+     "left": "58.54%"
+    },
+    "pad": {},
+    "anim": {
+     "kind": "fade",
+     "start": 2.73,
+     "end": 2.91,
+     "ease": "ease-out"
+    },
+    "file": "child-3265-2830.svg"
+   },
+   {
+    "id": "3265:2831",
+    "box": {
+     "top": "58.05%",
+     "right": "45.39%",
+     "bottom": "39.05%",
+     "left": "51.68%"
+    },
+    "pad": {},
+    "anim": {
+     "kind": "fade",
+     "start": 0.26,
+     "end": 0.44,
+     "ease": "ease-out"
+    },
+    "file": "child-3265-2831.svg"
+   },
+   {
+    "id": "3265:2832",
+    "box": {
+     "top": "47.13%",
+     "right": "34.33%",
+     "bottom": "52.2%",
+     "left": "62.71%"
+    },
+    "pad": {},
+    "anim": {
+     "kind": "fade",
+     "start": 1.82,
+     "end": 2.0,
+     "ease": "ease-out"
+    },
+    "file": "child-3265-2832.svg"
+   },
+   {
+    "id": "3265:2833",
+    "box": {
+     "top": "71.29%",
+     "right": "68.49%",
+     "bottom": "28.26%",
+     "left": "27.42%"
+    },
+    "pad": {},
+    "anim": {
+     "kind": "fade",
+     "start": 0.975,
+     "end": 1.155,
+     "ease": "ease-out"
+    },
+    "file": "child-3265-2833.svg"
+   },
+   {
+    "id": "3265:2834",
+    "box": {
+     "top": "40.82%",
+     "right": "49.18%",
+     "bottom": "57.72%",
+     "left": "49.38%"
+    },
+    "pad": {},
+    "anim": {
+     "kind": "fade",
+     "start": 2.99,
+     "end": 3.17,
+     "ease": "ease-out"
+    },
+    "file": "child-3265-2834.svg"
+   },
+   {
+    "id": "3265:2835",
+    "box": {
+     "top": "52.19%",
+     "right": "43.93%",
+     "bottom": "46.91%",
+     "left": "53.87%"
+    },
+    "pad": {},
+    "anim": {
+     "kind": "fade",
+     "start": 0.455,
+     "end": 0.635,
+     "ease": "ease-out"
+    },
+    "file": "child-3265-2835.svg"
+   },
+   {
+    "id": "3265:2836",
+    "box": {
+     "top": "46.98%",
+     "right": "33.22%",
+     "bottom": "51.27%",
+     "left": "65.04%"
+    },
+    "pad": {},
+    "anim": {
+     "kind": "fade",
+     "start": 1.495,
+     "end": 1.675,
+     "ease": "ease-out"
+    },
+    "file": "child-3265-2836.svg"
+   },
+   {
+    "id": "3265:2837",
+    "box": {
+     "top": "39.42%",
+     "right": "49.21%",
+     "bottom": "59.46%",
+     "left": "49.49%"
+    },
+    "pad": {},
+    "anim": {
+     "kind": "fade",
+     "start": 0.91,
+     "end": 1.09,
+     "ease": "ease-out"
+    },
+    "file": "child-3265-2837.svg"
+   },
+   {
+    "id": "3265:2838",
+    "box": {
+     "top": "60.57%",
+     "right": "45.86%",
+     "bottom": "38.62%",
+     "left": "53.26%"
+    },
+    "pad": {},
+    "anim": {
+     "kind": "fade",
+     "start": 0.325,
+     "end": 0.505,
+     "ease": "ease-out"
+    },
+    "file": "child-3265-2838.svg"
+   },
+   {
+    "id": "3265:2839",
+    "box": {
+     "top": "70.65%",
+     "right": "55.57%",
+     "bottom": "28.44%",
+     "left": "43.27%"
+    },
+    "pad": {},
+    "anim": {
+     "kind": "fade",
+     "start": 2.145,
+     "end": 2.325,
+     "ease": "ease-out"
+    },
+    "file": "child-3265-2839.svg"
+   },
+   {
+    "id": "3265:2840",
+    "box": {
+     "top": "43.32%",
+     "right": "50%",
+     "bottom": "56.25%",
+     "left": "48.76%"
+    },
+    "pad": {},
+    "anim": {
+     "kind": "fade",
+     "start": 2.795,
+     "end": 2.975,
+     "ease": "ease-out"
+    },
+    "file": "child-3265-2840.svg"
+   },
+   {
+    "id": "3265:2841",
+    "box": {
+     "top": "27.46%",
+     "right": "50.7%",
+     "bottom": "50.59%",
+     "left": "21.51%"
+    },
+    "pad": {
+     "top": "-0.88%",
+     "right": "-0.91%",
+     "bottom": "-0.88%",
+     "left": "-0.91%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 0.769,
+     "end": 1.599,
+     "ease": "cubic-bezier(0.22, 1, 0.36, 1)"
+    },
+    "file": "child-3265-2841.svg"
+   },
+   {
+    "id": "3265:2842",
+    "box": {
+     "top": "24.3%",
+     "right": "16.44%",
+     "bottom": "45.44%",
+     "left": "47.99%"
+    },
+    "pad": {
+     "top": "-0.73%",
+     "right": "-0.85%",
+     "bottom": "-0.64%",
+     "left": "-0.71%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 1.29,
+     "end": 3.185,
+     "ease": "cubic-bezier(0.22, 1, 0.36, 1)"
+    },
+    "file": "child-3265-2842.svg"
+   }
+  ]
+ }
+}

@@ -1,0 +1,154 @@
+/* Design tokens from the LS-Website Figma file */
+:root {
+  --cobalt-50: #eaf1fb;
+  --cobalt-100: #c6dbf4;
+  --cobalt-200: #93b8e9;
+  --cobalt-400: #2c7ad6;
+  --cobalt-600: #004bad;
+  --cobalt-border: #88b1e6;
+  --action-primary: #1e3fe0;
+  --action-primary-hover: #93b8e9;
+  --beam-400: #f5b335;
+  --ink: #0e1b34;
+  --ink-strong: #040617;
+  --text-muted: #4a4d6a;
+  --paper: #ffffff;
+  --surface: #f7f9fa;
+  --rule: #d9d9d9;
+  --black: #000000;
+
+  --space-3: 12px;
+  --space-5: 24px;
+  --space-6: 24px;
+  --space-7: 32px;
+  --space-8: 48px;
+  --space-9: 64px;
+
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-pill: 999px;
+  --radius-layer: 18px;
+
+  --shadow-sm: 0 1px 2px rgba(14, 22, 80, 0.06);
+
+  --font-sans: "Manrope", system-ui, sans-serif;
+  --font-logotype: "Fredoka One", "Fredoka", system-ui, sans-serif;
+  --font-mansalva: "Mansalva", cursive;
+  --font-medula: "Medula One", system-ui, sans-serif;
+
+  --gutter: 64px;
+  --max: 1440px;
+}
+
+@media (max-width: 1024px) {
+  :root { --gutter: 40px; --radius-layer: 18px; }
+}
+@media (max-width: 640px) {
+  :root { --gutter: 20px; --radius-layer: 16px; }
+}
+
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  color: var(--ink-strong);
+  /* Shows round the edges of a panel while it zooms in, so it should match the section above */
+  background: var(--paper);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+img, svg { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+p, h1, h2, h3 { margin: 0; }
+button { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; }
+
+.visually-hidden {
+  position: absolute; width: 1px; height: 1px; overflow: hidden;
+  clip: rect(0 0 0 0); white-space: nowrap;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--max);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+/* ---------- Layers: page panels; a rounded panel overlaps the one before it ---------- */
+.layer {
+  position: relative;
+  border-radius: var(--radius-layer) var(--radius-layer) 0 0;
+  margin-top: calc(var(--radius-layer) * -1);
+  box-shadow: 0 -24px 60px rgba(4, 6, 23, 0.10);
+}
+.layer--flat { margin-top: 0; border-radius: 0; box-shadow: none; }
+/* Optional: [data-layer="float"] panels sink back and darken as the next one covers them */
+.layer__shade {
+  position: absolute; inset: 0;
+  border-radius: inherit;
+  background: var(--ink);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 50;
+}
+.layer--white { background: var(--paper); }
+.layer--surface { background: var(--surface); }
+.layer--black { background: var(--black); color: var(--paper); }
+.layer--navy { background: var(--ink); color: var(--paper); }
+.band--surface { background: var(--surface); }
+
+/* Panel that lifts off the footer: rounded bottom, sits above it */
+.layer--lift {
+  z-index: 10;
+  overflow: hidden;
+  border-radius: 0 0 var(--radius-layer) var(--radius-layer);
+  box-shadow: 0 24px 60px rgba(4, 6, 23, 0.25);
+}
+
+/* Footer zone: black "Stay close to us" revealed from underneath,
+   then the navy footer card rises up from the bottom of the page */
+.footer-zone {
+  --card-gap: 48px;
+  position: relative;
+  z-index: 0;
+  margin-top: calc(var(--radius-layer) * -1);
+  padding-top: var(--radius-layer);
+  background: var(--black);
+  color: var(--paper);
+  overflow: hidden;
+}
+@media (max-width: 640px) { .footer-zone { --card-gap: 16px; } }
+.footer-cv { will-change: transform; }
+.footer-foot { overflow: hidden; padding-inline: var(--card-gap); }
+.footer-card {
+  display: block;
+  border-radius: var(--radius-layer) var(--radius-layer) 0 0;
+  transform-origin: 50% 100%;
+  will-change: transform;
+}
+
+/* ---------- Section heading with rule ---------- */
+.section-title {
+  display: flex; align-items: center; gap: 32px;
+}
+.section-title__rule { flex: 1; height: 1px; background: var(--rule); }
+
+/* ---------- Text motion helpers ---------- */
+/* Extra room below each line so descenders (g, y, p) are not clipped by the mask */
+.split-line { display: block; overflow: hidden; padding-bottom: 0.22em; margin-bottom: -0.22em; }
+.split-line__inner { display: block; will-change: transform; }
+
+/* Hide text set to animate until JS has split it, to avoid a flash */
+.js-motion [data-lines]:not(.is-split) { visibility: hidden; }
+
+@media (prefers-reduced-motion: reduce) {
+  .js-motion [data-lines]:not(.is-split) { visibility: visible; }
+}

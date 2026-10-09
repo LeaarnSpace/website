@@ -1,0 +1,45 @@
+---
+interface Props {
+  href: string;
+  label: string;
+  class?: string;
+}
+const { href, label, class: className } = Astro.props;
+---
+
+<a href={href} class:list={["btn", className]}>
+  <span class="btn__fill" aria-hidden="true"></span>
+  <span class="btn__label">{label}</span>
+</a>
+
+<style>
+  .btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: var(--space-3) var(--space-5);
+    border-radius: var(--radius-md);
+    background: var(--cobalt-600);
+    color: var(--paper);
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: 0.224px;
+    white-space: nowrap;
+    isolation: isolate;
+  }
+  /* "Hover Progress Fill" from the Figma button component */
+  .btn__fill {
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: 0;
+    background: var(--action-primary-hover);
+    z-index: -1;
+    transition: width 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .btn:hover .btn__fill { width: 100%; }
+  .btn:hover { color: var(--ink); }
+  .btn:focus-visible { outline: 2px solid #10269c; outline-offset: 3px; }
+</style>

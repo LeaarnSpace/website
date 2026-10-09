@@ -1,0 +1,41 @@
+---
+import Base from "../layouts/Base.astro";
+import Nav from "../components/Nav.astro";
+import Hero from "../components/Hero.astro";
+import Problem from "../components/Problem.astro";
+import Approach from "../components/Approach.astro";
+import OurWork from "../components/OurWork.astro";
+import BlogNews from "../components/BlogNews.astro";
+import SignUp from "../components/SignUp.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<Base title="Learn Space — Researching and building for better learning outcomes">
+  <section class="layer layer--flat layer--white">
+    <Nav />
+    <Hero />
+    <Problem />
+  </section>
+  <!-- Rounded top overlaps the Problem section; zooms from a card up to full width as it comes in -->
+  <section class="layer layer--surface" data-zoom-in>
+    <Approach />
+  </section>
+  <!-- Lifts off the footer like a card -->
+  <section class="layer layer--flat layer--white layer--lift">
+    <OurWork />
+    <div class="band band--surface">
+      <BlogNews />
+    </div>
+  </section>
+  <!-- Footer: "Stay close to us" sits underneath the panel above; the navy card rises from the bottom -->
+  <div class="footer-zone" data-footer>
+    <section class="footer-cv" data-footer-cv>
+      <SignUp />
+    </section>
+    <div class="footer-foot">
+      <footer class="footer-card layer--navy" data-footer-card>
+        <Footer />
+      </footer>
+    </div>
+  </div>
+</Base>

@@ -1,0 +1,68 @@
+---
+import "../styles/global.css";
+import Logo from "../components/Logo.astro";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+const {
+  title = "Learn Space",
+  description = "Researching and building for better learning outcomes.",
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Manrope:wght@400;500;600;700&family=Mansalva&family=Medula+One&display=swap"
+      rel="stylesheet"
+    />
+    <script is:inline>
+      // Runs before paint: lets CSS hide text that is about to animate, and keeps the
+      // page-transition curtain covering the screen when we arrive from another page.
+      document.documentElement.classList.add("js-motion");
+      try {
+        if (sessionStorage.getItem("ls-transition") === "1") {
+          document.documentElement.classList.add("is-arriving");
+        }
+      } catch (e) {}
+    </script>
+  </head>
+  <body>
+    <div class="curtain" aria-hidden="true" data-curtain>
+      <Logo size={96} />
+    </div>
+    <main>
+      <slot />
+    </main>
+    <script>
+      import "../scripts/motion.ts";
+    </script>
+  </body>
+</html>
+
+<style>
+  .curtain {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--cobalt-600);
+    border-radius: var(--radius-layer) var(--radius-layer) 0 0;
+    transform: translateY(105%);
+    pointer-events: none;
+  }
+  :global(html.is-arriving) .curtain { transform: none; border-radius: 0; }
+  .curtain :global(.logo) { box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.25); }
+</style>

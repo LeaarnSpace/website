@@ -1,0 +1,77 @@
+---
+import Illustration from "./Illustration.astro";
+import Button from "./Button.astro";
+---
+
+<div class="problem container" id="the-problem">
+  <div class="section-title problem__head">
+    <h2 class="problem__label" data-lines>The problem</h2>
+    <span class="section-title__rule"></span>
+  </div>
+
+  <div class="problem__body">
+    <Illustration name="child" class="problem__illus" label="A child writing at a desk" />
+    <div class="problem__text">
+      <h3 class="problem__title" data-lines>Learning outcomes are decided long before a child sits an exam</h3>
+      <div class="problem__paras">
+        <p>We know where learners end up, but we know far less about what shapes their journey there.</p>
+        <p>
+          Attainment data can show us learning outcomes, but it does not tell us whether a child has the support they
+          need at home, whether they are safe and consistently present in school, whether good teachers have the
+          conditions to remain in the profession, or whether a student can afford to continue their education.
+        </p>
+        <p>These factors have a profound influence on learning, yet they remain largely unmeasured.</p>
+        <p>
+          Without this context, programmes risk being built on assumptions about the problems learners face rather
+          than evidence about what is actually shaping their experiences and outcomes.
+        </p>
+      </div>
+      <Button href="/insights" label="Read the full picture" />
+    </div>
+  </div>
+</div>
+
+<style>
+  .problem {
+    max-width: calc(1127.5px + var(--gutter) * 2);
+    padding-top: 64px;
+    padding-bottom: 160px;
+    display: flex;
+    flex-direction: column;
+    gap: 66px;
+  }
+  .problem__label { font-size: 36px; font-weight: 400; color: var(--ink-strong); white-space: nowrap; }
+  .problem__body { display: flex; gap: 32px; align-items: center; justify-content: center; }
+  .problem__body :global(.problem__illus) { width: 298px; flex-shrink: 0; }
+  .problem__text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    max-width: 690px;
+  }
+  .problem__title { max-width: 499px; font-size: 32px; font-weight: 700; color: var(--ink-strong); }
+  .problem__paras {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    font-size: 20px;
+    line-height: 28px;
+    color: var(--text-muted);
+  }
+  .problem__paras p:nth-child(3) { margin-top: -8px; }
+
+  @media (max-width: 900px) {
+    .problem__body { flex-direction: column; align-items: flex-start; }
+    .problem__body :global(.problem__illus) { width: 240px; align-self: center; }
+  }
+  /* Phones: Figma mobile text sizes */
+  @media (max-width: 767px) {
+    .problem { gap: 32px; padding-bottom: 96px; }
+    .problem__label { font-size: 20px; letter-spacing: 0.24px; }
+    .problem__title { font-size: 20px; letter-spacing: 0.24px; }
+    .problem__paras { font-size: 14px; line-height: 18px; gap: 18px; }
+    .problem__text { gap: 16px; }
+    .problem__body :global(.problem__illus) { width: 200px; margin-block: -40px; }
+  }
+</style>

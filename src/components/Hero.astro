@@ -1,0 +1,55 @@
+---
+import Illustration from "./Illustration.astro";
+import Button from "./Button.astro";
+---
+
+<div class="hero container">
+  <Illustration name="hero" class="hero__illus" label="A teacher writing on a board" />
+  <div class="hero__copy">
+    <h1 class="hero__title" data-lines data-lines-immediate>
+      Researching and building for better learning outcomes
+    </h1>
+    <p class="hero__lede" data-lines data-lines-immediate>
+      We strengthen the conditions that shape learning, from homes and classrooms to teaching careers
+    </p>
+  </div>
+  <Button href="#the-problem" label="Learn more" />
+</div>
+
+<style>
+  .hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    padding-top: 64px;
+    padding-bottom: 160px;
+    text-align: center;
+  }
+  .hero :global(.hero__illus) { width: 405px; }
+  .hero__copy { display: flex; flex-direction: column; align-items: center; gap: 24px; }
+  .hero__title {
+    max-width: 1062px;
+    font-size: 72px;
+    line-height: 72px;
+    font-weight: 700;
+    color: var(--ink-strong);
+  }
+  .hero__lede {
+    max-width: 680px;
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: 0.9px;
+    color: var(--text-muted);
+  }
+  @media (max-width: 1024px) {
+    .hero__title { font-size: 56px; line-height: 60px; }
+  }
+  /* Phones: Figma mobile text sizes */
+  @media (max-width: 767px) {
+    .hero { padding-top: 24px; padding-bottom: 96px; gap: 20px; }
+    .hero :global(.hero__illus) { width: 300px; }
+    .hero__title { font-size: 36px; line-height: 40px; }
+    .hero__lede { font-size: 14px; line-height: 18px; letter-spacing: 0.2px; }
+  }
+</style>
