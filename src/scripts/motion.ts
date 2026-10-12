@@ -336,13 +336,15 @@ function initWorkCards() {
   });
   gsap.set(logotype, { autoAlpha: 0, scale: 0.94 });
 
+  // The wordmark shows on its own first; the cards hold in their pile for a beat,
+  // then spread out slowly so "Learn Space" is readable before they cover parts of it
   const tl = gsap.timeline({ paused: true });
-  tl.to(logotype, { autoAlpha: 1, scale: 1, duration: 1.2, ease: "power2.out" }, 0.15);
+  tl.to(logotype, { autoAlpha: 1, scale: 1, duration: 0.9, ease: "power2.out" }, 0);
   cards.forEach((card, i) => {
     tl.to(
       card,
-      { x: 0, y: 0, rotation: 0, duration: 1.3, ease: "back.out(1.3)", onComplete: () => floatCard(card, i) },
-      0.1 + Math.abs(i - cards.indexOf(centre)) * 0.08,
+      { x: 0, y: 0, rotation: 0, duration: 1.8, ease: "power3.inOut", onComplete: () => floatCard(card, i) },
+      1.6 + Math.abs(i - cards.indexOf(centre)) * 0.12,
     );
   });
   ScrollTrigger.create({ trigger: stage, start: "top 75%", once: true, onEnter: () => tl.play() });
