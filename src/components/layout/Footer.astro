@@ -1,0 +1,205 @@
+---
+import Logo from "./Logo.astro";
+import plus from "../../assets/icons/plus-ring.svg?raw";
+import minus from "../../assets/icons/minus-ring.svg?raw";
+
+import { footerNav as columns, routes } from "../../data/navigation";
+---
+
+<div class="footer container">
+  <hr class="footer__rule-top" />
+  <div class="footer__top">
+    <div class="footer__brand">
+      <a href={routes.home} aria-label="Learn Space home"><Logo size={80} /></a>
+      <p class="footer__muted footer__address">Learn Space Limited · Lagos, Nigeria</p>
+    </div>
+    <!-- Each column: a plain heading on laptops; on phones a button that reveals the links (Figma "Footer Accordion") -->
+    <nav class="footer__links" aria-label="Footer">
+      {
+        columns.map((c, i) => (
+          <div class="footer__col" data-accordion>
+            <p class="footer__head">{c.title}</p>
+            <button
+              class="footer__toggle"
+              type="button"
+              aria-expanded="false"
+              aria-controls={`footer-panel-${i}`}
+              data-accordion-toggle
+            >
+              <span>{c.title}</span>
+              <span class="footer__sign footer__sign--plus" aria-hidden="true" set:html={plus} />
+              <span class="footer__sign footer__sign--minus" aria-hidden="true" set:html={minus} />
+            </button>
+            <div class="footer__panel" id={`footer-panel-${i}`}>
+              <div class="footer__panel-inner">
+                {c.links.map((l) => (
+                  <a href={l.href} class="footer__muted footer__link">
+                    {l.label}
+                  </a>
+                ))}
+              </div>
+            </div>
+          </div>
+        ))
+      }
+    </nav>
+  </div>
+  <hr />
+  <p class="footer__copy">© 2026 Learn Space Limited.</p>
+</div>
+
+<script>
+  document.querySelectorAll<HTMLElement>("[data-accordion]").forEach((col) => {
+    const toggle = col.querySelector<HTMLButtonElement>("[data-accordion-toggle]")!;
+    toggle.addEventListener("click", () => {
+      const open = !col.classList.contains("is-open");
+      col.classList.toggle("is-open", open);
+      toggle.setAttribute("aria-expanded", String(open));
+    });
+  });
+</script>
+
+<style>
+  .footer {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-8);
+    padding-top: 64px;
+    padding-bottom: var(--space-9);
+  }
+  hr {
+    width: 100%;
+    margin: 0;
+    border: 0;
+    border-top: 1px solid var(--on-dark-rule);
+  }
+  .footer__top {
+    display: flex;
+    justify-content: space-between;
+    gap: 48px;
+    flex-wrap: wrap;
+  }
+  .footer__brand {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .footer__links {
+    display: flex;
+    gap: 80px;
+    flex-wrap: wrap;
+  }
+  .footer__col {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  .footer__head {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--paper);
+  }
+  .footer__toggle {
+    display: none;
+  }
+  .footer__panel-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  .footer__muted {
+    font-size: 14px;
+    color: var(--on-dark-muted);
+    white-space: nowrap;
+  }
+  .footer__link {
+    transition: color 0.3s ease;
+  }
+  .footer__link:hover {
+    color: var(--paper);
+  }
+  .footer__copy {
+    font-size: 13px;
+    color: var(--on-dark-faint);
+  }
+
+  /* ---------- Phones: Figma mobile footer with accordions ---------- */
+  @media (max-width: 767px) {
+    .footer {
+      gap: 32px;
+      padding: 40px 20px;
+    }
+    .footer__rule-top,
+    .footer__address {
+      display: none;
+    }
+    .footer__top {
+      flex-direction: column;
+      gap: 32px;
+    }
+    .footer__brand :global(.logo) {
+      width: 56px;
+      height: 56px;
+    }
+    .footer__links {
+      flex-direction: column;
+      gap: 16px;
+    }
+    .footer__col {
+      gap: 0;
+      align-items: stretch;
+    }
+    .footer__head {
+      display: none;
+    }
+    .footer__toggle {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      padding: 4px 0;
+      font-size: 14px;
+      color: var(--paper);
+      text-align: left;
+    }
+    .footer__toggle:focus-visible {
+      outline: 2px solid var(--cobalt-200);
+      outline-offset: 2px;
+      border-radius: 4px;
+    }
+    .footer__sign :global(svg) {
+      width: 18px;
+      height: 18px;
+    }
+    .footer__sign--minus,
+    .is-open .footer__sign--plus {
+      display: none;
+    }
+    .is-open .footer__sign--minus {
+      display: block;
+    }
+
+    /* Collapsible panel: grid rows animate from 0 to the content height */
+    .footer__panel {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .is-open .footer__panel {
+      grid-template-rows: 1fr;
+    }
+    .footer__panel-inner {
+      overflow: hidden;
+      gap: 12px;
+      visibility: hidden;
+      transition: visibility 0s linear 0.4s;
+    }
+    .is-open .footer__panel-inner {
+      padding-top: 10px;
+      visibility: visible;
+      transition: visibility 0s;
+    }
+  }
+</style>

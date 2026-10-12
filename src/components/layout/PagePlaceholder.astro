@@ -1,8 +1,8 @@
 ---
-import Base from "../layouts/Base.astro";
+import Base from "../../layouts/Base.astro";
 import Nav from "./Nav.astro";
 import Footer from "./Footer.astro";
-import Button from "./Button.astro";
+import Button from "../ui/Button.astro";
 
 interface Props {
   title: string;
@@ -34,6 +34,15 @@ const { title } = Astro.props;
     gap: 24px;
     padding-bottom: 160px;
   }
-  .ph__title { font-size: clamp(48px, 9vw, 120px); line-height: 1; font-weight: 700; color: var(--ink-strong); }
-  .ph__text { font-size: 20px; line-height: 28px; color: var(--text-muted); }
+  .ph__title {
+    font-size: clamp(48px, 9vw, 120px);
+    line-height: 1;
+    font-weight: 700;
+    color: var(--ink-strong);
+  }
+  .ph__text {
+    font-size: 20px;
+    line-height: 28px;
+    color: var(--text-muted);
+  }
 </style>

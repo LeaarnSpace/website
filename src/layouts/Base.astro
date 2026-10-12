@@ -1,15 +1,12 @@
 ---
 import "../styles/global.css";
-import Logo from "../components/Logo.astro";
+import Logo from "../components/layout/Logo.astro";
 
 interface Props {
   title?: string;
   description?: string;
 }
-const {
-  title = "Learn Space",
-  description = "Researching and building for better learning outcomes.",
-} = Astro.props;
+const { title = "Learn Space", description = "Researching and building for better learning outcomes." } = Astro.props;
 ---
 
 <!doctype html>
@@ -34,7 +31,9 @@ const {
         if (sessionStorage.getItem("ls-transition") === "1") {
           document.documentElement.classList.add("is-arriving");
         }
-      } catch (e) {}
+      } catch {
+        // Storage can be blocked (private mode); the page simply skips the arrival transition
+      }
     </script>
   </head>
   <body>
@@ -45,7 +44,7 @@ const {
       <slot />
     </main>
     <script>
-      import "../scripts/motion.ts";
+      import "../scripts/motion/index.ts";
     </script>
   </body>
 </html>
@@ -63,6 +62,11 @@ const {
     transform: translateY(105%);
     pointer-events: none;
   }
-  :global(html.is-arriving) .curtain { transform: none; border-radius: 0; }
-  .curtain :global(.logo) { box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.25); }
+  :global(html.is-arriving) .curtain {
+    transform: none;
+    border-radius: 0;
+  }
+  .curtain :global(.logo) {
+    box-shadow: 0 0 0 1px var(--on-dark-ring);
+  }
 </style>

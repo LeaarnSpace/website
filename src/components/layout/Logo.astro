@@ -1,6 +1,6 @@
 ---
-import learn from "../assets/icons/logo-learn.svg?raw";
-import space from "../assets/icons/logo-space.svg?raw";
+import learn from "../../assets/icons/logo-learn.svg?raw";
+import space from "../../assets/icons/logo-space.svg?raw";
 
 interface Props {
   size?: number;
@@ -24,8 +24,21 @@ const { size = 80 } = Astro.props;
     flex-shrink: 0;
   }
   .logo__learn,
-  .logo__space { position: absolute; left: 29.12%; right: 29.12%; }
-  .logo__learn { top: 36.41%; bottom: 53.26%; }
-  .logo__space { top: 53.42%; bottom: 36.25%; }
-  .logo :global(svg) { width: 100%; height: 100%; }
+  .logo__space {
+    position: absolute;
+    left: 29.12%;
+    right: 29.12%;
+  }
+  .logo__learn {
+    top: 36.41%;
+    bottom: 53.26%;
+  }
+  .logo__space {
+    top: 53.42%;
+    bottom: 36.25%;
+  }
+  .logo :global(svg) {
+    width: 100%;
+    height: 100%;
+  }
 </style>

@@ -1,18 +1,15 @@
 ---
 import Logo from "./Logo.astro";
-import menuIcon from "../assets/icons/menu.svg?raw";
+import menuIcon from "../../assets/icons/menu.svg?raw";
 
-const links = [
-  { href: "/our-work", label: "Our Work" },
-  { href: "/insights", label: "Insights" },
-  { href: "/who-we-are", label: "Who We Are" },
-];
+import { mainNav as links, routes } from "../../data/navigation";
+
 const current = Astro.url.pathname.replace(/\/$/, "");
 ---
 
 <header class="nav" data-nav>
   <div class="nav__inner">
-    <a href="/" class="nav__logo" aria-label="Learn Space home">
+    <a href={routes.home} class="nav__logo" aria-label="Learn Space home">
       <Logo size={80} />
     </a>
 
@@ -24,13 +21,15 @@ const current = Astro.url.pathname.replace(/\/$/, "");
 
     <nav aria-label="Main" class="nav__menu" id="main-menu">
       <ul class="nav__links">
-        {links.map((l) => (
-          <li>
-            <a href={l.href} class="nav__link" aria-current={current === l.href ? "page" : undefined}>
-              {l.label}
-            </a>
-          </li>
-        ))}
+        {
+          links.map((l) => (
+            <li>
+              <a href={l.href} class="nav__link" aria-current={current === l.href ? "page" : undefined}>
+                {l.label}
+              </a>
+            </li>
+          ))
+        }
       </ul>
     </nav>
   </div>
@@ -106,19 +105,38 @@ const current = Astro.url.pathname.replace(/\/$/, "");
     transform-origin: left;
     transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
   }
-  .nav__link:hover { color: #003a87; }
+  .nav__link:hover {
+    color: var(--cobalt-700);
+  }
   .nav__link:hover::after,
-  .nav__link[aria-current="page"]::after { transform: scaleX(1); }
-  .nav__link[aria-current="page"] { color: var(--cobalt-600); }
-  .nav__link:focus-visible { outline: 2px solid #10269c; outline-offset: 2px; border-radius: 4px; }
+  .nav__link[aria-current="page"]::after {
+    transform: scaleX(1);
+  }
+  .nav__link[aria-current="page"] {
+    color: var(--cobalt-600);
+  }
+  .nav__link:focus-visible {
+    outline: 2px solid var(--focus-ring);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
 
-  .nav__toggle { display: none; }
+  .nav__toggle {
+    display: none;
+  }
 
   /* ---------- Phones: logo + menu button; links drop down in a panel ---------- */
   @media (max-width: 767px) {
-    .nav { height: auto; }
-    .nav__inner { padding: 16px 20px; }
-    .nav__logo :global(.logo) { width: 48px; height: 48px; }
+    .nav {
+      height: auto;
+    }
+    .nav__inner {
+      padding: 16px 20px;
+    }
+    .nav__logo :global(.logo) {
+      width: 48px;
+      height: 48px;
+    }
 
     .nav__toggle {
       display: inline-flex;
@@ -129,17 +147,31 @@ const current = Astro.url.pathname.replace(/\/$/, "");
       margin-right: -10px;
       border-radius: var(--radius-md);
     }
-    .nav__toggle:focus-visible { outline: 2px solid #10269c; }
-    .nav__icon :global(svg) { width: 24px; height: 24px; overflow: visible; }
+    .nav__toggle:focus-visible {
+      outline: 2px solid var(--focus-ring);
+    }
+    .nav__icon :global(svg) {
+      width: 24px;
+      height: 24px;
+      overflow: visible;
+    }
     .nav__icon :global(path) {
       transform-box: fill-box;
       transform-origin: center;
-      transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.2s ease;
+      transition:
+        transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+        opacity 0.2s ease;
     }
     /* Menu icon turns into a close (×) icon when open */
-    .is-open .nav__icon :global(path:nth-child(1)) { transform: translateY(5px) rotate(45deg); }
-    .is-open .nav__icon :global(path:nth-child(2)) { opacity: 0; }
-    .is-open .nav__icon :global(path:nth-child(3)) { transform: translateY(-5px) rotate(-45deg); }
+    .is-open .nav__icon :global(path:nth-child(1)) {
+      transform: translateY(5px) rotate(45deg);
+    }
+    .is-open .nav__icon :global(path:nth-child(2)) {
+      opacity: 0;
+    }
+    .is-open .nav__icon :global(path:nth-child(3)) {
+      transform: translateY(-5px) rotate(-45deg);
+    }
 
     .nav__menu {
       position: absolute;
@@ -148,22 +180,51 @@ const current = Astro.url.pathname.replace(/\/$/, "");
       right: 0;
       padding: 8px 20px 28px;
       background: var(--paper);
-      box-shadow: 0 24px 40px rgba(14, 27, 52, 0.08);
+      box-shadow: var(--shadow-menu);
       clip-path: inset(0 0 100% 0);
       visibility: hidden;
-      transition: clip-path 0.5s cubic-bezier(0.22, 1, 0.36, 1), visibility 0s linear 0.5s;
+      transition:
+        clip-path 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+        visibility 0s linear 0.5s;
     }
     .is-open .nav__menu {
       clip-path: inset(0 0 -60px 0);
       visibility: visible;
-      transition: clip-path 0.5s cubic-bezier(0.22, 1, 0.36, 1), visibility 0s;
+      transition:
+        clip-path 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+        visibility 0s;
     }
-    .nav__links { flex-direction: column; gap: 4px; }
-    .nav__link { display: inline-block; padding: 12px 0; font-size: 24px; }
-    .nav__link::after { left: 0; right: auto; width: 100%; bottom: 8px; }
-    .nav__links li { opacity: 0; transform: translateY(12px); transition: opacity 0.3s ease, transform 0.4s cubic-bezier(0.22, 1, 0.36, 1); }
-    .is-open .nav__links li { opacity: 1; transform: none; }
-    .is-open .nav__links li:nth-child(2) { transition-delay: 0.05s; }
-    .is-open .nav__links li:nth-child(3) { transition-delay: 0.1s; }
+    .nav__links {
+      flex-direction: column;
+      gap: 4px;
+    }
+    .nav__link {
+      display: inline-block;
+      padding: 12px 0;
+      font-size: 24px;
+    }
+    .nav__link::after {
+      left: 0;
+      right: auto;
+      width: 100%;
+      bottom: 8px;
+    }
+    .nav__links li {
+      opacity: 0;
+      transform: translateY(12px);
+      transition:
+        opacity 0.3s ease,
+        transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .is-open .nav__links li {
+      opacity: 1;
+      transform: none;
+    }
+    .is-open .nav__links li:nth-child(2) {
+      transition-delay: 0.05s;
+    }
+    .is-open .nav__links li:nth-child(3) {
+      transition-delay: 0.1s;
+    }
   }
 </style>

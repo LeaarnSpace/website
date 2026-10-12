@@ -1,7 +1,7 @@
 ---
 import Base from "../layouts/Base.astro";
-import Nav from "../components/Nav.astro";
-import Footer from "../components/Footer.astro";
+import Nav from "../components/layout/Nav.astro";
+import Footer from "../components/layout/Footer.astro";
 import plug from "../assets/icons/plug.svg";
 import socket from "../assets/icons/socket.svg";
 ---
@@ -25,8 +25,15 @@ import socket from "../assets/icons/socket.svg";
 </Base>
 
 <style>
-  .nf { overflow: hidden; }
-  .nf__stage { position: relative; height: 447px; max-width: 1440px; margin-inline: auto; }
+  .nf {
+    overflow: hidden;
+  }
+  .nf__stage {
+    position: relative;
+    height: 447px;
+    max-width: 1440px;
+    margin-inline: auto;
+  }
   .nf__copy {
     position: absolute;
     left: 50%;
@@ -38,9 +45,23 @@ import socket from "../assets/icons/socket.svg";
     gap: var(--space-3);
     text-align: center;
   }
-  .nf__small { font-size: 36px; font-weight: 500; color: var(--ink); }
-  .nf__code { font-size: 100px; line-height: 72px; font-weight: 700; color: var(--ink-strong); }
-  .nf__row { display: flex; align-items: center; gap: 26px; white-space: nowrap; }
+  .nf__small {
+    font-size: 36px;
+    font-weight: 500;
+    color: var(--ink);
+  }
+  .nf__code {
+    font-size: 100px;
+    line-height: 72px;
+    font-weight: 700;
+    color: var(--ink-strong);
+  }
+  .nf__row {
+    display: flex;
+    align-items: center;
+    gap: 26px;
+    white-space: nowrap;
+  }
   .nf__mark {
     position: relative;
     padding-inline: 10px;
@@ -49,23 +70,70 @@ import socket from "../assets/icons/socket.svg";
 
   /* The plug and socket drift toward each other but never quite connect */
   .nf__socket,
-  .nf__plug { position: absolute; width: 34.7%; height: auto; max-width: none; }
-  .nf__socket { left: -2.56%; top: 215px; animation: drift-right 3.2s ease-in-out infinite alternate; }
-  .nf__plug { left: 66.5%; top: 109px; animation: drift-left 3.2s ease-in-out infinite alternate; }
-  @keyframes drift-right { from { translate: -24px 6px; } to { translate: 18px -4px; } }
-  @keyframes drift-left { from { translate: 24px -6px; } to { translate: -18px 4px; } }
+  .nf__plug {
+    position: absolute;
+    width: 34.7%;
+    height: auto;
+    max-width: none;
+  }
+  .nf__socket {
+    left: -2.56%;
+    top: 215px;
+    animation: drift-right 3.2s ease-in-out infinite alternate;
+  }
+  .nf__plug {
+    left: 66.5%;
+    top: 109px;
+    animation: drift-left 3.2s ease-in-out infinite alternate;
+  }
+  @keyframes drift-right {
+    from {
+      translate: -24px 6px;
+    }
+    to {
+      translate: 18px -4px;
+    }
+  }
+  @keyframes drift-left {
+    from {
+      translate: 24px -6px;
+    }
+    to {
+      translate: -18px 4px;
+    }
+  }
 
   @media (max-width: 900px) {
-    .nf__stage { height: 520px; }
-    .nf__copy { top: 40px; }
-    .nf__socket { width: 60%; top: 300px; left: -14%; }
-    .nf__plug { width: 60%; top: 250px; left: 54%; }
+    .nf__stage {
+      height: 520px;
+    }
+    .nf__copy {
+      top: 40px;
+    }
+    .nf__socket {
+      width: 60%;
+      top: 300px;
+      left: -14%;
+    }
+    .nf__plug {
+      width: 60%;
+      top: 250px;
+      left: 54%;
+    }
   }
   @media (max-width: 640px) {
-    .nf__small { font-size: 26px; }
-    .nf__code { font-size: 72px; line-height: 64px; }
+    .nf__small {
+      font-size: 26px;
+    }
+    .nf__code {
+      font-size: 72px;
+      line-height: 64px;
+    }
   }
   @media (prefers-reduced-motion: reduce) {
-    .nf__socket, .nf__plug { animation: none; }
+    .nf__socket,
+    .nf__plug {
+      animation: none;
+    }
   }
 </style>

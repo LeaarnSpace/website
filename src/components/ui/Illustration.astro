@@ -1,0 +1,81 @@
+---
+// Line-drawn illustration assembled from the Figma vector layers.
+// Each piece carries its own draw-on / fade timing taken from the Figma motion data.
+import data from "../../data/illustrations.json";
+
+interface Props {
+  name: "hero" | "child";
+  class?: string;
+  label: string;
+  /** Playback speed when it draws on scroll (2 = twice as fast) */
+  speed?: number;
+}
+const { name, class: className, label, speed = 1 } = Astro.props;
+const ill = data[name];
+
+const svgs = import.meta.glob<string>("../../assets/illustrations/*.svg", {
+  query: "?raw",
+  import: "default",
+  eager: true,
+});
+const svg = (file: string) => {
+  const raw = svgs[`../../assets/illustrations/${file}`];
+  // Fail the build rather than silently rendering an empty drawing
+  if (raw === undefined) throw new Error(`Illustration piece not found: ${file}`);
+  return raw.replace(/\sid="[^"]*"/g, "");
+};
+
+/** CSS position offsets → inline style; skips sides that aren't set */
+const box = (b: Partial<Record<string, string>>) =>
+  Object.entries(b)
+    .filter(([, v]) => v !== undefined)
+    .map(([k, v]) => `${k}:${v}`)
+    .join(";");
+const background = "background" in ill ? ill.background : undefined;
+---
+
+<div
+  class:list={["illus", className]}
+  style={`aspect-ratio:${ill.width}/${ill.height};--w:${ill.width}px`}
+  role="img"
+  aria-label={label}
+  data-illustration
+  data-speed={speed}
+>
+  {background && <div class="illus__piece" style="inset:0" set:html={svg(background)} />}
+  {
+    ill.pieces.map((p) => (
+      <div
+        class="illus__piece"
+        style={box(p.box)}
+        data-kind={p.anim.kind}
+        data-start={p.anim.start}
+        data-end={p.anim.end}
+        data-ease={p.anim.ease}
+      >
+        <div
+          class="illus__pad"
+          style={box(Object.keys(p.pad).length ? p.pad : { inset: "0" })}
+          set:html={svg(p.file)}
+        />
+      </div>
+    ))
+  }
+</div>
+
+<style>
+  .illus {
+    position: relative;
+    width: 100%;
+    max-width: var(--w);
+    overflow: hidden;
+  }
+  .illus__piece,
+  .illus__pad {
+    position: absolute;
+  }
+  .illus :global(svg) {
+    width: 100%;
+    height: 100%;
+  }
+</style>
