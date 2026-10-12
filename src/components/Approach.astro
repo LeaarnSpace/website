@@ -172,7 +172,8 @@ const mobileArrows = [
   }
   .arrow :global(svg) { width: 100%; height: 100%; }
   .arrow--top { left: 653px; top: 39px; }
-  .arrow--bottom { left: 442.37px; top: 538.57px; transform: rotate(180deg); }
+  /* Figma places the rotated instance by its own box (308.5, 441.82), not its outer bounds */
+  .arrow--bottom { left: 308.5px; top: 441.82px; transform: rotate(180deg); }
 
   .note { position: absolute; }
   .note--build { left: 246px; top: 479px; width: 414px; height: 420px; }
