@@ -171,7 +171,8 @@ const mobileArrows = [
     transform: translate(-50%, -50%) rotate(13deg);
   }
   .arrow :global(svg) { width: 100%; height: 100%; }
-  .arrow--top { left: 653px; top: 39px; }
+  /* Nudged 10px left of the Figma spot so the tail meets the Execute card edge */
+  .arrow--top { left: 643px; top: 39px; }
   /* Figma places the rotated instance by its own box (308.5, 441.82), not its outer bounds */
   .arrow--bottom { left: 308.5px; top: 441.82px; transform: rotate(180deg); }
 
