@@ -232,7 +232,8 @@ function initIllustrations() {
   document.querySelectorAll<HTMLElement>("[data-illustration]").forEach((el) => {
     const tl = buildIllustration(el);
     if (el.closest(".hero")) hero.push(tl);
-    else ScrollTrigger.create({ trigger: el, start: "top 80%", once: true, onEnter: () => tl.play() });
+    // The Problem drawing plays at double speed
+    else ScrollTrigger.create({ trigger: el, start: "top 80%", once: true, onEnter: () => tl.timeScale(2).play() });
   });
   return hero;
 }
@@ -264,14 +265,10 @@ function initApproach() {
         .to(label, { y: 0, autoAlpha: 1, duration: 0.85, ease: "power2.inOut" }, at + 0.9);
     });
 
-    // Arrows loop like the Figma "Arrow animation" component: hidden for 1.3s, then sweep in from the tail over 0.7s
+    // Arrows sweep in from the tail once (Figma "Arrow animation" timing), then stay put
     q("[data-arrow]").forEach((arrow) => {
       gsap.set(arrow, { clipPath: "inset(0 100% 0 0)" });
-      const loop = gsap
-        .timeline({ repeat: -1, paused: true })
-        .set(arrow, { clipPath: "inset(0 100% 0 0)" })
-        .to(arrow, { clipPath: "inset(0 0% 0 0)", duration: 0.7, ease: "expo.out" }, 1.3);
-      tl.add(() => void loop.play(), 0);
+      tl.to(arrow, { clipPath: "inset(0 0% 0 0)", duration: 0.7, ease: "expo.out" }, 1.3);
     });
 
     // Desktop notes: dot appears, line drops, copy slides out from behind its mask
