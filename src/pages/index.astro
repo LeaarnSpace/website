@@ -1,13 +1,13 @@
 ---
 import Base from "../layouts/Base.astro";
-import Nav from "../components/Nav.astro";
-import Hero from "../components/Hero.astro";
-import Problem from "../components/Problem.astro";
-import Approach from "../components/Approach.astro";
-import OurWork from "../components/OurWork.astro";
-import BlogNews from "../components/BlogNews.astro";
-import SignUp from "../components/SignUp.astro";
-import Footer from "../components/Footer.astro";
+import Nav from "../components/layout/Nav.astro";
+import Hero from "../components/home/Hero.astro";
+import Problem from "../components/home/Problem.astro";
+import Approach from "../components/home/Approach.astro";
+import OurWork from "../components/home/OurWork.astro";
+import BlogNews from "../components/home/BlogNews.astro";
+import StayClose from "../components/layout/StayClose.astro";
+import Footer from "../components/layout/Footer.astro";
 ---
 
 <Base title="Learn Space — Researching and building for better learning outcomes">
@@ -30,7 +30,7 @@ import Footer from "../components/Footer.astro";
   <!-- Footer: "Stay close to us" sits underneath the panel above; the navy card rises from the bottom -->
   <div class="footer-zone" data-footer>
     <section class="footer-cv" data-footer-cv>
-      <SignUp />
+      <StayClose />
     </section>
     <div class="footer-foot">
       <footer class="footer-card layer--navy" data-footer-card>

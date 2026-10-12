@@ -1,0 +1,67 @@
+/* Design tokens from the LS-Website Figma file */
+:root {
+  --cobalt-50: #eaf1fb;
+  --cobalt-100: #c6dbf4;
+  --cobalt-200: #93b8e9;
+  --cobalt-400: #2c7ad6;
+  --cobalt-600: #004bad;
+  --cobalt-border: #88b1e6;
+  --action-primary: #1e3fe0;
+  --action-primary-hover: #93b8e9;
+  --beam-400: #f5b335;
+  --ink: #0e1b34;
+  --ink-strong: #040617;
+  --text-muted: #4a4d6a;
+  --paper: #ffffff;
+  --surface: #f7f9fa;
+  --rule: #d9d9d9;
+  --black: #000000;
+  /* Darker cobalt for hover text (Figma "semantic/primary-hover") */
+  --cobalt-700: #003a87;
+  /* Keyboard focus outline */
+  --focus-ring: #10269c;
+
+  /* Text and rules on dark (black / navy) backgrounds */
+  --on-dark-body: rgba(255, 255, 255, 0.85);
+  --on-dark-muted: rgba(228, 229, 240, 0.7);
+  --on-dark-faint: rgba(228, 229, 240, 0.5);
+  --on-dark-rule: rgba(228, 229, 240, 0.12);
+  --on-dark-ring: rgba(255, 255, 255, 0.25);
+
+  --space-3: 12px;
+  --space-5: 24px;
+  --space-6: 24px;
+  --space-7: 32px;
+  --space-8: 48px;
+  --space-9: 64px;
+
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-pill: 999px;
+  --radius-layer: 18px;
+
+  --shadow-sm: 0 1px 2px rgba(14, 22, 80, 0.06);
+  --shadow-color-sm: rgba(14, 22, 80, 0.06);
+  --shadow-menu: 0 24px 40px rgba(14, 27, 52, 0.08);
+
+  --font-sans: "Manrope", system-ui, sans-serif;
+  --font-logotype: "Fredoka One", "Fredoka", system-ui, sans-serif;
+  --font-mansalva: "Mansalva", cursive;
+  --font-medula: "Medula One", system-ui, sans-serif;
+
+  --gutter: 64px;
+  --max: 1440px;
+}
+
+@media (max-width: 1024px) {
+  :root {
+    --gutter: 40px;
+    --radius-layer: 18px;
+  }
+}
+@media (max-width: 640px) {
+  :root {
+    --gutter: 20px;
+    --radius-layer: 16px;
+  }
+}

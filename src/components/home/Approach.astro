@@ -1,0 +1,438 @@
+---
+import arrow from "../../assets/icons/approach-arrow.svg?raw";
+
+const cards = [
+  { key: "build", n: "2.", label: "Build" },
+  { key: "measure", n: "4.", label: "Measure" },
+  { key: "research", n: "1.", label: "Research" },
+  { key: "execute", n: "3.", label: "Execute" },
+];
+
+// Phone layout from the Figma 390 frame (350px-wide stage)
+const mobileCards = [
+  { key: "build", n: "2.", label: "Build", left: 78, top: 0, w: 234, h: 164 },
+  { key: "measure", n: "4.", label: "Measure", left: 59, top: 212, w: 235, h: 164 },
+  { key: "research", n: "1.", label: "Research", left: 0, top: 116, w: 156, h: 124 },
+  { key: "execute", n: "3.", label: "Execute", left: 188, top: 137, w: 156, h: 124 },
+];
+const mobileArrows = [
+  { left: 29, top: 50, w: 77.018, h: 97.24, rotate: -69.11 },
+  { left: 250.59, top: 217.85, w: 70.269, h: 95.035, rotate: 104.98 },
+];
+---
+
+<div class="approach container">
+  <div class="approach__head">
+    <span class="approach__rule"></span>
+    <h2 class="approach__title" data-lines>Our Approach</h2>
+  </div>
+
+  <!-- Desktop diagram is laid out on the 1276×899 Figma stage and scaled to fit -->
+  <div class="approach__fit" data-fit="1276">
+    <div class="approach__stage" data-approach>
+      {
+        cards.map((c) => (
+          <div class={`card card--${c.key}`} data-card={c.key}>
+            <svg class="card__border" aria-hidden="true">
+              <rect x="0" y="0" width="100%" height="100%" rx="10" ry="10" pathLength="1" />
+            </svg>
+            <p class="card__label">
+              <>
+                <span class="card__n">{c.n}</span>
+                <span>{c.label}</span>
+              </>
+            </p>
+          </div>
+        ))
+      }
+
+      <div class="arrow arrow--top" aria-hidden="true" data-arrow><span set:html={arrow} /></div>
+      <div class="arrow arrow--bottom" aria-hidden="true" data-arrow><span set:html={arrow} /></div>
+
+      <div class="note note--build" data-note="build">
+        <span class="note__dot"></span>
+        <span class="note__line"></span>
+        <div class="note__mask">
+          <div class="note__text">
+            <p class="note__lead">We build products in order to learn, and publish what we learn</p>
+            <p>
+              Surveys go stale and pilots end. Products that people use every week generate continuous, longitudinal
+              evidence about the conditions we care about. That evidence is the point; the products are how we gather it
+              honestly.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="note note--measure" data-note="measure">
+        <span class="note__dot"></span>
+        <span class="note__line"></span>
+        <div class="note__mask">
+          <div class="note__text">
+            <p>
+              We track key indicators - not just what's happening at the moment, but what's changing over time - using
+              real data to prove impact and guide what's next.
+            </p>
+            <p>Intermediate indicators, tracked longitudinally rather than at endline.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Phones: compact diagram from the Figma mobile frame, notes underneath -->
+  <div class="approach__mobile">
+    <div class="approach__fit" data-fit="350">
+      <div class="approach__stage approach__stage--m" data-approach>
+        {
+          mobileCards.map((c) => (
+            <div
+              class="card card--m"
+              style={`left:${c.left}px;top:${c.top}px;width:${c.w}px;height:${c.h}px`}
+              data-card={c.key}
+            >
+              <svg class="card__border" aria-hidden="true">
+                <rect x="0" y="0" width="100%" height="100%" rx="10" ry="10" pathLength="1" />
+              </svg>
+              <p class="card__label">
+                <>
+                  <span class="card__n">{c.n}</span>
+                  <span>{c.label}</span>
+                </>
+              </p>
+            </div>
+          ))
+        }
+        {
+          mobileArrows.map((a) => (
+            <div
+              class="arrow-m"
+              style={`left:${a.left}px;top:${a.top}px;width:${a.w}px;height:${a.h}px`}
+              aria-hidden="true"
+            >
+              <div class="arrow-m__turn" style={`transform:rotate(${a.rotate}deg)`} data-arrow>
+                <span set:html={arrow} />
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+    <div class="approach__mnotes">
+      <div class="mnote">
+        <p class="mnote__lead" data-note-text>We build products in order to learn, and publish what we learn</p>
+      </div>
+      <div class="mnote">
+        <p data-note-text>
+          Surveys go stale and pilots end. Products that people use every week generate continuous, longitudinal
+          evidence about the conditions we care about. That evidence is the point; the products are how we gather it
+          honestly.
+        </p>
+      </div>
+      <div class="mnote">
+        <p data-note-text>
+          We track key indicators - not just what's happening at the moment, but what's changing over time - using real
+          data to prove impact and guide what's next.
+        </p>
+      </div>
+      <div class="mnote">
+        <p data-note-text>Intermediate indicators, tracked longitudinally rather than at endline.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .approach {
+    max-width: calc(1276px + var(--gutter) * 2);
+    padding-top: 96px;
+    padding-bottom: 176px;
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+  }
+  .approach__head {
+    position: relative;
+    max-width: 1200px;
+    width: 100%;
+    margin-inline: auto;
+    padding-top: 81px;
+  }
+  .approach__rule {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: var(--rule);
+  }
+  .approach__title {
+    padding-left: 76px;
+    font-size: 64px;
+    font-weight: 400;
+    color: var(--ink-strong);
+  }
+
+  .approach__fit {
+    width: 100%;
+  }
+  .approach__stage {
+    position: relative;
+    width: 1276px;
+    height: 899px;
+    transform-origin: 0 0;
+  }
+
+  .card {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--surface);
+    border-radius: var(--radius-md);
+  }
+  .card__border {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+    fill: none;
+    stroke: var(--cobalt-border);
+    stroke-width: 2;
+  }
+  .card__label {
+    position: relative;
+    font-size: 40px;
+    font-weight: 700;
+    color: var(--ink-strong);
+    white-space: nowrap;
+    /* Flex (not inline text) so line breaks in the markup never add a space after the number */
+    display: flex;
+    align-items: baseline;
+  }
+  .card__n {
+    font-size: 24px;
+    font-weight: 500;
+  }
+
+  .card--build {
+    left: 0;
+    top: 202px;
+    width: 520px;
+    height: 345px;
+  }
+  .card--measure {
+    left: 568px;
+    top: 39px;
+    width: 520px;
+    height: 345px;
+  }
+  .card--research {
+    left: 431px;
+    top: 341px;
+    width: 374px;
+    height: 241px;
+  }
+  .card--execute {
+    left: 277px;
+    top: 0;
+    width: 380px;
+    height: 243px;
+  }
+
+  .arrow {
+    position: absolute;
+    width: 133.867px;
+    height: 96.752px;
+  }
+  .arrow > span {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 120.908px;
+    height: 71.383px;
+    transform: translate(-50%, -50%) rotate(13deg);
+  }
+  .arrow :global(svg) {
+    width: 100%;
+    height: 100%;
+  }
+  /* Nudged 10px left of the Figma spot so the tail meets the Execute card edge */
+  .arrow--top {
+    left: 643px;
+    top: 39px;
+  }
+  /* Figma places the rotated instance by its own box (308.5, 441.82), not its outer bounds */
+  .arrow--bottom {
+    left: 308.5px;
+    top: 441.82px;
+    transform: rotate(180deg);
+  }
+
+  .note {
+    position: absolute;
+  }
+  .note--build {
+    left: 246px;
+    top: 479px;
+    width: 414px;
+    height: 420px;
+  }
+  .note--measure {
+    left: 857px;
+    top: 313px;
+    width: 419px;
+    height: 376.5px;
+  }
+  .note__dot {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--ink-strong);
+  }
+  .note__line {
+    position: absolute;
+    left: 6px;
+    width: 1px;
+    background: var(--ink-strong);
+    transform-origin: top;
+  }
+  .note--build .note__line {
+    top: 25px;
+    height: 395px;
+  }
+  .note--measure .note__line {
+    top: 28px;
+    height: 348.5px;
+  }
+  .note__mask {
+    position: absolute;
+    left: 15px;
+    width: 399px;
+    overflow: hidden;
+  }
+  .note--build .note__mask {
+    top: 152px;
+    height: 246px;
+  }
+  .note--measure .note__mask {
+    top: 164px;
+    height: 200px;
+  }
+  .note__text {
+    position: absolute;
+    left: 18px;
+    top: 0;
+    width: 381px;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    font-size: 20px;
+    line-height: 1.37;
+    color: var(--text-muted);
+  }
+  .note--measure .note__text {
+    gap: 27px;
+  }
+  .note__lead {
+    font-weight: 600;
+    line-height: 28px;
+    max-width: 358px;
+  }
+
+  .approach__mobile {
+    display: none;
+  }
+
+  /* ---------- Phones: Figma mobile Approach (compact overlapping diagram) ---------- */
+  @media (max-width: 767px) {
+    .approach {
+      gap: 32px;
+      padding: 48px 20px 96px;
+    }
+    .approach__head {
+      padding-top: 0;
+      height: 66px;
+    }
+    .approach__title {
+      position: absolute;
+      left: 18px;
+      bottom: 0;
+      padding-left: 0;
+      font-size: 30px;
+      letter-spacing: 0.315px;
+    }
+    .approach > .approach__fit {
+      display: none;
+    }
+    .approach__mobile {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    /* Centre the 350px diagram on wider phones; scale it down on narrower ones */
+    .approach__mobile .approach__fit {
+      display: flex;
+      justify-content: center;
+    }
+    .approach__stage--m {
+      flex: none;
+      width: 350px;
+      height: 376px;
+      transform-origin: 50% 0;
+    }
+    .card--m .card__label {
+      font-size: 20px;
+      letter-spacing: 0.24px;
+    }
+    .card--m .card__n {
+      font-size: 16px;
+    }
+
+    .arrow-m {
+      position: absolute;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .arrow-m__turn {
+      position: relative;
+      flex: none;
+      width: 85px;
+      height: 50px;
+    }
+    .arrow-m__turn > span {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 76.8px;
+      height: 45.3px;
+      transform: translate(-50%, -50%) rotate(13deg);
+    }
+    .arrow-m :global(svg) {
+      width: 100%;
+      height: 100%;
+    }
+
+    .approach__mnotes {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      font-size: 14px;
+      line-height: 18px;
+      color: var(--text-muted);
+    }
+    .mnote {
+      overflow: hidden;
+    }
+    .mnote__lead {
+      font-weight: 600;
+      line-height: normal;
+    }
+  }
+</style>
