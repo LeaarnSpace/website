@@ -100,7 +100,8 @@ button {
 /* Panel that lifts off the footer: rounded bottom, sits above it */
 .layer--lift {
   z-index: 10;
-  overflow: hidden;
+  /* clip (not hidden) so position: sticky still works inside the panel */
+  overflow: clip;
   border-radius: 0 0 var(--radius-layer) var(--radius-layer);
   box-shadow: 0 24px 60px rgba(4, 6, 23, 0.25);
 }

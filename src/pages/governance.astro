@@ -1,0 +1,182 @@
+---
+import Page from "../layouts/Page.astro";
+import PageHero from "../components/ui/PageHero.astro";
+import SectionTitle from "../components/ui/SectionTitle.astro";
+import NumberedCards from "../components/ui/NumberedCards.astro";
+import InfoPanel from "../components/governance/InfoPanel.astro";
+import DocCard from "../components/governance/DocCard.astro";
+import { routes } from "../data/navigation";
+
+const commitments = [
+  { title: "Research is governed", body: "Our studies are reviewed, consent-led and open about who funds them." },
+  { title: "Independence is protected", body: "Funders and clients do not shape what we publish or what we push for." },
+  { title: "Providers are checked", body: "Anyone who works with children through us meets our standards first." },
+  {
+    title: "Findings are published, people are not",
+    body: "What we publish is aggregated and does not identify anyone.",
+  },
+];
+
+// TODO: add the PDF files (e.g. in public/documents/) and set href on each
+const documents = [
+  { title: "Safeguarding policy", meta: "PDF · 02/10/2026" },
+  { title: "Code of conduct", meta: "PDF · 02/10/2026" },
+  { title: "Research governance", meta: "PDF · 02/10/2026" },
+];
+---
+
+<Page
+  title="Governance and Safeguarding"
+  description="How our research is governed, how providers are checked, and how we handle data about children and families."
+>
+  <PageHero
+    title="Governance and Safeguarding"
+    lede="How our research is governed, how providers are checked, and how we handle data about children and families. A child’s data is never a revenue line."
+    size="lg"
+  />
+
+  <section class="band band--sunk">
+    <div class="gov container">
+      <SectionTitle title="Our commitments" rule="grey" />
+      <p class="gov__intro">
+        Four promises sit behind everything we do. The sections below show how each one is kept, and who is responsible.
+      </p>
+      <NumberedCards items={commitments} variant="compact" class="gov__cards" />
+    </div>
+  </section>
+
+  <section class="band band--sunk">
+    <div class="gov container">
+      <SectionTitle title="How our research is governed" rule="grey" />
+      <p class="gov__intro">We publish what we learn, so how we learn it has to hold up.</p>
+      <div class="gov__panels">
+        <InfoPanel title="Before and during a study" tone="blue">
+          <ul>
+            <li>Every study is reviewed before fieldwork begins.</li>
+            <li>Taking part is optional, and consent is explained in plain language.</li>
+            <li>We collect only what the question needs.</li>
+          </ul>
+        </InfoPanel>
+        <InfoPanel title="Independence and funders" tone="white">
+          <ul>
+            <li>Sponsors, partners and clients do not influence what we publish.</li>
+            <li>Where a funder has an interest in a study, we declare it on the output.</li>
+            <li>Findings go out whether or not they flatter us.</li>
+          </ul>
+        </InfoPanel>
+      </div>
+    </div>
+  </section>
+
+  <section class="gov container">
+    <SectionTitle title="How providers and partners are checked" rule="grey" />
+    <p class="gov__intro">Anyone who works with children or their data through us meets our standards first.</p>
+    <div class="gov__panels">
+      <InfoPanel title="What we ask of them" tone="blue">
+        <ul>
+          <li>Adopt our safeguarding policy, or show one of a similar standard.</li>
+          <li>Follow our code of conduct around children.</li>
+          <li>Report any concern through our procedure.</li>
+        </ul>
+      </InfoPanel>
+      <InfoPanel title="What we check" tone="grey">
+        <ul>
+          <li>Background and referee checks for people who work with children.</li>
+          <li>Training on safeguarding before work begins.</li>
+          <li>How they store and protect data. See our <a href={routes.privacy}>privacy and data</a> page.</li>
+        </ul>
+      </InfoPanel>
+    </div>
+  </section>
+
+  <section class="band band--sunk">
+    <div class="gov container">
+      <SectionTitle title="Data about children and families" rule="grey" />
+      <div class="gov__panels">
+        <InfoPanel title="Our line" tone="blue" bullets={false}>
+          <p>A child's data is never a revenue line. We do not sell it, rent it or use it for advertising.</p>
+        </InfoPanel>
+        <InfoPanel title="In practice" tone="white">
+          <ul>
+            <li>A parent or guardian is asked for consent first, and the child is asked in words they can follow.</li>
+            <li>Images and recordings need written consent.</li>
+            <li>What we publish is aggregated and never identifies a child or family.</li>
+          </ul>
+        </InfoPanel>
+      </div>
+    </div>
+  </section>
+
+  <section class="band band--sunk">
+    <div class="gov gov--last container">
+      <SectionTitle title="Policies and documents" rule="grey" />
+      <ul class="docs">
+        {
+          documents.map((d) => (
+            <li>
+              <DocCard {...d} />
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+</Page>
+
+<style>
+  .band--sunk {
+    background: var(--surface-sunk);
+  }
+  .gov {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
+  .gov--last {
+    padding-bottom: 160px;
+  }
+  .gov__intro {
+    max-width: 640px;
+    font-size: 16px;
+    line-height: 26px;
+    color: var(--ink);
+  }
+  .gov :global(.gov__cards .ncard__body) {
+    font-size: 14px;
+    color: var(--ink);
+  }
+  .gov__panels {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+  }
+  .docs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  @media (max-width: 767px) {
+    .gov {
+      padding-top: 48px;
+      padding-bottom: 48px;
+    }
+    .gov--last {
+      padding-bottom: 96px;
+    }
+    .gov__intro {
+      font-size: 14px;
+      line-height: 22px;
+    }
+    .gov__panels {
+      grid-template-columns: 1fr;
+    }
+    .docs {
+      flex-direction: column;
+    }
+  }
+</style>

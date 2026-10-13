@@ -1,0 +1,188 @@
+---
+// "Open roles": search box, team filters and the list of roles (from src/content/roles).
+import searchIcon from "../../assets/icons/search.svg?raw";
+import FilterChips from "../ui/FilterChips.astro";
+import RoundArrow from "../ui/RoundArrow.astro";
+import { getRoles, formatDotDate } from "../../lib/content";
+
+interface Props {
+  /** Where a role links when it has no applyUrl of its own */
+  fallbackHref: string;
+}
+const { fallbackHref } = Astro.props;
+const roles = await getRoles();
+const teams = ["Research", "Product", "Programmes"];
+---
+
+<div class="roles" data-filter-root>
+  <label class="search">
+    <span class="search__icon" aria-hidden="true" set:html={searchIcon} />
+    <span class="visually-hidden">Search roles</span>
+    <input type="search" placeholder="Search" data-filter-search />
+  </label>
+  <FilterChips options={teams} label="Filter roles by team" />
+
+  <ul class="roles__list">
+    {
+      roles.map((r) => (
+        <li
+          data-filter-item
+          data-filter-tag={r.data.team}
+          data-filter-text={`${r.data.title} ${r.data.team} ${r.data.location}`}
+        >
+          <a href={r.data.applyUrl ?? fallbackHref} class="role">
+            <span class="role__id">
+              <strong class="role__title">{r.data.title}</strong>
+              <span class="role__dash" aria-hidden="true" />
+              <time class="role__date" datetime={r.data.posted}>
+                {formatDotDate(r.data.posted)}
+              </time>
+            </span>
+            <span class="role__team">{r.data.team}</span>
+            <span class="role__place">
+              {r.data.location} <span aria-hidden="true">•</span> {r.data.arrangement}
+            </span>
+            <RoundArrow />
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+  <p class="roles__empty" data-filter-empty hidden>No roles match that search right now.</p>
+</div>
+
+<style>
+  .roles {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  .search {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    max-width: 1016px;
+    padding: 16px;
+    border: 1px solid var(--input-border);
+    border-radius: var(--radius-md);
+    background: var(--paper);
+  }
+  .search:focus-within {
+    border-color: var(--cobalt-400);
+  }
+  .search__icon :global(svg) {
+    width: 20px;
+    height: 20px;
+  }
+  .search input {
+    flex: 1;
+    border: 0;
+    outline: none;
+    background: none;
+    font: inherit;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0.224px;
+    color: var(--ink);
+  }
+  .search input::placeholder {
+    color: var(--placeholder);
+  }
+
+  .roles__list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin: 0;
+    padding: 10px 0 0;
+    list-style: none;
+  }
+  .role {
+    display: grid;
+    grid-template-columns: minmax(0, 400px) 150px 200px auto;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 100px;
+    padding: 24px;
+    border-radius: var(--radius-md);
+    background: var(--cobalt-50);
+  }
+  .role__id {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
+  }
+  .role__title {
+    font-size: 20px;
+    line-height: 28px;
+    color: var(--ink-strong);
+  }
+  .role__dash {
+    width: 10px;
+    height: 1px;
+    background: var(--ink-strong);
+  }
+  .role__date {
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: 0.9px;
+    color: var(--ink-strong);
+  }
+  .role__team,
+  .role__place {
+    font-size: 16px;
+    line-height: 26px;
+    color: var(--text-subtle);
+  }
+  .role :global(.round-arrow) {
+    margin-right: 30px;
+  }
+  .role:hover :global(.round-arrow) {
+    transform: translateX(15px);
+  }
+  .roles__empty {
+    font-size: 16px;
+    color: var(--text-subtle);
+  }
+  @media (max-width: 1023px) {
+    .role {
+      grid-template-columns: 1fr auto;
+      gap: 4px 16px;
+    }
+    .role__id {
+      grid-column: 1;
+    }
+    .role__team,
+    .role__place {
+      grid-column: 1;
+    }
+    .role :global(.round-arrow) {
+      grid-column: 2;
+      grid-row: 1 / span 3;
+      margin-right: 0;
+    }
+  }
+  @media (max-width: 767px) {
+    .role {
+      padding: 20px;
+    }
+    .role__id {
+      flex-wrap: wrap;
+      white-space: normal;
+    }
+    .role__title {
+      font-size: 16px;
+      line-height: 22px;
+    }
+    .role__date {
+      font-size: 12px;
+      letter-spacing: 0.2px;
+    }
+    .role__team,
+    .role__place {
+      font-size: 14px;
+      line-height: 20px;
+    }
+  }
+</style>

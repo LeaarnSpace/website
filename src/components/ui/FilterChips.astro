@@ -1,0 +1,57 @@
+---
+// Row of pill-shaped filter buttons ("All", then one per category). Behaviour: scripts/ui/filter.ts,
+// inside a [data-filter-root] wrapper.
+interface Props {
+  options: string[];
+  label: string;
+}
+const { options, label } = Astro.props;
+---
+
+<div class="chips" role="group" aria-label={label}>
+  <button type="button" class="chip" data-filter-value="all" aria-pressed="true">All</button>
+  {
+    options.map((o) => (
+      <button type="button" class="chip" data-filter-value={o} aria-pressed="false">
+        {o}
+      </button>
+    ))
+  }
+</div>
+
+<script>
+  import { initFilters } from "../../scripts/ui/filter";
+  initFilters();
+</script>
+
+<style>
+  .chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .chip {
+    padding: 7px 14px;
+    border: 1px solid var(--panel-border);
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text-muted);
+    transition:
+      background-color 0.25s ease,
+      border-color 0.25s ease,
+      color 0.25s ease;
+  }
+  .chip:hover {
+    border-color: var(--cobalt-200);
+  }
+  .chip[aria-pressed="true"] {
+    background: var(--cobalt-600);
+    border-color: var(--cobalt-600);
+    color: var(--paper);
+  }
+  .chip:focus-visible {
+    outline: 2px solid var(--focus-ring);
+    outline-offset: 2px;
+  }
+</style>

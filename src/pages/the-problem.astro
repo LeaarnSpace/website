@@ -1,0 +1,24 @@
+---
+import Page from "../layouts/Page.astro";
+import PageHero from "../components/ui/PageHero.astro";
+import AminaScore from "../components/problem/AminaScore.astro";
+import BeyondNumbers from "../components/problem/BeyondNumbers.astro";
+import EvidenceGap from "../components/problem/EvidenceGap.astro";
+import OurResponse from "../components/problem/OurResponse.astro";
+---
+
+<Page
+  title="The Problem"
+  description="What decides learning outcomes. Most of it happens outside the classroom, and most of it is unmeasured."
+>
+  <PageHero
+    eyebrow="The Problem"
+    title="What decides learning outcomes"
+    lede="Most of it happens outside the classroom, and most of it is unmeasured."
+    size="lg"
+  />
+  <AminaScore />
+  <BeyondNumbers />
+  <EvidenceGap />
+  <OurResponse />
+</Page>

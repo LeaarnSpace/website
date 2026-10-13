@@ -1,0 +1,222 @@
+---
+import Page from "../layouts/Page.astro";
+import PageHero from "../components/ui/PageHero.astro";
+import SectionTitle from "../components/ui/SectionTitle.astro";
+import NumberedCards from "../components/ui/NumberedCards.astro";
+import LegalLayout, { type TocGroup } from "../components/legal/LegalLayout.astro";
+import LegalSection from "../components/legal/LegalSection.astro";
+import Note from "../components/legal/Note.astro";
+import QuestionsBox from "../components/legal/QuestionsBox.astro";
+import { routes } from "../data/navigation";
+
+// TODO: replace with the real data contact address
+const contactHref = "#contact";
+
+const principles = [
+  { title: "We collect what we need", body: "Only what helps us understand the conditions that shape learning" },
+  { title: "A child’s data is never a revenue line", body: "We do not sell it, rent it or use it for advertising." },
+  { title: "You decide", body: "Taking part is a choice, and you can change your mind at any time." },
+  {
+    title: "Findings are published, people are not",
+    body: "What we publish is aggregated and does not identify anyone.",
+  },
+];
+
+const toc: TocGroup[] = [
+  {
+    heading: "Privacy",
+    items: [
+      { id: "who-we-are", label: "Who we are" },
+      { id: "what-we-collect", label: "What we collect" },
+      { id: "how-we-use-it", label: "How we use it" },
+      { id: "who-we-share-it-with", label: "Who we share it with" },
+      { id: "keeping-it-safe", label: "Keeping it safe" },
+      { id: "your-rights", label: "Your rights" },
+    ],
+  },
+  {
+    heading: "Data and consent",
+    items: [
+      { id: "how-consent-works", label: "How consent works" },
+      { id: "childrens-data", label: "Children's data" },
+      { id: "research-data", label: "Research data" },
+      { id: "withdrawing-consent", label: "Withdrawing consent" },
+      { id: "contact-us", label: "Contact us" },
+    ],
+  },
+];
+
+const collected = [
+  ["Website visitors", "Basic usage data such as pages viewed and device type. Add cookies detail."],
+  ["Newsletter and contact", "Your name, email address and the message you send us."],
+  ["Job applicants", "The details you give us in your application."],
+  ["Research participants and product users", "Survey answers and product usage. See Data and consent below."],
+];
+---
+
+<Page
+  title="Privacy and data"
+  description="What we collect, why we collect it, how we protect it, and the choices you have."
+>
+  <PageHero
+    eyebrow="Legal"
+    title="Privacy and data"
+    lede="What we collect, why we collect it, how we protect it, and the choices you have. Written to be read."
+    meta="Last updated: 12/09/2026"
+  />
+
+  <section class="band band--surface">
+    <div class="short container">
+      <SectionTitle title="In short" rule="grey" />
+      <NumberedCards items={principles} variant="compact" />
+    </div>
+  </section>
+
+  <LegalLayout toc={toc}>
+    <div class="part">
+      <SectionTitle title="Privacy" rule="grey" />
+      <LegalSection id="who-we-are" number={1} title="Who we are">
+        <p>
+          Learn Space is a trading name of Learn Space Limited, registered in Nigeria. We decide how and why personal
+          data is used in our work, which makes us the data controller.
+        </p>
+      </LegalSection>
+      <LegalSection id="what-we-collect" number={2} title="What we collect">
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead>
+              <tr><th scope="col">Who</th><th scope="col">What we may collect</th></tr>
+            </thead>
+            <tbody>
+              {
+                collected.map(([who, what]) => (
+                  <tr>
+                    <>
+                      <td>{who}</td>
+                      <td>{what}</td>
+                    </>
+                  </tr>
+                ))
+              }
+            </tbody>
+          </table>
+        </div>
+      </LegalSection>
+      <LegalSection id="how-we-use-it" number={3} title="How we use it">
+        <ul>
+          <li>To reply to you and send updates you asked for.</li>
+          <li>To run our products and understand how they work.</li>
+          <li>To produce research findings that are aggregated and anonymised.</li>
+          <li>To meet legal obligations and keep our services secure.</li>
+        </ul>
+        <Note>We do not sell personal data, and we do not use it for advertising.</Note>
+      </LegalSection>
+      <LegalSection id="who-we-share-it-with" number={4} title="Who we share it with">
+        <p>
+          Only with service providers who process data for us under written terms, and with authorities where the law
+          requires it. Add named categories of provider here. Where a funder has an interest in a study, we declare it,
+          and funders do not receive identifiable data.
+        </p>
+      </LegalSection>
+      <LegalSection id="keeping-it-safe" number={5} title="Keeping it safe and how long we keep it">
+        <p>
+          We limit access to those who need it, protect data in storage and in transit, and keep it only as long as the
+          purpose requires. Add retention periods by data type.
+        </p>
+      </LegalSection>
+      <LegalSection id="your-rights" number={6} title="Your rights">
+        <p>
+          You can ask to see, correct or delete your personal data, object to how it is used, and complain to the data
+          protection regulator. Add the applicable Nigerian data protection law and regulator details.
+        </p>
+      </LegalSection>
+    </div>
+
+    <div class="part" id="data-and-consent">
+      <SectionTitle title="Data and consent" rule="grey" />
+      <LegalSection id="how-consent-works" number={7} title="How consent works">
+        <p>
+          Before anyone takes part in our research or uses a product that gathers evidence, we explain in plain language
+          what we will ask, why, and what happens to the answers. Taking part is always optional, and saying no never
+          affects access to a service or school place.
+        </p>
+      </LegalSection>
+      <LegalSection id="childrens-data" number={8} title="Children’s data">
+        <p>
+          We take extra care with children. A parent or guardian is asked for consent before a child takes part, and we
+          also ask the child in words they can follow. We collect the minimum needed, and we keep it apart from anything
+          that could identify a child wherever we can.
+        </p>
+        <Note>A child's data is never a revenue line.</Note>
+      </LegalSection>
+      <LegalSection id="research-data" number={9} title="Research data">
+        <p>
+          We follow people over time, so we hold data across years. What we publish is aggregated and anonymised, and we
+          do not release information that could identify a family, teacher or student. How research is overseen is set
+          out under <a href={routes.governance}>Governance and safeguarding</a>.
+        </p>
+      </LegalSection>
+      <LegalSection id="withdrawing-consent" number={10} title="Withdrawing consent">
+        <p>
+          You can withdraw at any time, and we will stop using your data and delete it where the law allows. Findings
+          already published in aggregate cannot be undone, as they no longer identify you.
+        </p>
+      </LegalSection>
+    </div>
+
+    <QuestionsBox title="Questions about your data?" action={{ label: "Contact us", href: contactHref }}>
+      Write to our data contact: add email address.
+    </QuestionsBox>
+  </LegalLayout>
+</Page>
+
+<style>
+  .short {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+    padding-top: 64px;
+    padding-bottom: 74px;
+  }
+  .short :global(.ncard__body) {
+    color: var(--ink);
+  }
+  .part {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    scroll-margin-top: 32px;
+  }
+  .table-wrap {
+    overflow-x: auto;
+  }
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    line-height: 18px;
+    color: var(--ink);
+    text-align: left;
+  }
+  .data-table th {
+    padding: 10px 14px;
+    background: var(--cobalt-50);
+    font-weight: 600;
+  }
+  .data-table td {
+    padding: 12px 14px;
+    border-bottom: 1px solid var(--panel-border);
+    vertical-align: top;
+  }
+  .data-table th:first-child,
+  .data-table td:first-child {
+    width: 37%;
+  }
+  @media (max-width: 767px) {
+    .short {
+      gap: 32px;
+      padding-top: 48px;
+      padding-bottom: 48px;
+    }
+  }
+</style>

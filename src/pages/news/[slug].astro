@@ -1,0 +1,429 @@
+---
+// A news story's page: our framing of the story, a link to the original, our commentary
+// (the Markdown body of the story file, when there is one), related links and more news.
+import type { GetStaticPaths } from "astro";
+import { getCollection, render, type CollectionEntry } from "astro:content";
+import { Image } from "astro:assets";
+import Page from "../../layouts/Page.astro";
+import SectionTitle from "../../components/ui/SectionTitle.astro";
+import NewsCard from "../../components/news/NewsCard.astro";
+import arrow from "../../assets/icons/arrow-dark.svg?raw";
+import { getNewsByDate, formatLongDate } from "../../lib/content";
+import { routes } from "../../data/navigation";
+
+export const getStaticPaths = (async () => {
+  const stories = await getCollection("news");
+  return stories.map((story) => ({ params: { slug: story.id }, props: { story } }));
+}) satisfies GetStaticPaths;
+
+interface Props {
+  story: CollectionEntry<"news">;
+}
+const { story } = Astro.props;
+const { data } = story;
+const { Content } = await render(story);
+const hasTake = Boolean(story.body?.trim());
+const more = (await getNewsByDate()).filter((s) => s.id !== story.id).slice(0, 3);
+const byline = [data.author && `Note by ${data.author}`, data.reviewer && `Reviewed by ${data.reviewer}`]
+  .filter(Boolean)
+  .join(" · ");
+---
+
+<Page title={data.title} description={data.summary ?? data.title}>
+  <article>
+    <header class="story container">
+      <a href={routes.news} class="back" aria-label="Back to all news"><span set:html={arrow} /></a>
+      <div class="story__intro">
+        <div class="story__copy">
+          <p class="story__meta">
+            <span class="story__cat">{data.category}</span>
+            {hasTake && <span class="story__take">LearnSpace take</span>}
+            <time datetime={data.date}>{formatLongDate(data.date)}</time>
+          </p>
+          <h1 class="story__title" data-lines data-lines-immediate>{data.title}</h1>
+          {byline && <p class="story__byline">{byline}</p>}
+        </div>
+        {
+          data.image && (
+            <Image
+              src={data.image}
+              alt=""
+              widths={[495, 990]}
+              sizes="(max-width: 1023px) 100vw, 495px"
+              class="story__img"
+            />
+          )
+        }
+      </div>
+    </header>
+
+    <section class="source container">
+      <div class="original">
+        <div class="original__copy">
+          <p class="original__label">The original story</p>
+          <h2 class="original__title">{data.title}</h2>
+          <p class="original__note">
+            {[data.source, formatLongDate(data.date)].filter(Boolean).join(" · ")}.
+            {data.summary}
+          </p>
+        </div>
+        {
+          data.sourceUrl && (
+            <a href={data.sourceUrl} class="original__btn" target="_blank" rel="noopener">
+              Read at source
+              <span class="original__arrow" aria-hidden="true" set:html={arrow} />
+              <span class="visually-hidden">(opens in a new tab)</span>
+            </a>
+          )
+        }
+      </div>
+
+      {
+        hasTake && (
+          <div class="take">
+            <SectionTitle title="Why this matters" rule="grey" />
+            <div class="take__body">
+              <Content />
+            </div>
+          </div>
+        )
+      }
+    </section>
+
+    <section class="related container">
+      {
+        data.related.length > 0 && (
+          <div class="related__block">
+            <SectionTitle title="Related from LearnSpace" rule="grey" />
+            <ul class="related__cards">
+              {data.related.map((r) => (
+                <li>
+                  <a href={r.href} class="rcard">
+                    <span class="rcard__badge">{r.type}</span>
+                    <span class="rcard__title">{r.title}</span>
+                    <span class="rcard__link">
+                      {r.linkLabel}
+                      <span class="rcard__arrow" aria-hidden="true" set:html={arrow} />
+                    </span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )
+      }
+      <div class="related__block">
+        <SectionTitle title="More news" rule="grey" />
+        <ul class="related__more">
+          {
+            more.map((s) => (
+              <li>
+                <NewsCard story={s} />
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </section>
+  </article>
+</Page>
+
+<style>
+  .story {
+    padding-top: 64px;
+    padding-bottom: 12px;
+  }
+  .back {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-pill);
+    background: var(--paper);
+    filter: drop-shadow(0 1px 1px var(--shadow-color-sm));
+    transition: transform 0.3s ease;
+  }
+  .back:hover {
+    transform: translateX(-6px);
+  }
+  .back :global(svg) {
+    width: 24px;
+    height: 24px;
+  }
+  .story__intro {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 48px;
+    padding-top: 48px;
+  }
+  .story__copy {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    max-width: 639px;
+  }
+  .story__meta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 18px;
+    letter-spacing: 0.196px;
+    color: var(--text-subtle);
+  }
+  .story__cat {
+    color: var(--cobalt-600);
+  }
+  .story__take {
+    padding: 4px 12px;
+    border-radius: var(--radius-sm);
+    background: var(--beam-400);
+    color: var(--ink);
+  }
+  .story__title {
+    font-size: 40px;
+    font-weight: 700;
+    color: var(--ink);
+  }
+  .story__byline {
+    font-size: 14px;
+    line-height: 18px;
+    color: var(--ink);
+  }
+  .story :global(.story__img) {
+    flex-shrink: 0;
+    width: 495px;
+    height: 307px;
+    object-fit: cover;
+    border-radius: var(--radius-sm);
+  }
+
+  .source {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
+  .original {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+    padding: 24px;
+    border-radius: var(--radius-sm);
+    background: var(--cobalt-50);
+  }
+  .original__copy {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-width: 470px;
+  }
+  .original__label {
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 18px;
+    letter-spacing: 0.196px;
+    color: var(--text-subtle);
+  }
+  .original__title {
+    padding-top: 4px;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 24px;
+    color: var(--ink);
+  }
+  .original__note {
+    font-size: 14px;
+    line-height: 18px;
+    color: var(--text-subtle);
+  }
+  .original__btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+    padding: 12px 24px;
+    border-radius: 4px;
+    background: var(--cobalt-600);
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--paper);
+    transition: background-color 0.3s ease;
+  }
+  .original__btn:hover {
+    background: var(--cobalt-700);
+  }
+  .original__arrow {
+    display: inline-flex;
+    transform: rotate(135deg);
+  }
+  .original__arrow :global(svg) {
+    width: 16px;
+    height: 16px;
+  }
+  .original__arrow :global(path) {
+    fill: var(--paper);
+  }
+
+  .take {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+  .take__body {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    max-width: 720px;
+    font-size: 16px;
+    line-height: 26px;
+    color: var(--ink);
+  }
+  .take__body :global(p) {
+    margin: 0;
+  }
+  .take__body :global(blockquote) {
+    margin: 0;
+    padding: 8px 0 8px 18px;
+    border-left: 1px solid var(--cobalt-400);
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 24px;
+  }
+
+  .related {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+    padding-top: 64px;
+    padding-bottom: 160px;
+  }
+  .related__block {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+  .related__cards {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .rcard {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    height: 100%;
+    padding: 24px 18px;
+    border: 1px solid var(--cobalt-400);
+    border-radius: var(--radius-sm);
+    background: var(--paper);
+    transition: background-color 0.3s ease;
+  }
+  .rcard:hover {
+    background: var(--cobalt-50);
+  }
+  .rcard__badge {
+    padding: 4px 12px;
+    border-radius: var(--radius-pill);
+    background: var(--blue-100);
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 18px;
+    letter-spacing: 0.196px;
+    color: var(--blue-700);
+  }
+  .rcard__title {
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 24px;
+    color: var(--ink);
+  }
+  .rcard__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 16px;
+    line-height: 26px;
+    color: var(--cobalt-600);
+  }
+  .rcard__arrow {
+    display: inline-flex;
+    transform: rotate(180deg);
+    transition: transform 0.3s ease;
+  }
+  .rcard:hover .rcard__arrow {
+    transform: rotate(180deg) translateX(-6px);
+  }
+  .rcard__arrow :global(svg) {
+    width: 20px;
+    height: 20px;
+  }
+  .rcard__arrow :global(path) {
+    fill: var(--cobalt-600);
+  }
+  .related__more {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  @media (max-width: 1023px) {
+    .story__intro {
+      flex-direction: column-reverse;
+      align-items: stretch;
+    }
+    .story :global(.story__img) {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 495 / 307;
+    }
+  }
+  @media (max-width: 767px) {
+    .story {
+      padding-top: 24px;
+    }
+    .story__intro {
+      gap: 24px;
+      padding-top: 24px;
+    }
+    .story__meta {
+      flex-wrap: wrap;
+      font-size: 12px;
+    }
+    .story__title {
+      font-size: 26px;
+    }
+    .original {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .source,
+    .related {
+      gap: 32px;
+      padding-top: 40px;
+      padding-bottom: 40px;
+    }
+    .related {
+      padding-bottom: 96px;
+    }
+    .related__cards {
+      grid-template-columns: 1fr;
+    }
+    .take__body {
+      font-size: 14px;
+      line-height: 22px;
+    }
+  }
+</style>

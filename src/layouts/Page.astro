@@ -1,0 +1,21 @@
+---
+// Standard inner page: header, the page's sections on a panel that lifts off the footer,
+// then the shared footer zone.
+import Base from "./Base.astro";
+import Nav from "../components/layout/Nav.astro";
+import FooterZone from "../components/layout/FooterZone.astro";
+
+interface Props {
+  title: string;
+  description?: string;
+}
+const { title, description } = Astro.props;
+---
+
+<Base title={`${title} — Learn Space`} description={description}>
+  <div class="layer layer--flat layer--white layer--lift">
+    <Nav />
+    <slot />
+  </div>
+  <FooterZone />
+</Base>

@@ -18,6 +18,16 @@
   --black: #000000;
   /* Darker cobalt for hover text (Figma "semantic/primary-hover") */
   --cobalt-700: #003a87;
+  /* Status badges ("Tracked") and pill labels */
+  --blue-100: #e7ebfd;
+  --blue-700: #152a9e;
+  /* Secondary text and thin panel borders on The Problem page */
+  --text-subtle: #5a6b85;
+  --panel-border: #d5dbe6;
+  /* Inputs and hover fills */
+  --input-border: #e4e5f0;
+  --placeholder: #8c8faa;
+  --surface-sunk: #f2f5fa;
   /* Keyboard focus outline */
   --focus-ring: #10269c;
 
@@ -48,6 +58,8 @@
   --font-logotype: "Fredoka One", "Fredoka", system-ui, sans-serif;
   --font-mansalva: "Mansalva", cursive;
   --font-medula: "Medula One", system-ui, sans-serif;
+  /* Large figures (e.g. the "5 / 5" counter) */
+  --font-figures: "Montserrat", "Manrope", system-ui, sans-serif;
 
   --gutter: 64px;
   --max: 1440px;

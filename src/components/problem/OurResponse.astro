@@ -1,0 +1,66 @@
+---
+// "What we are doing about it" with inline links to the products and the insights.
+import { routes } from "../../data/navigation";
+---
+
+<section class="band band--surface">
+  <div class="response container">
+    <h2 class="response__title" data-lines>What we are doing about it</h2>
+    <p class="response__body">
+      Crafting <a href={routes.ourWork} class="inline-btn">products</a> people rely on weekly, and turning usage into published
+      <a href={routes.insights} class="inline-btn">insights</a> — shared openly, not shelved.
+    </p>
+  </div>
+</section>
+
+<style>
+  .response {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    padding-top: 95px;
+    padding-bottom: 160px;
+    text-align: center;
+  }
+  .response__title {
+    font-size: 40px;
+    font-weight: 400;
+    letter-spacing: 0.42px;
+    color: var(--ink-strong);
+  }
+  .response__body {
+    max-width: 600px;
+    font-size: 16px;
+    line-height: 26px;
+    color: var(--text-muted);
+  }
+  /* Text link styled as the Figma ghost button: cobalt text, soft fill on hover */
+  .inline-btn {
+    padding: 2px 6px;
+    margin: 0 -2px;
+    border-radius: var(--radius-md);
+    font-weight: 500;
+    color: var(--cobalt-600);
+    transition: background-color 0.3s ease;
+  }
+  .inline-btn:hover {
+    background: var(--cobalt-50);
+  }
+  .inline-btn:focus-visible {
+    outline: 2px solid var(--focus-ring);
+  }
+  @media (max-width: 767px) {
+    .response {
+      padding-top: 56px;
+      padding-bottom: 96px;
+    }
+    .response__title {
+      font-size: 24px;
+    }
+    .response__body {
+      font-size: 14px;
+      line-height: 22px;
+    }
+  }
+</style>

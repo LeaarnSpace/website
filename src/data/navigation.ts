@@ -55,3 +55,10 @@ export const footerNav: { title: string; links: NavLink[] }[] = [
     ],
   },
 ];
+
+/** Where the podcast/video episodes can be followed ("Take us with you" on the Blog pages) */
+// TODO: replace with the real channel links
+export const podcastLinks = {
+  youtube: "https://www.youtube.com/",
+  spotify: "https://open.spotify.com/",
+};

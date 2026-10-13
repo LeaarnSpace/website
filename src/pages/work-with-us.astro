@@ -1,0 +1,137 @@
+---
+import Page from "../layouts/Page.astro";
+import PageHero from "../components/ui/PageHero.astro";
+import Button from "../components/ui/Button.astro";
+import SectionTitle from "../components/ui/SectionTitle.astro";
+import NumberedCards from "../components/ui/NumberedCards.astro";
+import Callout from "../components/ui/Callout.astro";
+import BenefitCards from "../components/careers/BenefitCards.astro";
+import RoleBrowser from "../components/careers/RoleBrowser.astro";
+
+// TODO: point at the real application / introduction form once it exists
+const introduceHref = "#introduce";
+
+const benefits = [
+  { title: "Fair, transparent pay", body: "Add your pay approach and how bands are set." },
+  {
+    title: "Flexible, remote work",
+    body: "Shape your schedule and choose where you work best — no fixed office required.",
+  },
+  {
+    title: "Growth-first culture",
+    body: "Dedicated learning budgets and mentorship to keep you advancing every quarter.",
+  },
+  {
+    title: "Real impact, weekly",
+    body: "Your work reaches real users every week — no waiting months to see results.",
+  },
+];
+
+const steps = [
+  { title: "Apply", body: "Send your CV and a short note on why this problem." },
+  { title: "Conversation", body: "A relaxed call with the person you would work with." },
+  { title: "Practical Task", body: "A short, unpaid exercise based on real work." },
+  { title: "Decision", body: "We reply within a set time, whatever the outcome." },
+];
+// Figma "How hiring works" rise timing (2s timeline): delay,duration per card
+const stepTiming = "0,1.2;0.43,1.2;0.99,1.01;1.65,0.35";
+---
+
+<Page
+  title="Work With Us"
+  description="A small team working on the conditions that decide learning outcomes in Nigeria. See open roles or introduce yourself."
+>
+  <PageHero
+    eyebrow="Work with Us"
+    title="Help us make the unmeasured visible"
+    lede="We are a small team working on the conditions that decide learning outcomes in Nigeria. If that is the kind of problem you want to spend years on, read on."
+    size="lg"
+  >
+    <Fragment slot="actions">
+      <Button href="#open-roles" label="See open roles" />
+      <Button href={introduceHref} label="Introduce yourself" variant="secondary" />
+    </Fragment>
+  </PageHero>
+
+  <section class="band band--surface">
+    <div class="offer container">
+      <h2 class="offer__title" data-lines>What we offer</h2>
+      <BenefitCards items={benefits} />
+    </div>
+  </section>
+
+  <section class="open container" id="open-roles">
+    <SectionTitle title="Open roles" rule="grey" />
+    <RoleBrowser fallbackHref={introduceHref} />
+  </section>
+
+  <section class="band band--surface">
+    <div class="hiring container">
+      <SectionTitle title="How hiring works" rule="grey" />
+      <NumberedCards items={steps} variant="compact" timing={stepTiming} />
+    </div>
+  </section>
+
+  <div class="general" id="introduce">
+    <Callout
+      size="sm"
+      title="Do not see your role?"
+      body="Tell us what you would bring. We are always glad to hear from people who care about how children learn."
+      action={{ label: "Introduce yourself", href: introduceHref }}
+      class="general__callout"
+    />
+  </div>
+</Page>
+
+<style>
+  .offer {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+  .offer__title {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--ink-strong);
+  }
+  .open {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+    padding-top: 64px;
+    padding-bottom: 64px;
+    scroll-margin-top: 24px;
+  }
+  .hiring {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+    padding-top: 64px;
+    padding-bottom: 74px;
+  }
+  /* Full-width light blue strip at the end of the page */
+  .general {
+    padding-bottom: 96px;
+  }
+  .general :global(.general__callout) {
+    padding-inline: max(var(--gutter), calc((100vw - var(--max)) / 2 + var(--gutter)));
+    border-radius: 0;
+  }
+  @media (max-width: 767px) {
+    .offer,
+    .open,
+    .hiring {
+      gap: 32px;
+      padding-top: 48px;
+      padding-bottom: 48px;
+    }
+    .offer__title {
+      font-size: 20px;
+    }
+    .general :global(.general__callout) {
+      padding: 28px 20px;
+    }
+  }
+</style>

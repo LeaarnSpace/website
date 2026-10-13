@@ -1,0 +1,183 @@
+---
+// Blog card (homepage carousel, Blog list): image, optional "1h 20m • date" line and play icon for
+// video/podcast posts, title, excerpt, and a round arrow that turns light cobalt and nudges on hover.
+import type { CollectionEntry } from "astro:content";
+import { Image } from "astro:assets";
+import arrowDark from "../../assets/icons/arrow-dark.svg?raw";
+import play from "../../assets/icons/play.svg?raw";
+import { routes } from "../../data/navigation";
+
+interface Props {
+  post: CollectionEntry<"blog">;
+}
+const { post } = Astro.props;
+const { data } = post;
+/** "2026-10-07" → "07/10/2026" (the format on the Figma cards) */
+const shortDate = data.date ? data.date.split("-").reverse().join("/") : undefined;
+const meta = [data.duration, shortDate].filter(Boolean);
+---
+
+<a href={`${routes.blog}/${post.id}`} class="post-card">
+  <div class="post-card__media">
+    <div class="post-card__frame">
+      <Image src={data.image} alt="" widths={[420, 840]} sizes="420px" class="post-card__img" />
+    </div>
+    {
+      data.duration && (
+        <span class="post-card__play" aria-hidden="true">
+          <span set:html={play} />
+        </span>
+      )
+    }
+  </div>
+  {
+    meta.length > 0 && (
+      <p class="post-card__meta">
+        {meta.map((m, i) => (
+          <>
+            {i > 0 && <span class="post-card__dot" aria-hidden="true" />}
+            <span>{m}</span>
+          </>
+        ))}
+      </p>
+    )
+  }
+  <h3 class="post-card__title">{data.title}</h3>
+  <p class="post-card__excerpt">{data.excerpt}</p>
+  <span class="post-card__arrow" aria-hidden="true">
+    <span class="post-card__flip" set:html={arrowDark} />
+  </span>
+</a>
+
+<style>
+  .post-card {
+    display: flex;
+    flex-direction: column;
+    height: 440px;
+  }
+  .post-card__media {
+    position: relative;
+    height: 244px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 24px;
+  }
+  /* On hover the whole image (rounded corners included) grows slightly */
+  .post-card__frame {
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+    border-radius: var(--radius-md);
+    transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .post-card:hover .post-card__frame {
+    transform: scale(1.04);
+  }
+  .post-card__media :global(.post-card__img) {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: var(--radius-md);
+  }
+  .post-card__play {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-pill);
+    background: var(--paper);
+    transform: translate(-50%, -50%);
+  }
+  .post-card__play :global(svg) {
+    width: 24px;
+    height: 24px;
+  }
+  .post-card__meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+    font-size: 14px;
+    line-height: 18px;
+    color: var(--ink);
+  }
+  .post-card__dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--ink);
+  }
+  .post-card__title {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--black);
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    min-height: 56px;
+    margin-bottom: 8px;
+  }
+  .post-card__excerpt {
+    font-size: 14px;
+    line-height: 18px;
+    color: var(--black);
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .post-card__arrow {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    margin: auto 20px 0 auto;
+    border-radius: var(--radius-pill);
+    background: var(--paper);
+    filter: drop-shadow(0 1px 1px var(--shadow-color-sm));
+    transition:
+      background-color 0.3s ease,
+      transform 0.3s ease;
+  }
+  .post-card__arrow :global(svg) {
+    width: 24px;
+    height: 24px;
+  }
+  .post-card__flip {
+    display: inline-flex;
+    transform: rotate(180deg);
+  }
+  /* Arrow nudges forward and switches to the Figma hover shade */
+  .post-card:hover .post-card__arrow {
+    transform: translateX(15px);
+    background: var(--action-primary-hover);
+  }
+  @media (max-width: 767px) {
+    .post-card__title {
+      font-size: 18px;
+      min-height: 0;
+    }
+  }
+  @media (max-width: 640px) {
+    .post-card {
+      height: auto;
+    }
+    .post-card__media {
+      height: auto;
+    }
+    .post-card__frame,
+    .post-card__media :global(.post-card__img) {
+      height: 180px;
+    }
+    .post-card__arrow {
+      margin-top: 16px;
+    }
+  }
+</style>

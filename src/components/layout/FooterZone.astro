@@ -1,0 +1,17 @@
+---
+// "Stay close to us" (sits underneath the panel above it) and the navy footer card that rises
+// from the bottom. Used at the end of every page; motion lives in scripts/motion/footer.ts.
+import StayClose from "./StayClose.astro";
+import Footer from "./Footer.astro";
+---
+
+<div class="footer-zone" data-footer>
+  <section class="footer-cv" data-footer-cv>
+    <StayClose />
+  </section>
+  <div class="footer-foot">
+    <footer class="footer-card layer--navy" data-footer-card>
+      <Footer />
+    </footer>
+  </div>
+</div>

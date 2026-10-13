@@ -1,0 +1,119 @@
+---
+// "Gathering this evidence is slow, unglamorous, and longitudinal." — yellow highlights sweep in
+// behind the three words (Figma "Orange Highlight - Masked Reveal"), followed by two panels.
+const panels = [
+  {
+    title: "Why the gap persists",
+    body: [
+      "It means returning to the same families, teachers and students over years, and it does not pay quickly.",
+      "Research projects end when funding ends. Surveys are a snapshot. Very little in this market is longitudinal.",
+    ],
+  },
+  {
+    title: "What it costs",
+    body: [
+      "Programmes get designed against assumptions. Interventions are evaluated on outputs because the inputs were never observed.",
+      "Money moves without a clear picture of what actually moves outcomes here, as opposed to what moved them somewhere else.",
+    ],
+  },
+];
+---
+
+<section class="gap container">
+  <p class="gap__statement" data-highlights>
+    Gathering this evidence is <mark data-highlight data-highlight-delay="0.15">slow</mark>, <mark
+      data-highlight
+      data-highlight-delay="0.35">unglamorous</mark
+    >, and <mark data-highlight data-highlight-delay="0.55">longitudinal</mark>.<br />So it rarely gets done.
+  </p>
+  <div class="gap__panels">
+    {
+      panels.map((p) => (
+        <div class="gap__panel">
+          <h2 class="gap__title">{p.title}</h2>
+          {p.body.map((para) => (
+            <p>{para}</p>
+          ))}
+        </div>
+      ))
+    }
+  </div>
+</section>
+
+<style>
+  .gap {
+    display: flex;
+    flex-direction: column;
+    gap: 56px;
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
+  .gap__statement {
+    max-width: 900px;
+    font-size: 56px;
+    line-height: 68px;
+    color: var(--ink);
+  }
+  /* Yellow block behind the word; scaled from 0 to full width by scripts/motion/highlight.ts */
+  mark {
+    position: relative;
+    background: none;
+    color: inherit;
+    padding: 0 6px;
+    margin: 0 -2px;
+    isolation: isolate;
+  }
+  mark::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: var(--beam-400);
+    transform-origin: left;
+    transform: scaleX(var(--reveal, 1));
+  }
+  .gap__panels {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  .gap__panel {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 32px;
+    border: 1px solid var(--panel-border);
+    border-radius: 4px;
+    font-size: 16px;
+    line-height: 26px;
+    color: var(--text-muted);
+  }
+  .gap__title {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 28px;
+    color: var(--ink-strong);
+  }
+  @media (max-width: 767px) {
+    .gap {
+      gap: 32px;
+      padding-top: 48px;
+      padding-bottom: 48px;
+    }
+    .gap__statement {
+      font-size: 30px;
+      line-height: 40px;
+    }
+    .gap__panels {
+      grid-template-columns: 1fr;
+    }
+    .gap__panel {
+      padding: 24px 20px;
+      font-size: 14px;
+      line-height: 20px;
+    }
+    .gap__title {
+      font-size: 18px;
+    }
+  }
+</style>

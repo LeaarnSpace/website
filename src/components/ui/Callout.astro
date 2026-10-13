@@ -1,0 +1,88 @@
+---
+// Light-blue banner with a heading, a line of text and a button (Figma "Governance Callout").
+import Button from "./Button.astro";
+
+interface Props {
+  title: string;
+  body: string;
+  action: { label: string; href: string };
+  /** "lg": 28px title (Who We Are). "sm": 20px title, 14px text (Work With Us) */
+  size?: "lg" | "sm";
+  class?: string;
+}
+const { title, body, action, size = "lg", class: className } = Astro.props;
+---
+
+<aside class:list={["callout", `callout--${size}`, className]}>
+  <div class="callout__copy">
+    <h2 class="callout__title">{title}</h2>
+    <p class="callout__body">{body}</p>
+  </div>
+  <Button href={action.href} label={action.label} />
+</aside>
+
+<style>
+  .callout {
+    display: flex;
+    align-items: center;
+    gap: 48px;
+    padding: 48px;
+    border-radius: var(--radius-md);
+    background: var(--cobalt-50);
+  }
+  .callout__copy {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .callout__title {
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: 0.322px;
+    color: var(--ink-strong);
+  }
+  .callout__body {
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: 0.9px;
+    color: var(--text-muted);
+  }
+  .callout--sm {
+    padding: 36px;
+    border-radius: 4px;
+  }
+  .callout--sm .callout__copy {
+    gap: 6px;
+  }
+  .callout--sm .callout__title {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 28px;
+    letter-spacing: 0;
+    color: var(--ink);
+  }
+  .callout--sm .callout__body {
+    max-width: 560px;
+    font-size: 14px;
+    line-height: normal;
+    letter-spacing: 0;
+    color: var(--ink);
+  }
+  @media (max-width: 767px) {
+    .callout {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 24px;
+      padding: 28px 24px;
+    }
+    .callout__title {
+      font-size: 20px;
+    }
+    .callout__body {
+      font-size: 14px;
+      line-height: 18px;
+      letter-spacing: 0.2px;
+    }
+  }
+</style>

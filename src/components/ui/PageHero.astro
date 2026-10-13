@@ -1,0 +1,114 @@
+---
+// Centred page hero: optional pill label, title, intro line and buttons. An illustration
+// can be passed in the "art" slot; buttons go in the "actions" slot.
+interface Props {
+  title: string;
+  lede?: string;
+  /** Small pill above the title, e.g. "Legal" */
+  eyebrow?: string;
+  /** Extra line under the lede, e.g. "Last updated …" */
+  meta?: string;
+  /** "lg": 72px title with a smaller intro line (The Problem, Work With Us) */
+  size?: "md" | "lg";
+}
+const { title, lede, eyebrow, meta, size = "md" } = Astro.props;
+---
+
+<header class:list={["page-hero container", `page-hero--${size}`]}>
+  {
+    Astro.slots.has("art") && (
+      <div class="page-hero__art">
+        <slot name="art" />
+      </div>
+    )
+  }
+  {eyebrow && <p class="page-hero__eyebrow">{eyebrow}</p>}
+  <h1 class="page-hero__title" data-lines data-lines-immediate>{title}</h1>
+  {lede && <p class="page-hero__lede">{lede}</p>}
+  {meta && <p class="page-hero__meta">{meta}</p>}
+  {
+    Astro.slots.has("actions") && (
+      <div class="page-hero__actions">
+        <slot name="actions" />
+      </div>
+    )
+  }
+</header>
+
+<style>
+  .page-hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    padding-top: 96px;
+    padding-bottom: 96px;
+    text-align: center;
+  }
+  .page-hero__art {
+    display: flex;
+    justify-content: center;
+  }
+  .page-hero__eyebrow {
+    padding: 4px 12px;
+    border: 1px solid var(--blue-700);
+    border-radius: var(--radius-pill);
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 18px;
+    letter-spacing: 0.196px;
+    color: var(--blue-700);
+    margin-bottom: -12px;
+  }
+  .page-hero__title {
+    max-width: 940px;
+    font-size: 64px;
+    line-height: 68px;
+    font-weight: 700;
+    color: var(--ink-strong);
+  }
+  .page-hero__lede {
+    max-width: 700px;
+    font-size: 20px;
+    line-height: 28px;
+    color: var(--text-muted);
+  }
+  .page-hero--lg .page-hero__title {
+    max-width: 1000px;
+    font-size: 72px;
+    line-height: 72px;
+  }
+  .page-hero--lg .page-hero__lede {
+    max-width: 480px;
+    font-size: 16px;
+    line-height: 26px;
+  }
+  .page-hero__meta {
+    margin-top: -12px;
+    font-size: 12px;
+    line-height: 16px;
+    color: var(--text-muted);
+  }
+  .page-hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+  }
+  @media (max-width: 767px) {
+    .page-hero {
+      gap: 18px;
+      padding-top: 40px;
+      padding-bottom: 64px;
+    }
+    .page-hero__title,
+    .page-hero--lg .page-hero__title {
+      font-size: 36px;
+      line-height: 40px;
+    }
+    .page-hero__lede {
+      font-size: 14px;
+      line-height: 18px;
+    }
+  }
+</style>

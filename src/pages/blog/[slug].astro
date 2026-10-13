@@ -1,0 +1,123 @@
+---
+// A blog post: header with topic filters, full-width image, topic and date, title and the post's text
+// (the Markdown body of its file in src/content/blog).
+import type { GetStaticPaths } from "astro";
+import { getCollection, render, type CollectionEntry } from "astro:content";
+import { Image } from "astro:assets";
+import Page from "../../layouts/Page.astro";
+import BlogHeader from "../../components/blog/BlogHeader.astro";
+import { formatLongDate } from "../../lib/content";
+
+export const getStaticPaths = (async () => {
+  const posts = await getCollection("blog");
+  return posts.map((post) => ({ params: { slug: post.id }, props: { post } }));
+}) satisfies GetStaticPaths;
+
+interface Props {
+  post: CollectionEntry<"blog">;
+}
+const { post } = Astro.props;
+const { data } = post;
+const { Content } = await render(post);
+const hasBody = Boolean(post.body?.trim());
+---
+
+<Page title={data.title} description={data.excerpt}>
+  <article class="article container">
+    <BlogHeader as="p" filters={false} />
+    <Image
+      src={data.image}
+      alt=""
+      widths={[1312, 2624]}
+      sizes="(max-width: 1440px) 100vw, 1312px"
+      class="article__img"
+    />
+    <div class="article__content">
+      {
+        (data.category || data.date) && (
+          <p class="article__meta">
+            {data.category && <span class="article__badge">{data.category}</span>}
+            {data.date && <time datetime={data.date}>{formatLongDate(data.date)}</time>}
+          </p>
+        )
+      }
+      <h1 class="article__title" data-lines data-lines-immediate>{data.title.replace(/\s*\.{3,}$/, "")}</h1>
+      <div class="article__body">
+        {hasBody ? <Content /> : <p class="article__placeholder">{data.excerpt} The full post is coming soon.</p>}
+      </div>
+    </div>
+  </article>
+</Page>
+
+<style>
+  .article {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    padding-top: 64px;
+    padding-bottom: 160px;
+  }
+  .article :global(.article__img) {
+    width: 100%;
+    height: 502px;
+    object-fit: cover;
+    border-radius: var(--radius-md);
+  }
+  .article__content {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+  .article__meta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 18px;
+    letter-spacing: 0.196px;
+    color: var(--text-subtle);
+  }
+  .article__badge {
+    padding: 4px 12px;
+    border-radius: var(--radius-pill);
+    background: var(--blue-100);
+    color: var(--blue-700);
+  }
+  .article__title {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--ink);
+  }
+  .article__body {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-width: 880px;
+    font-size: 16px;
+    line-height: 26px;
+    color: var(--ink);
+  }
+  .article__body :global(p) {
+    margin: 0;
+  }
+  .article__placeholder {
+    color: var(--text-subtle);
+  }
+  @media (max-width: 767px) {
+    .article {
+      padding-top: 32px;
+      padding-bottom: 96px;
+    }
+    .article :global(.article__img) {
+      height: 240px;
+    }
+    .article__title {
+      font-size: 24px;
+    }
+    .article__body {
+      font-size: 14px;
+      line-height: 22px;
+    }
+  }
+</style>

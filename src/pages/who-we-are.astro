@@ -1,5 +1,202 @@
 ---
-import PagePlaceholder from "../components/layout/PagePlaceholder.astro";
+import Page from "../layouts/Page.astro";
+import PageHero from "../components/ui/PageHero.astro";
+import SectionTitle from "../components/ui/SectionTitle.astro";
+import NumberedCards from "../components/ui/NumberedCards.astro";
+import Callout from "../components/ui/Callout.astro";
+import Illustration from "../components/ui/Illustration.astro";
+import TeamGrid from "../components/about/TeamGrid.astro";
+import aboutHero from "../assets/illustrations/static/about-hero.svg";
+import { team } from "../data/team";
+import { routes } from "../data/navigation";
+
+const beliefs = [
+  {
+    title: "Conditions decide outcomes",
+    body: "Teaching matters. Whether teaching converts into learning is decided elsewhere: in homes, in teachers' careers, and in whether a student can stay in the system at all.",
+  },
+  {
+    title: "Evidence has to be continuous",
+    body: "Surveys are a snapshot and pilots end. We build things people use every week so the evidence keeps arriving, year after year, about the same families, teachers and students.",
+  },
+  {
+    title: "We publish what we learn",
+    body: "Findings go out to ministries, funders and schools whether or not they support what we are building, and including when they are not flattering to us.",
+  },
+  {
+    title: "Independence is not for sale",
+    body: "Sponsors, partners and clients do not influence what we publish or what we push for. Where a funder has an interest in a study, we declare it on the output.",
+  },
+];
 ---
 
-<PagePlaceholder title="Who We Are" />
+<Page
+  title="Who We Are"
+  description="A learning innovation lab working on the conditions that decide learning outcomes in Nigeria."
+>
+  <PageHero
+    title="A learning innovation lab"
+    lede="We work on the conditions that decide learning outcomes in Nigeria, and we publish what we find."
+  >
+    <img slot="art" src={aboutHero.src} width="420" height="290" alt="" class="about-hero-art" />
+  </PageHero>
+
+  <section class="why container">
+    <SectionTitle title="Why we exist" />
+    <div class="why__content">
+      <Illustration name="study" class="why__illus" label="A parent helping a child study by lamplight" speed={2.5} />
+      <div class="why__copy">
+        <p class="why__lead">Learning outcomes in Nigeria are shaped by conditions almost nobody is measuring.</p>
+        <div class="why__body">
+          <p>
+            What happens at home. Whether good teachers stay in the profession. Whether students can remain in the
+            system at all.
+          </p>
+          <p>
+            We work on those conditions. We build products that people use every week, because that is how evidence
+            keeps arriving after a pilot would have ended, and we publish what those products teach us.
+          </p>
+          <p>
+            We are a small organisation. The reason we can matter is that this evidence does not currently exist here,
+            and making it visible changes what everyone else can design against.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band band--surface">
+    <div class="beliefs container">
+      <SectionTitle title="What we believe" />
+      <NumberedCards items={beliefs} />
+    </div>
+  </section>
+
+  {
+    team.length > 0 && (
+      <section class="team-section container">
+        <SectionTitle title="The people doing the work" rule="grey" />
+        <TeamGrid members={team} />
+      </section>
+    )
+  }
+
+  <div class="container account">
+    <Callout
+      title="How we are held to account"
+      body="How our research is governed, how providers are checked, and how we handle data about children and families. A child's data is never a revenue line."
+      action={{ label: "Governance and safeguarding", href: routes.governance }}
+    />
+  </div>
+</Page>
+
+<style>
+  .about-hero-art {
+    width: 420px;
+    max-width: 100%;
+    height: auto;
+  }
+
+  .why {
+    display: flex;
+    flex-direction: column;
+    gap: 56px;
+    padding-top: 96px;
+    padding-bottom: 96px;
+  }
+  .why__content {
+    display: flex;
+    gap: 56px;
+    align-items: flex-start;
+    justify-content: center;
+  }
+  .why :global(.why__illus) {
+    width: 474px;
+    flex-shrink: 0;
+  }
+  .why__copy {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 64px;
+  }
+  .why__lead {
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: 0.322px;
+    color: var(--ink-strong);
+  }
+  .why__body {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    font-size: 20px;
+    line-height: 28px;
+    color: var(--text-muted);
+  }
+
+  .beliefs {
+    display: flex;
+    flex-direction: column;
+    gap: 56px;
+    padding-top: 96px;
+    padding-bottom: 96px;
+  }
+
+  .team-section {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
+
+  .account {
+    padding-top: 64px;
+    padding-bottom: 160px;
+  }
+
+  @media (max-width: 1023px) {
+    .why__content {
+      flex-direction: column;
+      align-items: center;
+    }
+    .why :global(.why__illus) {
+      width: 360px;
+      max-width: 100%;
+    }
+  }
+  @media (max-width: 767px) {
+    .why,
+    .beliefs {
+      gap: 32px;
+      padding-top: 48px;
+      padding-bottom: 48px;
+    }
+    .why :global(.why__illus) {
+      width: 300px;
+      margin-block: -48px;
+    }
+    .why__copy {
+      gap: 24px;
+    }
+    .why__lead {
+      font-size: 20px;
+      letter-spacing: 0.24px;
+    }
+    .why__body {
+      font-size: 14px;
+      line-height: 18px;
+      gap: 16px;
+    }
+    .team-section {
+      gap: 32px;
+      padding-top: 48px;
+      padding-bottom: 48px;
+    }
+    .account {
+      padding-top: 32px;
+      padding-bottom: 96px;
+    }
+  }
+</style>

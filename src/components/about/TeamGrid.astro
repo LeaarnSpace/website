@@ -1,0 +1,111 @@
+---
+// Team photos with name and role over a soft dark tint. On hover a cobalt band slides in
+// behind the name (the Figma "Masked colour rectangle").
+import { Image } from "astro:assets";
+import type { TeamMember } from "../../data/team";
+
+interface Props {
+  members: TeamMember[];
+}
+const { members } = Astro.props;
+---
+
+<ul class="team">
+  {
+    members.map((m) => (
+      <li class="member">
+        <Image src={m.photo} alt="" widths={[310, 620]} sizes="310px" class="member__photo" />
+        <div class="member__details">
+          <span class="member__band" aria-hidden="true" />
+          <p class="member__name">{m.name}</p>
+          <p class="member__role">{m.role}</p>
+        </div>
+      </li>
+    ))
+  }
+</ul>
+
+<style>
+  .team {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .member {
+    position: relative;
+    height: 340px;
+    overflow: hidden;
+  }
+  .member :global(.member__photo) {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  /* Figma darkens the photo by 20% so the white name reads clearly */
+  .member::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.2);
+  }
+  .member__details {
+    position: absolute;
+    left: 21px;
+    right: 21px;
+    bottom: 21px;
+    z-index: 1;
+    padding: 13px 13px;
+  }
+  .member__band {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    border-radius: 4px;
+    background: #7ca3c4;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .member:hover .member__band {
+    transform: scaleX(1);
+  }
+  .member__name {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--paper);
+  }
+  .member__role {
+    font-size: 16px;
+    line-height: 26px;
+    color: #d9deeb;
+  }
+  @media (max-width: 1023px) {
+    .team {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (max-width: 767px) {
+    .team {
+      gap: 16px;
+    }
+    .member {
+      height: 220px;
+    }
+    .member__details {
+      left: 8px;
+      right: 8px;
+      bottom: 8px;
+      padding: 8px;
+    }
+    .member__name {
+      font-size: 16px;
+    }
+    .member__role {
+      font-size: 12px;
+      line-height: 16px;
+    }
+  }
+</style>

@@ -1,0 +1,50 @@
+---
+// "Questions about …?" box at the end of a document, with a contact button.
+import Button from "../ui/Button.astro";
+
+interface Props {
+  title: string;
+  action: { label: string; href: string };
+}
+const { title, action } = Astro.props;
+---
+
+<aside class="questions" id="contact-us">
+  <div class="questions__copy">
+    <h2 class="questions__title">{title}</h2>
+    <p class="questions__body"><slot /></p>
+  </div>
+  <Button href={action.href} label={action.label} />
+</aside>
+
+<style>
+  .questions {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+    padding: 32px;
+    border-radius: 4px;
+    background: var(--cobalt-50);
+    scroll-margin-top: 32px;
+  }
+  .questions__copy {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .questions__title {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 28px;
+    color: var(--ink);
+  }
+  .questions__body {
+    font-size: 14px;
+    line-height: 18px;
+    color: var(--ink);
+  }
+  .questions__body :global(a) {
+    color: var(--cobalt-600);
+  }
+</style>

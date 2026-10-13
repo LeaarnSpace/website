@@ -1,0 +1,42 @@
+---
+// White circular arrow used at the end of list rows and cards. Decorative: the whole row is the link.
+// The parent row nudges it forward on hover via the .round-arrow class.
+import arrow from "../../assets/icons/arrow-dark.svg?raw";
+
+interface Props {
+  /** "right" (default) or "up-right" for links that leave the site */
+  direction?: "right" | "up-right";
+  size?: number;
+}
+const { direction = "right", size = 40 } = Astro.props;
+---
+
+<span class:list={["round-arrow", `round-arrow--${direction}`]} style={`--size:${size}px`} aria-hidden="true">
+  <span class="round-arrow__icon" set:html={arrow} />
+</span>
+
+<style>
+  .round-arrow {
+    display: inline-flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    width: var(--size);
+    height: var(--size);
+    border-radius: var(--radius-pill);
+    background: var(--paper);
+    filter: drop-shadow(0 1px 1px var(--shadow-color-sm));
+    transition: transform 0.3s ease;
+  }
+  .round-arrow__icon {
+    display: inline-flex;
+    transform: rotate(180deg);
+  }
+  .round-arrow--up-right .round-arrow__icon {
+    transform: rotate(135deg);
+  }
+  .round-arrow :global(svg) {
+    width: 24px;
+    height: 24px;
+  }
+</style>

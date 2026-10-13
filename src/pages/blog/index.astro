@@ -1,0 +1,69 @@
+---
+import Page from "../../layouts/Page.astro";
+import BlogHeader from "../../components/blog/BlogHeader.astro";
+import PostCard from "../../components/blog/PostCard.astro";
+import PodcastBanner from "../../components/blog/PodcastBanner.astro";
+import { getPosts } from "../../lib/content";
+
+const posts = await getPosts();
+---
+
+<Page title="Blog" description="Notes, episodes and analysis from Learn Space on the conditions that decide learning.">
+  <section class="listing container" data-filter-root>
+    <BlogHeader />
+    <ul class="grid">
+      {
+        posts.map((post) => (
+          <li data-filter-item data-filter-tag={post.data.category ?? ""}>
+            <PostCard post={post} />
+          </li>
+        ))
+      }
+    </ul>
+    <p class="listing__empty" data-filter-empty hidden>No posts in this topic yet.</p>
+  </section>
+  <PodcastBanner />
+  <div class="spacer"></div>
+</Page>
+
+<style>
+  .listing {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 420px));
+    gap: 28px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .listing__empty {
+    color: var(--text-subtle);
+  }
+  .spacer {
+    height: 96px;
+  }
+  @media (max-width: 1279px) {
+    .grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+  @media (max-width: 767px) {
+    .listing {
+      padding-top: 32px;
+      padding-bottom: 48px;
+    }
+    .grid {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+    .spacer {
+      height: 64px;
+    }
+  }
+</style>

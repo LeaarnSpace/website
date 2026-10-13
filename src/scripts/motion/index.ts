@@ -9,6 +9,10 @@ import { initIllustrations } from "./illustrations";
 import { initApproach } from "./approach";
 import { initWorkCards } from "./work-cards";
 import { initIconTiles } from "./icon-tiles";
+import { initRiseCards } from "./rise-cards";
+import { initCountUp, initScrollCount } from "./count-up";
+import { initSlideIn } from "./slide-in";
+import { initHighlights } from "./highlight";
 import { initFooter } from "./footer";
 import { initZoomIn } from "./zoom-in";
 import { initCarousel } from "./carousel";
@@ -30,6 +34,10 @@ function init() {
   initApproach();
   initWorkCards();
   initIconTiles();
+  initRiseCards();
+  initCountUp();
+  initSlideIn();
+  initHighlights();
   initCarousel();
 
   // Line breaks depend on the web fonts, so split text once they have loaded; scroll-linked
@@ -39,6 +47,7 @@ function init() {
     stackLayers();
     initFooter();
     initZoomIn();
+    initScrollCount();
     ScrollTrigger.refresh();
     return heroLines;
   });

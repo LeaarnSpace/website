@@ -1,0 +1,126 @@
+---
+// Long-document layout (Privacy, Terms): sticky contents list on the left, the document on the right.
+export interface TocGroup {
+  heading?: string;
+  items: { id: string; label: string }[];
+}
+interface Props {
+  toc: TocGroup[];
+  /** Optional title above the list, e.g. "On this page" */
+  tocTitle?: string;
+}
+const { toc, tocTitle } = Astro.props;
+---
+
+<div class="legal container">
+  <nav class="toc" aria-label={tocTitle ?? "Contents"} data-toc>
+    {tocTitle && <p class="toc__title">{tocTitle}</p>}
+    {
+      toc.map((group) => (
+        <div class="toc__group">
+          {group.heading && <p class="toc__heading">{group.heading}</p>}
+          <ul>
+            {group.items.map((item) => (
+              <li>
+                <a href={`#${item.id}`}>{item.label}</a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))
+    }
+  </nav>
+  <div class="legal__doc">
+    <slot />
+  </div>
+</div>
+
+<script>
+  import { initToc } from "../../scripts/ui/toc";
+  initToc();
+</script>
+
+<style>
+  .legal {
+    display: flex;
+    align-items: flex-start;
+    gap: 72px;
+    padding-top: 64px;
+    padding-bottom: 160px;
+  }
+  .toc {
+    position: sticky;
+    top: 40px;
+    flex-shrink: 0;
+    width: 240px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  .toc__title {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 28px;
+    color: var(--ink);
+    margin-bottom: -14px;
+  }
+  .toc__heading {
+    padding-bottom: 10px;
+    font-size: 11px;
+    font-weight: 700;
+    line-height: 14px;
+    letter-spacing: 0.154px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+  .toc ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .toc a {
+    display: block;
+    padding: 10px 0 10px 12px;
+    border-left: 2px solid var(--surface-sunk);
+    font-size: 14px;
+    line-height: 18px;
+    color: var(--ink);
+    transition:
+      color 0.25s ease,
+      border-color 0.25s ease;
+  }
+  .toc a:hover {
+    color: var(--cobalt-600);
+  }
+  .toc a[aria-current] {
+    border-left-color: var(--cobalt-600);
+    color: var(--cobalt-600);
+  }
+  .legal__doc {
+    flex: 1;
+    min-width: 0;
+    max-width: 880px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+  @media (max-width: 1023px) {
+    .legal {
+      flex-direction: column;
+      gap: 32px;
+    }
+    .toc {
+      position: static;
+      width: 100%;
+    }
+  }
+  @media (max-width: 767px) {
+    .legal {
+      padding-top: 32px;
+      padding-bottom: 96px;
+    }
+    .toc {
+      display: none;
+    }
+  }
+</style>
