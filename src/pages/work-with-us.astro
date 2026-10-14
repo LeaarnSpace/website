@@ -4,15 +4,17 @@ import PageHero from "../components/ui/PageHero.astro";
 import Button from "../components/ui/Button.astro";
 import SectionTitle from "../components/ui/SectionTitle.astro";
 import NumberedCards from "../components/ui/NumberedCards.astro";
-import Callout from "../components/ui/Callout.astro";
 import BenefitCards from "../components/careers/BenefitCards.astro";
 import RoleBrowser from "../components/careers/RoleBrowser.astro";
 
-// TODO: point at the real application / introduction form once it exists
-const introduceHref = "#introduce";
+// TODO: point at the real application form once it exists (roles without an applyUrl link here)
+const applyFallbackHref = "#open-roles";
 
 const benefits = [
-  { title: "Fair, transparent pay", body: "Add your pay approach and how bands are set." },
+  {
+    title: "Fair, transparent pay",
+    body: "We strengthen the conditions that shape learning, from homes and classrooms to teaching careers.",
+  },
   {
     title: "Flexible, remote work",
     body: "Shape your schedule and choose where you work best — no fixed office required.",
@@ -39,17 +41,15 @@ const stepTiming = "0,1.2;0.43,1.2;0.99,1.01;1.65,0.35";
 
 <Page
   title="Work With Us"
-  description="A small team working on the conditions that decide learning outcomes in Nigeria. See open roles or introduce yourself."
+  description="A small team working on the conditions that decide learning outcomes in Nigeria. See open roles and how hiring works."
 >
   <PageHero
-    eyebrow="Work with Us"
     title="Help us make the unmeasured visible"
     lede="We are a small team working on the conditions that decide learning outcomes in Nigeria. If that is the kind of problem you want to spend years on, read on."
     size="lg"
   >
     <Fragment slot="actions">
       <Button href="#open-roles" label="See open roles" />
-      <Button href={introduceHref} label="Introduce yourself" variant="secondary" />
     </Fragment>
   </PageHero>
 
@@ -62,7 +62,7 @@ const stepTiming = "0,1.2;0.43,1.2;0.99,1.01;1.65,0.35";
 
   <section class="open container" id="open-roles">
     <SectionTitle title="Open roles" rule="grey" />
-    <RoleBrowser fallbackHref={introduceHref} />
+    <RoleBrowser fallbackHref={applyFallbackHref} />
   </section>
 
   <section class="band band--surface">
@@ -71,16 +71,6 @@ const stepTiming = "0,1.2;0.43,1.2;0.99,1.01;1.65,0.35";
       <NumberedCards items={steps} variant="compact" timing={stepTiming} />
     </div>
   </section>
-
-  <div class="general" id="introduce">
-    <Callout
-      size="sm"
-      title="Do not see your role?"
-      body="Tell us what you would bring. We are always glad to hear from people who care about how children learn."
-      action={{ label: "Introduce yourself", href: introduceHref }}
-      class="general__callout"
-    />
-  </div>
 </Page>
 
 <style>
@@ -93,7 +83,7 @@ const stepTiming = "0,1.2;0.43,1.2;0.99,1.01;1.65,0.35";
   }
   .offer__title {
     font-size: 32px;
-    font-weight: 700;
+    font-weight: 400;
     color: var(--ink-strong);
   }
   .open {
@@ -111,14 +101,6 @@ const stepTiming = "0,1.2;0.43,1.2;0.99,1.01;1.65,0.35";
     padding-top: 64px;
     padding-bottom: 74px;
   }
-  /* Full-width light blue strip at the end of the page */
-  .general {
-    padding-bottom: 96px;
-  }
-  .general :global(.general__callout) {
-    padding-inline: max(var(--gutter), calc((100vw - var(--max)) / 2 + var(--gutter)));
-    border-radius: 0;
-  }
   @media (max-width: 767px) {
     .offer,
     .open,
@@ -129,9 +111,6 @@ const stepTiming = "0,1.2;0.43,1.2;0.99,1.01;1.65,0.35";
     }
     .offer__title {
       font-size: 20px;
-    }
-    .general :global(.general__callout) {
-      padding: 28px 20px;
     }
   }
 </style>

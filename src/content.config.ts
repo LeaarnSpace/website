@@ -61,9 +61,11 @@ const roles = defineCollection({
     posted: partialDate,
     location: z.string(),
     arrangement: z.enum(["Remote", "Hybrid", "On-site"]),
-    /** Where the arrow leads (an application form or role description); falls back to "Introduce yourself" */
+    /** Where the arrow leads (an application form or role description); falls back to the page's placeholder link */
     applyUrl: z.string().url().optional(),
     order: z.number().default(100),
+    /** true keeps the role in the project but off the site */
+    hidden: z.boolean().default(false),
   }),
 });
 

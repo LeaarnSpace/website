@@ -7,8 +7,9 @@ export async function getPosts(limit?: number): Promise<CollectionEntry<"blog">[
   return (await getCollection("blog")).sort(byOrder).slice(0, limit);
 }
 
+/** Roles shown on the site (entries marked hidden: true are left out) */
 export async function getRoles(): Promise<CollectionEntry<"roles">[]> {
-  return (await getCollection("roles")).sort(byOrder);
+  return (await getCollection("roles", (r) => !r.data.hidden)).sort(byOrder);
 }
 
 export async function getNews(limit?: number): Promise<CollectionEntry<"news">[]> {

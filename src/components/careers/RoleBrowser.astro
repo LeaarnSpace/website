@@ -14,42 +14,47 @@ const roles = await getRoles();
 const teams = ["Research", "Product", "Programmes"];
 ---
 
-<div class="roles" data-filter-root>
-  <label class="search">
-    <span class="search__icon" aria-hidden="true" set:html={searchIcon} />
-    <span class="visually-hidden">Search roles</span>
-    <input type="search" placeholder="Search" data-filter-search />
-  </label>
-  <FilterChips options={teams} label="Filter roles by team" />
+{roles.length === 0 && <p class="roles__none">There are no open roles right now. Check back soon.</p>}
+{
+  roles.length > 0 && (
+    <div class="roles" data-filter-root>
+      <label class="search">
+        <span class="search__icon" aria-hidden="true" set:html={searchIcon} />
+        <span class="visually-hidden">Search roles</span>
+        <input type="search" placeholder="Search" data-filter-search />
+      </label>
+      <FilterChips options={teams} label="Filter roles by team" />
 
-  <ul class="roles__list">
-    {
-      roles.map((r) => (
-        <li
-          data-filter-item
-          data-filter-tag={r.data.team}
-          data-filter-text={`${r.data.title} ${r.data.team} ${r.data.location}`}
-        >
-          <a href={r.data.applyUrl ?? fallbackHref} class="role">
-            <span class="role__id">
-              <strong class="role__title">{r.data.title}</strong>
-              <span class="role__dash" aria-hidden="true" />
-              <time class="role__date" datetime={r.data.posted}>
-                {formatDotDate(r.data.posted)}
-              </time>
-            </span>
-            <span class="role__team">{r.data.team}</span>
-            <span class="role__place">
-              {r.data.location} <span aria-hidden="true">•</span> {r.data.arrangement}
-            </span>
-            <RoundArrow />
-          </a>
-        </li>
-      ))
-    }
-  </ul>
-  <p class="roles__empty" data-filter-empty hidden>No roles match that search right now.</p>
-</div>
+      <ul class="roles__list">
+        {roles.map((r) => (
+          <li
+            data-filter-item
+            data-filter-tag={r.data.team}
+            data-filter-text={`${r.data.title} ${r.data.team} ${r.data.location}`}
+          >
+            <a href={r.data.applyUrl ?? fallbackHref} class="role">
+              <span class="role__id">
+                <strong class="role__title">{r.data.title}</strong>
+                <span class="role__dash" aria-hidden="true" />
+                <time class="role__date" datetime={r.data.posted}>
+                  {formatDotDate(r.data.posted)}
+                </time>
+              </span>
+              <span class="role__team">{r.data.team}</span>
+              <span class="role__place">
+                {r.data.location} <span aria-hidden="true">•</span> {r.data.arrangement}
+              </span>
+              <RoundArrow />
+            </a>
+          </li>
+        ))}
+      </ul>
+      <p class="roles__empty" data-filter-empty hidden>
+        No roles match that search right now.
+      </p>
+    </div>
+  )
+}
 
 <style>
   .roles {
@@ -141,7 +146,8 @@ const teams = ["Research", "Product", "Programmes"];
   .role:hover :global(.round-arrow) {
     transform: translateX(15px);
   }
-  .roles__empty {
+  .roles__empty,
+  .roles__none {
     font-size: 16px;
     color: var(--text-subtle);
   }

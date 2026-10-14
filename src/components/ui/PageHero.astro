@@ -1,17 +1,15 @@
 ---
-// Centred page hero: optional pill label, title, intro line and buttons. An illustration
+// Centred page hero: title, intro line and buttons. An illustration
 // can be passed in the "art" slot; buttons go in the "actions" slot.
 interface Props {
   title: string;
   lede?: string;
-  /** Small pill above the title, e.g. "Legal" */
-  eyebrow?: string;
   /** Extra line under the lede, e.g. "Last updated …" */
   meta?: string;
   /** "lg": 72px title with a smaller intro line (The Problem, Work With Us) */
   size?: "md" | "lg";
 }
-const { title, lede, eyebrow, meta, size = "md" } = Astro.props;
+const { title, lede, meta, size = "md" } = Astro.props;
 ---
 
 <header class:list={["page-hero container", `page-hero--${size}`]}>
@@ -22,7 +20,6 @@ const { title, lede, eyebrow, meta, size = "md" } = Astro.props;
       </div>
     )
   }
-  {eyebrow && <p class="page-hero__eyebrow">{eyebrow}</p>}
   <h1 class="page-hero__title" data-lines data-lines-immediate>{title}</h1>
   {lede && <p class="page-hero__lede">{lede}</p>}
   {meta && <p class="page-hero__meta">{meta}</p>}
@@ -48,17 +45,6 @@ const { title, lede, eyebrow, meta, size = "md" } = Astro.props;
   .page-hero__art {
     display: flex;
     justify-content: center;
-  }
-  .page-hero__eyebrow {
-    padding: 4px 12px;
-    border: 1px solid var(--blue-700);
-    border-radius: var(--radius-pill);
-    font-size: 14px;
-    font-weight: 500;
-    line-height: 18px;
-    letter-spacing: 0.196px;
-    color: var(--blue-700);
-    margin-bottom: -12px;
   }
   .page-hero__title {
     max-width: 940px;

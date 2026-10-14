@@ -41,8 +41,8 @@ const pad = (n: number) => String(n).padStart(2, "0");
     margin: 0;
     padding: 0 0 4px;
     list-style: none;
-    /* Cards rise in from below this edge */
-    overflow: hidden;
+    /* Cards rise in from below the bottom edge only, so their bounce past the top is not cut off */
+    clip-path: inset(-200px -200px 0 -200px);
   }
   .ncard {
     position: relative;
