@@ -1,0 +1,71 @@
+---
+// Titled panel with a short list (Governance topic sections). Two sit side by side per topic.
+interface Props {
+  title: string;
+  /** Background: light blue, white or soft grey */
+  tone?: "blue" | "white" | "grey";
+  /** Show the items as a bulleted list (default) or as plain paragraphs */
+  bullets?: boolean;
+}
+const { title, tone = "blue", bullets = true } = Astro.props;
+---
+
+<div class:list={["panel", `panel--${tone}`, { "panel--bullets": bullets }]}>
+  <h3 class="panel__title">{title}</h3>
+  <div class="panel__body"><slot /></div>
+</div>
+
+<style>
+  .panel {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 32px 32px 40px;
+    border-radius: 4px;
+  }
+  .panel--blue {
+    background: var(--cobalt-50);
+  }
+  .panel--white {
+    background: var(--paper);
+  }
+  .panel--grey {
+    background: var(--surface-sunk);
+  }
+  .panel__title {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 28px;
+    color: var(--ink);
+  }
+  .panel__body {
+    font-size: 16px;
+    line-height: 26px;
+    color: var(--ink);
+  }
+  .panel__body :global(ul) {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin: 0;
+    padding-left: 18px;
+  }
+  .panel__body :global(p) {
+    margin: 0;
+  }
+  .panel__body :global(a) {
+    color: var(--cobalt-600);
+  }
+  @media (max-width: 767px) {
+    .panel {
+      padding: 24px 20px 28px;
+    }
+    .panel__title {
+      font-size: 18px;
+    }
+    .panel__body {
+      font-size: 14px;
+      line-height: 22px;
+    }
+  }
+</style>

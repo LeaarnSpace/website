@@ -1,0 +1,53 @@
+---
+// Section heading followed by a rule that fills the rest of the row (Figma "Section Header").
+interface Props {
+  title: string;
+  /** Rule colour: light cobalt (default) or grey */
+  rule?: "cobalt" | "grey";
+  /** Heading level for the document outline */
+  as?: "h2" | "h3";
+  class?: string;
+}
+const { title, rule = "cobalt", as: Tag = "h2", class: className } = Astro.props;
+---
+
+<div class:list={["section-head", className]}>
+  <Tag class="section-head__title" data-lines>{title}</Tag>
+  <span class:list={["section-head__rule", `section-head__rule--${rule}`]} aria-hidden="true"></span>
+</div>
+
+<style>
+  .section-head {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    min-height: 45px;
+  }
+  .section-head__title {
+    font-size: 32px;
+    font-weight: 400;
+    color: var(--ink-strong);
+    white-space: nowrap;
+  }
+  .section-head__rule {
+    flex: 1;
+    height: 1px;
+  }
+  .section-head__rule--cobalt {
+    background: var(--cobalt-100);
+  }
+  .section-head__rule--grey {
+    background: var(--rule);
+  }
+  @media (max-width: 767px) {
+    .section-head {
+      gap: 20px;
+      min-height: 0;
+    }
+    .section-head__title {
+      font-size: 20px;
+      letter-spacing: 0.24px;
+      white-space: normal;
+    }
+  }
+</style>

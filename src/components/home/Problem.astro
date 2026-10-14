@@ -1,6 +1,7 @@
 ---
 import Illustration from "../ui/Illustration.astro";
 import Button from "../ui/Button.astro";
+import { routes } from "../../data/navigation";
 ---
 
 <div class="problem container" id="the-problem">
@@ -26,7 +27,7 @@ import Button from "../ui/Button.astro";
           evidence about what is actually shaping their experiences and outcomes.
         </p>
       </div>
-      <Button href="/insights" label="Read the full picture" />
+      <Button href={routes.theProblem} label="Read the full picture" />
     </div>
   </div>
 </div>

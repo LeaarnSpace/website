@@ -1,0 +1,100 @@
+---
+// Compact news card (homepage "Latest news", "More news" on story pages): category — date on the
+// left, headline in the middle, round arrow on the right that nudges forward on hover.
+import type { CollectionEntry } from "astro:content";
+import RoundArrow from "../ui/RoundArrow.astro";
+import { formatDotDate } from "../../lib/content";
+import { routes } from "../../data/navigation";
+
+interface Props {
+  story: CollectionEntry<"news">;
+}
+const { story } = Astro.props;
+---
+
+<a href={`${routes.news}/${story.id}`} class="news-card">
+  <span class="news-card__meta">
+    <strong>{story.data.category}</strong>
+    <span class="news-card__dash" aria-hidden="true"></span>
+    <time datetime={story.data.date}>{formatDotDate(story.data.date)}</time>
+  </span>
+  <span class="news-card__title">{story.data.title}</span>
+  <RoundArrow />
+</a>
+
+<style>
+  .news-card {
+    display: flex;
+    align-items: center;
+    gap: 76px;
+    min-height: 140px;
+    padding: var(--space-6) var(--space-7);
+    border-radius: var(--radius-md);
+    background: var(--cobalt-50);
+  }
+  .news-card__meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    align-self: flex-start;
+    padding-top: 4px;
+    white-space: nowrap;
+  }
+  .news-card__meta strong {
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: 0.196px;
+    color: var(--ink-strong);
+  }
+  .news-card__meta time {
+    font-size: 12px;
+    line-height: 16px;
+    color: var(--ink-strong);
+  }
+  .news-card__dash {
+    width: 10px;
+    height: 1px;
+    background: var(--ink-strong);
+  }
+  .news-card__title {
+    flex: 1;
+    max-width: 500px;
+    font-size: 20px;
+    color: var(--ink-strong);
+  }
+  .news-card :global(.round-arrow) {
+    margin-left: auto;
+    margin-right: 30px;
+  }
+  .news-card:hover :global(.round-arrow) {
+    transform: translateX(25px);
+  }
+  @media (max-width: 767px) {
+    .news-card__meta strong {
+      font-size: 12px;
+      line-height: 16px;
+    }
+    .news-card__meta time {
+      font-size: 11px;
+      line-height: 14px;
+    }
+    .news-card__title {
+      font-size: 14px;
+      line-height: 18px;
+    }
+  }
+  @media (max-width: 640px) {
+    .news-card {
+      flex-wrap: wrap;
+      gap: 12px;
+      padding: 20px;
+    }
+    .news-card__title {
+      flex-basis: 100%;
+      order: 2;
+    }
+    .news-card :global(.round-arrow) {
+      display: none;
+    }
+  }
+</style>

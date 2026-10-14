@@ -1,0 +1,172 @@
+---
+import Page from "../../layouts/Page.astro";
+import PageHero from "../../components/ui/PageHero.astro";
+import SectionTitle from "../../components/ui/SectionTitle.astro";
+import FilterChips from "../../components/ui/FilterChips.astro";
+import FeaturedNews from "../../components/news/FeaturedNews.astro";
+import NewsRow from "../../components/news/NewsRow.astro";
+import newsHero from "../../assets/illustrations/static/news-hero.svg";
+import arrow from "../../assets/icons/arrow-dark.svg?raw";
+import { getNewsByDate } from "../../lib/content";
+import { routes } from "../../data/navigation";
+
+const [featured, ...rest] = await getNewsByDate();
+const categories = ["Teachers", "Research", "Policy", "Digital", "Finance"];
+---
+
+<Page
+  title="News"
+  description="The education stories shaping learning in Nigeria, gathered from across the web and linked to their sources."
+>
+  <PageHero
+    title="News"
+    lede="The education stories shaping learning in Nigeria, gathered from across the web and linked to their sources."
+    size="lg"
+  >
+    <img slot="art" src={newsHero.src} width="412" height="344" alt="" class="news-hero-art" />
+  </PageHero>
+
+  <section class="latest container" data-filter-root data-page-size="5">
+    <SectionTitle title="Latest news" rule="grey" />
+    <div class="latest__controls">
+      <FilterChips options={categories} label="Filter news by topic" />
+      <a href={routes.blog} class="take">
+        View our take <span class="take__arrow" aria-hidden="true" set:html={arrow} />
+      </a>
+    </div>
+
+    <div class="latest__feed">
+      {
+        featured && (
+          <div data-filter-item data-filter-tag={featured.data.category}>
+            <FeaturedNews story={featured} />
+          </div>
+        )
+      }
+      <ul class="latest__list">
+        {
+          rest.map((story) => (
+            <li data-filter-item data-filter-tag={story.data.category}>
+              <NewsRow story={story} />
+            </li>
+          ))
+        }
+      </ul>
+      <p class="latest__empty" data-filter-empty hidden>No stories in this topic yet.</p>
+    </div>
+
+    <div class="latest__footer">
+      <button type="button" class="more" data-filter-more hidden>Load more</button>
+      <p class="latest__note">Stories come from other publishers, and linking to them is not an endorsement.</p>
+    </div>
+  </section>
+</Page>
+
+<style>
+  .news-hero-art {
+    width: 412px;
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 8px;
+  }
+  .latest {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+    padding-top: 64px;
+    padding-bottom: 160px;
+  }
+  .latest :global(.section-head__title) {
+    font-size: 28px;
+    letter-spacing: 0.322px;
+  }
+  .latest__controls {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+  }
+  .take {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 4px 8px;
+    margin-left: -8px;
+    border-radius: var(--radius-md);
+    font-size: 16px;
+    line-height: 26px;
+    color: var(--cobalt-600);
+    transition: background-color 0.3s ease;
+  }
+  .take:hover {
+    background: var(--surface-sunk);
+  }
+  .take__arrow {
+    display: inline-flex;
+    transform: rotate(180deg);
+  }
+  .take__arrow :global(svg) {
+    width: 20px;
+    height: 20px;
+  }
+  .take__arrow :global(path) {
+    fill: var(--cobalt-600);
+  }
+  .latest__feed {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+  }
+  .latest__list {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .latest__empty {
+    color: var(--text-subtle);
+  }
+  .latest__footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+  }
+  .more {
+    padding: var(--space-3) var(--space-5);
+    border-radius: var(--radius-md);
+    background: var(--cobalt-600);
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--paper);
+    transition: background-color 0.3s ease;
+  }
+  .more:hover {
+    background: var(--action-primary-hover);
+    color: var(--ink);
+  }
+  .more:focus-visible {
+    outline: 2px solid var(--focus-ring);
+    outline-offset: 3px;
+  }
+  .latest__note {
+    font-size: 12px;
+    color: var(--text-subtle);
+    text-align: center;
+  }
+  @media (max-width: 767px) {
+    .latest {
+      gap: 32px;
+      padding-top: 40px;
+      padding-bottom: 96px;
+    }
+    .latest :global(.section-head__title) {
+      font-size: 20px;
+    }
+    .latest__feed {
+      gap: 24px;
+    }
+  }
+</style>

@@ -1,0 +1,56 @@
+---
+// "Blog" heading with its rule and the topic filters (shared by the Blog list and post pages).
+import FilterChips from "../ui/FilterChips.astro";
+
+export const BLOG_TOPICS = ["Homes", "Teachers", "Students", "Policy", "Culture"];
+
+interface Props {
+  /** Heading level: h1 on the list page, a visual label on post pages */
+  as?: "h1" | "p";
+  /** Show the filters (they only filter on the list page) */
+  filters?: boolean;
+}
+const { as: Tag = "h1", filters = true } = Astro.props;
+---
+
+<div class="blog-head">
+  <div class="blog-head__row">
+    <Tag class="blog-head__title">Blog</Tag>
+    <span class="blog-head__rule" aria-hidden="true"></span>
+  </div>
+  {filters && <FilterChips options={BLOG_TOPICS} label="Filter posts by topic" />}
+</div>
+
+<style>
+  .blog-head {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+  .blog-head__row {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+  .blog-head__title {
+    font-family: var(--font-figures);
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 51.2px;
+    color: var(--ink-strong);
+  }
+  .blog-head__rule {
+    flex: 1;
+    height: 1px;
+    background: var(--panel-border);
+  }
+  @media (max-width: 767px) {
+    .blog-head {
+      gap: 20px;
+    }
+    .blog-head__title {
+      font-size: 24px;
+      line-height: 32px;
+    }
+  }
+</style>

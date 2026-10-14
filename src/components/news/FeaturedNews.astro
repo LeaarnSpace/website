@@ -1,0 +1,118 @@
+---
+// The newest story, shown large: photo on the left, date, source, headline and summary on the right.
+import type { CollectionEntry } from "astro:content";
+import { Image } from "astro:assets";
+import RoundArrow from "../ui/RoundArrow.astro";
+import { routes } from "../../data/navigation";
+
+interface Props {
+  story: CollectionEntry<"news">;
+}
+const { story } = Astro.props;
+const href = `${routes.news}/${story.id}`;
+---
+
+<a href={href} class="featured">
+  {
+    story.data.image && (
+      <div class="featured__media">
+        <Image
+          src={story.data.image}
+          alt=""
+          widths={[617, 1234]}
+          sizes="(max-width: 767px) 100vw, 617px"
+          class="featured__img"
+        />
+      </div>
+    )
+  }
+  <div class="featured__copy">
+    <p class="featured__meta">
+      <time datetime={story.data.date}>{story.data.date}</time>
+      {story.data.source && <span class="featured__source">{story.data.source}</span>}
+    </p>
+    <h3 class="featured__title">{story.data.title}</h3>
+    {story.data.summary && <p class="featured__summary">{story.data.summary}</p>}
+    <RoundArrow />
+  </div>
+</a>
+
+<style>
+  .featured {
+    display: flex;
+    gap: 64px;
+    align-items: center;
+  }
+  .featured__media {
+    flex-shrink: 0;
+    width: 617px;
+    height: 410px;
+    overflow: hidden;
+    border-radius: var(--radius-sm);
+  }
+  .featured__media :global(.featured__img) {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .featured:hover :global(.featured__img) {
+    transform: scale(1.03);
+  }
+  .featured__copy {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .featured__meta {
+    display: flex;
+    gap: 14px;
+    font-size: 11px;
+    line-height: 14px;
+    letter-spacing: 0.154px;
+    color: var(--text-subtle);
+  }
+  .featured__source {
+    font-weight: 600;
+    color: var(--ink);
+  }
+  .featured__title {
+    font-size: 30px;
+    font-weight: 400;
+    letter-spacing: 0.315px;
+    color: var(--ink);
+  }
+  .featured__summary {
+    font-size: 16px;
+    line-height: 26px;
+    color: var(--text-subtle);
+  }
+  .featured :global(.round-arrow) {
+    margin-left: 20px;
+  }
+  .featured:hover :global(.round-arrow) {
+    transform: translateX(15px);
+  }
+  @media (max-width: 1023px) {
+    .featured {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 24px;
+    }
+    .featured__media {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 617 / 410;
+    }
+  }
+  @media (max-width: 767px) {
+    .featured__title {
+      font-size: 20px;
+    }
+    .featured__summary {
+      font-size: 14px;
+      line-height: 20px;
+    }
+  }
+</style>

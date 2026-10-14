@@ -1,0 +1,27 @@
+---
+// Highlighted line inside a document (light blue box).
+---
+
+<p class="note"><slot /></p>
+
+<style>
+  .note {
+    margin: 0;
+    padding: 27px 28px 24px;
+    border-radius: 4px;
+    background: var(--cobalt-50);
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 24px;
+    letter-spacing: 0.9px;
+    color: var(--ink);
+  }
+  @media (max-width: 767px) {
+    .note {
+      padding: 20px;
+      font-size: 15px;
+      line-height: 22px;
+      letter-spacing: 0.3px;
+    }
+  }
+</style>

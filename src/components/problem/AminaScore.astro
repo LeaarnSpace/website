@@ -1,0 +1,91 @@
+---
+// "Amina scored 62%." — the name rises in, then the outlined score counts up from 01% (Figma timing).
+---
+
+<section class="amina container">
+  <p class="amina__score">
+    <span class="amina__name" data-slide data-slide-y="20" data-slide-delay="0.26">Amina<br />scored</span>
+    <span class="amina__pct" data-count-to="62" data-count-suffix="%." data-count-delay="0.35">62%.</span>
+  </p>
+  <div class="amina__lines">
+    <p>The register says she was present.</p>
+    <p>The report says she passed.</p>
+    <p class="amina__why">Nothing says why.</p>
+  </div>
+</section>
+
+<style>
+  .amina {
+    display: flex;
+    flex-direction: column;
+    gap: 39px;
+    padding-top: 64px;
+    padding-bottom: 78px;
+  }
+  .amina__score {
+    display: flex;
+    align-items: flex-end;
+    gap: 24px;
+    font-weight: 700;
+  }
+  .amina__name {
+    font-size: 148px;
+    line-height: 161px;
+    color: var(--ink-strong);
+  }
+  /* Outlined figure (Figma: transparent fill, light cobalt outline) */
+  .amina__pct {
+    font-size: 118px;
+    line-height: 161px;
+    color: transparent;
+    -webkit-text-stroke: 2px var(--cobalt-200);
+    font-variant-numeric: tabular-nums;
+  }
+  .amina__lines {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-width: 640px;
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: 0.9px;
+    color: var(--ink);
+  }
+  .amina__why {
+    color: var(--cobalt-600);
+  }
+  @media (max-width: 1023px) {
+    .amina__name {
+      font-size: 96px;
+      line-height: 104px;
+    }
+    .amina__pct {
+      font-size: 76px;
+      line-height: 104px;
+    }
+  }
+  @media (max-width: 767px) {
+    .amina {
+      gap: 24px;
+      padding-top: 32px;
+      padding-bottom: 48px;
+    }
+    .amina__score {
+      gap: 12px;
+    }
+    .amina__name {
+      font-size: 56px;
+      line-height: 60px;
+    }
+    .amina__pct {
+      font-size: 44px;
+      line-height: 60px;
+      -webkit-text-stroke-width: 1.5px;
+    }
+    .amina__lines {
+      font-size: 14px;
+      line-height: 18px;
+      letter-spacing: 0.4px;
+    }
+  }
+</style>

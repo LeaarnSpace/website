@@ -1,0 +1,160 @@
+---
+import Page from "../layouts/Page.astro";
+import PageHero from "../components/ui/PageHero.astro";
+import LegalLayout, { type TocGroup } from "../components/legal/LegalLayout.astro";
+import LegalSection from "../components/legal/LegalSection.astro";
+import Note from "../components/legal/Note.astro";
+import QuestionsBox from "../components/legal/QuestionsBox.astro";
+import { routes } from "../data/navigation";
+
+// TODO: replace with the real contact address
+const contactHref = "#contact";
+
+const sections = [
+  { id: "accepting-these-terms", label: "Accepting these terms" },
+  { id: "about-the-site", label: "About the site" },
+  { id: "using-the-site", label: "Using the site" },
+  { id: "content-and-ownership", label: "Content and ownership" },
+  { id: "using-our-research", label: "Using our research" },
+  { id: "third-party-links", label: "Third-party links" },
+  { id: "disclaimers", label: "Disclaimers" },
+  { id: "liability", label: "Liability" },
+  { id: "changes", label: "Changes" },
+  { id: "governing-law", label: "Governing law" },
+  { id: "contact-us", label: "Contact us" },
+];
+const toc: TocGroup[] = [{ items: sections }];
+---
+
+<Page title="Terms of use" description="The ground rules for using our website and reading what we publish.">
+  <PageHero
+    title="Terms of use"
+    lede="The ground rules for using our website and reading what we publish."
+    meta="Last updated: 12/09/2026"
+  />
+
+  <LegalLayout toc={toc} tocTitle="On this page">
+    <LegalSection id="accepting-these-terms" number={1} title="Accepting these terms">
+      <p>
+        By using this website you agree to these terms. If you do not agree, please do not use the site. Learn Space is
+        a trading name of Learn Space Limited, registered in Nigeria, and "we", "us" and "our" mean Learn Space Limited.
+      </p>
+    </LegalSection>
+    <LegalSection id="about-the-site" number={2} title="About the site">
+      <p>
+        This site shares who we are, what we are building and what we learn. Products such as Bloom, Pathways and
+        CampusID may carry their own terms, which apply alongside these when you use them. Add product terms links here.
+      </p>
+    </LegalSection>
+    <LegalSection id="using-the-site" number={3} title="Using the site">
+      <div class="rules">
+        <div class="rules__box rules__box--do">
+          <h4 class="rules__title">Dos</h4>
+          <ul>
+            <li>Read, share and link to our pages.</li>
+            <li>Subscribe to our newsletter.</li>
+            <li>Get in touch with questions.</li>
+          </ul>
+        </div>
+        <div class="rules__box rules__box--dont">
+          <h4 class="rules__title">Don’ts</h4>
+          <ul>
+            <li>Scrape it in bulk or collect personal data from it.</li>
+            <li>Break, overload or probe the site's security.</li>
+            <li>Post anything unlawful or harmful.</li>
+          </ul>
+        </div>
+      </div>
+    </LegalSection>
+    <LegalSection id="content-and-ownership" number={4} title="Content and ownership">
+      <p>
+        The text, design, logos and materials on this site belong to Learn Space Limited or our licensors, and are
+        protected by law. You may view and share them for non-commercial purposes with credit. Anything beyond that
+        needs our written permission.
+      </p>
+    </LegalSection>
+    <LegalSection id="using-our-research" number={5} title="Using our research">
+      <p>
+        We publish what we find so that others can use it. You may quote and build on our findings if you credit Learn
+        Space, link to the source, and do not change the meaning or suggest we endorse your conclusions or products.
+      </p>
+      <Note>
+        Our findings are independent. Please do not use them in a way that implies we support a product, sponsor or
+        position.
+      </Note>
+    </LegalSection>
+    <LegalSection id="third-party-links" number={6} title="Third-party links">
+      <p>
+        We sometimes link to other sites. We do not control them and are not responsible for their content or practices.
+      </p>
+    </LegalSection>
+    <LegalSection id="disclaimers" number={7} title="Disclaimers">
+      <p>
+        We work to keep the site accurate and available, but it is provided as it is. Our research reflects what we knew
+        when it was published and may be updated. Nothing here is legal, financial or professional advice.
+      </p>
+    </LegalSection>
+    <LegalSection id="liability" number={8} title="Limitation of liability">
+      <p>
+        To the extent the law allows, we are not liable for losses arising from your use of, or inability to use, the
+        site or from relying on its content. Nothing in these terms limits liability that cannot lawfully be limited.
+        Add wording confirmed by counsel.
+      </p>
+    </LegalSection>
+    <LegalSection id="changes" number={9} title="Changes to these terms">
+      <p>
+        We may update these terms from time to time. The date at the top shows when they last changed, and continuing to
+        use the site means you accept the current version.
+      </p>
+    </LegalSection>
+    <LegalSection id="governing-law" number={10} title="Governing law">
+      <p>
+        These terms are governed by the laws of the Federal Republic of Nigeria. Add the courts or dispute process
+        confirmed by counsel.
+      </p>
+    </LegalSection>
+
+    <QuestionsBox title="Questions about these terms?" action={{ label: "Contact us", href: contactHref }}>
+      Write to us at: add email address. For personal data, see our <a href={routes.privacy}>privacy and data</a> page.
+    </QuestionsBox>
+  </LegalLayout>
+</Page>
+
+<style>
+  .rules {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .rules__box {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 21px 24px 28px;
+    border-radius: 4px;
+    font-size: 14px;
+    line-height: 18px;
+  }
+  .rules__box--do {
+    background: var(--cobalt-50);
+  }
+  .rules__box--dont {
+    background: var(--surface-sunk);
+  }
+  .rules__title {
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.196px;
+    color: var(--ink);
+  }
+  .rules ul {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  @media (max-width: 767px) {
+    .rules {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

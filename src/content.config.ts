@@ -34,9 +34,39 @@ const news = defineCollection({
       source: z.string().optional(),
       sourceUrl: z.string().url().optional(),
       summary: z.string().optional(),
+      /** Who wrote / reviewed our commentary (shown under the headline when there is one) */
+      author: z.string().optional(),
+      reviewer: z.string().optional(),
+      /** Cards under "Related from LearnSpace" on the story page */
+      related: z
+        .array(
+          z.object({
+            type: z.enum(["Podcast", "Insights", "Blog", "Report"]),
+            title: z.string(),
+            linkLabel: z.string(),
+            href: z.string(),
+          }),
+        )
+        .default([]),
       /** Lower numbers come first in lists */
       order: z.number().default(100),
     }),
 });
 
-export const collections = { blog, news };
+const roles = defineCollection({
+  loader: glob({ pattern: "**/*.md", base: "./src/content/roles" }),
+  schema: z.object({
+    title: z.string(),
+    team: z.enum(["Research", "Product", "Programmes"]),
+    posted: partialDate,
+    location: z.string(),
+    arrangement: z.enum(["Remote", "Hybrid", "On-site"]),
+    /** Where the arrow leads (an application form or role description); falls back to the page's placeholder link */
+    applyUrl: z.string().url().optional(),
+    order: z.number().default(100),
+    /** true keeps the role in the project but off the site */
+    hidden: z.boolean().default(false),
+  }),
+});
+
+export const collections = { blog, news, roles };

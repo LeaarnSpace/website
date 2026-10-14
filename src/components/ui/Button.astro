@@ -2,12 +2,14 @@
 interface Props {
   href: string;
   label: string;
+  /** primary: solid cobalt. secondary: white with a cobalt outline */
+  variant?: "primary" | "secondary";
   class?: string;
 }
-const { href, label, class: className } = Astro.props;
+const { href, label, variant = "primary", class: className } = Astro.props;
 ---
 
-<a href={href} class:list={["btn", className]}>
+<a href={href} class:list={["btn", `btn--${variant}`, className]}>
   <span class="btn__fill" aria-hidden="true"></span>
   <span class="btn__label">{label}</span>
 </a>
@@ -30,6 +32,17 @@ const { href, label, class: className } = Astro.props;
     white-space: nowrap;
     isolation: isolate;
   }
+  .btn--secondary {
+    background: var(--paper);
+    color: var(--cobalt-600);
+    box-shadow: inset 0 0 0 1px var(--blue-100);
+  }
+  .btn--secondary .btn__fill {
+    background: var(--surface-sunk);
+  }
+  .btn--secondary:hover {
+    color: var(--cobalt-600);
+  }
   /* "Hover Progress Fill" from the Figma button component */
   .btn__fill {
     position: absolute;
@@ -42,7 +55,7 @@ const { href, label, class: className } = Astro.props;
   .btn:hover .btn__fill {
     width: 100%;
   }
-  .btn:hover {
+  .btn--primary:hover {
     color: var(--ink);
   }
   .btn:focus-visible {

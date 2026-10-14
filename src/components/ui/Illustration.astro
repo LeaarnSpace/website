@@ -4,7 +4,8 @@
 import data from "../../data/illustrations.json";
 
 interface Props {
-  name: "hero" | "child";
+  /** Key in src/data/illustrations.json */
+  name: keyof typeof data;
   class?: string;
   label: string;
   /** Playback speed when it draws on scroll (2 = twice as fast) */

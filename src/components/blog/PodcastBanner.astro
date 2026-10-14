@@ -1,0 +1,101 @@
+---
+// "Take us with you": where to follow the episodes.
+import youtube from "../../assets/icons/youtube.png";
+import spotify from "../../assets/icons/spotify.png";
+import { podcastLinks } from "../../data/navigation";
+
+const channels = [
+  { label: "YouTube", href: podcastLinks.youtube, icon: youtube },
+  { label: "Spotify", href: podcastLinks.spotify, icon: spotify },
+];
+---
+
+<aside class="podcast">
+  <div class="podcast__copy">
+    <h2 class="podcast__title">Take us with you</h2>
+    <p class="podcast__body">Every episode is available to watch or listen to wherever you already follow podcasts.</p>
+  </div>
+  <ul class="podcast__links">
+    {
+      channels.map((c) => (
+        <li>
+          <a href={c.href} class="channel" target="_blank" rel="noopener">
+            <img src={c.icon.src} alt="" width="19" height="21" class="channel__icon" />
+            {c.label}
+            <span class="visually-hidden">(opens in a new tab)</span>
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</aside>
+
+<style>
+  .podcast {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+    padding: 64px max(var(--gutter), calc((100vw - var(--max)) / 2 + var(--gutter)));
+    background: var(--cobalt-50);
+  }
+  .podcast__copy {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    color: var(--ink-strong);
+  }
+  .podcast__title {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 0.21px;
+  }
+  .podcast__body {
+    font-size: 16px;
+    line-height: 26px;
+  }
+  .podcast__links {
+    display: flex;
+    gap: 24px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .channel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 130px;
+    padding: 12px 18px;
+    border-radius: var(--radius-sm);
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.6);
+    font-size: 16px;
+    line-height: 26px;
+    color: var(--ink-strong);
+    transition: background-color 0.3s ease;
+  }
+  .channel:hover {
+    background: var(--paper);
+  }
+  .channel__icon {
+    width: 19px;
+    height: 21px;
+    object-fit: contain;
+  }
+  @media (max-width: 767px) {
+    .podcast {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 40px 20px;
+    }
+    .podcast__body {
+      font-size: 14px;
+      line-height: 20px;
+    }
+    .podcast__links {
+      gap: 12px;
+    }
+  }
+</style>

@@ -1,0 +1,146 @@
+---
+// Four numbered cards in a staggered row: odd cards are tall, even ones shorter, wider and
+// dropped slightly, each overlapping the last by 10px (Figma "Belief Cards"). On scroll they
+// rise up from below one after another (scripts/motion/rise-cards.ts).
+interface Item {
+  title: string;
+  body: string;
+}
+interface Props {
+  items: Item[];
+  /**
+   * "beliefs": tall/short cards (Who We Are). "compact": equal-width cards with every second one
+   * dropped 50px (How hiring works, In short, Our commitments).
+   */
+  variant?: "beliefs" | "compact";
+  /** Rise timing per card as "delay,duration;…" in seconds (defaults to the Who We Are timing) */
+  timing?: string;
+  class?: string;
+}
+const { items, variant = "beliefs", timing, class: className } = Astro.props;
+const pad = (n: number) => String(n).padStart(2, "0");
+---
+
+<ol class:list={["ncards", `ncards--${variant}`, className]} data-rise-cards data-rise-timing={timing}>
+  {
+    items.map((item, i) => (
+      <li class:list={["ncard", i % 2 ? "ncard--short" : "ncard--tall"]} data-rise-card>
+        <span class="ncard__num">{pad(i + 1)}</span>
+        <h3 class="ncard__title">{item.title}</h3>
+        <p class="ncard__body">{item.body}</p>
+      </li>
+    ))
+  }
+</ol>
+
+<style>
+  .ncards {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    margin: 0;
+    padding: 0 0 4px;
+    list-style: none;
+    /* Cards rise in from below the bottom edge only, so their bounce past the top is not cut off */
+    clip-path: inset(-200px -200px 0 -200px);
+  }
+  .ncard {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 32px 24px;
+    border: 1px solid var(--cobalt-200);
+    border-radius: var(--radius-md);
+    background: var(--paper);
+  }
+  .ncard + .ncard {
+    margin-left: -10px;
+  }
+  .ncard--tall {
+    width: 310px;
+    min-height: 369px;
+  }
+  .ncard--tall:first-child {
+    padding-inline: 18px;
+  }
+  .ncard--short {
+    width: 330px;
+    min-height: 315px;
+    margin-top: 27px;
+  }
+  .ncard__num {
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 20px;
+    letter-spacing: 0.196px;
+    color: var(--cobalt-600);
+  }
+  .ncard__title {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 28px;
+    color: var(--ink-strong);
+  }
+  .ncard__body {
+    font-size: 16px;
+    line-height: 26px;
+    color: var(--text-muted);
+  }
+
+  /* Compact: equal 310px cards, every second one dropped 50px, overlapping by ~19px */
+  .ncards--compact .ncard {
+    width: 310px;
+    min-height: 0;
+    padding: 32px 28px;
+    margin-top: 0;
+  }
+  .ncards--compact .ncard + .ncard {
+    margin-left: -19px;
+  }
+  .ncards--compact .ncard--short {
+    margin-top: 50px;
+  }
+  .ncards--compact .ncard__body {
+    font-size: 13px;
+    line-height: normal;
+  }
+
+  /* Tablet: two per row */
+  @media (max-width: 1279px) {
+    .ncards {
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .ncard + .ncard,
+    .ncards--compact .ncard + .ncard {
+      margin-left: 0;
+    }
+    .ncard--tall,
+    .ncard--short,
+    .ncards--compact .ncard,
+    .ncards--compact .ncard--short {
+      width: calc(50% - 8px);
+      min-height: 0;
+      margin-top: 0;
+    }
+  }
+  /* Phones: one column */
+  @media (max-width: 767px) {
+    .ncard--tall,
+    .ncard--short,
+    .ncards--compact .ncard,
+    .ncards--compact .ncard--short {
+      width: 100%;
+      padding: 24px 20px;
+    }
+    .ncard__title {
+      font-size: 18px;
+      line-height: 24px;
+    }
+    .ncard__body {
+      font-size: 14px;
+      line-height: 20px;
+    }
+  }
+</style>

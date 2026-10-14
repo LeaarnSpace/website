@@ -1,0 +1,93 @@
+---
+// "What we offer": on hover the white cover pulls away to the left, revealing a black card with
+// white text (Figma "Unveil" component).
+interface Benefit {
+  title: string;
+  body: string;
+}
+interface Props {
+  items: Benefit[];
+}
+const { items } = Astro.props;
+---
+
+<ul class="benefits">
+  {
+    items.map((b) => (
+      <li class="benefit" tabindex="0">
+        <h3 class="benefit__title">{b.title}</h3>
+        <p class="benefit__body">{b.body}</p>
+      </li>
+    ))
+  }
+</ul>
+
+<style>
+  .benefits {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .benefit {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    min-height: 153px;
+    padding: 24px 80px 24px 22px;
+    background: var(--black);
+    isolation: isolate;
+    outline: none;
+  }
+  /* White cover that shrinks to the left on hover */
+  .benefit::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: var(--paper);
+    transform-origin: left;
+    transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .benefit:hover::before,
+  .benefit:focus-visible::before {
+    transform: scaleX(0);
+  }
+  .benefit:focus-visible {
+    outline: 2px solid var(--focus-ring);
+    outline-offset: 2px;
+  }
+  .benefit__title {
+    font-family: var(--font-figures);
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 25.6px;
+    color: var(--ink);
+    transition: color 0.4s ease;
+  }
+  .benefit__body {
+    font-family: var(--font-figures);
+    font-size: 13px;
+    line-height: 20.8px;
+    color: var(--ink);
+    transition: color 0.4s ease;
+  }
+  .benefit:hover :is(.benefit__title, .benefit__body),
+  .benefit:focus-visible :is(.benefit__title, .benefit__body) {
+    color: var(--paper);
+  }
+  @media (max-width: 767px) {
+    .benefits {
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+    .benefit {
+      min-height: 0;
+      padding: 24px 20px;
+    }
+  }
+</style>

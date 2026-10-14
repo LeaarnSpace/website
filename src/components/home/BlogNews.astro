@@ -1,10 +1,11 @@
 ---
 import { Image } from "astro:assets";
 import Button from "../ui/Button.astro";
-import arrowDark from "../../assets/icons/arrow-dark.svg?raw";
 import arrowLight from "../../assets/icons/arrow-light.svg?raw";
 import { routes } from "../../data/navigation";
-import { getPosts, getNews, formatDotDate } from "../../lib/content";
+import { getPosts, getNews } from "../../lib/content";
+import NewsCard from "../news/NewsCard.astro";
+import PostCard from "../blog/PostCard.astro";
 import newsImage from "../../assets/images/news.png";
 
 const posts = await getPosts(3);
@@ -24,18 +25,7 @@ const news = await getNews(3);
         {
           posts.map((p) => (
             <li class="post">
-              <a href={`${routes.blog}/${p.id}`} class="post__link">
-                <div class="post__media">
-                  <div class="post__frame">
-                    <Image src={p.data.image} alt="" widths={[420, 840]} sizes="420px" class="post__img" />
-                  </div>
-                </div>
-                <h3 class="post__title">{p.data.title}</h3>
-                <p class="post__excerpt">{p.data.excerpt}</p>
-                <span class="round round--card" aria-hidden="true">
-                  <span class="flip" set:html={arrowDark} />
-                </span>
-              </a>
+              <PostCard post={p} />
             </li>
           ))
         }
@@ -69,17 +59,7 @@ const news = await getNews(3);
         {
           news.map((n) => (
             <li>
-              <a href={`${routes.news}/${n.id}`} class="news__item">
-                <span class="news__meta">
-                  <strong>{n.data.category}</strong>
-                  <span class="news__dash" aria-hidden="true" />
-                  <time datetime={n.data.date}>{formatDotDate(n.data.date)}</time>
-                </span>
-                <span class="news__title">{n.data.title}</span>
-                <span class="round round--card" aria-hidden="true">
-                  <span class="flip" set:html={arrowDark} />
-                </span>
-              </a>
+              <NewsCard story={n} />
             </li>
           ))
         }
@@ -99,8 +79,8 @@ const news = await getNews(3);
     gap: 80px;
   }
   .bn__heading {
-    font-size: 32px;
-    font-weight: 700;
+    font-size: 36px;
+    font-weight: 400;
     color: var(--ink-strong);
     white-space: nowrap;
   }
@@ -147,59 +127,6 @@ const news = await getNews(3);
   .post {
     flex: 0 0 420px;
     scroll-snap-align: start;
-  }
-  .post__link {
-    display: flex;
-    flex-direction: column;
-    height: 440px;
-  }
-  .post__media {
-    height: 244px;
-    display: flex;
-    align-items: center;
-    margin-bottom: 24px;
-  }
-  /* The image zooms inside this rounded frame, so its corners stay rounded on hover */
-  /* On hover the whole image (rounded corners included) grows slightly */
-  .post__frame {
-    width: 100%;
-    height: 220px;
-    overflow: hidden;
-    border-radius: var(--radius-md);
-    transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-  }
-  .post__link:hover .post__frame {
-    transform: scale(1.04);
-  }
-  .post__media :global(.post__img) {
-    width: 100%;
-    height: 220px;
-    object-fit: cover;
-    border-radius: var(--radius-md);
-    transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-  }
-  .post__title {
-    font-size: 20px;
-    font-weight: 700;
-    color: var(--black);
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    min-height: 56px;
-    margin-bottom: 8px;
-  }
-  .post__excerpt {
-    font-size: 14px;
-    line-height: 18px;
-    color: var(--black);
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-  }
-  .post__link .round {
-    margin: auto 20px 0 auto;
   }
 
   .carousel__controls {
@@ -264,17 +191,6 @@ const news = await getNews(3);
     transform: rotate(180deg);
     display: inline-flex;
   }
-  /* Arrow nudges forward on hover and eases back when the pointer leaves */
-  .post__link:hover .round--card {
-    transform: translateX(15px);
-  }
-  .news__item:hover .round--card {
-    transform: translateX(25px);
-  }
-  /* Blog arrows also switch to the Figma hover shade */
-  .post__link:hover .round--card {
-    background: var(--action-primary-hover);
-  }
 
   /* News */
   .news__head {
@@ -312,52 +228,6 @@ const news = await getNews(3);
     flex-direction: column;
     gap: 16px;
   }
-  .news__item {
-    display: flex;
-    align-items: flex-start;
-    gap: 76px;
-    min-height: 140px;
-    padding: var(--space-6) var(--space-7);
-    border-radius: var(--radius-md);
-    background: var(--cobalt-50);
-    align-items: center;
-    transition: background-color 0.3s ease;
-  }
-  .news__meta {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    align-self: flex-start;
-    padding-top: 4px;
-    white-space: nowrap;
-  }
-  .news__meta strong {
-    font-size: 14px;
-    line-height: 18px;
-    letter-spacing: 0.196px;
-    color: var(--ink-strong);
-  }
-  .news__meta time {
-    font-size: 12px;
-    line-height: 16px;
-    color: var(--ink-strong);
-  }
-  .news__dash {
-    width: 10px;
-    height: 1px;
-    background: var(--ink-strong);
-  }
-  .news__title {
-    flex: 1;
-    max-width: 500px;
-    font-size: 20px;
-    color: var(--ink-strong);
-  }
-  .news__item .round {
-    margin-left: auto;
-    margin-right: 30px;
-  }
-
   @media (max-width: 1200px) {
     .blog {
       grid-template-columns: 1fr;
@@ -380,26 +250,6 @@ const news = await getNews(3);
       font-size: 20px;
       letter-spacing: 0.24px;
     }
-    .post__title {
-      font-size: 18px;
-      min-height: 0;
-    }
-    .post__excerpt {
-      font-size: 14px;
-      line-height: 18px;
-    }
-    .news__meta strong {
-      font-size: 12px;
-      line-height: 16px;
-    }
-    .news__meta time {
-      font-size: 11px;
-      line-height: 14px;
-    }
-    .news__title {
-      font-size: 14px;
-      line-height: 18px;
-    }
   }
   @media (max-width: 640px) {
     .bn {
@@ -409,38 +259,11 @@ const news = await getNews(3);
     .post {
       flex-basis: 300px;
     }
-    .post__link {
-      height: auto;
-      gap: 0;
-    }
-    .post__media {
-      height: auto;
-    }
-    .post__frame,
-    .post__media :global(.post__img) {
-      height: 180px;
-    }
-    .post__link .round {
-      margin-top: 16px;
-    }
     .carousel {
       gap: 32px;
     }
     .carousel__controls {
       flex-wrap: wrap;
-    }
-    .news__item {
-      flex-wrap: wrap;
-      gap: 12px;
-      padding: 20px;
-    }
-    .news__title {
-      flex-basis: 100%;
-      order: 2;
-    }
-    .news__item .round {
-      position: absolute;
-      display: none;
     }
   }
 </style>

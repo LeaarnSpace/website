@@ -1,0 +1,200 @@
+---
+// "Beyond the Numbers": a sticky "5 / 5" summary beside what is tracked and what is not.
+import SectionTitle from "../ui/SectionTitle.astro";
+
+const tracked = ["Attainment", "Enrolment", "Completion", "Exam results"];
+const unmeasured = [
+  "Is she rested and regulated?",
+  "Does home back up school, or undercut it?",
+  "Is she safe, online and off?",
+  "Will her teacher still be teaching next year?",
+  "Can she afford to continue at all?",
+];
+const trackedDelays = [0.26, 0.39, 0.55, 0.77];
+---
+
+<section class="band band--surface">
+  <div class="beyond container">
+    <SectionTitle title="Beyond the Numbers" />
+    <div class="beyond__grid">
+      <div class="beyond__summary">
+        <p class="beyond__counter" aria-label={`${unmeasured.length} of ${unmeasured.length}`}>
+          <span class="beyond__count" data-scroll-count={unmeasured.length}>{unmeasured.length}</span>
+          <span class="beyond__total"> / {unmeasured.length}</span>
+        </p>
+        <p class="beyond__note">Things that shape a child's results, and that no one is measuring. Keep scrolling.</p>
+      </div>
+
+      <div class="beyond__list">
+        <ul class="tracked">
+          {
+            tracked.map((label, i) => (
+              <li class="tracked__row" data-slide data-slide-y="-15" data-slide-delay={trackedDelays[i]}>
+                <span class="tracked__label">{label}</span>
+                <span class="tracked__badge">Tracked</span>
+              </li>
+            ))
+          }
+        </ul>
+        <p class="beyond__caveat">
+          These numbers are real and necessary. But they describe the outcome, not the system that produced it.
+        </p>
+        <ul class="unmeasured">
+          {
+            unmeasured.map((q) => (
+              <li class="unmeasured__row" data-count-step>
+                <span class="unmeasured__q">{q}</span>
+                <span class="unmeasured__badge">Not measured</span>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .beyond {
+    display: flex;
+    flex-direction: column;
+    gap: 56px;
+    padding: 64px calc(var(--gutter) + 32px);
+  }
+  .beyond__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+    gap: 64px;
+    align-items: start;
+  }
+  /* Figma marks this column sticky so it stays beside the list as it scrolls */
+  .beyond__summary {
+    position: sticky;
+    top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+  }
+  .beyond__counter {
+    font-family: var(--font-figures);
+    display: flex;
+    align-items: baseline;
+  }
+  .beyond__count {
+    font-size: 140px;
+    font-weight: 700;
+    line-height: 140px;
+    letter-spacing: -5.6px;
+    color: var(--cobalt-600);
+    font-variant-numeric: tabular-nums;
+  }
+  .beyond__total {
+    font-size: 39px;
+    font-weight: 500;
+    color: var(--ink);
+    white-space: pre;
+  }
+  .beyond__note {
+    max-width: 260px;
+    font-size: 14px;
+    color: var(--text-subtle);
+  }
+
+  .tracked,
+  .unmeasured {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .tracked__row {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    max-width: 571px;
+    padding: 22px 0;
+    border-top: 1px solid var(--cobalt-100);
+  }
+  .tracked__label {
+    font-size: 40px;
+    font-weight: 700;
+    color: var(--cobalt-600);
+  }
+  .tracked__badge {
+    padding: 4px 12px;
+    border-radius: var(--radius-pill);
+    background: var(--blue-100);
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 18px;
+    letter-spacing: 0.196px;
+    text-transform: uppercase;
+    color: var(--blue-700);
+  }
+  .beyond__caveat {
+    max-width: 420px;
+    padding: 20px 0 42px;
+    font-size: 16px;
+    line-height: 26px;
+    color: var(--ink);
+  }
+  .unmeasured__row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 22px 0;
+    border-top: 1px solid var(--cobalt-100);
+  }
+  .unmeasured__q {
+    max-width: 440px;
+    font-size: 40px;
+    font-weight: 700;
+    color: var(--ink);
+  }
+  .unmeasured__badge {
+    flex-shrink: 0;
+    padding: 4px 9px;
+    border-radius: 2px;
+    background: var(--beam-400);
+    font-size: 11px;
+    font-weight: 700;
+    line-height: 14px;
+    letter-spacing: 0.154px;
+    text-transform: uppercase;
+    color: var(--ink);
+  }
+
+  @media (max-width: 1023px) {
+    .beyond__grid {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+    .beyond__summary {
+      position: static;
+    }
+  }
+  @media (max-width: 767px) {
+    .beyond {
+      gap: 32px;
+      padding: 48px 20px;
+    }
+    .beyond__count {
+      font-size: 88px;
+      line-height: 88px;
+    }
+    .beyond__total {
+      font-size: 26px;
+    }
+    .tracked__label,
+    .unmeasured__q {
+      font-size: 24px;
+    }
+    .tracked__row,
+    .unmeasured__row {
+      padding: 16px 0;
+    }
+    .beyond__caveat {
+      font-size: 14px;
+      line-height: 20px;
+    }
+  }
+</style>

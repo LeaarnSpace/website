@@ -2303,5 +2303,3817 @@
     "file": "child-3265-2842.svg"
    }
   ]
+ },
+ "study": {
+  "width": 474.0,
+  "height": 528.0,
+  "pieces": [
+   {
+    "id": "3764:5117",
+    "box": {
+     "top": "42.51%",
+     "right": "39.66%",
+     "bottom": "56.28%",
+     "left": "58.91%"
+    },
+    "pad": {
+     "top": "-15.62%",
+     "right": "-14.8%",
+     "bottom": "-15.62%",
+     "left": "-14.8%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 2.075,
+     "end": 2.525,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5117.svg"
+   },
+   {
+    "id": "3764:5122",
+    "box": {
+     "top": "43.79%",
+     "right": "36.45%",
+     "bottom": "54.99%",
+     "left": "62.83%"
+    },
+    "pad": {
+     "top": "-15.62%",
+     "right": "-29.59%",
+     "bottom": "-15.62%",
+     "left": "-29.59%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 2.109,
+     "end": 2.559,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5122.svg"
+   },
+   {
+    "id": "3764:5126",
+    "box": {
+     "top": "21.54%",
+     "right": "64.62%",
+     "bottom": "77.82%",
+     "left": "30.84%"
+    },
+    "pad": {
+     "top": "-29.5%",
+     "right": "-4.64%",
+     "bottom": "-29.51%",
+     "left": "-4.64%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 0.0,
+     "end": 0.45,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5126.svg"
+   },
+   {
+    "id": "3764:5131",
+    "box": {
+     "top": "59.2%",
+     "right": "56.15%",
+     "bottom": "35.95%",
+     "left": "23.08%"
+    },
+    "pad": {
+     "top": "-3.9%",
+     "right": "-1.02%",
+     "bottom": "-3.9%",
+     "left": "-1.02%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 2.152,
+     "end": 2.602,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5131.svg"
+   },
+   {
+    "id": "3764:5136",
+    "box": {
+     "top": "62.7%",
+     "right": "63.1%",
+     "bottom": "35.73%",
+     "left": "24.06%"
+    },
+    "pad": {
+     "top": "-12.07%",
+     "right": "-1.64%",
+     "bottom": "-12.07%",
+     "left": "-1.64%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 2.258,
+     "end": 2.708,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5136.svg"
+   },
+   {
+    "id": "3764:5141",
+    "box": {
+     "top": "63.98%",
+     "right": "75.94%",
+     "bottom": "35.16%",
+     "left": "13.37%"
+    },
+    "pad": {
+     "top": "-22.13%",
+     "right": "-1.97%",
+     "bottom": "-22.13%",
+     "left": "-1.97%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 2.363,
+     "end": 2.813,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5141.svg"
+   },
+   {
+    "id": "3764:5146",
+    "box": {
+     "top": "21.9%",
+     "right": "69.25%",
+     "bottom": "76.11%",
+     "left": "26.02%"
+    },
+    "pad": {
+     "top": "-9.49%",
+     "right": "-4.47%",
+     "bottom": "-9.48%",
+     "left": "-4.47%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 0.044,
+     "end": 0.494,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5146.svg"
+   },
+   {
+    "id": "3764:5151",
+    "box": {
+     "top": "21.9%",
+     "right": "66.76%",
+     "bottom": "77.96%",
+     "left": "32.89%"
+    },
+    "pad": {
+     "top": "-132.8%",
+     "right": "-59.19%",
+     "bottom": "-132.8%",
+     "left": "-59.19%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 0.022,
+     "end": 0.472,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5151.svg"
+   },
+   {
+    "id": "3764:5156",
+    "box": {
+     "top": "43.72%",
+     "right": "41.62%",
+     "bottom": "55.99%",
+     "left": "58.2%"
+    },
+    "pad": {
+     "top": "-66.39%",
+     "right": "-118.38%",
+     "bottom": "-66.39%",
+     "left": "-118.38%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 2.089,
+     "end": 2.539,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5156.svg"
+   },
+   {
+    "id": "3764:5161",
+    "box": {
+     "top": "44.01%",
+     "right": "40.64%",
+     "bottom": "55.06%",
+     "left": "58.47%"
+    },
+    "pad": {
+     "top": "-20.43%",
+     "right": "-23.68%",
+     "bottom": "-20.43%",
+     "left": "-23.68%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 2.116,
+     "end": 2.566,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5161.svg"
+   },
+   {
+    "id": "3764:5166",
+    "box": {
+     "top": "44.08%",
+     "right": "41.62%",
+     "bottom": "55.35%",
+     "left": "57.93%"
+    },
+    "pad": {
+     "top": "-33.19%",
+     "right": "-47.35%",
+     "bottom": "-33.19%",
+     "left": "-47.35%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 2.102,
+     "end": 2.552,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5166.svg"
+   },
+   {
+    "id": "3764:5171",
+    "box": {
+     "top": "63.91%",
+     "right": "54.72%",
+     "bottom": "35.95%",
+     "left": "43.94%"
+    },
+    "pad": {
+     "top": "-132.78%",
+     "right": "-15.78%",
+     "bottom": "-132.78%",
+     "left": "-15.78%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 2.305,
+     "end": 2.755,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5171.svg"
+   },
+   {
+    "id": "3764:5176",
+    "box": {
+     "top": "63.91%",
+     "right": "37.17%",
+     "bottom": "35.95%",
+     "left": "59.63%"
+    },
+    "pad": {
+     "top": "-132.77%",
+     "right": "-6.58%",
+     "bottom": "-132.79%",
+     "left": "-6.58%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 2.316,
+     "end": 2.766,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5176.svg"
+   },
+   {
+    "id": "3764:5181",
+    "box": {
+     "top": "63.2%",
+     "right": "30.3%",
+     "bottom": "35.95%",
+     "left": "62.92%"
+    },
+    "pad": {
+     "top": "-22.13%",
+     "right": "-3.12%",
+     "bottom": "-22.13%",
+     "left": "-3.12%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 2.27,
+     "end": 2.72,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5181.svg"
+   },
+   {
+    "id": "3764:5186",
+    "box": {
+     "top": "60.49%",
+     "right": "21.39%",
+     "bottom": "35.95%",
+     "left": "76.65%"
+    },
+    "pad": {
+     "top": "-5.31%",
+     "right": "-10.76%",
+     "bottom": "-5.31%",
+     "left": "-10.76%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 3.497,
+     "end": 3.947,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5186.svg"
+   },
+   {
+    "id": "3764:5191",
+    "box": {
+     "top": "41.16%",
+     "right": "73.35%",
+     "bottom": "35.88%",
+     "left": "10.87%"
+    },
+    "pad": {
+     "top": "-0.82%",
+     "right": "-1.34%",
+     "bottom": "-0.82%",
+     "left": "-1.34%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 1.1,
+     "end": 1.55,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5191.svg"
+   },
+   {
+    "id": "3764:5196",
+    "box": {
+     "top": "55.28%",
+     "right": "16.49%",
+     "bottom": "42.44%",
+     "left": "83.33%"
+    },
+    "pad": {
+     "top": "-8.3%",
+     "right": "-118.36%",
+     "bottom": "-8.3%",
+     "left": "-118.35%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 3.243,
+     "end": 3.693,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5196.svg"
+   },
+   {
+    "id": "3764:5201",
+    "box": {
+     "top": "22.4%",
+     "right": "62.66%",
+     "bottom": "76.46%",
+     "left": "35.47%"
+    },
+    "pad": {
+     "top": "-16.6%",
+     "right": "-11.27%",
+     "bottom": "-16.6%",
+     "left": "-11.27%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 0.066,
+     "end": 0.516,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5201.svg"
+   },
+   {
+    "id": "3764:5206",
+    "box": {
+     "top": "64.12%",
+     "right": "54.55%",
+     "bottom": "32.95%",
+     "left": "42.25%"
+    },
+    "pad": {
+     "top": "-6.48%",
+     "right": "-6.58%",
+     "bottom": "-6.48%",
+     "left": "-6.58%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 2.598,
+     "end": 3.048,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5206.svg"
+   },
+   {
+    "id": "3764:5211",
+    "box": {
+     "top": "64.12%",
+     "right": "37.17%",
+     "bottom": "35.02%",
+     "left": "62.12%"
+    },
+    "pad": {
+     "top": "-22.13%",
+     "right": "-29.6%",
+     "bottom": "-22.13%",
+     "left": "-29.59%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 2.387,
+     "end": 2.837,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5211.svg"
+   },
+   {
+    "id": "3764:5216",
+    "box": {
+     "top": "64.12%",
+     "right": "13.99%",
+     "bottom": "35.09%",
+     "left": "78.7%"
+    },
+    "pad": {
+     "top": "-24.14%",
+     "right": "-2.89%",
+     "bottom": "-24.14%",
+     "left": "-2.89%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 3.56,
+     "end": 4.01,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5216.svg"
+   },
+   {
+    "id": "3764:5221",
+    "box": {
+     "top": "64.19%",
+     "right": "86.72%",
+     "bottom": "34.17%",
+     "left": "3.03%"
+    },
+    "pad": {
+     "top": "-11.55%",
+     "right": "-2.06%",
+     "bottom": "-11.55%",
+     "left": "-2.06%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 2.527,
+     "end": 2.977,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5221.svg"
+   },
+   {
+    "id": "3764:5226",
+    "box": {
+     "top": "64.19%",
+     "right": "21.48%",
+     "bottom": "33.45%",
+     "left": "68.09%"
+    },
+    "pad": {
+     "top": "-8.05%",
+     "right": "-2.02%",
+     "bottom": "-8.05%",
+     "left": "-2.02%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 2.562,
+     "end": 3.013,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5226.svg"
+   },
+   {
+    "id": "3764:5231",
+    "box": {
+     "top": "23.68%",
+     "right": "62.48%",
+     "bottom": "75.89%",
+     "left": "37.34%"
+    },
+    "pad": {
+     "top": "-44.27%",
+     "right": "-118.36%",
+     "bottom": "-44.26%",
+     "left": "-118.36%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 0.088,
+     "end": 0.537,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5231.svg"
+   },
+   {
+    "id": "3764:5236",
+    "box": {
+     "top": "64.27%",
+     "right": "62.03%",
+     "bottom": "34.95%",
+     "left": "36.9%"
+    },
+    "pad": {
+     "top": "-24.14%",
+     "right": "-19.73%",
+     "bottom": "-24.15%",
+     "left": "-19.73%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 2.434,
+     "end": 2.884,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5236.svg"
+   },
+   {
+    "id": "3764:5241",
+    "box": {
+     "top": "64.27%",
+     "right": "63.1%",
+     "bottom": "34.88%",
+     "left": "36.9%"
+    },
+    "pad": {
+     "top": "-22.13%",
+     "right": "-1px",
+     "bottom": "-22.13%",
+     "left": "-1px"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 2.422,
+     "end": 2.872,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5241.svg"
+   },
+   {
+    "id": "3764:5246",
+    "box": {
+     "top": "23.82%",
+     "right": "62.83%",
+     "bottom": "75.89%",
+     "left": "37.08%"
+    },
+    "pad": {
+     "top": "-66.4%",
+     "right": "-236.77%",
+     "bottom": "-66.4%",
+     "left": "-236.77%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 0.109,
+     "end": 0.559,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5246.svg"
+   },
+   {
+    "id": "3764:5251",
+    "box": {
+     "top": "23.97%",
+     "right": "74.15%",
+     "bottom": "74.82%",
+     "left": "25.4%"
+    },
+    "pad": {
+     "top": "-15.62%",
+     "right": "-47.35%",
+     "bottom": "-15.62%",
+     "left": "-47.34%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 0.131,
+     "end": 0.581,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5251.svg"
+   },
+   {
+    "id": "3764:5256",
+    "box": {
+     "top": "64.27%",
+     "right": "35.83%",
+     "bottom": "34.81%",
+     "left": "62.39%"
+    },
+    "pad": {
+     "top": "-20.43%",
+     "right": "-11.84%",
+     "bottom": "-20.43%",
+     "left": "-11.84%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 2.457,
+     "end": 2.907,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5256.svg"
+   },
+   {
+    "id": "3764:5261",
+    "box": {
+     "top": "24.25%",
+     "right": "62.12%",
+     "bottom": "74.54%",
+     "left": "37.34%"
+    },
+    "pad": {
+     "top": "-15.62%",
+     "right": "-39.45%",
+     "bottom": "-15.62%",
+     "left": "-39.45%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 0.153,
+     "end": 0.603,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5261.svg"
+   },
+   {
+    "id": "3764:5266",
+    "box": {
+     "top": "41.87%",
+     "right": "61.68%",
+     "bottom": "54.99%",
+     "left": "36.19%"
+    },
+    "pad": {
+     "top": "-6.03%",
+     "right": "-9.86%",
+     "bottom": "-6.04%",
+     "left": "-9.87%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 0.822,
+     "end": 1.272,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5266.svg"
+   },
+   {
+    "id": "3764:5271",
+    "box": {
+     "top": "25.25%",
+     "right": "74.6%",
+     "bottom": "71.04%",
+     "left": "23.26%"
+    },
+    "pad": {
+     "top": "-5.11%",
+     "right": "-9.86%",
+     "bottom": "-5.11%",
+     "left": "-9.86%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 0.197,
+     "end": 0.647,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5271.svg"
+   },
+   {
+    "id": "3764:5276",
+    "box": {
+     "top": "54.28%",
+     "right": "18.89%",
+     "bottom": "43.58%",
+     "left": "79.68%"
+    },
+    "pad": {
+     "top": "-8.85%",
+     "right": "-14.8%",
+     "bottom": "-8.85%",
+     "left": "-14.8%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 3.18,
+     "end": 3.63,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5276.svg"
+   },
+   {
+    "id": "3764:5281",
+    "box": {
+     "top": "25.53%",
+     "right": "62.21%",
+     "bottom": "73.89%",
+     "left": "36.1%"
+    },
+    "pad": {
+     "top": "-33.2%",
+     "right": "-12.46%",
+     "bottom": "-33.2%",
+     "left": "-12.46%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 0.175,
+     "end": 0.625,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5281.svg"
+   },
+   {
+    "id": "3764:5286",
+    "box": {
+     "top": "25.53%",
+     "right": "52.85%",
+     "bottom": "69.9%",
+     "left": "37.97%"
+    },
+    "pad": {
+     "top": "-4.15%",
+     "right": "-2.3%",
+     "bottom": "-4.15%",
+     "left": "-2.3%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 2.4,
+     "end": 2.85,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5286.svg"
+   },
+   {
+    "id": "3764:5291",
+    "box": {
+     "top": "45.29%",
+     "right": "44.83%",
+     "bottom": "54.42%",
+     "left": "54.9%"
+    },
+    "pad": {
+     "top": "-66.38%",
+     "right": "-78.9%",
+     "bottom": "-66.38%",
+     "left": "-78.9%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 2.13,
+     "end": 2.58,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5291.svg"
+   },
+   {
+    "id": "3764:5296",
+    "box": {
+     "top": "45.36%",
+     "right": "36.19%",
+     "bottom": "53.42%",
+     "left": "63.1%"
+    },
+    "pad": {
+     "top": "-15.62%",
+     "right": "-29.59%",
+     "bottom": "-15.62%",
+     "left": "-29.59%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 2.136,
+     "end": 2.586,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5296.svg"
+   },
+   {
+    "id": "3764:5301",
+    "box": {
+     "top": "63.05%",
+     "right": "57.84%",
+     "bottom": "35.52%",
+     "left": "41.71%"
+    },
+    "pad": {
+     "top": "-13.28%",
+     "right": "-47.34%",
+     "bottom": "-13.28%",
+     "left": "-47.35%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 2.281,
+     "end": 2.731,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5301.svg"
+   },
+   {
+    "id": "3764:5306",
+    "box": {
+     "top": "64.48%",
+     "right": "42.87%",
+     "bottom": "34.88%",
+     "left": "55.79%"
+    },
+    "pad": {
+     "top": "-29.51%",
+     "right": "-15.78%",
+     "bottom": "-29.51%",
+     "left": "-15.78%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 2.48,
+     "end": 2.93,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5306.svg"
+   },
+   {
+    "id": "3764:5311",
+    "box": {
+     "top": "65.19%",
+     "right": "63.1%",
+     "bottom": "29.67%",
+     "left": "31.19%"
+    },
+    "pad": {
+     "top": "-3.69%",
+     "right": "-3.7%",
+     "bottom": "-3.69%",
+     "left": "-3.7%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 2.668,
+     "end": 3.118,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5311.svg"
+   },
+   {
+    "id": "3764:5316",
+    "box": {
+     "top": "63.84%",
+     "right": "41.27%",
+     "bottom": "35.52%",
+     "left": "58.56%"
+    },
+    "pad": {
+     "top": "-29.51%",
+     "right": "-118.38%",
+     "bottom": "-29.51%",
+     "left": "-118.38%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 2.34,
+     "end": 2.79,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5316.svg"
+   },
+   {
+    "id": "3764:5321",
+    "box": {
+     "top": "26.32%",
+     "right": "64.17%",
+     "bottom": "68.4%",
+     "left": "30.04%"
+    },
+    "pad": {
+     "top": "-3.59%",
+     "right": "-3.64%",
+     "bottom": "-3.59%",
+     "left": "-3.64%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 0.219,
+     "end": 0.669,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5321.svg"
+   },
+   {
+    "id": "3764:5326",
+    "box": {
+     "top": "64.55%",
+     "right": "57.84%",
+     "bottom": "34.09%",
+     "left": "40.64%"
+    },
+    "pad": {
+     "top": "-13.98%",
+     "right": "-13.93%",
+     "bottom": "-13.98%",
+     "left": "-13.93%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 2.539,
+     "end": 2.989,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5326.svg"
+   },
+   {
+    "id": "3764:5331",
+    "box": {
+     "top": "63.62%",
+     "right": "41.98%",
+     "bottom": "35.45%",
+     "left": "56.42%"
+    },
+    "pad": {
+     "top": "-20.43%",
+     "right": "-13.15%",
+     "bottom": "-20.43%",
+     "left": "-13.15%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 2.328,
+     "end": 2.778,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5331.svg"
+   },
+   {
+    "id": "3764:5336",
+    "box": {
+     "top": "64.55%",
+     "right": "41.53%",
+     "bottom": "35.45%",
+     "left": "58.02%"
+    },
+    "pad": {
+     "top": "-1px",
+     "right": "-47.34%",
+     "bottom": "-1px",
+     "left": "-47.34%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 2.375,
+     "end": 2.825,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5336.svg"
+   },
+   {
+    "id": "3764:5341",
+    "box": {
+     "top": "64.55%",
+     "right": "41.98%",
+     "bottom": "34.88%",
+     "left": "57.13%"
+    },
+    "pad": {
+     "top": "-33.2%",
+     "right": "-23.68%",
+     "bottom": "-33.2%",
+     "left": "-23.67%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 2.492,
+     "end": 2.942,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5341.svg"
+   },
+   {
+    "id": "3764:5346",
+    "box": {
+     "top": "64.55%",
+     "right": "40.82%",
+     "bottom": "35.16%",
+     "left": "58.65%"
+    },
+    "pad": {
+     "top": "-66.39%",
+     "right": "-39.46%",
+     "bottom": "-66.39%",
+     "left": "-39.46%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 2.445,
+     "end": 2.895,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5346.svg"
+   },
+   {
+    "id": "3764:5351",
+    "box": {
+     "top": "70.33%",
+     "right": "28.88%",
+     "bottom": "28.53%",
+     "left": "30.84%"
+    },
+    "pad": {
+     "top": "-16.6%",
+     "right": "-0.52%",
+     "bottom": "-16.6%",
+     "left": "-0.52%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 2.75,
+     "end": 3.2,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5351.svg"
+   },
+   {
+    "id": "3764:5356",
+    "box": {
+     "top": "69.33%",
+     "right": "29.14%",
+     "bottom": "29.03%",
+     "left": "31.28%"
+    },
+    "pad": {
+     "top": "-11.54%",
+     "right": "-0.53%",
+     "bottom": "-11.55%",
+     "left": "-0.53%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 2.738,
+     "end": 3.188,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5356.svg"
+   },
+   {
+    "id": "3764:5361",
+    "box": {
+     "top": "46.36%",
+     "right": "28.16%",
+     "bottom": "53.35%",
+     "left": "71.75%"
+    },
+    "pad": {
+     "top": "-66.4%",
+     "right": "-236.77%",
+     "bottom": "-66.4%",
+     "left": "-236.77%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 2.143,
+     "end": 2.593,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5361.svg"
+   },
+   {
+    "id": "3764:5366",
+    "box": {
+     "top": "49.07%",
+     "right": "76.29%",
+     "bottom": "42.08%",
+     "left": "21.84%"
+    },
+    "pad": {
+     "top": "-2.14%",
+     "right": "-11.27%",
+     "bottom": "-2.14%",
+     "left": "-11.27%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 1.164,
+     "end": 1.614,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5366.svg"
+   },
+   {
+    "id": "3764:5371",
+    "box": {
+     "top": "57.99%",
+     "right": "78.25%",
+     "bottom": "41.51%",
+     "left": "19.88%"
+    },
+    "pad": {
+     "top": "-37.94%",
+     "right": "-11.27%",
+     "bottom": "-37.94%",
+     "left": "-11.27%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 1.229,
+     "end": 1.679,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5371.svg"
+   },
+   {
+    "id": "3764:5376",
+    "box": {
+     "top": "57.99%",
+     "right": "74.87%",
+     "bottom": "41.16%",
+     "left": "21.93%"
+    },
+    "pad": {
+     "top": "-22.13%",
+     "right": "-6.58%",
+     "bottom": "-22.13%",
+     "left": "-6.58%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 1.293,
+     "end": 1.743,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5376.svg"
+   },
+   {
+    "id": "3764:5381",
+    "box": {
+     "top": "42.94%",
+     "right": "43.58%",
+     "bottom": "53.5%",
+     "left": "53.83%"
+    },
+    "pad": {
+     "top": "-5.31%",
+     "right": "-8.16%",
+     "bottom": "-5.31%",
+     "left": "-8.16%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 2.123,
+     "end": 2.573,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5381.svg"
+   },
+   {
+    "id": "3764:5386",
+    "box": {
+     "top": "65.34%",
+     "right": "46.88%",
+     "bottom": "29.6%",
+     "left": "50.71%"
+    },
+    "pad": {
+     "top": "-3.74%",
+     "right": "-8.77%",
+     "bottom": "-3.74%",
+     "left": "-8.77%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 2.691,
+     "end": 3.141,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5386.svg"
+   },
+   {
+    "id": "3764:5391",
+    "box": {
+     "top": "46.58%",
+     "right": "42.07%",
+     "bottom": "48.57%",
+     "left": "53.65%"
+    },
+    "pad": {
+     "top": "-3.91%",
+     "right": "-4.93%",
+     "bottom": "-3.91%",
+     "left": "-4.93%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 2.653,
+     "end": 3.103,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5391.svg"
+   },
+   {
+    "id": "3764:5396",
+    "box": {
+     "top": "46.58%",
+     "right": "43.94%",
+     "bottom": "53%",
+     "left": "54.01%"
+    },
+    "pad": {
+     "top": "-44.27%",
+     "right": "-10.29%",
+     "bottom": "-44.26%",
+     "left": "-10.29%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 2.15,
+     "end": 2.6,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5396.svg"
+   },
+   {
+    "id": "3764:5401",
+    "box": {
+     "top": "49.07%",
+     "right": "9.27%",
+     "bottom": "35.38%",
+     "left": "88.24%"
+    },
+    "pad": {
+     "top": "-1.22%",
+     "right": "-8.45%",
+     "bottom": "-1.22%",
+     "left": "-8.45%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 3.37,
+     "end": 3.82,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5401.svg"
+   },
+   {
+    "id": "3764:5406",
+    "box": {
+     "top": "46.43%",
+     "right": "33.96%",
+     "bottom": "50.93%",
+     "left": "63.9%"
+    },
+    "pad": {
+     "top": "-7.18%",
+     "right": "-9.86%",
+     "bottom": "-7.18%",
+     "left": "-9.87%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 2.617,
+     "end": 3.067,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5406.svg"
+   },
+   {
+    "id": "3764:5411",
+    "box": {
+     "top": "41.23%",
+     "right": "27.45%",
+     "bottom": "53.28%",
+     "left": "71.48%"
+    },
+    "pad": {
+     "top": "-3.45%",
+     "right": "-19.73%",
+     "bottom": "-3.45%",
+     "left": "-19.73%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 2.095,
+     "end": 2.545,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5411.svg"
+   },
+   {
+    "id": "3764:5416",
+    "box": {
+     "top": "29.03%",
+     "right": "75.67%",
+     "bottom": "68.83%",
+     "left": "23.44%"
+    },
+    "pad": {
+     "top": "-8.85%",
+     "right": "-23.68%",
+     "bottom": "-8.85%",
+     "left": "-23.68%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 0.241,
+     "end": 0.691,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5416.svg"
+   },
+   {
+    "id": "3764:5421",
+    "box": {
+     "top": "57.63%",
+     "right": "44.12%",
+     "bottom": "41.51%",
+     "left": "54.9%"
+    },
+    "pad": {
+     "top": "-22.13%",
+     "right": "-21.52%",
+     "bottom": "-22.13%",
+     "left": "-21.52%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 2.917,
+     "end": 3.367,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5421.svg"
+   },
+   {
+    "id": "3764:5426",
+    "box": {
+     "top": "63.91%",
+     "right": "40.55%",
+     "bottom": "35.31%",
+     "left": "59.27%"
+    },
+    "pad": {
+     "top": "-24.15%",
+     "right": "-118.35%",
+     "bottom": "-24.14%",
+     "left": "-118.38%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 2.352,
+     "end": 2.802,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5426.svg"
+   },
+   {
+    "id": "3764:5431",
+    "box": {
+     "top": "64.69%",
+     "right": "40.37%",
+     "bottom": "34.95%",
+     "left": "59.45%"
+    },
+    "pad": {
+     "top": "-53.11%",
+     "right": "-118.35%",
+     "bottom": "-53.11%",
+     "left": "-118.36%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 2.504,
+     "end": 2.954,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5431.svg"
+   },
+   {
+    "id": "3764:5436",
+    "box": {
+     "top": "44.37%",
+     "right": "10.78%",
+     "bottom": "51.85%",
+     "left": "82.98%"
+    },
+    "pad": {
+     "top": "-5.01%",
+     "right": "-3.38%",
+     "bottom": "-5.01%",
+     "left": "-3.38%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 2.8,
+     "end": 3.25,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5436.svg"
+   },
+   {
+    "id": "3764:5441",
+    "box": {
+     "top": "58.35%",
+     "right": "44.21%",
+     "bottom": "41.51%",
+     "left": "55.35%"
+    },
+    "pad": {
+     "top": "-132.8%",
+     "right": "-47.35%",
+     "bottom": "-132.8%",
+     "left": "-47.35%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 3.033,
+     "end": 3.483,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5441.svg"
+   },
+   {
+    "id": "3764:5446",
+    "box": {
+     "top": "58.35%",
+     "right": "42.34%",
+     "bottom": "38.66%",
+     "left": "55.97%"
+    },
+    "pad": {
+     "top": "-6.32%",
+     "right": "-12.46%",
+     "bottom": "-6.32%",
+     "left": "-12.46%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 2.023,
+     "end": 2.473,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5446.svg"
+   },
+   {
+    "id": "3764:5451",
+    "box": {
+     "top": "51.57%",
+     "right": "42.96%",
+     "bottom": "41.58%",
+     "left": "46.17%"
+    },
+    "pad": {
+     "top": "-2.77%",
+     "right": "-1.94%",
+     "bottom": "-2.77%",
+     "left": "-1.94%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 2.8,
+     "end": 3.25,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5451.svg"
+   },
+   {
+    "id": "3764:5456",
+    "box": {
+     "top": "46.93%",
+     "right": "12.48%",
+     "bottom": "46.15%",
+     "left": "78.34%"
+    },
+    "pad": {
+     "top": "-2.74%",
+     "right": "-2.3%",
+     "bottom": "-2.74%",
+     "left": "-2.3%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 3.053,
+     "end": 3.503,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5456.svg"
+   },
+   {
+    "id": "3764:5461",
+    "box": {
+     "top": "46.93%",
+     "right": "12.57%",
+     "bottom": "50.29%",
+     "left": "82.98%"
+    },
+    "pad": {
+     "top": "-6.81%",
+     "right": "-4.73%",
+     "bottom": "-6.81%",
+     "left": "-4.73%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 2.863,
+     "end": 3.313,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5461.svg"
+   },
+   {
+    "id": "3764:5466",
+    "box": {
+     "top": "58.49%",
+     "right": "80.3%",
+     "bottom": "41.23%",
+     "left": "18.89%"
+    },
+    "pad": {
+     "top": "-66.38%",
+     "right": "-26.3%",
+     "bottom": "-66.39%",
+     "left": "-26.3%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 1.357,
+     "end": 1.807,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5466.svg"
+   },
+   {
+    "id": "3764:5471",
+    "box": {
+     "top": "64.69%",
+     "right": "9.36%",
+     "bottom": "35.02%",
+     "left": "86.1%"
+    },
+    "pad": {
+     "top": "-66.38%",
+     "right": "-4.64%",
+     "bottom": "-66.38%",
+     "left": "-4.64%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 3.623,
+     "end": 4.073,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5471.svg"
+   },
+   {
+    "id": "3764:5476",
+    "box": {
+     "top": "30.31%",
+     "right": "53.21%",
+     "bottom": "68.62%",
+     "left": "45.45%"
+    },
+    "pad": {
+     "top": "-17.71%",
+     "right": "-15.78%",
+     "bottom": "-17.7%",
+     "left": "-15.78%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 2.412,
+     "end": 2.862,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5476.svg"
+   },
+   {
+    "id": "3764:5481",
+    "box": {
+     "top": "47%",
+     "right": "28.25%",
+     "bottom": "51.78%",
+     "left": "71.03%"
+    },
+    "pad": {
+     "top": "-15.62%",
+     "right": "-29.59%",
+     "bottom": "-15.62%",
+     "left": "-29.59%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 2.605,
+     "end": 3.055,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5481.svg"
+   },
+   {
+    "id": "3764:5486",
+    "box": {
+     "top": "58.56%",
+     "right": "43.58%",
+     "bottom": "39.09%",
+     "left": "55.26%"
+    },
+    "pad": {
+     "top": "-8.05%",
+     "right": "-18.21%",
+     "bottom": "-8.05%",
+     "left": "-18.21%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 2.012,
+     "end": 2.462,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5486.svg"
+   },
+   {
+    "id": "3764:5491",
+    "box": {
+     "top": "30.74%",
+     "right": "75.49%",
+     "bottom": "68.9%",
+     "left": "24.42%"
+    },
+    "pad": {
+     "top": "-53.12%",
+     "right": "-236.76%",
+     "bottom": "-53.12%",
+     "left": "-236.76%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 0.263,
+     "end": 0.712,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5491.svg"
+   },
+   {
+    "id": "3764:5496",
+    "box": {
+     "top": "58.63%",
+     "right": "80.21%",
+     "bottom": "40.94%",
+     "left": "19.07%"
+    },
+    "pad": {
+     "top": "-44.26%",
+     "right": "-29.59%",
+     "bottom": "-44.26%",
+     "left": "-29.59%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 1.421,
+     "end": 1.871,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5496.svg"
+   },
+   {
+    "id": "3764:5501",
+    "box": {
+     "top": "30.74%",
+     "right": "52.14%",
+     "bottom": "64.55%",
+     "left": "47.24%"
+    },
+    "pad": {
+     "top": "-4.02%",
+     "right": "-33.82%",
+     "bottom": "-4.02%",
+     "left": "-33.82%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 2.436,
+     "end": 2.886,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5501.svg"
+   },
+   {
+    "id": "3764:5506",
+    "box": {
+     "top": "64.76%",
+     "right": "35.2%",
+     "bottom": "33.81%",
+     "left": "62.3%"
+    },
+    "pad": {
+     "top": "-13.28%",
+     "right": "-8.46%",
+     "bottom": "-13.28%",
+     "left": "-8.45%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 2.574,
+     "end": 3.024,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5506.svg"
+   },
+   {
+    "id": "3764:5511",
+    "box": {
+     "top": "58.84%",
+     "right": "81.19%",
+     "bottom": "40.87%",
+     "left": "18.54%"
+    },
+    "pad": {
+     "top": "-66.38%",
+     "right": "-78.9%",
+     "bottom": "-66.38%",
+     "left": "-78.9%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 1.486,
+     "end": 1.936,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5511.svg"
+   },
+   {
+    "id": "3764:5516",
+    "box": {
+     "top": "64.76%",
+     "right": "8.11%",
+     "bottom": "34.02%",
+     "left": "90.73%"
+    },
+    "pad": {
+     "top": "-15.62%",
+     "right": "-18.21%",
+     "bottom": "-15.62%",
+     "left": "-18.21%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 3.687,
+     "end": 4.137,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5516.svg"
+   },
+   {
+    "id": "3764:5521",
+    "box": {
+     "top": "48.22%",
+     "right": "8.11%",
+     "bottom": "35.24%",
+     "left": "88.5%"
+    },
+    "pad": {
+     "top": "-1.14%",
+     "right": "-6.23%",
+     "bottom": "-1.14%",
+     "left": "-6.23%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 3.307,
+     "end": 3.757,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5521.svg"
+   },
+   {
+    "id": "3764:5526",
+    "box": {
+     "top": "31.31%",
+     "right": "71.84%",
+     "bottom": "66.9%",
+     "left": "24.51%"
+    },
+    "pad": {
+     "top": "-10.62%",
+     "right": "-5.77%",
+     "bottom": "-10.62%",
+     "left": "-5.77%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 0.284,
+     "end": 0.734,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5526.svg"
+   },
+   {
+    "id": "3764:5531",
+    "box": {
+     "top": "31.38%",
+     "right": "54.72%",
+     "bottom": "65.48%",
+     "left": "39.66%"
+    },
+    "pad": {
+     "top": "-6.03%",
+     "right": "-3.76%",
+     "bottom": "-6.04%",
+     "left": "-3.76%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 2.424,
+     "end": 2.874,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5531.svg"
+   },
+   {
+    "id": "3764:5536",
+    "box": {
+     "top": "59.06%",
+     "right": "80.93%",
+     "bottom": "40.8%",
+     "left": "18.63%"
+    },
+    "pad": {
+     "top": "-132.77%",
+     "right": "-47.34%",
+     "bottom": "-132.77%",
+     "left": "-47.34%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 1.55,
+     "end": 2.0,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5536.svg"
+   },
+   {
+    "id": "3764:5541",
+    "box": {
+     "top": "59.06%",
+     "right": "53.39%",
+     "bottom": "40.73%",
+     "left": "45.9%"
+    },
+    "pad": {
+     "top": "-88.53%",
+     "right": "-29.6%",
+     "bottom": "-88.53%",
+     "left": "-29.6%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 3.15,
+     "end": 3.6,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5541.svg"
+   },
+   {
+    "id": "3764:5546",
+    "box": {
+     "top": "64.84%",
+     "right": "40.46%",
+     "bottom": "34.88%",
+     "left": "59.18%"
+    },
+    "pad": {
+     "top": "-66.4%",
+     "right": "-59.19%",
+     "bottom": "-66.4%",
+     "left": "-59.19%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 2.516,
+     "end": 2.966,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5546.svg"
+   },
+   {
+    "id": "3764:5551",
+    "box": {
+     "top": "59.2%",
+     "right": "81.46%",
+     "bottom": "40.3%",
+     "left": "17.91%"
+    },
+    "pad": {
+     "top": "-37.93%",
+     "right": "-33.82%",
+     "bottom": "-37.93%",
+     "left": "-33.82%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 2.0,
+     "end": 2.45,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5551.svg"
+   },
+   {
+    "id": "3764:5556",
+    "box": {
+     "top": "64.84%",
+     "right": "4.37%",
+     "bottom": "32.31%",
+     "left": "83.78%"
+    },
+    "pad": {
+     "top": "-6.64%",
+     "right": "-1.78%",
+     "bottom": "-6.64%",
+     "left": "-1.78%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 3.75,
+     "end": 4.2,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5556.svg"
+   },
+   {
+    "id": "3764:5561",
+    "box": {
+     "top": "32.1%",
+     "right": "70.14%",
+     "bottom": "67.19%",
+     "left": "29.5%"
+    },
+    "pad": {
+     "top": "-26.56%",
+     "right": "-59.19%",
+     "bottom": "-26.56%",
+     "left": "-59.19%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 0.306,
+     "end": 0.756,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5561.svg"
+   },
+   {
+    "id": "3764:5566",
+    "box": {
+     "top": "59.27%",
+     "right": "49.82%",
+     "bottom": "38.94%",
+     "left": "46.7%"
+    },
+    "pad": {
+     "top": "-10.62%",
+     "right": "-6.07%",
+     "bottom": "-10.62%",
+     "left": "-6.07%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 2.047,
+     "end": 2.497,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5566.svg"
+   },
+   {
+    "id": "3764:5571",
+    "box": {
+     "top": "66.55%",
+     "right": "29.06%",
+     "bottom": "29.1%",
+     "left": "68.09%"
+    },
+    "pad": {
+     "top": "-4.35%",
+     "right": "-7.4%",
+     "bottom": "-4.35%",
+     "left": "-7.4%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 2.727,
+     "end": 3.177,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5571.svg"
+   },
+   {
+    "id": "3764:5576",
+    "box": {
+     "top": "59.34%",
+     "right": "53.39%",
+     "bottom": "36.16%",
+     "left": "44.83%"
+    },
+    "pad": {
+     "top": "-4.22%",
+     "right": "-11.84%",
+     "bottom": "-4.22%",
+     "left": "-11.84%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 2.164,
+     "end": 2.614,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5576.svg"
+   },
+   {
+    "id": "3764:5581",
+    "box": {
+     "top": "32.74%",
+     "right": "71.57%",
+     "bottom": "67.05%",
+     "left": "28.16%"
+    },
+    "pad": {
+     "top": "-88.51%",
+     "right": "-78.9%",
+     "bottom": "-88.51%",
+     "left": "-78.9%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 0.328,
+     "end": 0.778,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5581.svg"
+   },
+   {
+    "id": "3764:5586",
+    "box": {
+     "top": "59.42%",
+     "right": "46.79%",
+     "bottom": "39.3%",
+     "left": "53.12%"
+    },
+    "pad": {
+     "top": "-14.75%",
+     "right": "-236.72%",
+     "bottom": "-14.75%",
+     "left": "-236.72%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 2.035,
+     "end": 2.485,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5586.svg"
+   },
+   {
+    "id": "3764:5591",
+    "box": {
+     "top": "59.42%",
+     "right": "30.57%",
+     "bottom": "39.09%",
+     "left": "69.34%"
+    },
+    "pad": {
+     "top": "-12.64%",
+     "right": "-236.71%",
+     "bottom": "-12.64%",
+     "left": "-236.71%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 2.059,
+     "end": 2.509,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5591.svg"
+   },
+   {
+    "id": "3764:5596",
+    "box": {
+     "top": "32.88%",
+     "right": "70.59%",
+     "bottom": "66.9%",
+     "left": "28.25%"
+    },
+    "pad": {
+     "top": "-88.53%",
+     "right": "-18.21%",
+     "bottom": "-88.53%",
+     "left": "-18.21%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 0.35,
+     "end": 0.8,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5596.svg"
+   },
+   {
+    "id": "3764:5601",
+    "box": {
+     "top": "32.95%",
+     "right": "67.83%",
+     "bottom": "62.55%",
+     "left": "29.41%"
+    },
+    "pad": {
+     "top": "-4.21%",
+     "right": "-7.64%",
+     "bottom": "-4.22%",
+     "left": "-7.64%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 0.628,
+     "end": 1.078,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5601.svg"
+   },
+   {
+    "id": "3764:5606",
+    "box": {
+     "top": "48.29%",
+     "right": "29.06%",
+     "bottom": "49.43%",
+     "left": "64.8%"
+    },
+    "pad": {
+     "top": "-8.3%",
+     "right": "-3.43%",
+     "bottom": "-8.3%",
+     "left": "-3.43%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 2.666,
+     "end": 3.115,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5606.svg"
+   },
+   {
+    "id": "3764:5611",
+    "box": {
+     "top": "48.29%",
+     "right": "11.59%",
+     "bottom": "51%",
+     "left": "88.15%"
+    },
+    "pad": {
+     "top": "-26.56%",
+     "right": "-78.92%",
+     "bottom": "-26.55%",
+     "left": "-78.9%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 2.927,
+     "end": 3.377,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5611.svg"
+   },
+   {
+    "id": "3764:5616",
+    "box": {
+     "top": "65.12%",
+     "right": "42.87%",
+     "bottom": "34.45%",
+     "left": "53.21%"
+    },
+    "pad": {
+     "top": "-44.26%",
+     "right": "-5.38%",
+     "bottom": "-44.26%",
+     "left": "-5.38%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 2.551,
+     "end": 3.001,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5616.svg"
+   },
+   {
+    "id": "3764:5621",
+    "box": {
+     "top": "65.19%",
+     "right": "60.96%",
+     "bottom": "34.09%",
+     "left": "36.99%"
+    },
+    "pad": {
+     "top": "-26.55%",
+     "right": "-10.29%",
+     "bottom": "-26.55%",
+     "left": "-10.29%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 2.586,
+     "end": 3.036,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5621.svg"
+   },
+   {
+    "id": "3764:5626",
+    "box": {
+     "top": "51.93%",
+     "right": "23.26%",
+     "bottom": "40.37%",
+     "left": "65.42%"
+    },
+    "pad": {
+     "top": "-2.46%",
+     "right": "-1.86%",
+     "bottom": "-2.46%",
+     "left": "-1.86%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 2.75,
+     "end": 3.2,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5626.svg"
+   },
+   {
+    "id": "3764:5631",
+    "box": {
+     "top": "65.19%",
+     "right": "37.79%",
+     "bottom": "33.81%",
+     "left": "61.59%"
+    },
+    "pad": {
+     "top": "-18.97%",
+     "right": "-33.82%",
+     "bottom": "-18.97%",
+     "left": "-33.82%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 2.609,
+     "end": 3.059,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5631.svg"
+   },
+   {
+    "id": "3764:5636",
+    "box": {
+     "top": "48.72%",
+     "right": "35.74%",
+     "bottom": "50.93%",
+     "left": "62.57%"
+    },
+    "pad": {
+     "top": "-53.11%",
+     "right": "-12.46%",
+     "bottom": "-53.11%",
+     "left": "-12.46%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 2.641,
+     "end": 3.091,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5636.svg"
+   },
+   {
+    "id": "3764:5641",
+    "box": {
+     "top": "63.91%",
+     "right": "46.88%",
+     "bottom": "34.74%",
+     "left": "45.37%"
+    },
+    "pad": {
+     "top": "-13.98%",
+     "right": "-2.72%",
+     "bottom": "-13.98%",
+     "left": "-2.72%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 2.41,
+     "end": 2.86,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5641.svg"
+   },
+   {
+    "id": "3764:5646",
+    "box": {
+     "top": "34.52%",
+     "right": "60.43%",
+     "bottom": "64.69%",
+     "left": "37.34%"
+    },
+    "pad": {
+     "top": "-24.14%",
+     "right": "-9.47%",
+     "bottom": "-24.14%",
+     "left": "-9.47%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 0.6,
+     "end": 1.05,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5646.svg"
+   },
+   {
+    "id": "3764:5651",
+    "box": {
+     "top": "49.07%",
+     "right": "11.94%",
+     "bottom": "50.29%",
+     "left": "87.52%"
+    },
+    "pad": {
+     "top": "-29.51%",
+     "right": "-39.45%",
+     "bottom": "-29.51%",
+     "left": "-39.45%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 2.99,
+     "end": 3.44,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5651.svg"
+   },
+   {
+    "id": "3764:5656",
+    "box": {
+     "top": "49.57%",
+     "right": "57.13%",
+     "bottom": "40.09%",
+     "left": "39.66%"
+    },
+    "pad": {
+     "top": "-1.83%",
+     "right": "-6.58%",
+     "bottom": "-1.83%",
+     "left": "-6.58%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 2.738,
+     "end": 3.188,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5656.svg"
+   },
+   {
+    "id": "3764:5661",
+    "box": {
+     "top": "49.14%",
+     "right": "35.29%",
+     "bottom": "49.64%",
+     "left": "64.26%"
+    },
+    "pad": {
+     "top": "-15.62%",
+     "right": "-47.35%",
+     "bottom": "-15.62%",
+     "left": "-47.34%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 2.678,
+     "end": 3.128,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5661.svg"
+   },
+   {
+    "id": "3764:5666",
+    "box": {
+     "top": "65.41%",
+     "right": "34.31%",
+     "bottom": "33.59%",
+     "left": "63.81%"
+    },
+    "pad": {
+     "top": "-18.97%",
+     "right": "-11.27%",
+     "bottom": "-18.97%",
+     "left": "-11.27%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 2.633,
+     "end": 3.083,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5666.svg"
+   },
+   {
+    "id": "3764:5671",
+    "box": {
+     "top": "35.02%",
+     "right": "54.46%",
+     "bottom": "64.76%",
+     "left": "42.96%"
+    },
+    "pad": {
+     "top": "-88.51%",
+     "right": "-8.16%",
+     "bottom": "-88.53%",
+     "left": "-8.16%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 2.448,
+     "end": 2.898,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5671.svg"
+   },
+   {
+    "id": "3764:5676",
+    "box": {
+     "top": "34.59%",
+     "right": "62.66%",
+     "bottom": "62.55%",
+     "left": "34.76%"
+    },
+    "pad": {
+     "top": "-6.64%",
+     "right": "-8.16%",
+     "bottom": "-6.64%",
+     "left": "-8.16%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 0.683,
+     "end": 1.133,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5676.svg"
+   },
+   {
+    "id": "3764:5681",
+    "box": {
+     "top": "35.31%",
+     "right": "62.57%",
+     "bottom": "64.34%",
+     "left": "37.34%"
+    },
+    "pad": {
+     "top": "-53.12%",
+     "right": "-236.76%",
+     "bottom": "-53.12%",
+     "left": "-236.76%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 0.656,
+     "end": 1.106,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5681.svg"
+   },
+   {
+    "id": "3764:5686",
+    "box": {
+     "top": "60.2%",
+     "right": "22.99%",
+     "bottom": "39.66%",
+     "left": "76.65%"
+    },
+    "pad": {
+     "top": "-132.8%",
+     "right": "-59.19%",
+     "bottom": "-132.8%",
+     "left": "-59.19%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 3.433,
+     "end": 3.883,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5686.svg"
+   },
+   {
+    "id": "3764:5691",
+    "box": {
+     "top": "35.52%",
+     "right": "52.76%",
+     "bottom": "63.2%",
+     "left": "46.35%"
+    },
+    "pad": {
+     "top": "-14.75%",
+     "right": "-23.67%",
+     "bottom": "-14.75%",
+     "left": "-23.68%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 2.46,
+     "end": 2.91,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5691.svg"
+   },
+   {
+    "id": "3764:5696",
+    "box": {
+     "top": "60.41%",
+     "right": "23.44%",
+     "bottom": "37.66%",
+     "left": "72.55%"
+    },
+    "pad": {
+     "top": "-9.84%",
+     "right": "-5.26%",
+     "bottom": "-9.83%",
+     "left": "-5.26%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 2.117,
+     "end": 2.567,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5696.svg"
+   },
+   {
+    "id": "3764:5701",
+    "box": {
+     "top": "36.45%",
+     "right": "55.97%",
+     "bottom": "63.41%",
+     "left": "42.51%"
+    },
+    "pad": {
+     "top": "-132.77%",
+     "right": "-13.92%",
+     "bottom": "-132.8%",
+     "left": "-13.93%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 2.472,
+     "end": 2.922,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5701.svg"
+   },
+   {
+    "id": "3764:5706",
+    "box": {
+     "top": "36.52%",
+     "right": "55.17%",
+     "bottom": "63.41%",
+     "left": "44.12%"
+    },
+    "pad": {
+     "top": "-265.55%",
+     "right": "-29.59%",
+     "bottom": "-265.55%",
+     "left": "-29.59%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 2.484,
+     "end": 2.934,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5706.svg"
+   },
+   {
+    "id": "3764:5711",
+    "box": {
+     "top": "36.59%",
+     "right": "55.97%",
+     "bottom": "62.7%",
+     "left": "43.67%"
+    },
+    "pad": {
+     "top": "-26.55%",
+     "right": "-59.18%",
+     "bottom": "-26.55%",
+     "left": "-59.18%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 2.509,
+     "end": 2.959,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5711.svg"
+   },
+   {
+    "id": "3764:5716",
+    "box": {
+     "top": "63.84%",
+     "right": "60.61%",
+     "bottom": "34.24%",
+     "left": "39.04%"
+    },
+    "pad": {
+     "top": "-9.84%",
+     "right": "-59.18%",
+     "bottom": "-9.84%",
+     "left": "-59.19%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 2.469,
+     "end": 2.919,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5716.svg"
+   },
+   {
+    "id": "3764:5721",
+    "box": {
+     "top": "63.48%",
+     "right": "59.27%",
+     "bottom": "34.24%",
+     "left": "40.37%"
+    },
+    "pad": {
+     "top": "-8.3%",
+     "right": "-59.18%",
+     "bottom": "-8.3%",
+     "left": "-59.19%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 2.398,
+     "end": 2.848,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5721.svg"
+   },
+   {
+    "id": "3764:5726",
+    "box": {
+     "top": "36.8%",
+     "right": "53.65%",
+     "bottom": "60.27%",
+     "left": "44.83%"
+    },
+    "pad": {
+     "top": "-6.48%",
+     "right": "-13.92%",
+     "bottom": "-6.48%",
+     "left": "-13.92%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 2.521,
+     "end": 2.971,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5726.svg"
+   },
+   {
+    "id": "3764:5731",
+    "box": {
+     "top": "36.8%",
+     "right": "53.03%",
+     "bottom": "63.05%",
+     "left": "46.35%"
+    },
+    "pad": {
+     "top": "-132.79%",
+     "right": "-33.82%",
+     "bottom": "-132.77%",
+     "left": "-33.82%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 2.497,
+     "end": 2.947,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5731.svg"
+   },
+   {
+    "id": "3764:5736",
+    "box": {
+     "top": "65.83%",
+     "right": "59.45%",
+     "bottom": "34.02%",
+     "left": "39.13%"
+    },
+    "pad": {
+     "top": "-132.8%",
+     "right": "-14.8%",
+     "bottom": "-132.77%",
+     "left": "-14.79%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 2.621,
+     "end": 3.071,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5736.svg"
+   },
+   {
+    "id": "3764:5741",
+    "box": {
+     "top": "60.77%",
+     "right": "46.88%",
+     "bottom": "38.3%",
+     "left": "52.14%"
+    },
+    "pad": {
+     "top": "-20.43%",
+     "right": "-21.52%",
+     "bottom": "-20.43%",
+     "left": "-21.52%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 2.094,
+     "end": 2.544,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5741.svg"
+   },
+   {
+    "id": "3764:5746",
+    "box": {
+     "top": "37.09%",
+     "right": "38.41%",
+     "bottom": "62.13%",
+     "left": "59.45%"
+    },
+    "pad": {
+     "top": "-24.14%",
+     "right": "-9.86%",
+     "bottom": "-24.14%",
+     "left": "-9.86%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 2.007,
+     "end": 2.457,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5746.svg"
+   },
+   {
+    "id": "3764:5751",
+    "box": {
+     "top": "36.88%",
+     "right": "33.24%",
+     "bottom": "62.13%",
+     "left": "61.76%"
+    },
+    "pad": {
+     "top": "-18.97%",
+     "right": "-4.23%",
+     "bottom": "-18.97%",
+     "left": "-4.23%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 2.0,
+     "end": 2.45,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5751.svg"
+   },
+   {
+    "id": "3764:5756",
+    "box": {
+     "top": "60.84%",
+     "right": "46.61%",
+     "bottom": "38.09%",
+     "left": "53.21%"
+    },
+    "pad": {
+     "top": "-17.7%",
+     "right": "-118.37%",
+     "bottom": "-17.7%",
+     "left": "-118.37%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 2.105,
+     "end": 2.555,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5756.svg"
+   },
+   {
+    "id": "3764:5761",
+    "box": {
+     "top": "60.98%",
+     "right": "49.91%",
+     "bottom": "38.87%",
+     "left": "48.4%"
+    },
+    "pad": {
+     "top": "-132.77%",
+     "right": "-12.46%",
+     "bottom": "-132.77%",
+     "left": "-12.46%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 2.07,
+     "end": 2.52,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5761.svg"
+   },
+   {
+    "id": "3764:5766",
+    "box": {
+     "top": "37.38%",
+     "right": "66.58%",
+     "bottom": "62.55%",
+     "left": "32.35%"
+    },
+    "pad": {
+     "top": "-265.54%",
+     "right": "-19.73%",
+     "bottom": "-265.54%",
+     "left": "-19.73%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 0.711,
+     "end": 1.161,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5766.svg"
+   },
+   {
+    "id": "3764:5771",
+    "box": {
+     "top": "60.98%",
+     "right": "43.67%",
+     "bottom": "38.09%",
+     "left": "53.39%"
+    },
+    "pad": {
+     "top": "-20.43%",
+     "right": "-7.17%",
+     "bottom": "-20.43%",
+     "left": "-7.17%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 2.141,
+     "end": 2.591,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5771.svg"
+   },
+   {
+    "id": "3764:5776",
+    "box": {
+     "top": "60.98%",
+     "right": "42.42%",
+     "bottom": "38.59%",
+     "left": "56.42%"
+    },
+    "pad": {
+     "top": "-44.26%",
+     "right": "-18.21%",
+     "bottom": "-44.27%",
+     "left": "-18.21%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 2.082,
+     "end": 2.532,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5776.svg"
+   },
+   {
+    "id": "3764:5781",
+    "box": {
+     "top": "60.98%",
+     "right": "29.23%",
+     "bottom": "37.8%",
+     "left": "69.52%"
+    },
+    "pad": {
+     "top": "-15.62%",
+     "right": "-16.91%",
+     "bottom": "-15.62%",
+     "left": "-16.91%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 2.176,
+     "end": 2.626,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5781.svg"
+   },
+   {
+    "id": "3764:5786",
+    "box": {
+     "top": "37.3%",
+     "right": "63.64%",
+     "bottom": "61.91%",
+     "left": "35.47%"
+    },
+    "pad": {
+     "top": "-24.14%",
+     "right": "-23.67%",
+     "bottom": "-24.14%",
+     "left": "-23.67%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 0.739,
+     "end": 1.189,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5786.svg"
+   },
+   {
+    "id": "3764:5791",
+    "box": {
+     "top": "37.52%",
+     "right": "67.74%",
+     "bottom": "58.84%",
+     "left": "26.83%"
+    },
+    "pad": {
+     "top": "-5.21%",
+     "right": "-3.88%",
+     "bottom": "-5.21%",
+     "left": "-3.88%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 0.767,
+     "end": 1.217,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5791.svg"
+   },
+   {
+    "id": "3764:5796",
+    "box": {
+     "top": "50.5%",
+     "right": "34.58%",
+     "bottom": "47.65%",
+     "left": "64.53%"
+    },
+    "pad": {
+     "top": "-10.21%",
+     "right": "-23.67%",
+     "bottom": "-10.21%",
+     "left": "-23.67%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 2.69,
+     "end": 3.14,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5796.svg"
+   },
+   {
+    "id": "3764:5801",
+    "box": {
+     "top": "61.06%",
+     "right": "30.3%",
+     "bottom": "36.73%",
+     "left": "69.43%"
+    },
+    "pad": {
+     "top": "-8.57%",
+     "right": "-78.91%",
+     "bottom": "-8.57%",
+     "left": "-78.91%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 2.199,
+     "end": 2.649,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5801.svg"
+   },
+   {
+    "id": "3764:5806",
+    "box": {
+     "top": "61.13%",
+     "right": "47.95%",
+     "bottom": "38.23%",
+     "left": "50.18%"
+    },
+    "pad": {
+     "top": "-29.51%",
+     "right": "-11.27%",
+     "bottom": "-29.51%",
+     "left": "-11.27%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 2.129,
+     "end": 2.579,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5806.svg"
+   },
+   {
+    "id": "3764:5811",
+    "box": {
+     "top": "37.87%",
+     "right": "40.55%",
+     "bottom": "61.41%",
+     "left": "58.91%"
+    },
+    "pad": {
+     "top": "-26.55%",
+     "right": "-39.45%",
+     "bottom": "-26.56%",
+     "left": "-39.45%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 2.027,
+     "end": 2.477,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5811.svg"
+   },
+   {
+    "id": "3764:5816",
+    "box": {
+     "top": "37.87%",
+     "right": "40.2%",
+     "bottom": "61.98%",
+     "left": "59.45%"
+    },
+    "pad": {
+     "top": "-132.8%",
+     "right": "-59.19%",
+     "bottom": "-132.8%",
+     "left": "-59.19%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 2.014,
+     "end": 2.464,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5816.svg"
+   },
+   {
+    "id": "3764:5821",
+    "box": {
+     "top": "66.26%",
+     "right": "36.27%",
+     "bottom": "33.45%",
+     "left": "62.3%"
+    },
+    "pad": {
+     "top": "-66.38%",
+     "right": "-14.8%",
+     "bottom": "-66.38%",
+     "left": "-14.79%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 2.645,
+     "end": 3.095,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5821.svg"
+   },
+   {
+    "id": "3764:5826",
+    "box": {
+     "top": "37.95%",
+     "right": "33.33%",
+     "bottom": "62.05%",
+     "left": "66.31%"
+    },
+    "pad": {
+     "top": "-1px",
+     "right": "-59.18%",
+     "bottom": "-1px",
+     "left": "-59.18%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 2.02,
+     "end": 2.47,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5826.svg"
+   },
+   {
+    "id": "3764:5831",
+    "box": {
+     "top": "37.95%",
+     "right": "30.66%",
+     "bottom": "60.84%",
+     "left": "66.93%"
+    },
+    "pad": {
+     "top": "-15.62%",
+     "right": "-8.77%",
+     "bottom": "-15.62%",
+     "left": "-8.77%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 2.034,
+     "end": 2.484,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5831.svg"
+   },
+   {
+    "id": "3764:5836",
+    "box": {
+     "top": "61.41%",
+     "right": "40.55%",
+     "bottom": "36.23%",
+     "left": "57.66%"
+    },
+    "pad": {
+     "top": "-8.05%",
+     "right": "-11.84%",
+     "bottom": "-8.05%",
+     "left": "-11.84%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 2.223,
+     "end": 2.673,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5836.svg"
+   },
+   {
+    "id": "3764:5841",
+    "box": {
+     "top": "66.26%",
+     "right": "31.91%",
+     "bottom": "33.31%",
+     "left": "63.81%"
+    },
+    "pad": {
+     "top": "-44.26%",
+     "right": "-4.93%",
+     "bottom": "-44.26%",
+     "left": "-4.93%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 2.656,
+     "end": 3.106,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5841.svg"
+   },
+   {
+    "id": "3764:5846",
+    "box": {
+     "top": "38.73%",
+     "right": "40.82%",
+     "bottom": "60.49%",
+     "left": "58.73%"
+    },
+    "pad": {
+     "top": "-24.15%",
+     "right": "-47.34%",
+     "bottom": "-24.14%",
+     "left": "-47.34%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 2.041,
+     "end": 2.491,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5846.svg"
+   },
+   {
+    "id": "3764:5851",
+    "box": {
+     "top": "51.5%",
+     "right": "42.16%",
+     "bottom": "48.43%",
+     "left": "57.22%"
+    },
+    "pad": {
+     "top": "-265.56%",
+     "right": "-33.82%",
+     "bottom": "-265.56%",
+     "left": "-33.82%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 2.702,
+     "end": 3.152,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5851.svg"
+   },
+   {
+    "id": "3764:5856",
+    "box": {
+     "top": "51.57%",
+     "right": "41.98%",
+     "bottom": "47.57%",
+     "left": "57.93%"
+    },
+    "pad": {
+     "top": "-22.13%",
+     "right": "-236.72%",
+     "bottom": "-22.13%",
+     "left": "-236.72%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 2.714,
+     "end": 3.164,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5856.svg"
+   },
+   {
+    "id": "3764:5861",
+    "box": {
+     "top": "39.23%",
+     "right": "28.7%",
+     "bottom": "59.13%",
+     "left": "69.52%"
+    },
+    "pad": {
+     "top": "-11.54%",
+     "right": "-11.84%",
+     "bottom": "-11.55%",
+     "left": "-11.84%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 2.048,
+     "end": 2.498,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5861.svg"
+   },
+   {
+    "id": "3764:5866",
+    "box": {
+     "top": "39.44%",
+     "right": "55.17%",
+     "bottom": "60.27%",
+     "left": "44.3%"
+    },
+    "pad": {
+     "top": "-66.39%",
+     "right": "-39.46%",
+     "bottom": "-66.39%",
+     "left": "-39.46%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 2.533,
+     "end": 2.983,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5866.svg"
+   },
+   {
+    "id": "3764:5871",
+    "box": {
+     "top": "51.64%",
+     "right": "34.49%",
+     "bottom": "44.79%",
+     "left": "57.04%"
+    },
+    "pad": {
+     "top": "-5.31%",
+     "right": "-2.49%",
+     "bottom": "-5.31%",
+     "left": "-2.49%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 2.726,
+     "end": 3.176,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5871.svg"
+   },
+   {
+    "id": "3764:5876",
+    "box": {
+     "top": "61.77%",
+     "right": "46.61%",
+     "bottom": "38.02%",
+     "left": "52.14%"
+    },
+    "pad": {
+     "top": "-88.53%",
+     "right": "-16.91%",
+     "bottom": "-88.51%",
+     "left": "-16.91%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 2.188,
+     "end": 2.637,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5876.svg"
+   },
+   {
+    "id": "3764:5881",
+    "box": {
+     "top": "39.66%",
+     "right": "40.82%",
+     "bottom": "57.06%",
+     "left": "56.42%"
+    },
+    "pad": {
+     "top": "-5.77%",
+     "right": "-7.64%",
+     "bottom": "-5.77%",
+     "left": "-7.64%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 2.055,
+     "end": 2.505,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5881.svg"
+   },
+   {
+    "id": "3764:5886",
+    "box": {
+     "top": "39.66%",
+     "right": "36.81%",
+     "bottom": "56.92%",
+     "left": "60.16%"
+    },
+    "pad": {
+     "top": "-5.53%",
+     "right": "-6.96%",
+     "bottom": "-5.53%",
+     "left": "-6.96%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 2.061,
+     "end": 2.511,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5886.svg"
+   },
+   {
+    "id": "3764:5891",
+    "box": {
+     "top": "39.73%",
+     "right": "55.17%",
+     "bottom": "59.13%",
+     "left": "44.12%"
+    },
+    "pad": {
+     "top": "-16.6%",
+     "right": "-29.6%",
+     "bottom": "-16.6%",
+     "left": "-29.59%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 2.545,
+     "end": 2.995,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5891.svg"
+   },
+   {
+    "id": "3764:5896",
+    "box": {
+     "top": "39.94%",
+     "right": "56.06%",
+     "bottom": "59.13%",
+     "left": "41.98%"
+    },
+    "pad": {
+     "top": "-20.43%",
+     "right": "-10.76%",
+     "bottom": "-20.43%",
+     "left": "-10.76%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 2.557,
+     "end": 3.007,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5896.svg"
+   },
+   {
+    "id": "3764:5901",
+    "box": {
+     "top": "61.98%",
+     "right": "25.4%",
+     "bottom": "37.59%",
+     "left": "72.64%"
+    },
+    "pad": {
+     "top": "-44.27%",
+     "right": "-10.76%",
+     "bottom": "-44.26%",
+     "left": "-10.76%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 2.211,
+     "end": 2.661,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5901.svg"
+   },
+   {
+    "id": "3764:5906",
+    "box": {
+     "top": "40.37%",
+     "right": "61.68%",
+     "bottom": "58.2%",
+     "left": "36.81%"
+    },
+    "pad": {
+     "top": "-13.28%",
+     "right": "-13.92%",
+     "bottom": "-13.28%",
+     "left": "-13.92%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 0.794,
+     "end": 1.244,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5906.svg"
+   },
+   {
+    "id": "3764:5911",
+    "box": {
+     "top": "62.41%",
+     "right": "27.54%",
+     "bottom": "36.66%",
+     "left": "69.79%"
+    },
+    "pad": {
+     "top": "-20.43%",
+     "right": "-7.89%",
+     "bottom": "-20.43%",
+     "left": "-7.89%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 2.234,
+     "end": 2.684,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5911.svg"
+   },
+   {
+    "id": "3764:5916",
+    "box": {
+     "top": "62.48%",
+     "right": "41.27%",
+     "bottom": "36.23%",
+     "left": "56.77%"
+    },
+    "pad": {
+     "top": "-14.75%",
+     "right": "-10.76%",
+     "bottom": "-14.75%",
+     "left": "-10.76%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 2.246,
+     "end": 2.696,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5916.svg"
+   },
+   {
+    "id": "3764:5921",
+    "box": {
+     "top": "67.4%",
+     "right": "34.58%",
+     "bottom": "31.81%",
+     "left": "54.81%"
+    },
+    "pad": {
+     "top": "-24.14%",
+     "right": "-1.99%",
+     "bottom": "-24.14%",
+     "left": "-1.99%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 2.68,
+     "end": 3.13,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5921.svg"
+   },
+   {
+    "id": "3764:5926",
+    "box": {
+     "top": "40.94%",
+     "right": "55.97%",
+     "bottom": "58.27%",
+     "left": "43.14%"
+    },
+    "pad": {
+     "top": "-24.14%",
+     "right": "-23.67%",
+     "bottom": "-24.14%",
+     "left": "-23.67%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 2.569,
+     "end": 3.019,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5926.svg"
+   },
+   {
+    "id": "3764:5931",
+    "box": {
+     "top": "41.23%",
+     "right": "60.07%",
+     "bottom": "52.21%",
+     "left": "26.74%"
+    },
+    "pad": {
+     "top": "-2.89%",
+     "right": "-1.6%",
+     "bottom": "-2.89%",
+     "left": "-1.6%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 0.85,
+     "end": 1.3,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5931.svg"
+   },
+   {
+    "id": "3764:5936",
+    "box": {
+     "top": "53%",
+     "right": "20.94%",
+     "bottom": "45.58%",
+     "left": "76.83%"
+    },
+    "pad": {
+     "top": "-13.28%",
+     "right": "-9.47%",
+     "bottom": "-13.28%",
+     "left": "-9.47%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 3.117,
+     "end": 3.567,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5936.svg"
+   },
+   {
+    "id": "3764:5941",
+    "box": {
+     "top": "41.8%",
+     "right": "56.95%",
+     "bottom": "57.13%",
+     "left": "42.07%"
+    },
+    "pad": {
+     "top": "-17.7%",
+     "right": "-21.52%",
+     "bottom": "-17.7%",
+     "left": "-21.52%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 2.581,
+     "end": 3.031,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5941.svg"
+   },
+   {
+    "id": "3764:5946",
+    "box": {
+     "top": "41.87%",
+     "right": "58.02%",
+     "bottom": "57.06%",
+     "left": "38.41%"
+    },
+    "pad": {
+     "top": "-17.71%",
+     "right": "-5.92%",
+     "bottom": "-17.7%",
+     "left": "-5.92%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 2.593,
+     "end": 3.043,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5946.svg"
+   },
+   {
+    "id": "3764:5951",
+    "box": {
+     "top": "43.01%",
+     "right": "51.6%",
+     "bottom": "46.36%",
+     "left": "42.07%"
+    },
+    "pad": {
+     "top": "-1.78%",
+     "right": "-3.33%",
+     "bottom": "-1.78%",
+     "left": "-3.33%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 2.629,
+     "end": 3.079,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5951.svg"
+   },
+   {
+    "id": "3764:5956",
+    "box": {
+     "top": "68.05%",
+     "right": "52.05%",
+     "bottom": "31.31%",
+     "left": "36.01%"
+    },
+    "pad": {
+     "top": "-29.5%",
+     "right": "-1.77%",
+     "bottom": "-29.5%",
+     "left": "-1.77%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 2.703,
+     "end": 3.153,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5956.svg"
+   },
+   {
+    "id": "3764:5961",
+    "box": {
+     "top": "42.72%",
+     "right": "43.58%",
+     "bottom": "57.06%",
+     "left": "55.88%"
+    },
+    "pad": {
+     "top": "-88.53%",
+     "right": "-39.46%",
+     "bottom": "-88.53%",
+     "left": "-39.46%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 2.068,
+     "end": 2.518,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5961.svg"
+   },
+   {
+    "id": "3764:5966",
+    "box": {
+     "top": "68.62%",
+     "right": "38.5%",
+     "bottom": "31.1%",
+     "left": "54.46%"
+    },
+    "pad": {
+     "top": "-66.38%",
+     "right": "-3%",
+     "bottom": "-66.39%",
+     "left": "-3%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 2.715,
+     "end": 3.165,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5966.svg"
+   },
+   {
+    "id": "3764:5971",
+    "box": {
+     "top": "43.15%",
+     "right": "36.9%",
+     "bottom": "56.35%",
+     "left": "62.83%"
+    },
+    "pad": {
+     "top": "-37.93%",
+     "right": "-78.9%",
+     "bottom": "-37.94%",
+     "left": "-78.92%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 2.082,
+     "end": 2.532,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5971.svg"
+   },
+   {
+    "id": "3764:5976",
+    "box": {
+     "top": "63.84%",
+     "right": "40.82%",
+     "bottom": "36.16%",
+     "left": "58.82%"
+    },
+    "pad": {
+     "top": "-1px",
+     "right": "-59.18%",
+     "bottom": "-1px",
+     "left": "-59.18%"
+    },
+    "anim": {
+     "kind": "draw",
+     "start": 2.293,
+     "end": 2.743,
+     "ease": "ease-in-out"
+    },
+    "file": "study-3764-5976.svg"
+   }
+  ]
  }
 }
