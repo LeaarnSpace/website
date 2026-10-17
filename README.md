@@ -14,11 +14,13 @@ packages/
 
 ```bash
 npm install
-npm run db:up          # local Postgres in Docker (port 5433)
-npm run db:migrate     # create/update the tables
+npm run db:migrate     # create/update the tables (needs a local Postgres, see below)
 npm run dev:website    # http://localhost:4321
 npm run dev:backoffice # http://localhost:4400
 ```
+
+The back office expects a local Postgres on port 5432 with a database called `learnspace`
+(`createdb learnspace`). To use something else, set `DATABASE_URL` in `apps/backoffice/.env.local`.
 
 Before pushing: `npm run verify` (type checks, lint and builds for every app, plus formatting).
 
