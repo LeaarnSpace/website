@@ -1,83 +1,68 @@
-# Learn Space website
+# Learn Space
 
-Marketing site for Learn Space, built with [Astro](https://astro.build), [GSAP](https://gsap.com) and
-[Lenis](https://lenis.darkroom.engineering). Designs live in the LS-Website Figma file.
+One repository for everything Learn Space runs.
 
-## Running it
+```
+apps/
+  website/      learnspace.ng: Astro marketing site (see apps/website/README.md)
+  backoffice/   Staff back office: Next.js, Google sign-in, per-section access
+packages/
+  db/           Postgres schema and client (Drizzle), shared by the apps
+```
+
+## Getting started
 
 ```bash
 npm install
-npm run dev        # local dev server with live reload
-npm run build      # production build into dist/
-npm run preview    # serve the production build locally
+npm run db:up          # local Postgres in Docker (port 5433)
+npm run db:migrate     # create/update the tables
+npm run dev:website    # http://localhost:4321
+npm run dev:backoffice # http://localhost:4400
 ```
 
-## Before you push
+Before pushing: `npm run verify` (type checks, lint and builds for every app, plus formatting).
 
-```bash
-npm run verify     # type check + lint + formatting check + build, all in one
-npm run format     # auto-fix formatting
-```
+## Back office
 
-## Where things live
+### Signing in
 
-```
-src/
-  pages/              One file per page address (index.astro → /, 404.astro → not-found page)
-  layouts/            Base.astro: <head>, fonts, page-transition curtain, motion script
-  components/
-    layout/           Site-wide pieces: Nav, Footer, StayClose ("Stay close to us"), Logo
-    ui/               Reusable building blocks: Button, Illustration
-    home/             Homepage sections: Hero, Problem, Approach, OurWork, BlogNews
-  content/            Blog posts and news stories, one Markdown file each
-  content.config.ts   Required fields for blog and news entries (checked at build time)
-  data/
-    navigation.ts     Every page address + header/footer links. Change links here, not in components
-    illustrations.json  Line-drawing pieces and their Figma animation timings
-  lib/content.ts      Helpers for reading blog/news in order and formatting their dates
-  scripts/motion/     All animation, one file per effect; index.ts wires them up
-  styles/
-    tokens.css        Design tokens from Figma: colours, spacing, radii, fonts
-    global.css        Base styles and shared layout classes
-  assets/             Icons, images and illustration pieces (optimised at build time)
-```
+Staff sign in with their Learn Space Google account. Only addresses on `ALLOWED_EMAIL_DOMAINS` get in,
+and that is checked on every sign-in and every request.
 
-## Adding content
+To set up Google sign-in, create an OAuth client in the Google Cloud console (APIs & Services → Credentials
+→ OAuth client ID → Web application) with the redirect URI `<BETTER_AUTH_URL>/api/auth/callback/google`,
+then copy `apps/backoffice/.env.example` to `apps/backoffice/.env.local` and fill it in.
 
-**A news story:** add a Markdown file to `src/content/news/`. The file name becomes its address
-(`nelfund-student-loan-portal.md` → `/news/nelfund-student-loan-portal`).
+For local work before Google is set up, `DEV_LOGIN=true` shows an email and password form. It is ignored
+in production.
 
-```md
----
-title: "Headline"
-category: Policy # Teachers | Research | Policy | Digital | Finance
-date: "2026-10-02" # or "2026-10" if only the month is known
-order: 1 # lower numbers come first
----
-```
+### Access (RBAC)
 
-**A blog post:** same idea in `src/content/blog/`, with `title`, `excerpt` and `image` (a path to a file in
-`src/assets/images/`). The build fails with a clear message if a required field is missing.
+The back office is one app with sections: **Website**, **Bookings**, **Projects** and **Team & access**.
+Each person has a role per section:
 
-## Motion
+| Role    | Can                            |
+| ------- | ------------------------------ |
+| Viewer  | See everything in the section  |
+| Editor  | Add and change things          |
+| Manager | Everything, including deleting |
 
-Each effect in `src/scripts/motion/` only acts on pages that contain its markup (its `data-*` attribute), so
-the one script is safe on every page. When a visitor has "reduce motion" switched on, everything is shown in
-place without animation.
+No role means the section is hidden and its pages refuse access. Every page and action checks the role on
+the server (`requireSection()` in `apps/backoffice/src/lib/viewer.ts`).
 
-| Effect                         | Markup hook                    | File                  |
-| ------------------------------ | ------------------------------ | --------------------- |
-| Headline lines slide up        | `data-lines`                   | `lines.ts`            |
-| Line drawings draw on          | `data-illustration`            | `illustrations.ts`    |
-| Approach diagram               | `data-approach`                | `approach.ts`         |
-| Our work cards fan out + float | `data-float`                   | `work-cards.ts`       |
-| Contact/Newsletter icon tiles  | `data-icon-anim`               | `icon-tiles.ts`       |
-| Panel zooms in on scroll       | `data-zoom-in`                 | `zoom-in.ts`          |
-| Footer reveal + card rise      | `data-footer`                  | `footer.ts`           |
-| Carousel buttons + progress    | `data-carousel`                | `carousel.ts`         |
-| Page transitions               | `data-curtain` (in the layout) | `page-transitions.ts` |
+The first admins come from `BOOTSTRAP_ADMIN_EMAILS`: they become managers of every section the first time
+they sign in. After that, managers of **Team & access** give everyone else access from that screen,
+including people who haven't signed in yet. There is always at least one team manager, and you can't
+remove your own.
 
-## Deploying
+To add a section: add it to `sectionEnum` in `packages/db/src/schema.ts`, run `npm run db:generate` and
+`npm run db:migrate`, then add it to `SECTIONS` in `apps/backoffice/src/lib/sections.ts`.
 
-Vercel detects Astro automatically (build command `npm run build`, output folder `dist`). Pushing to `main`
-redeploys the live site.
+## Deploying (Vercel)
+
+Each app is its own Vercel project pointing at this repo:
+
+- **Website:** root directory `apps/website` (Astro is detected automatically).
+- **Back office:** root directory `apps/backoffice`, with the environment variables from `.env.example`
+  and `DATABASE_URL` set to a hosted Postgres such as Neon. Run `npm run db:migrate` against it (with
+  `DATABASE_URL` set) whenever the schema changes.

@@ -1,6 +1,12 @@
+node_modules/
 dist/
 .astro/
-node_modules/
+.next/
+.turbo/
 package-lock.json
-src/assets/
-src/data/illustrations.json
+# Figma exports, kept as delivered
+apps/website/src/assets/
+apps/website/src/data/illustrations.json
+# Generated
+apps/backoffice/next-env.d.ts
+packages/db/migrations/meta/
