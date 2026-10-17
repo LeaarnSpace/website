@@ -88,24 +88,32 @@ const href = story.data.sourceUrl ?? `${routes.news}/${story.id}`;
     transform: translateX(10px);
   }
   @media (max-width: 767px) {
+    /* Figma News-mobile: compact row with a small round arrow */
     .row {
-      align-items: flex-start;
-      gap: 14px;
-      padding: 18px 16px;
+      gap: 8px;
+      padding: 12px;
     }
     .row__date {
-      width: 56px;
+      width: auto;
+      min-width: 56px;
     }
     .row__day {
-      font-size: 15px;
+      font-size: 18px;
+      line-height: 24px;
     }
     .row__title {
       font-size: 14px;
       line-height: 18px;
-      letter-spacing: 0.2px;
+      letter-spacing: 0.196px;
     }
     .row :global(.round-arrow) {
-      display: none;
+      width: 28px;
+      height: 28px;
+      margin-left: 4px;
+    }
+    .row :global(.round-arrow svg) {
+      width: 14px;
+      height: 14px;
     }
   }
 </style>

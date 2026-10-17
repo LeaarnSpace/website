@@ -69,7 +69,7 @@ const documents = [
   </section>
 
   <section class="gov container">
-    <SectionTitle title="How providers and partners are checked" rule="grey" />
+    <SectionTitle title="Partners and providers protection" rule="grey" />
     <p class="gov__intro">Anyone who works with children or their data through us meets our standards first.</p>
     <div class="gov__panels">
       <InfoPanel title="What we ask of them" tone="blue">
@@ -124,15 +124,12 @@ const documents = [
 </Page>
 
 <style>
-  .band--sunk {
-    background: var(--surface-sunk);
-  }
   .gov {
     display: flex;
     flex-direction: column;
     gap: 24px;
-    padding-top: 64px;
-    padding-bottom: 64px;
+    padding-top: 96px;
+    padding-bottom: 96px;
   }
   .gov--last {
     padding-bottom: 160px;
@@ -162,15 +159,18 @@ const documents = [
   }
   @media (max-width: 767px) {
     .gov {
-      padding-top: 48px;
-      padding-bottom: 48px;
+      padding-top: 32px;
+      padding-bottom: 32px;
     }
     .gov--last {
       padding-bottom: 96px;
     }
     .gov__intro {
-      font-size: 14px;
-      line-height: 22px;
+      font-size: 16px;
+      line-height: 26px;
+    }
+    .gov :global(.gov__cards .ncard__body) {
+      font-size: 16px;
     }
     .gov__panels {
       grid-template-columns: 1fr;

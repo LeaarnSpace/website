@@ -59,7 +59,7 @@ const trackedDelays = [0.26, 0.39, 0.55, 0.77];
     display: flex;
     flex-direction: column;
     gap: 56px;
-    padding: 64px calc(var(--gutter) + 32px);
+    padding: 96px calc(var(--gutter) + 32px);
   }
   .beyond__grid {
     display: grid;
@@ -172,29 +172,39 @@ const trackedDelays = [0.26, 0.39, 0.55, 0.77];
       position: static;
     }
   }
+  /* Phones: Figma keeps the big counter and puts each tag under its line */
   @media (max-width: 767px) {
     .beyond {
       gap: 32px;
-      padding: 48px 20px;
+      padding: 32px 20px;
+    }
+    .beyond__grid {
+      gap: 48px;
     }
     .beyond__count {
-      font-size: 88px;
-      line-height: 88px;
+      font-size: 140px;
+      line-height: 140px;
+      letter-spacing: -5.6px;
     }
     .beyond__total {
-      font-size: 26px;
+      margin-left: 8px;
+      font-size: 39px;
     }
     .tracked__label,
     .unmeasured__q {
-      font-size: 24px;
+      font-size: 28px;
+      letter-spacing: 0.322px;
     }
     .tracked__row,
     .unmeasured__row {
-      padding: 16px 0;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 24px 0;
     }
     .beyond__caveat {
-      font-size: 14px;
-      line-height: 20px;
+      font-size: 16px;
+      line-height: 26px;
     }
   }
 </style>

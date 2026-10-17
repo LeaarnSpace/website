@@ -20,7 +20,8 @@ export function initSmoothScroll() {
       const el = document.querySelector<HTMLElement>(target);
       if (!el) return;
       e.preventDefault();
-      lenis.scrollTo(el, { offset: -24 });
+      // The gap above the target comes from its scroll-margin-top (global.css)
+      lenis.scrollTo(el);
     });
   });
 }

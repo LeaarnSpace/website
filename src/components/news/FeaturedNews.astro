@@ -34,6 +34,7 @@ const href = `${routes.news}/${story.id}`;
     <h3 class="featured__title">{story.data.title}</h3>
     {story.data.summary && <p class="featured__summary">{story.data.summary}</p>}
     <RoundArrow />
+    <span class="featured__more" aria-hidden="true">Read more</span>
   </div>
 </a>
 
@@ -106,13 +107,38 @@ const href = `${routes.news}/${story.id}`;
       aspect-ratio: 617 / 410;
     }
   }
+  /* Phones (Figma News-mobile): smaller photo, a "Read more" text link instead of the round arrow */
+  .featured__more {
+    display: none;
+  }
   @media (max-width: 767px) {
+    .featured {
+      gap: 18px;
+    }
+    .featured__media {
+      width: 250px;
+      max-width: 100%;
+      aspect-ratio: 250 / 200;
+    }
     .featured__title {
-      font-size: 20px;
+      font-size: 18px;
+      font-weight: 500;
+      line-height: 24px;
+      letter-spacing: 0;
     }
     .featured__summary {
-      font-size: 14px;
-      line-height: 20px;
+      font-size: 16px;
+      line-height: 26px;
+      color: var(--ink);
+    }
+    .featured :global(.round-arrow) {
+      display: none;
+    }
+    .featured__more {
+      display: inline;
+      font-size: 16px;
+      line-height: 26px;
+      color: var(--cobalt-600);
     }
   }
 </style>

@@ -55,7 +55,7 @@ function init() {
   initPageTransitions(() => {
     fontsReady.then((heroLines) => heroLines.forEach((el, i) => revealLines(el, 0.15 + i * 0.25)));
     heroIllustrations.forEach((tl) => tl.play());
-  });
+  }, fontsReady);
 }
 
 init();

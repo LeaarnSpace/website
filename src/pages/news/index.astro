@@ -73,7 +73,7 @@ const categories = ["Teachers", "Research", "Policy", "Digital", "Finance"];
     display: flex;
     flex-direction: column;
     gap: 48px;
-    padding-top: 64px;
+    padding-top: 96px;
     padding-bottom: 160px;
   }
   .latest :global(.section-head__title) {
@@ -157,16 +157,21 @@ const categories = ["Teachers", "Research", "Policy", "Digital", "Finance"];
     text-align: center;
   }
   @media (max-width: 767px) {
+    .news-hero-art {
+      width: 200px;
+    }
     .latest {
-      gap: 32px;
-      padding-top: 40px;
+      gap: 16px;
+      padding-top: 48px;
       padding-bottom: 96px;
     }
     .latest :global(.section-head__title) {
-      font-size: 20px;
+      font-size: 28px;
+      letter-spacing: 0;
     }
     .latest__feed {
-      gap: 24px;
+      gap: 18px;
+      padding-top: 8px;
     }
   }
 </style>

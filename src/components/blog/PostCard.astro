@@ -160,9 +160,11 @@ const meta = [data.duration, shortDate].filter(Boolean);
     background: var(--action-primary-hover);
   }
   @media (max-width: 767px) {
+    /* Phones show the whole title (Figma Blog List — Mobile) */
     .post-card__title {
-      font-size: 18px;
+      font-size: 20px;
       min-height: 0;
+      -webkit-line-clamp: unset;
     }
   }
   @media (max-width: 640px) {
@@ -174,7 +176,7 @@ const meta = [data.duration, shortDate].filter(Boolean);
     }
     .post-card__frame,
     .post-card__media :global(.post-card__img) {
-      height: 180px;
+      height: 220px;
     }
     .post-card__arrow {
       margin-top: 16px;

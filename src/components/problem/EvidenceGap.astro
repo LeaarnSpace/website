@@ -45,8 +45,8 @@ const panels = [
     display: flex;
     flex-direction: column;
     gap: 56px;
-    padding-top: 64px;
-    padding-bottom: 64px;
+    padding-top: 96px;
+    padding-bottom: 96px;
   }
   .gap__statement {
     max-width: 900px;
@@ -96,24 +96,27 @@ const panels = [
   }
   @media (max-width: 767px) {
     .gap {
-      gap: 32px;
-      padding-top: 48px;
-      padding-bottom: 48px;
+      gap: 24px;
+      padding-top: 32px;
+      padding-bottom: 32px;
     }
     .gap__statement {
-      font-size: 30px;
-      line-height: 40px;
+      font-size: 22px;
+      line-height: 29px;
     }
     .gap__panels {
       grid-template-columns: 1fr;
     }
     .gap__panel {
-      padding: 24px 20px;
-      font-size: 14px;
-      line-height: 20px;
+      padding: 32px 16px;
+      font-size: 16px;
+      line-height: 26px;
+      color: var(--ink);
     }
     .gap__title {
       font-size: 18px;
+      font-weight: 700;
+      letter-spacing: 0.216px;
     }
   }
 </style>

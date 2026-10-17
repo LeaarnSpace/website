@@ -8,11 +8,12 @@ interface Props {
   meta?: string;
   /** "lg": 72px title with a smaller intro line (The Problem, Work With Us) */
   size?: "md" | "lg";
+  class?: string;
 }
-const { title, lede, meta, size = "md" } = Astro.props;
+const { title, lede, meta, size = "md", class: className } = Astro.props;
 ---
 
-<header class:list={["page-hero container", `page-hero--${size}`]}>
+<header class:list={["page-hero container", `page-hero--${size}`, className]}>
   {
     Astro.slots.has("art") && (
       <div class="page-hero__art">
@@ -82,19 +83,25 @@ const { title, lede, meta, size = "md" } = Astro.props;
     gap: 12px;
   }
   @media (max-width: 767px) {
+    /* Figma phone frames: 28px title, 16/26 intro, 32px above and below */
     .page-hero {
-      gap: 18px;
-      padding-top: 40px;
-      padding-bottom: 64px;
+      gap: 16px;
+      padding-top: 32px;
+      padding-bottom: 32px;
     }
     .page-hero__title,
     .page-hero--lg .page-hero__title {
-      font-size: 36px;
-      line-height: 40px;
+      font-size: 28px;
+      line-height: normal;
+      letter-spacing: 0.322px;
     }
-    .page-hero__lede {
-      font-size: 14px;
-      line-height: 18px;
+    .page-hero__lede,
+    .page-hero--lg .page-hero__lede {
+      font-size: 16px;
+      line-height: 26px;
+    }
+    .page-hero__meta {
+      margin-top: 0;
     }
   }
 </style>

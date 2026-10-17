@@ -1,5 +1,7 @@
 /* Design tokens from the LS-Website Figma file */
 :root {
+  /* Height of the pinned header on inner pages, so anchors and sticky panels clear it */
+  --sticky-nav: 128px;
   --cobalt-50: #eaf1fb;
   --cobalt-100: #c6dbf4;
   --cobalt-200: #93b8e9;
@@ -69,6 +71,11 @@
   :root {
     --gutter: 40px;
     --radius-layer: 18px;
+  }
+}
+@media (max-width: 767px) {
+  :root {
+    --sticky-nav: 80px;
   }
 }
 @media (max-width: 640px) {

@@ -45,12 +45,12 @@ const { toc, tocTitle } = Astro.props;
     display: flex;
     align-items: flex-start;
     gap: 72px;
-    padding-top: 64px;
+    padding-top: 96px;
     padding-bottom: 160px;
   }
   .toc {
     position: sticky;
-    top: 40px;
+    top: calc(var(--sticky-nav) + 40px);
     flex-shrink: 0;
     width: 240px;
     display: flex;
@@ -119,8 +119,45 @@ const { toc, tocTitle } = Astro.props;
       padding-top: 32px;
       padding-bottom: 96px;
     }
+    /* Figma phone frames: each contents group becomes a heading over a wrap of pill links */
     .toc {
-      display: none;
+      gap: 24px;
+    }
+    .toc__title,
+    .toc__heading {
+      margin: 0;
+      padding: 0;
+      font-size: 16px;
+      font-weight: 700;
+      line-height: normal;
+      letter-spacing: 0.192px;
+      text-transform: none;
+      color: var(--ink-strong);
+    }
+    .toc__group {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .toc ul {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .toc a {
+      padding: 7px 14px;
+      border: 1px solid var(--panel-border);
+      border-radius: 20px;
+      background: var(--paper);
+      font-size: 12px;
+      font-weight: 500;
+      line-height: normal;
+      color: var(--text-muted);
+    }
+    .toc a[aria-current] {
+      border-color: var(--cobalt-600);
+      background: var(--cobalt-600);
+      color: var(--paper);
     }
   }
 </style>
