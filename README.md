@@ -87,6 +87,17 @@ So moving staff (or customers) to another database is: copy that schema, set its
 Each app is its own Vercel project pointing at this repo:
 
 - **Website:** root directory `apps/website` (Astro is detected automatically).
-- **Back office:** root directory `apps/backoffice`, with the environment variables from `.env.example`
-  and `DATABASE_URL` set to a hosted Postgres such as Neon. Run `npm run db:migrate` against it (with
-  `DATABASE_URL` set) whenever the schema changes.
+- **Back office:** root directory `apps/backoffice`, with the environment variables from `.env.example`.
+
+### Database connections (Neon)
+
+Neon gives each database two connection strings. Use each for one job:
+
+| Variable                | Neon URL                         | Used by                                                   |
+| ----------------------- | -------------------------------- | --------------------------------------------------------- |
+| `DATABASE_URL`          | Pooled (host contains `-pooler`) | The running apps on Vercel (many short-lived connections) |
+| `DATABASE_URL_UNPOOLED` | Direct                           | `npm run db:migrate`, Drizzle Studio, `pg_dump`/restores  |
+
+Run migrations from your machine or CI with the direct URL set:
+`DATABASE_URL_UNPOOLED=postgres://… npm run db:migrate`. Neon's Vercel integration creates both
+variables with these names.
