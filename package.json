@@ -16,9 +16,9 @@
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "verify": "turbo run check lint build && prettier --check .",
-    "db:generate": "npm run db:generate -w @learnspace/db",
-    "db:migrate": "npm run db:migrate -w @learnspace/db",
-    "db:studio": "npm run db:studio -w @learnspace/db"
+    "db:generate": "npm run db:generate -w @learnspace/auth-staff",
+    "db:migrate": "npm run db:migrate -w @learnspace/auth-staff",
+    "db:studio": "npm run db:studio -w @learnspace/auth-staff"
   },
   "devDependencies": {
     "drizzle-orm": "^0.45.4",

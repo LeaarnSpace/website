@@ -7,7 +7,7 @@ apps/
   website/      learnspace.ng: Astro marketing site (see apps/website/README.md)
   backoffice/   Staff back office: Next.js, Google sign-in, per-section access
 packages/
-  db/           Postgres schema and client (Drizzle), shared by the apps
+  auth-staff/   Staff identities and back-office access (own "staff" schema and connection)
 ```
 
 ## Getting started
@@ -21,22 +21,24 @@ npm run dev:backoffice # http://localhost:4400
 
 The back office expects a local Postgres on port 5432 with a database called `learnspace`
 (`createdb learnspace`). To use something else, set `DATABASE_URL` in `apps/backoffice/.env.local`.
+Sign-in codes sent in development land in Mailpit at http://localhost:8025.
 
 Before pushing: `npm run verify` (type checks, lint and builds for every app, plus formatting).
 
 ## Back office
 
-### Signing in
+### Signing in (no passwords)
 
 Staff sign in with their Learn Space Google account. Only addresses on `ALLOWED_EMAIL_DOMAINS` get in,
-and that is checked on every sign-in and every request.
+and that is checked on every sign-in and every request. There is no password sign-in anywhere.
 
 To set up Google sign-in, create an OAuth client in the Google Cloud console (APIs & Services → Credentials
 → OAuth client ID → Web application) with the redirect URI `<BETTER_AUTH_URL>/api/auth/callback/google`,
 then copy `apps/backoffice/.env.example` to `apps/backoffice/.env.local` and fill it in.
 
-For local work before Google is set up, `DEV_LOGIN=true` shows an email and password form. It is ignored
-in production.
+For local work before Google is set up, `DEV_EMAIL_SIGN_IN=true` adds sign-in with a 6-digit code sent by
+email (to Mailpit). Codes expire after 10 minutes, allow 3 tries, are stored hashed, and are only ever sent
+to company addresses. It is ignored in production.
 
 ### Access (RBAC)
 
@@ -57,8 +59,28 @@ they sign in. After that, managers of **Team & access** give everyone else acces
 including people who haven't signed in yet. There is always at least one team manager, and you can't
 remove your own.
 
-To add a section: add it to `sectionEnum` in `packages/db/src/schema.ts`, run `npm run db:generate` and
+To add a section: add it to `sectionEnum` in `packages/auth-staff/src/schema.ts`, run `npm run db:generate` and
 `npm run db:migrate`, then add it to `SECTIONS` in `apps/backoffice/src/lib/sections.ts`.
+
+## Identity: separate and detachable
+
+Each group of users has its own identity package, its own Postgres schema and its own connection setting:
+
+| Who                        | Package                   | Schema      | Connection                               |
+| -------------------------- | ------------------------- | ----------- | ---------------------------------------- |
+| Staff (back office)        | `packages/auth-staff`     | `staff`     | `STAFF_DATABASE_URL` → `DATABASE_URL`    |
+| Customers (booking, later) | `packages/auth-customers` | `customers` | `CUSTOMER_DATABASE_URL` → `DATABASE_URL` |
+
+Rules that keep them apart and movable:
+
+- A staff account and a customer account are never the same record, and their cookies have different
+  prefixes. Someone who is both has two accounts.
+- Apps never query identity tables or import the auth library directly; they use the package's exports
+  (`@learnspace/auth-staff`, `/next`, `/client`).
+- App data refers to a person by their ID as plain text, with no foreign keys into an identity schema.
+- Each package keeps its migration history inside its own schema.
+
+So moving staff (or customers) to another database is: copy that schema, set its connection URL.
 
 ## Deploying (Vercel)
 
