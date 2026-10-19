@@ -4,7 +4,7 @@ One repository for everything Learn Space runs.
 
 ```
 apps/
-  website/      learnspace.ng: Astro marketing site (see apps/website/README.md)
+  website/      learnspace.com.ng: Astro marketing site (see apps/website/README.md)
   backoffice/   Staff back office: Next.js, Google sign-in, per-section access
 packages/
   auth-staff/   Staff identities and back-office access (own "staff" schema and connection)
