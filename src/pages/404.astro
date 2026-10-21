@@ -35,8 +35,11 @@ import socket from "../assets/icons/socket.svg";
   .nf__stage {
     display: flex;
     align-items: center;
+    /* Tall enough for the screen with Safari's toolbars hidden; the bottom padding keeps the scene
+       centred in the screen with them showing */
     min-height: calc(100vh - var(--sticky-nav));
-    min-height: calc(100svh - var(--sticky-nav));
+    min-height: calc(100lvh - var(--sticky-nav));
+    padding-bottom: calc(100lvh - 100svh);
   }
   .nf__scene {
     position: relative;

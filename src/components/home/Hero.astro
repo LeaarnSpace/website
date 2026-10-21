@@ -15,22 +15,24 @@ import Button from "../ui/Button.astro";
 </div>
 
 <style>
-  /* The hero fills exactly the visible screen below the navigation bar, with its four items centred,
-     so "Learn more" is always on screen and the next section never peeks in. svh is the height with
-     the browser's toolbars showing (iPad/iPhone Safari), so nothing jumps as they hide; vh is the
-     fallback for older browsers. On short screens the illustration and headline shrink to fit. */
+  /* The hero fills the screen below the navigation bar with its four items placed a little above
+     the middle, so "Learn more" is always on screen and the next section never peeks in, with
+     Safari's toolbars showing or hidden. On short screens the illustration and headline shrink. */
   .hero {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 40px;
+    /* lvh: as tall as the screen gets once Safari's toolbars shrink, so the next section never
+       comes into view; the extra bottom padding (lvh − svh) keeps the block placed for the screen
+       with the toolbars showing, so "Learn more" stays on screen. Desktops: lvh = svh = vh. */
     min-height: calc(100vh - var(--sticky-nav));
-    min-height: calc(100svh - var(--sticky-nav));
+    min-height: calc(100lvh - var(--sticky-nav));
     padding-top: 32px;
     /* Extra room below lifts the block above the exact middle (it read as sitting low) */
     padding-bottom: 15vh;
-    padding-bottom: 15svh;
+    padding-bottom: calc(15svh + 100lvh - 100svh);
     text-align: center;
   }
   .hero :global(.hero__illus) {
@@ -112,7 +114,7 @@ import Button from "../ui/Button.astro";
     .hero {
       padding-top: 24px;
       padding-bottom: 15vh;
-      padding-bottom: 15svh;
+      padding-bottom: calc(15svh + 100lvh - 100svh);
       gap: 28px;
     }
     .hero :global(.hero__illus) {
