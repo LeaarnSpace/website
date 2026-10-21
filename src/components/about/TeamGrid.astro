@@ -1,6 +1,5 @@
 ---
-// Team photos with name and role over a soft dark tint. On hover a cobalt band slides in
-// behind the name (the Figma "Masked colour rectangle").
+// Team photos with the name and role on a frosted glass label (the Figma "Masked colour rectangle").
 import { Image } from "astro:assets";
 import type { TeamMember } from "../../data/team";
 
@@ -14,7 +13,7 @@ const { members } = Astro.props;
   {
     members.map((m) => (
       <li class="member">
-        <Image src={m.photo} alt="" widths={[310, 620]} sizes="310px" class="member__photo" />
+        <Image src={m.photo} alt="" widths={[320, 640]} sizes="(max-width: 1023px) 50vw, 320px" class="member__photo" />
         <div class="member__details">
           <span class="member__band" aria-hidden="true" />
           <p class="member__name">{m.name}</p>
@@ -36,20 +35,13 @@ const { members } = Astro.props;
   }
   .member {
     position: relative;
-    height: 340px;
+    height: 300px;
     overflow: hidden;
   }
   .member :global(.member__photo) {
     width: 100%;
     height: 100%;
     object-fit: cover;
-  }
-  /* Figma darkens the photo by 20% so the white name reads clearly */
-  .member::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.2);
   }
   .member__details {
     position: absolute;
@@ -64,13 +56,8 @@ const { members } = Astro.props;
     inset: 0;
     z-index: -1;
     border-radius: 4px;
-    background: #7ca3c4;
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
-  }
-  .member:hover .member__band {
-    transform: scaleX(1);
+    background: rgba(124, 163, 196, 0.1);
+    backdrop-filter: blur(10px);
   }
   .member__name {
     font-size: 20px;
@@ -80,7 +67,7 @@ const { members } = Astro.props;
   .member__role {
     font-size: 16px;
     line-height: 26px;
-    color: #d9deeb;
+    color: var(--paper);
   }
   @media (max-width: 1023px) {
     .team {

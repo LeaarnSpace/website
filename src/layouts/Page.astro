@@ -14,7 +14,7 @@ const { title, description } = Astro.props;
 
 <Base title={`${title} — Learn Space`} description={description}>
   <div class="layer layer--flat layer--white layer--lift">
-    <Nav />
+    <Nav sticky />
     <slot />
   </div>
   <FooterZone />

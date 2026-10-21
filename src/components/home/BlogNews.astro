@@ -73,13 +73,13 @@ const news = await getNews(3);
   .bn {
     max-width: calc(1336px + var(--gutter) * 2);
     padding-top: 96px;
-    padding-bottom: 176px;
+    padding-bottom: 96px;
     display: flex;
     flex-direction: column;
     gap: 80px;
   }
   .bn__heading {
-    font-size: 36px;
+    font-size: 32px;
     font-weight: 400;
     color: var(--ink-strong);
     white-space: nowrap;
@@ -244,26 +244,97 @@ const news = await getNews(3);
       display: none;
     }
   }
-  /* Phones: Figma mobile text sizes */
+  /* ---------- Tablets: Figma 768 frame ---------- */
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .bn {
+      padding-top: 48px;
+      padding-bottom: 48px;
+      gap: 48px;
+    }
+    .blog {
+      gap: 32px;
+    }
+    /* Heading and rule side by side, like the other section titles */
+    .blog__label {
+      flex-direction: row;
+      align-items: center;
+      gap: 32px;
+      max-width: none;
+    }
+    .blog__rule {
+      flex: 1;
+    }
+    .news {
+      grid-template-columns: 140px minmax(0, 1fr);
+      gap: 40px;
+    }
+    .news__photo {
+      display: block;
+      padding-top: 141px;
+    }
+    .news__photo :global(.news__img) {
+      width: 140px;
+      height: 137px;
+    }
+    .news__list {
+      gap: 24px;
+    }
+  }
+  /* ---------- Phones: Figma 390 frame — posts stacked, no carousel controls ---------- */
   @media (max-width: 767px) {
+    .bn {
+      padding-top: 48px;
+      padding-bottom: 48px;
+      gap: 96px;
+    }
     .bn__heading {
       font-size: 20px;
       letter-spacing: 0.24px;
     }
-  }
-  @media (max-width: 640px) {
-    .bn {
-      gap: 56px;
-      padding-bottom: 120px;
-    }
-    .post {
-      flex-basis: 300px;
-    }
-    .carousel {
+    .blog {
       gap: 32px;
     }
+    .blog__label {
+      flex-direction: row;
+      align-items: center;
+      gap: 32px;
+      max-width: none;
+    }
+    .blog__rule {
+      flex: 1;
+    }
+    .carousel {
+      gap: 16px;
+      margin-right: 0;
+    }
+    .carousel__track {
+      flex-direction: column;
+      gap: 40px;
+      padding: 0;
+      overflow: visible;
+      scroll-snap-type: none;
+    }
+    .post {
+      flex: none;
+    }
+    .post :global(.post-card__title) {
+      font-size: 18px;
+      letter-spacing: 0.216px;
+      -webkit-line-clamp: 2;
+    }
     .carousel__controls {
-      flex-wrap: wrap;
+      margin-right: 0;
+    }
+    .carousel__buttons,
+    .progress {
+      display: none;
+    }
+    .news__head {
+      margin-bottom: -72px;
+    }
+    /* Figma's phone frame lists the news without a "See full list" button */
+    .news__list :global(.btn) {
+      display: none;
     }
   }
 </style>

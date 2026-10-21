@@ -19,8 +19,8 @@
     display: flex;
     flex-direction: column;
     gap: 39px;
-    padding-top: 64px;
-    padding-bottom: 78px;
+    padding-top: 96px;
+    padding-bottom: 110px;
   }
   .amina__score {
     display: flex;
@@ -54,38 +54,49 @@
   .amina__why {
     color: var(--cobalt-600);
   }
-  @media (max-width: 1023px) {
-    .amina__name {
-      font-size: 96px;
-      line-height: 104px;
+  /* Tablets: Figma 768 frame stacks name and score, both 118px */
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .amina {
+      gap: 39px;
+      padding-top: 32px;
+      padding-bottom: 46px;
     }
+    .amina__score {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 24px;
+    }
+    .amina__name,
     .amina__pct {
-      font-size: 76px;
-      line-height: 104px;
+      font-size: 118px;
+      line-height: 1;
     }
   }
+  /* Phones: Figma stacks the score under the name */
   @media (max-width: 767px) {
     .amina {
       gap: 24px;
       padding-top: 32px;
-      padding-bottom: 48px;
+      padding-bottom: 46px;
     }
     .amina__score {
-      gap: 12px;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
     }
     .amina__name {
-      font-size: 56px;
+      font-size: 60px;
       line-height: 60px;
     }
     .amina__pct {
-      font-size: 44px;
-      line-height: 60px;
+      font-size: 48px;
+      line-height: var(--lh-normal);
       -webkit-text-stroke-width: 1.5px;
     }
     .amina__lines {
-      font-size: 14px;
-      line-height: 18px;
-      letter-spacing: 0.4px;
+      gap: 4px;
+      font-size: 16px;
+      line-height: 26px;
     }
   }
 </style>

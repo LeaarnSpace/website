@@ -1,5 +1,18 @@
 /* Design tokens from the LS-Website Figma file */
+
+/* Arial resized to Manrope's width and line height (measured), so text takes the same space before
+   the web font arrives and nothing jumps when it swaps in — most visible on iPads on slower Wi-Fi */
+@font-face {
+  font-family: "Manrope Fallback";
+  src: local("Arial"), local("ArialMT"), local("Helvetica");
+  size-adjust: 101.36%;
+  ascent-override: 105.56%;
+  descent-override: 29.6%;
+  line-gap-override: 0%;
+}
 :root {
+  /* Height of the pinned header on inner pages, so anchors and sticky panels clear it */
+  --sticky-nav: 128px;
   --cobalt-50: #eaf1fb;
   --cobalt-100: #c6dbf4;
   --cobalt-200: #93b8e9;
@@ -54,7 +67,10 @@
   --shadow-color-sm: rgba(14, 22, 80, 0.06);
   --shadow-menu: 0 24px 40px rgba(14, 27, 52, 0.08);
 
-  --font-sans: "Manrope", system-ui, sans-serif;
+  --font-sans: "Manrope", "Manrope Fallback", system-ui, sans-serif;
+  /* Manrope's own "normal" line height ((ascent + descent) / em). Set explicitly so text keeps the
+     same height in the fallback font (Safari can't override a fallback's line metrics). */
+  --lh-normal: 1.366;
   --font-logotype: "Fredoka One", "Fredoka", system-ui, sans-serif;
   --font-mansalva: "Mansalva", cursive;
   --font-medula: "Medula One", system-ui, sans-serif;
@@ -65,10 +81,15 @@
   --max: 1440px;
 }
 
-@media (max-width: 1024px) {
+/* Tablets: the Figma 768 frames use 32px side margins */
+@media (max-width: 1023px) {
   :root {
-    --gutter: 40px;
-    --radius-layer: 18px;
+    --gutter: 32px;
+  }
+}
+@media (max-width: 767px) {
+  :root {
+    --sticky-nav: 80px;
   }
 }
 @media (max-width: 640px) {

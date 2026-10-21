@@ -38,7 +38,7 @@ const beliefs = [
     title="A learning innovation lab"
     lede="We work on the conditions that decide learning outcomes in Nigeria, and we publish what we find."
   >
-    <img slot="art" src={aboutHero.src} width="570" height="404" alt="" class="about-hero-art" />
+    <img slot="art" src={aboutHero.src} width="501" height="324" alt="" class="about-hero-art" />
   </PageHero>
 
   <section class="why container">
@@ -75,13 +75,14 @@ const beliefs = [
   {
     team.length > 0 && (
       <section class="team-section container">
-        <SectionTitle title="The people doing the work" rule="grey" />
+        <SectionTitle title="Our Team" rule="grey" />
         <TeamGrid members={team} />
       </section>
     )
   }
 
   <div class="container account">
+    <SectionTitle title="Accountability" rule="grey" class="account__title" />
     <Callout
       title="How we are held to account"
       body="How our research is governed, how providers are checked, and how we handle data about children and families. A child's data is never a revenue line."
@@ -92,7 +93,7 @@ const beliefs = [
 
 <style>
   .about-hero-art {
-    width: 570px;
+    width: 501px;
     max-width: 100%;
     height: auto;
   }
@@ -111,19 +112,18 @@ const beliefs = [
     justify-content: center;
   }
   .why :global(.why__illus) {
-    width: 474px;
+    width: 298px;
     flex-shrink: 0;
   }
   .why__copy {
-    flex: 1;
+    flex: 0 1 690px;
     display: flex;
     flex-direction: column;
-    gap: 64px;
+    gap: 24px;
   }
   .why__lead {
-    font-size: 28px;
-    font-weight: 700;
-    letter-spacing: 0.322px;
+    font-size: 32px;
+    font-weight: 400;
     color: var(--ink-strong);
   }
   .why__body {
@@ -147,12 +147,15 @@ const beliefs = [
     display: flex;
     flex-direction: column;
     gap: 40px;
-    padding-top: 64px;
-    padding-bottom: 64px;
+    padding-top: 96px;
+    padding-bottom: 96px;
   }
 
   .account {
-    padding-top: 64px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    padding-top: 96px;
     padding-bottom: 160px;
   }
 
@@ -162,20 +165,33 @@ const beliefs = [
       align-items: center;
     }
     .why :global(.why__illus) {
-      width: 360px;
+      width: 298px;
       max-width: 100%;
     }
+    /* Stacked: the 690px basis would otherwise become the column's height */
+    .why__copy {
+      flex: none;
+      width: 100%;
+      max-width: 690px;
+    }
   }
+  /* Phones: Figma "Who We Are — Mobile" */
   @media (max-width: 767px) {
+    .about-hero-art {
+      width: 256px;
+    }
     .why,
-    .beliefs {
-      gap: 32px;
-      padding-top: 48px;
-      padding-bottom: 48px;
+    .beliefs,
+    .team-section {
+      gap: 40px;
+      padding-top: 32px;
+      padding-bottom: 32px;
+    }
+    .why__content {
+      gap: 56px;
     }
     .why :global(.why__illus) {
-      width: 300px;
-      margin-block: -48px;
+      width: 275px;
     }
     .why__copy {
       gap: 24px;
@@ -185,18 +201,20 @@ const beliefs = [
       letter-spacing: 0.24px;
     }
     .why__body {
-      font-size: 14px;
-      line-height: 18px;
-      gap: 16px;
+      font-size: 16px;
+      line-height: 26px;
+      gap: 20px;
     }
     .team-section {
       gap: 32px;
-      padding-top: 48px;
-      padding-bottom: 48px;
     }
     .account {
       padding-top: 32px;
       padding-bottom: 96px;
+    }
+    /* The phone frame has the box without the "Accountability" heading */
+    .account :global(.account__title) {
+      display: none;
     }
   }
 </style>

@@ -27,7 +27,8 @@ import { routes } from "../../data/navigation";
           evidence about what is actually shaping their experiences and outcomes.
         </p>
       </div>
-      <Button href={routes.theProblem} label="Read the full picture" />
+      <Button href={routes.theProblem} label="Read the full picture" class="problem__cta--long" />
+      <Button href={routes.theProblem} label="Read full picture" class="problem__cta--short" />
     </div>
   </div>
 </div>
@@ -35,14 +36,14 @@ import { routes } from "../../data/navigation";
 <style>
   .problem {
     max-width: calc(1127.5px + var(--gutter) * 2);
-    padding-top: 64px;
-    padding-bottom: 160px;
+    padding-top: 96px;
+    padding-bottom: 96px;
     display: flex;
     flex-direction: column;
     gap: 66px;
   }
   .problem__label {
-    font-size: 36px;
+    font-size: 32px;
     font-weight: 400;
     color: var(--ink-strong);
     white-space: nowrap;
@@ -50,7 +51,7 @@ import { routes } from "../../data/navigation";
   .problem__body {
     display: flex;
     gap: 32px;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
   }
   .problem__body :global(.problem__illus) {
@@ -61,13 +62,13 @@ import { routes } from "../../data/navigation";
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 20px;
+    gap: 24px;
     max-width: 690px;
   }
   .problem__title {
     max-width: 499px;
     font-size: 32px;
-    font-weight: 700;
+    font-weight: 400;
     color: var(--ink-strong);
   }
   .problem__paras {
@@ -81,42 +82,74 @@ import { routes } from "../../data/navigation";
   .problem__paras p:nth-child(3) {
     margin-top: -8px;
   }
+  /* Phone wording of the button */
+  .problem__text :global(.problem__cta--short) {
+    display: none;
+  }
 
-  @media (max-width: 900px) {
-    .problem__body {
-      flex-direction: column;
-      align-items: flex-start;
+  /* Tablets: Figma 768 frame (illustration beside the text, smaller type) */
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .problem {
+      padding-top: 64px;
+      padding-bottom: 64px;
+      gap: 40px;
     }
     .problem__body :global(.problem__illus) {
-      width: 240px;
-      align-self: center;
+      width: 275px;
+    }
+    .problem__text {
+      gap: 20px;
+    }
+    .problem__title {
+      font-size: 24px;
+      letter-spacing: 0.288px;
+      color: var(--ink);
+    }
+    .problem__paras {
+      gap: 20px;
     }
   }
-  /* Phones: Figma mobile text sizes */
+  /* Phones: Figma 390 frame */
   @media (max-width: 767px) {
     .problem {
-      gap: 32px;
-      padding-bottom: 96px;
+      gap: 28px;
+      padding-top: 48px;
+      padding-bottom: 48px;
     }
     .problem__label {
       font-size: 20px;
       letter-spacing: 0.24px;
     }
+    .problem__body {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 28px;
+    }
+    .problem__body :global(.problem__illus) {
+      width: 275px;
+      align-self: center;
+    }
     .problem__title {
+      max-width: none;
       font-size: 20px;
       letter-spacing: 0.24px;
+      color: var(--ink);
     }
     .problem__paras {
       font-size: 14px;
       line-height: 18px;
       gap: 18px;
+      color: var(--ink);
+      opacity: 0.8;
     }
     .problem__text {
       gap: 16px;
     }
-    .problem__body :global(.problem__illus) {
-      width: 200px;
-      margin-block: -40px;
+    .problem__text :global(.problem__cta--long) {
+      display: none;
+    }
+    .problem__text :global(.problem__cta--short) {
+      display: inline-flex;
     }
   }
 </style>

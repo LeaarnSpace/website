@@ -10,7 +10,7 @@ import socket from "../assets/icons/socket.svg";
   <section class="layer layer--flat layer--white nf">
     <Nav />
     <div class="nf__stage">
-      <img src={socket.src} alt="" class="nf__socket" width="503" height="299" />
+      <img src={socket.src} alt="" class="nf__socket" width="2033" height="640" />
       <img src={plug.src} alt="" class="nf__plug" width="1600" height="312" />
       <div class="nf__copy">
         <p class="nf__small">Error</p>
@@ -76,16 +76,23 @@ import socket from "../assets/icons/socket.svg";
     height: auto;
     max-width: none;
   }
+  /* Figma tilts the socket by 7.9°. The artwork is 473 wide with its cable extended 1560 to the
+     left, so --w / --x describe the visible socket and the cable end never shows on wide screens */
   .nf__socket {
-    left: -2.56%;
-    top: 215px;
+    --w: 32.84%;
+    --x: -1.63%;
+    width: calc(var(--w) * 2032.9 / 472.9);
+    left: calc(var(--x) - var(--w) * 1560 / 472.9);
+    top: 182px;
+    rotate: -7.9deg;
+    transform-origin: 88.37% 17.86%;
     animation: drift-right 3.2s ease-in-out infinite alternate;
   }
   /* The plug artwork is 499 wide; its cable is extended to 1600 so the end is always off screen */
   .nf__plug {
     width: calc(34.7% * 1600 / 499);
     left: 66.5%;
-    top: 109px;
+    top: 30px;
     animation: drift-left 3.2s ease-in-out infinite alternate;
   }
   @keyframes drift-right {
@@ -113,9 +120,9 @@ import socket from "../assets/icons/socket.svg";
       top: 40px;
     }
     .nf__socket {
-      width: 60%;
+      --w: 60%;
+      --x: -14%;
       top: 300px;
-      left: -14%;
     }
     .nf__plug {
       width: calc(60% * 1600 / 499);

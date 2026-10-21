@@ -20,6 +20,7 @@ html.lenis body {
 body {
   margin: 0;
   font-family: var(--font-sans);
+  line-height: var(--lh-normal);
   color: var(--ink-strong);
   /* Shows round the edges of a panel while it zooms in, so it should match the section above */
   background: var(--paper);
@@ -95,6 +96,18 @@ button {
 }
 .band--surface {
   background: var(--surface);
+}
+.band--sunk {
+  background: var(--surface-sunk);
+}
+
+/* In-page link targets stop a little below the top of the screen, and below the pinned header on
+   inner pages */
+[id] {
+  scroll-margin-top: 24px;
+}
+.layer--lift [id] {
+  scroll-margin-top: calc(var(--sticky-nav) + 24px);
 }
 
 /* Panel that lifts off the footer: rounded bottom, sits above it */

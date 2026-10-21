@@ -8,11 +8,12 @@ interface Props {
   meta?: string;
   /** "lg": 72px title with a smaller intro line (The Problem, Work With Us) */
   size?: "md" | "lg";
+  class?: string;
 }
-const { title, lede, meta, size = "md" } = Astro.props;
+const { title, lede, meta, size = "md", class: className } = Astro.props;
 ---
 
-<header class:list={["page-hero container", `page-hero--${size}`]}>
+<header class:list={["page-hero container", `page-hero--${size}`, className]}>
   {
     Astro.slots.has("art") && (
       <div class="page-hero__art">
@@ -81,20 +82,72 @@ const { title, lede, meta, size = "md" } = Astro.props;
     justify-content: center;
     gap: 12px;
   }
-  @media (max-width: 767px) {
+  /* Desktop: legal and governance pages (Figma 1440) use a taller header with a 72px title */
+  @media (min-width: 1024px) {
+    .page-hero--tall {
+      justify-content: center;
+      min-height: 490px;
+    }
+    .page-hero--tall .page-hero__title {
+      font-size: 72px;
+      line-height: 72px;
+    }
+    .page-hero--tall .page-hero__lede {
+      max-width: 580px;
+      font-size: 16px;
+      line-height: 26px;
+    }
+  }
+  /* Tablets (Figma 768 frames): 40px title in a 564px column, tighter padding */
+  @media (min-width: 768px) and (max-width: 1023px) {
     .page-hero {
       gap: 18px;
-      padding-top: 40px;
-      padding-bottom: 64px;
+      padding-top: 48px;
+      padding-bottom: 48px;
     }
     .page-hero__title,
     .page-hero--lg .page-hero__title {
-      font-size: 36px;
-      line-height: 40px;
+      max-width: 564px;
+      font-size: 40px;
+      line-height: var(--lh-normal);
+      color: var(--ink);
     }
     .page-hero__lede {
+      max-width: 704px;
+      font-size: 18px;
+      line-height: 24px;
+      letter-spacing: 0.9px;
+      color: var(--ink);
+      opacity: 0.8;
+    }
+    .page-hero--lg .page-hero__lede {
+      max-width: 564px;
+      font-size: 16px;
+      line-height: 26px;
+      letter-spacing: 0;
+    }
+  }
+  @media (max-width: 767px) {
+    /* Figma phone frames: 28px title, 16/26 intro, 32px above and below */
+    .page-hero {
+      gap: 16px;
+      padding-top: 32px;
+      padding-bottom: 32px;
+    }
+    .page-hero__title,
+    .page-hero--lg .page-hero__title {
+      font-size: 28px;
+      line-height: var(--lh-normal);
+      letter-spacing: 0.322px;
+    }
+    .page-hero__lede,
+    .page-hero--lg .page-hero__lede {
       font-size: 14px;
       line-height: 18px;
+      color: var(--ink);
+    }
+    .page-hero__meta {
+      margin-top: 0;
     }
   }
 </style>

@@ -34,6 +34,7 @@ const href = `${routes.news}/${story.id}`;
     <h3 class="featured__title">{story.data.title}</h3>
     {story.data.summary && <p class="featured__summary">{story.data.summary}</p>}
     <RoundArrow />
+    <span class="featured__more" aria-hidden="true">Read more</span>
   </div>
 </a>
 
@@ -94,25 +95,59 @@ const href = `${routes.news}/${story.id}`;
   .featured:hover :global(.round-arrow) {
     transform: translateX(15px);
   }
-  @media (max-width: 1023px) {
+  /* Tablets (Figma 768): photo on the left, story beside it with a "Read more" link */
+  @media (min-width: 768px) and (max-width: 1023px) {
     .featured {
-      flex-direction: column;
-      align-items: stretch;
+      align-items: flex-start;
       gap: 24px;
     }
     .featured__media {
-      width: 100%;
+      width: 250px;
       height: auto;
-      aspect-ratio: 617 / 410;
+      aspect-ratio: 250 / 200;
+      flex-shrink: 0;
+    }
+  }
+  /* Phones (Figma News-mobile): smaller photo, a "Read more" text link instead of the round arrow */
+  .featured__more {
+    display: none;
+  }
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .featured__more {
+      display: inline-flex;
+    }
+    .featured :global(.round-arrow) {
+      display: none;
     }
   }
   @media (max-width: 767px) {
+    .featured {
+      gap: 18px;
+    }
+    .featured__media {
+      width: 250px;
+      max-width: 100%;
+      aspect-ratio: 250 / 200;
+    }
     .featured__title {
-      font-size: 20px;
+      font-size: 18px;
+      font-weight: 500;
+      line-height: 24px;
+      letter-spacing: 0;
     }
     .featured__summary {
-      font-size: 14px;
-      line-height: 20px;
+      font-size: 16px;
+      line-height: 26px;
+      color: var(--ink);
+    }
+    .featured :global(.round-arrow) {
+      display: none;
+    }
+    .featured__more {
+      display: inline;
+      font-size: 16px;
+      line-height: 26px;
+      color: var(--cobalt-600);
     }
   }
 </style>

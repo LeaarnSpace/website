@@ -37,7 +37,15 @@ export const clearTransition = () => {
   storage.clear();
 };
 
-export function initPageTransitions(onArrived: () => void) {
+/** Longest the curtain waits for the new page to finish setting up before lifting anyway */
+const MAX_WAIT_MS = 1500;
+
+/**
+ * @param onArrived called as the curtain lifts (plays the page's entrance animations)
+ * @param ready resolves once the page's heavier setup is done; the curtain stays down until then so
+ *   that work never stalls the lift mid-animation (most noticeable on iPads)
+ */
+export function initPageTransitions(onArrived: () => void, ready: Promise<unknown>) {
   const curtain = document.querySelector<HTMLElement>("[data-curtain]");
   if (!curtain) return onArrived();
   const logo = curtain.querySelector(".logo");
@@ -45,6 +53,13 @@ export function initPageTransitions(onArrived: () => void) {
   // Arriving from another page: lift the curtain away
   if (root.classList.contains("is-arriving")) {
     storage.clear();
+    const wait = new Promise((resolve) => setTimeout(resolve, MAX_WAIT_MS));
+    Promise.race([ready, wait]).then(() => requestAnimationFrame(() => liftCurtain()));
+  } else {
+    onArrived();
+  }
+
+  function liftCurtain() {
     gsap
       .timeline({ onComplete: () => root.classList.remove("is-arriving") })
       .set(curtain, { yPercent: 0, y: 0, borderRadius: 0 })
@@ -60,23 +75,27 @@ export function initPageTransitions(onArrived: () => void) {
         0.15,
       )
       .add(onArrived, 0.55);
-  } else {
-    onArrived();
   }
 
   // Leaving: the curtain slides up over the page like another layer, then navigate
+  let leaving = false;
   document.addEventListener("click", (e) => {
     const a = (e.target as Element).closest?.("a");
     if (!a || !isInternalPageLink(a, e)) return;
     e.preventDefault();
+    // A second tap while the curtain is already moving must not restart it
+    if (leaving) return;
+    leaving = true;
     getLenis()?.stop();
     storage.set();
     gsap
       .timeline({ onComplete: () => void (location.href = a.href) })
       .fromTo(
         curtain,
-        { yPercent: 105, borderRadius: "var(--radius-layer) var(--radius-layer) 0 0" },
-        { yPercent: 0, borderRadius: 0, duration: 0.75, ease: "expo.inOut" },
+        // y: 0 clears the stylesheet's translateY(105%), which GSAP would otherwise read as a pixel
+        // offset and add on top, leaving the curtain a full screen too low (it never appeared)
+        { y: 0, yPercent: 105, borderRadius: "var(--radius-layer) var(--radius-layer) 0 0" },
+        { y: 0, yPercent: 0, borderRadius: 0, duration: 0.75, ease: "expo.inOut" },
       )
       .fromTo(logo, { scale: 0.9, autoAlpha: 0 }, { scale: 1, autoAlpha: 1, duration: 0.35, ease: "power2.out" }, 0.45);
   });
@@ -84,7 +103,8 @@ export function initPageTransitions(onArrived: () => void) {
   // Back/forward cache restores the page with the curtain still down
   window.addEventListener("pageshow", (e) => {
     if (!e.persisted) return;
-    gsap.set(curtain, { yPercent: 105 });
+    leaving = false;
+    gsap.set(curtain, { y: 0, yPercent: 105 });
     getLenis()?.start();
   });
 }

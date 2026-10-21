@@ -24,9 +24,7 @@ const { data } = story;
 const { Content } = await render(story);
 const hasTake = Boolean(story.body?.trim());
 const more = (await getNewsByDate()).filter((s) => s.id !== story.id).slice(0, 3);
-const byline = [data.author && `Note by ${data.author}`, data.reviewer && `Reviewed by ${data.reviewer}`]
-  .filter(Boolean)
-  .join(" · ");
+const byline = [data.author, data.reviewer && `Reviewed by ${data.reviewer}`].filter(Boolean).join(" · ");
 ---
 
 <Page title={data.title} description={data.summary ?? data.title}>
@@ -99,8 +97,10 @@ const byline = [data.author && `Note by ${data.author}`, data.reviewer && `Revie
               {data.related.map((r) => (
                 <li>
                   <a href={r.href} class="rcard">
-                    <span class="rcard__badge">{r.type}</span>
-                    <span class="rcard__title">{r.title}</span>
+                    <span class="rcard__top">
+                      <span class="rcard__badge">{r.type}</span>
+                      <span class="rcard__title">{r.title}</span>
+                    </span>
                     <span class="rcard__link">
                       {r.linkLabel}
                       <span class="rcard__arrow" aria-hidden="true" set:html={arrow} />
@@ -130,8 +130,8 @@ const byline = [data.author && `Note by ${data.author}`, data.reviewer && `Revie
 
 <style>
   .story {
-    padding-top: 64px;
-    padding-bottom: 12px;
+    padding-top: 96px;
+    padding-bottom: 44px;
   }
   .back {
     display: inline-flex;
@@ -205,8 +205,8 @@ const byline = [data.author && `Note by ${data.author}`, data.reviewer && `Revie
     display: flex;
     flex-direction: column;
     gap: 48px;
-    padding-top: 64px;
-    padding-bottom: 64px;
+    padding-top: 96px;
+    padding-bottom: 96px;
   }
   .original {
     display: flex;
@@ -300,7 +300,7 @@ const byline = [data.author && `Note by ${data.author}`, data.reviewer && `Revie
     display: flex;
     flex-direction: column;
     gap: 48px;
-    padding-top: 64px;
+    padding-top: 96px;
     padding-bottom: 160px;
   }
   .related__block {
@@ -320,8 +320,10 @@ const byline = [data.author && `Note by ${data.author}`, data.reviewer && `Revie
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    justify-content: space-between;
     gap: 12px;
     height: 100%;
+    min-height: 154px;
     padding: 24px 18px;
     border: 1px solid var(--cobalt-400);
     border-radius: var(--radius-sm);
@@ -341,10 +343,18 @@ const byline = [data.author && `Note by ${data.author}`, data.reviewer && `Revie
     letter-spacing: 0.196px;
     color: var(--blue-700);
   }
+  /* Badge and title sit together at the top; the link is pinned to the bottom */
+  .rcard__top {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
   .rcard__title {
-    font-size: 18px;
-    font-weight: 600;
-    line-height: 24px;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 20px;
+    letter-spacing: 0.224px;
     color: var(--ink);
   }
   .rcard__link {
@@ -379,6 +389,12 @@ const byline = [data.author && `Note by ${data.author}`, data.reviewer && `Revie
     list-style: none;
   }
 
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .related {
+      padding-top: 48px;
+      padding-bottom: 96px;
+    }
+  }
   @media (max-width: 1023px) {
     .story__intro {
       flex-direction: column-reverse;
@@ -403,7 +419,11 @@ const byline = [data.author && `Note by ${data.author}`, data.reviewer && `Revie
       font-size: 12px;
     }
     .story__title {
-      font-size: 26px;
+      font-size: 36px;
+      line-height: 49px;
+    }
+    .story :global(.story__img) {
+      aspect-ratio: 354 / 280;
     }
     .original {
       flex-direction: column;
@@ -422,8 +442,8 @@ const byline = [data.author && `Note by ${data.author}`, data.reviewer && `Revie
       grid-template-columns: 1fr;
     }
     .take__body {
-      font-size: 14px;
-      line-height: 22px;
+      font-size: 16px;
+      line-height: 26px;
     }
   }
 </style>

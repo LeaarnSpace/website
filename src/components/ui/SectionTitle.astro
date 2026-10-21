@@ -5,7 +5,7 @@ interface Props {
   /** Rule colour: light cobalt (default) or grey */
   rule?: "cobalt" | "grey";
   /** Heading level for the document outline */
-  as?: "h2" | "h3";
+  as?: "h1" | "h2" | "h3";
   class?: string;
 }
 const { title, rule = "cobalt", as: Tag = "h2", class: className } = Astro.props;

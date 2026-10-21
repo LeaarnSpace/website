@@ -19,13 +19,14 @@ import Button from "../ui/Button.astro";
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 24px;
-    padding-top: 64px;
-    padding-bottom: 160px;
+    gap: 40px;
+    padding-top: 48px;
+    padding-bottom: 96px;
     text-align: center;
   }
   .hero :global(.hero__illus) {
     width: 405px;
+    margin-bottom: -16px;
   }
   .hero__copy {
     display: flex;
@@ -47,30 +48,54 @@ import Button from "../ui/Button.astro";
     letter-spacing: 0.9px;
     color: var(--text-muted);
   }
-  @media (max-width: 1024px) {
+  /* Tablets: Figma 768 frame */
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .hero {
+      padding-top: 32px;
+      padding-bottom: 64px;
+    }
+    .hero :global(.hero__illus) {
+      margin-bottom: 0;
+    }
+    .hero__copy {
+      gap: 20px;
+    }
     .hero__title {
-      font-size: 56px;
-      line-height: 60px;
+      max-width: 564px;
+      font-size: 40px;
+      line-height: var(--lh-normal);
+      color: var(--ink);
+    }
+    .hero__lede {
+      color: var(--ink);
+      opacity: 0.8;
     }
   }
-  /* Phones: Figma mobile text sizes */
+  /* Phones: Figma 390 frame */
   @media (max-width: 767px) {
     .hero {
       padding-top: 24px;
-      padding-bottom: 96px;
-      gap: 20px;
+      padding-bottom: 48px;
+      gap: 28px;
     }
     .hero :global(.hero__illus) {
-      width: 300px;
+      width: 316px;
+      margin-bottom: 0;
+    }
+    .hero__copy {
+      gap: 16px;
     }
     .hero__title {
       font-size: 36px;
-      line-height: 40px;
+      line-height: var(--lh-normal);
+      color: var(--ink);
     }
     .hero__lede {
       font-size: 14px;
       line-height: 18px;
-      letter-spacing: 0.2px;
+      letter-spacing: 0;
+      color: var(--ink);
+      opacity: 0.8;
     }
   }
 </style>

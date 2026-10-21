@@ -48,9 +48,13 @@ const { as: Tag = "h1", filters = true } = Astro.props;
     .blog-head {
       gap: 20px;
     }
+    /* Figma phone frames: same 20px Manrope heading as the other sections */
     .blog-head__title {
-      font-size: 24px;
-      line-height: 32px;
+      font-family: inherit;
+      font-size: 20px;
+      font-weight: 400;
+      line-height: var(--lh-normal);
+      letter-spacing: 0.24px;
     }
   }
 </style>

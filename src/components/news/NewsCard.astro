@@ -69,7 +69,30 @@ const { story } = Astro.props;
   .news-card:hover :global(.round-arrow) {
     transform: translateX(25px);
   }
-  @media (max-width: 767px) {
+  /* Tablets: Figma "Tab news" card — tighter padding, meta and headline side by side */
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .news-card {
+      gap: 12px;
+      min-height: 0;
+      padding: 25px 27px 21px 34px;
+    }
+    .news-card__meta {
+      padding-top: 0;
+    }
+    .news-card :global(.round-arrow) {
+      width: 30px;
+      height: 30px;
+      margin-right: 0;
+    }
+    .news-card :global(.round-arrow svg) {
+      width: 18px;
+      height: 18px;
+    }
+    .news-card:hover :global(.round-arrow) {
+      transform: translateX(6px);
+    }
+  }
+  @media (max-width: 1023px) {
     .news-card__meta strong {
       font-size: 12px;
       line-height: 16px;
@@ -83,18 +106,28 @@ const { story } = Astro.props;
       line-height: 18px;
     }
   }
+  /* Phones (Figma homepage and news-story frames): category and date on top, headline below with
+     a small round arrow beside it */
   @media (max-width: 640px) {
     .news-card {
-      flex-wrap: wrap;
-      gap: 12px;
-      padding: 20px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 12px 16px;
+      min-height: 0;
+      padding: 18px;
     }
-    .news-card__title {
-      flex-basis: 100%;
-      order: 2;
+    .news-card__meta {
+      grid-column: 1 / -1;
+      padding-top: 0;
     }
     .news-card :global(.round-arrow) {
-      display: none;
+      width: 30px;
+      height: 30px;
+    }
+    .news-card :global(.round-arrow svg) {
+      width: 18px;
+      height: 18px;
     }
   }
 </style>

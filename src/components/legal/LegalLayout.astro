@@ -45,12 +45,12 @@ const { toc, tocTitle } = Astro.props;
     display: flex;
     align-items: flex-start;
     gap: 72px;
-    padding-top: 64px;
+    padding-top: 96px;
     padding-bottom: 160px;
   }
   .toc {
     position: sticky;
-    top: 40px;
+    top: calc(var(--sticky-nav) + 40px);
     flex-shrink: 0;
     width: 240px;
     display: flex;
@@ -99,12 +99,52 @@ const { toc, tocTitle } = Astro.props;
   .legal__doc {
     flex: 1;
     min-width: 0;
-    max-width: 880px;
     display: flex;
     flex-direction: column;
     gap: 40px;
   }
-  @media (max-width: 1023px) {
+  /* Desktop (Figma 1440): the contents start a little below the top of the document */
+  @media (min-width: 1024px) {
+    .toc {
+      padding-top: 64px;
+    }
+  }
+  /* Tablets (Figma 768 frames): contents stay pinned beside the document, in smaller type */
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .legal {
+      gap: 32px;
+      padding-top: 48px;
+      padding-bottom: 96px;
+    }
+    .toc {
+      width: auto;
+      max-width: 170px;
+      gap: 0;
+    }
+    .toc__heading {
+      padding-block: 24px;
+      text-transform: none;
+    }
+    .toc__group:first-of-type .toc__heading {
+      padding-top: 0;
+    }
+    .toc a {
+      padding: 8px 0 8px 14px;
+      border-left-color: var(--panel-border);
+      font-size: 13px;
+      line-height: var(--lh-normal);
+      color: var(--text-muted);
+    }
+    .toc a[aria-current] {
+      border-left-color: var(--cobalt-600);
+      font-weight: 600;
+      color: var(--cobalt-600);
+    }
+    .legal__doc {
+      gap: 48px;
+    }
+  }
+  @media (max-width: 767px) {
     .legal {
       flex-direction: column;
       gap: 32px;
@@ -119,8 +159,45 @@ const { toc, tocTitle } = Astro.props;
       padding-top: 32px;
       padding-bottom: 96px;
     }
+    /* Figma phone frames: each contents group becomes a heading over a wrap of pill links */
     .toc {
-      display: none;
+      gap: 24px;
+    }
+    .toc__title,
+    .toc__heading {
+      margin: 0;
+      padding: 0;
+      font-size: 16px;
+      font-weight: 700;
+      line-height: var(--lh-normal);
+      letter-spacing: 0.192px;
+      text-transform: none;
+      color: var(--ink-strong);
+    }
+    .toc__group {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .toc ul {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .toc a {
+      padding: 7px 14px;
+      border: 1px solid var(--panel-border);
+      border-radius: 20px;
+      background: var(--paper);
+      font-size: 12px;
+      font-weight: 500;
+      line-height: var(--lh-normal);
+      color: var(--text-muted);
+    }
+    .toc a[aria-current] {
+      border-color: var(--cobalt-600);
+      background: var(--cobalt-600);
+      color: var(--paper);
     }
   }
 </style>

@@ -146,10 +146,10 @@ const mobileArrows = [
   .approach {
     max-width: calc(1276px + var(--gutter) * 2);
     padding-top: 96px;
-    padding-bottom: 176px;
+    padding-bottom: 96px;
     display: flex;
     flex-direction: column;
-    gap: 80px;
+    gap: 56px;
   }
   .approach__head {
     position: relative;
@@ -356,11 +356,76 @@ const mobileArrows = [
     display: none;
   }
 
+  /* ---------- Tablets: Figma 768 frame. The desktop diagram is scaled to the 704px column, so the
+     notes use larger stage sizes (÷ ~0.55) to read at 16px, and the stage grows to fit them. ---------- */
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .approach {
+      padding-top: 64px;
+      padding-bottom: 64px;
+      gap: 48px;
+    }
+    .approach__head {
+      max-width: none;
+      padding-top: 33px;
+    }
+    .approach__title {
+      padding-left: 30px;
+      font-size: 40px;
+      letter-spacing: 0.42px;
+    }
+    .approach__stage {
+      height: 1560px;
+    }
+    .note--build {
+      left: 172px;
+      top: 487px;
+      height: 1070px;
+    }
+    .note--build .note__line {
+      top: 36px;
+      height: 1034px;
+    }
+    .note--measure {
+      left: 855px;
+      top: 366px;
+      height: 780px;
+    }
+    .note--measure .note__line {
+      top: 28px;
+      height: 606px;
+    }
+    .note__mask {
+      width: 380px;
+    }
+    .note--build .note__mask {
+      top: 371px;
+      height: 700px;
+    }
+    .note--measure .note__mask {
+      top: 192px;
+      height: 520px;
+    }
+    .note__text {
+      width: 350px;
+      gap: 47px;
+      font-size: 29px;
+      line-height: 47px;
+    }
+    .note--measure .note__text {
+      gap: 47px;
+    }
+    .note__lead {
+      max-width: none;
+      line-height: 40px;
+      font-weight: 700;
+    }
+  }
+
   /* ---------- Phones: Figma mobile Approach (compact overlapping diagram) ---------- */
   @media (max-width: 767px) {
     .approach {
       gap: 32px;
-      padding: 48px 20px 96px;
+      padding: 48px 20px;
     }
     .approach__head {
       padding-top: 0;
@@ -441,7 +506,7 @@ const mobileArrows = [
     }
     .mnote__lead {
       font-weight: 600;
-      line-height: normal;
+      line-height: var(--lh-normal);
     }
   }
 </style>

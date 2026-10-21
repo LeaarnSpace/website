@@ -3,3 +3,8 @@ node_modules/
 dist/
 .astro/
 .DS_Store
+.env
+.env.local
+
+# Private setup notes
+*.local.md

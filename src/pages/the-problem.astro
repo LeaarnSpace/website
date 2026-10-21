@@ -15,9 +15,18 @@ import OurResponse from "../components/problem/OurResponse.astro";
     title="What decides learning outcomes"
     lede="Most of it happens outside the classroom, and most of it is unmeasured."
     size="lg"
+    class="problem-hero"
   />
   <AminaScore />
   <BeyondNumbers />
   <EvidenceGap />
   <OurResponse />
 </Page>
+
+<style>
+  /* Figma: this intro line is ink, on one wider line */
+  .problem-hero :global(.page-hero__lede) {
+    max-width: 564px;
+    color: var(--ink);
+  }
+</style>

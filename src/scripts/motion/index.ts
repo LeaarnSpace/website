@@ -41,8 +41,14 @@ function init() {
   initCarousel();
 
   // Line breaks depend on the web fonts, so split text once they have loaded; scroll-linked
-  // effects are set up after that, when content has its final size.
-  const fontsReady = document.fonts.ready.then(() => {
+  // effects are set up after that, when content has its final size. document.fonts.ready alone
+  // isn't enough on iPad Safari: it can resolve before the Google Fonts stylesheet has registered
+  // the faces, so the text was split in the fallback font and then reflowed when Manrope arrived.
+  // Asking for the weights we use makes the wait real; it never waits more than 3 seconds.
+  const fontsLoaded = Promise.all(
+    ["400", "500", "600", "700"].map((w) => document.fonts.load(`${w} 16px Manrope`).catch(() => null)),
+  ).then(() => document.fonts.ready);
+  const fontsReady = Promise.race([fontsLoaded, new Promise((r) => setTimeout(r, 3000))]).then(() => {
     const heroLines = initLines();
     stackLayers();
     initFooter();
@@ -55,7 +61,7 @@ function init() {
   initPageTransitions(() => {
     fontsReady.then((heroLines) => heroLines.forEach((el, i) => revealLines(el, 0.15 + i * 0.25)));
     heroIllustrations.forEach((tl) => tl.play());
-  });
+  }, fontsReady);
 }
 
 init();

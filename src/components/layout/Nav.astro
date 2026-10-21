@@ -4,10 +4,16 @@ import menuIcon from "../../assets/icons/menu.svg?raw";
 
 import { mainNav as links, routes } from "../../data/navigation";
 
+interface Props {
+  /** Stay pinned to the top while scrolling (inner pages; the homepage header scrolls away) */
+  sticky?: boolean;
+}
+const { sticky = false } = Astro.props;
+
 const current = Astro.url.pathname.replace(/\/$/, "");
 ---
 
-<header class="nav" data-nav>
+<header class:list={["nav", { "nav--sticky": sticky }]} data-nav>
   <div class="nav__inner">
     <a href={routes.home} class="nav__logo" aria-label="Learn Space home">
       <Logo size={80} />
@@ -65,6 +71,10 @@ const current = Astro.url.pathname.replace(/\/$/, "");
     display: flex;
     align-items: center;
     background: var(--paper);
+  }
+  .nav--sticky {
+    position: sticky;
+    top: 0;
   }
   .nav__inner {
     width: 100%;
