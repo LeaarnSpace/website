@@ -125,6 +125,33 @@ import { footerNav as columns, routes } from "../../data/navigation";
     color: var(--on-dark-faint);
   }
 
+  /* ---------- Tablets: Figma 768 footer — logo, then the three link columns in one row ---------- */
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .footer {
+      padding-top: 48px;
+      padding-bottom: 48px;
+    }
+    .footer__rule-top,
+    .footer__address {
+      display: none;
+    }
+    .footer__top {
+      flex-wrap: nowrap;
+      justify-content: flex-start;
+      gap: 72px;
+    }
+    .footer__brand :global(.logo) {
+      width: 64px;
+      height: 64px;
+    }
+    .footer__links {
+      flex: 1;
+      flex-wrap: nowrap;
+      justify-content: space-between;
+      gap: 32px;
+    }
+  }
+
   /* ---------- Phones: Figma mobile footer with accordions ---------- */
   @media (max-width: 767px) {
     .footer {

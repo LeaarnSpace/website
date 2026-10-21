@@ -20,6 +20,7 @@ html.lenis body {
 body {
   margin: 0;
   font-family: var(--font-sans);
+  line-height: var(--lh-normal);
   color: var(--ink-strong);
   /* Shows round the edges of a panel while it zooms in, so it should match the section above */
   background: var(--paper);

@@ -36,17 +36,17 @@ const products = [
 <style>
   .work {
     padding-top: 96px;
-    padding-bottom: 176px;
+    padding-bottom: 96px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 20px;
+    gap: 40px;
   }
   .work > .section-title {
     width: 100%;
   }
   .work__label {
-    font-size: 36px;
+    font-size: 32px;
     font-weight: 400;
     color: var(--ink-strong);
     white-space: nowrap;
@@ -132,11 +132,63 @@ const products = [
     color: var(--text-muted);
   }
 
+  /* ---------- Tablets: Figma 768 frame — a straight row of three cards over a smaller logotype ---------- */
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .work {
+      padding-top: 48px;
+      padding-bottom: 96px;
+      gap: 40px;
+    }
+    .work__fit {
+      padding: 48px 0 0;
+      height: auto !important;
+    }
+    .work__stage {
+      width: 100%;
+      height: 205px;
+      transform: none !important;
+    }
+    .work__logotype {
+      top: 50%;
+      translate: 0 -50%;
+      text-align: center;
+      font-size: 110px;
+    }
+    .work__cards {
+      position: relative;
+      left: auto;
+      top: 50%;
+      width: 100%;
+      height: auto;
+      display: flex;
+      justify-content: center;
+      gap: 39px;
+      translate: 0 -50%;
+    }
+    .work__card {
+      position: relative;
+      left: auto !important;
+      top: auto !important;
+      width: 170px;
+      height: 150px;
+    }
+    .work__name {
+      font-size: 32px;
+    }
+    .work__card:nth-child(2) .work__name {
+      font-size: 22px;
+    }
+    .work__copy {
+      gap: 18px;
+      margin-top: -20px;
+    }
+  }
+
   /* ---------- Phones: Figma mobile "Three Conditions" — a centred row of small cards ---------- */
   @media (max-width: 767px) {
     .work {
       gap: 32px;
-      padding: 48px 20px 96px;
+      padding: 48px 20px;
     }
     .work__label {
       font-size: 20px;
@@ -192,6 +244,7 @@ const products = [
     .work__title {
       max-width: 230px;
       font-size: 20px;
+      font-weight: 700;
       letter-spacing: 0.24px;
     }
   }

@@ -54,14 +54,22 @@
   .amina__why {
     color: var(--cobalt-600);
   }
-  @media (max-width: 1023px) {
-    .amina__name {
-      font-size: 96px;
-      line-height: 104px;
+  /* Tablets: Figma 768 frame stacks name and score, both 118px */
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .amina {
+      gap: 39px;
+      padding-top: 32px;
+      padding-bottom: 46px;
     }
+    .amina__score {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 24px;
+    }
+    .amina__name,
     .amina__pct {
-      font-size: 76px;
-      line-height: 104px;
+      font-size: 118px;
+      line-height: 1;
     }
   }
   /* Phones: Figma stacks the score under the name */
@@ -82,7 +90,7 @@
     }
     .amina__pct {
       font-size: 48px;
-      line-height: normal;
+      line-height: var(--lh-normal);
       -webkit-text-stroke-width: 1.5px;
     }
     .amina__lines {

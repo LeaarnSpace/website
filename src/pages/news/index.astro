@@ -1,11 +1,9 @@
 ---
 import Page from "../../layouts/Page.astro";
-import PageHero from "../../components/ui/PageHero.astro";
 import SectionTitle from "../../components/ui/SectionTitle.astro";
 import FilterChips from "../../components/ui/FilterChips.astro";
 import FeaturedNews from "../../components/news/FeaturedNews.astro";
 import NewsRow from "../../components/news/NewsRow.astro";
-import newsHero from "../../assets/illustrations/static/news-hero.svg";
 import arrow from "../../assets/icons/arrow-dark.svg?raw";
 import { getNewsByDate } from "../../lib/content";
 import { routes } from "../../data/navigation";
@@ -18,16 +16,8 @@ const categories = ["Teachers", "Research", "Policy", "Digital", "Finance"];
   title="News"
   description="The education stories shaping learning in Nigeria, gathered from across the web and linked to their sources."
 >
-  <PageHero
-    title="News"
-    lede="The education stories shaping learning in Nigeria, gathered from across the web and linked to their sources."
-    size="lg"
-  >
-    <img slot="art" src={newsHero.src} width="412" height="344" alt="" class="news-hero-art" />
-  </PageHero>
-
   <section class="latest container" data-filter-root data-page-size="5">
-    <SectionTitle title="Latest news" rule="grey" />
+    <SectionTitle title="Latest news" rule="grey" as="h1" />
     <div class="latest__controls">
       <FilterChips options={categories} label="Filter news by topic" />
       <a href={routes.blog} class="take">
@@ -63,12 +53,6 @@ const categories = ["Teachers", "Research", "Policy", "Digital", "Finance"];
 </Page>
 
 <style>
-  .news-hero-art {
-    width: 412px;
-    max-width: 100%;
-    height: auto;
-    margin-bottom: 8px;
-  }
   .latest {
     display: flex;
     flex-direction: column;
@@ -156,10 +140,13 @@ const categories = ["Teachers", "Research", "Policy", "Digital", "Finance"];
     color: var(--text-subtle);
     text-align: center;
   }
-  @media (max-width: 767px) {
-    .news-hero-art {
-      width: 200px;
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .latest {
+      padding-top: 48px;
+      padding-bottom: 96px;
     }
+  }
+  @media (max-width: 767px) {
     .latest {
       gap: 16px;
       padding-top: 48px;

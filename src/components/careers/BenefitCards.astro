@@ -80,6 +80,25 @@ const { items } = Astro.props;
   .benefit:focus-visible :is(.benefit__title, .benefit__body) {
     color: var(--paper);
   }
+  /* Tablets: Figma 768 frame */
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .benefits {
+      gap: 18px;
+    }
+    .benefit {
+      justify-content: flex-start;
+      gap: 12px;
+      min-height: 0;
+      padding: 24px 12px;
+    }
+    .benefit__title {
+      font-weight: 700;
+      letter-spacing: 0.192px;
+    }
+    .benefit__body {
+      font-size: 14px;
+    }
+  }
   @media (max-width: 767px) {
     .benefits {
       grid-template-columns: 1fr;

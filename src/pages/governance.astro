@@ -33,6 +33,7 @@ const documents = [
     title="Governance and Safeguarding"
     lede="How our research is governed, how providers are checked, and how we handle data about children and families. A child’s data is never a revenue line."
     size="lg"
+    class="page-hero--tall"
   />
 
   <section class="band band--sunk">
@@ -127,7 +128,7 @@ const documents = [
   .gov {
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 40px;
     padding-top: 96px;
     padding-bottom: 96px;
   }
@@ -157,8 +158,20 @@ const documents = [
     padding: 0;
     list-style: none;
   }
+  /* Tablets: Figma 768 frame */
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .gov {
+      gap: 32px;
+      padding-top: 48px;
+      padding-bottom: 48px;
+    }
+    .gov--last {
+      padding-bottom: 96px;
+    }
+  }
   @media (max-width: 767px) {
     .gov {
+      gap: 24px;
       padding-top: 32px;
       padding-bottom: 32px;
     }

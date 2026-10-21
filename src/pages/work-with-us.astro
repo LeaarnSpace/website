@@ -47,6 +47,7 @@ const stepTiming = "0,1.2;0.43,1.2;0.99,1.01;1.65,0.35";
     title="Help us make the unmeasured visible"
     lede="We are a small team working on the conditions that decide learning outcomes in Nigeria. If that is the kind of problem you want to spend years on, read on."
     size="lg"
+    class="work-hero"
   >
     <Fragment slot="actions">
       <Button href="#open-roles" label="See open roles" />
@@ -67,7 +68,7 @@ const stepTiming = "0,1.2;0.43,1.2;0.99,1.01;1.65,0.35";
 
   <section class="band band--surface">
     <div class="hiring container">
-      <SectionTitle title="How hiring works" rule="grey" />
+      <SectionTitle title="How hiring works" rule="grey" class="hiring__title" />
       <NumberedCards items={steps} variant="compact" timing={stepTiming} />
     </div>
   </section>
@@ -99,6 +100,33 @@ const stepTiming = "0,1.2;0.43,1.2;0.99,1.01;1.65,0.35";
     gap: 48px;
     padding-top: 96px;
     padding-bottom: 106px;
+  }
+  /* Desktop (Figma 1440): taller hero with airy intro lines; the hiring cards have no heading */
+  @media (min-width: 1024px) {
+    :global(.work-hero) {
+      padding-top: 151px;
+      padding-bottom: 151px;
+    }
+    :global(.work-hero .page-hero__lede) {
+      max-width: 500px;
+      line-height: 36px;
+    }
+    .hiring :global(.hiring__title) {
+      display: none;
+    }
+  }
+  /* Tablets: Figma 768 frame */
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .offer {
+      gap: 40px;
+      padding-top: 64px;
+      padding-bottom: 64px;
+    }
+    .open,
+    .hiring {
+      padding-top: 48px;
+      padding-bottom: 48px;
+    }
   }
   @media (max-width: 767px) {
     .offer,

@@ -72,25 +72,6 @@ const beliefs = [
     </div>
   </section>
 
-  <section class="choose container">
-    <SectionTitle title="How we choose what to work on" rule="grey" />
-    <div class="choose__cards">
-      <article class="choose__card choose__card--tint">
-        <h3 class="choose__title">The problems we take</h3>
-        <p>If a problem can be solved inside eighteen months, or is already well served, it is not ours.</p>
-        <p>We are looking for the ones that take years, where staying is the hard part.</p>
-      </article>
-      <article class="choose__card">
-        <h3 class="choose__title">Where we are today</h3>
-        <p>
-          Three lines of work are in build: Bloom on homes that support learning, Pathways on teachers who stay and
-          progress, and CampusID on students who can stay in the system.
-        </p>
-        <p>Our first brief is in progress. When it is ready, it goes out in full.</p>
-      </article>
-    </div>
-  </section>
-
   {
     team.length > 0 && (
       <section class="team-section container">
@@ -101,6 +82,7 @@ const beliefs = [
   }
 
   <div class="container account">
+    <SectionTitle title="Accountability" rule="grey" class="account__title" />
     <Callout
       title="How we are held to account"
       body="How our research is governed, how providers are checked, and how we handle data about children and families. A child's data is never a revenue line."
@@ -161,40 +143,6 @@ const beliefs = [
     padding-bottom: 96px;
   }
 
-  /* "How we choose what to work on" (from the Figma phone design; two cards side by side on wider screens) */
-  .choose {
-    display: flex;
-    flex-direction: column;
-    gap: 48px;
-    padding-top: 96px;
-    padding-bottom: 96px;
-  }
-  .choose__cards {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 24px;
-  }
-  .choose__card {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    padding: 40px 36px;
-    border-radius: var(--radius-md);
-    background: var(--surface);
-    font-size: 18px;
-    line-height: 28px;
-    color: var(--text-muted);
-  }
-  .choose__card--tint {
-    background: var(--cobalt-50);
-  }
-  .choose__title {
-    font-size: 24px;
-    font-weight: 700;
-    letter-spacing: 0.288px;
-    color: var(--ink-strong);
-  }
-
   .team-section {
     display: flex;
     flex-direction: column;
@@ -204,6 +152,9 @@ const beliefs = [
   }
 
   .account {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
     padding-top: 96px;
     padding-bottom: 160px;
   }
@@ -231,7 +182,6 @@ const beliefs = [
     }
     .why,
     .beliefs,
-    .choose,
     .team-section {
       gap: 40px;
       padding-top: 32px;
@@ -255,24 +205,16 @@ const beliefs = [
       line-height: 26px;
       gap: 20px;
     }
-    .choose__cards {
-      grid-template-columns: 1fr;
-      gap: 16px;
-    }
-    .choose__card {
-      padding: 32px 28px;
-      font-size: 16px;
-      line-height: 26px;
-    }
-    .choose__title {
-      font-size: 22px;
-    }
     .team-section {
       gap: 32px;
     }
     .account {
       padding-top: 32px;
       padding-bottom: 96px;
+    }
+    /* The phone frame has the box without the "Accountability" heading */
+    .account :global(.account__title) {
+      display: none;
     }
   }
 </style>

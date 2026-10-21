@@ -196,6 +196,44 @@ import top from "../../assets/icons/print-top.svg?raw";
       padding: 0;
     }
   }
+  /* Tablets: Figma 768 frame — label on the left, the two options beside it */
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .signup {
+      grid-template-columns: auto minmax(0, 1fr);
+      gap: 16px;
+      padding-top: 72px;
+      padding-bottom: 48px;
+    }
+    .signup__label {
+      height: 90px;
+    }
+    .signup__title {
+      font-size: 16px;
+      line-height: 26px;
+    }
+    .signup__rule {
+      width: 130px;
+    }
+    .signup__options {
+      padding: 16px 12px;
+    }
+    .option {
+      gap: 18px;
+    }
+    .tile {
+      width: 112px;
+      height: 112px;
+    }
+    .option__title {
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: 0.24px;
+    }
+    .option__body {
+      font-size: 14px;
+      line-height: 18px;
+    }
+  }
   /* Phones: Figma mobile text sizes */
   @media (max-width: 767px) {
     .signup {
