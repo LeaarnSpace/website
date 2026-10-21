@@ -13,9 +13,18 @@ const { title, description } = Astro.props;
 ---
 
 <Base title={`${title} — Learn Space`} description={description}>
-  <div class="layer layer--flat layer--white layer--lift">
+  <div class="layer layer--flat layer--white layer--lift page-panel">
     <Nav sticky />
     <slot />
   </div>
   <FooterZone />
 </Base>
+
+<style>
+  /* At least one full screen, so the footer never shows in the first view, however short the page
+     (svh: the height with Safari's toolbars showing; vh for older browsers) */
+  .page-panel {
+    min-height: 100vh;
+    min-height: 100svh;
+  }
+</style>

@@ -28,7 +28,9 @@ import Button from "../ui/Button.astro";
     min-height: calc(100vh - var(--sticky-nav));
     min-height: calc(100svh - var(--sticky-nav));
     padding-top: 32px;
-    padding-bottom: 32px;
+    /* Extra room below lifts the block above the exact middle (it read as sitting low) */
+    padding-bottom: 15vh;
+    padding-bottom: 15svh;
     text-align: center;
   }
   .hero :global(.hero__illus) {
@@ -109,7 +111,8 @@ import Button from "../ui/Button.astro";
   @media (max-width: 767px) {
     .hero {
       padding-top: 24px;
-      padding-bottom: 24px;
+      padding-bottom: 15vh;
+      padding-bottom: 15svh;
       gap: 28px;
     }
     .hero :global(.hero__illus) {
