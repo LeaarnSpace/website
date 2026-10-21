@@ -21,7 +21,6 @@ npm run dev:backoffice # http://localhost:4400
 
 The back office expects a local Postgres on port 5432 with a database called `learnspace`
 (`createdb learnspace`). To use something else, set `DATABASE_URL` in `apps/backoffice/.env.local`.
-Sign-in codes sent in development land in Mailpit at http://localhost:8025.
 
 Before pushing: `npm run verify` (type checks, lint and builds for every app, plus formatting).
 
@@ -29,16 +28,16 @@ Before pushing: `npm run verify` (type checks, lint and builds for every app, pl
 
 ### Signing in (no passwords)
 
-Staff sign in with their Learn Space Google account. Only addresses on `ALLOWED_EMAIL_DOMAINS` get in,
+Staff sign in with their Learn Space Google account, and that is the only way in: no passwords, no emailed
+codes, locally or in production. Only addresses on `ALLOWED_EMAIL_DOMAINS` get in,
 and that is checked on every sign-in and every request. There is no password sign-in anywhere.
 
 To set up Google sign-in, create an OAuth client in the Google Cloud console (APIs & Services → Credentials
 → OAuth client ID → Web application) with the redirect URI `<BETTER_AUTH_URL>/api/auth/callback/google`,
 then copy `apps/backoffice/.env.example` to `apps/backoffice/.env.local` and fill it in.
 
-For local work before Google is set up, `DEV_EMAIL_SIGN_IN=true` adds sign-in with a 6-digit code sent by
-email (to Mailpit). Codes expire after 10 minutes, allow 3 tries, are stored hashed, and are only ever sent
-to company addresses. It is ignored in production.
+Google sign-in works locally too: add `http://localhost:4400/api/auth/callback/google` to the OAuth client's
+redirect URIs.
 
 ### Access (RBAC)
 
