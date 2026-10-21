@@ -22,9 +22,9 @@ const { title, description } = Astro.props;
 
 <style>
   /* At least one full screen, so the footer never shows in the first view, however short the page
-     (svh: the height with Safari's toolbars showing; vh for older browsers) */
+     (lvh: the screen with Safari's toolbars hidden, its tallest; vh for older browsers) */
   .page-panel {
     min-height: 100vh;
-    min-height: 100svh;
+    min-height: 100lvh;
   }
 </style>

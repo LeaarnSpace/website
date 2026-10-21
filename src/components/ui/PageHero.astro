@@ -42,10 +42,13 @@ const { title, lede, meta, size = "md", class: className } = Astro.props;
     align-items: center;
     justify-content: center;
     gap: 24px;
+    /* Tall enough for the screen with Safari's toolbars hidden (lvh); the extra bottom padding keeps
+       the content centred in the screen with them showing (svh) */
     min-height: calc(100vh - var(--sticky-nav));
-    min-height: calc(100svh - var(--sticky-nav));
+    min-height: calc(100lvh - var(--sticky-nav));
     padding-top: 96px;
     padding-bottom: 96px;
+    padding-bottom: calc(96px + 100lvh - 100svh);
     text-align: center;
   }
   .page-hero__art {
@@ -93,6 +96,7 @@ const { title, lede, meta, size = "md", class: className } = Astro.props;
     .page-hero {
       padding-top: 32px;
       padding-bottom: 32px;
+      padding-bottom: calc(32px + 100lvh - 100svh);
     }
   }
   /* Desktop: legal and governance pages (Figma 1440) use a taller header with a 72px title */
@@ -113,6 +117,7 @@ const { title, lede, meta, size = "md", class: className } = Astro.props;
       gap: 18px;
       padding-top: 48px;
       padding-bottom: 48px;
+      padding-bottom: calc(48px + 100lvh - 100svh);
     }
     .page-hero__title,
     .page-hero--lg .page-hero__title {
@@ -142,6 +147,7 @@ const { title, lede, meta, size = "md", class: className } = Astro.props;
       gap: 16px;
       padding-top: 32px;
       padding-bottom: 32px;
+      padding-bottom: calc(32px + 100lvh - 100svh);
     }
     .page-hero__title,
     .page-hero--lg .page-hero__title {
