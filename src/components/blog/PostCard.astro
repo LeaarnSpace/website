@@ -1,6 +1,6 @@
 ---
 // Blog card (homepage carousel, Blog list): image, optional "1h 20m • date" line and play icon for
-// video/podcast posts, title, excerpt, and a round arrow that turns light cobalt and nudges on hover.
+// video/podcast posts, title, excerpt, and a round arrow that nudges on hover.
 import type { CollectionEntry } from "astro:content";
 import { Image } from "astro:assets";
 import arrowDark from "../../assets/icons/arrow-dark.svg?raw";
@@ -142,9 +142,7 @@ const meta = [data.duration, shortDate].filter(Boolean);
     border-radius: var(--radius-pill);
     background: var(--paper);
     filter: drop-shadow(0 1px 1px var(--shadow-color-sm));
-    transition:
-      background-color 0.3s ease,
-      transform 0.3s ease;
+    transition: transform 0.3s ease;
   }
   .post-card__arrow :global(svg) {
     width: 24px;
@@ -154,10 +152,9 @@ const meta = [data.duration, shortDate].filter(Boolean);
     display: inline-flex;
     transform: rotate(180deg);
   }
-  /* Arrow nudges forward and switches to the Figma hover shade */
+  /* Arrow nudges forward */
   .post-card:hover .post-card__arrow {
     transform: translateX(15px);
-    background: var(--action-primary-hover);
   }
   @media (max-width: 767px) {
     /* Phones show the whole title (Figma Blog List — Mobile) */
