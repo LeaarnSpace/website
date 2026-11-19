@@ -1,0 +1,472 @@
+---
+// A job's page (Figma "Career Detail"): what the role is and the job description (Markdown from the back office, or
+// the role file's body: "##" headings become the section titles, "###" the small labels like "Nice to have"), with a
+// summary card and the Apply button beside it, then the other open roles. The address is the role's random code;
+// link-only roles aren't listed and ask search engines not to index them.
+import type { GetStaticPaths } from "astro";
+import { render, type CollectionEntry } from "astro:content";
+import Page from "../../layouts/Page.astro";
+import Button from "../../components/ui/Button.astro";
+import SectionTitle from "../../components/ui/SectionTitle.astro";
+import RoleRow from "../../components/careers/RoleRow.astro";
+import arrowLeft from "../../assets/icons/arrow-dark.svg?raw";
+import arrowRight from "../../assets/icons/arrow-right-cobalt.svg?raw";
+import { formatLongDate, getOpenRoles, getRoles } from "../../lib/content";
+import { routes } from "../../data/navigation";
+
+export const getStaticPaths = (async () => {
+  const roles = await getOpenRoles();
+  return roles.map((role) => ({ params: { code: role.id }, props: { role } }));
+}) satisfies GetStaticPaths;
+
+interface Props {
+  role: CollectionEntry<"roles">;
+}
+const { role } = Astro.props;
+const { data } = role;
+const { Content } = await render(role);
+const hasDescription = Boolean(role.body?.trim());
+const otherRoles = (await getRoles()).filter((r) => r.id !== role.id);
+
+const applyHref = data.applyUrl
+  ? data.applyUrl
+  : data.applyEmail
+    ? `mailto:${data.applyEmail}?subject=${encodeURIComponent(`Application: ${data.title}`)}`
+    : `${routes.workWithUs}#open-roles`;
+const place = `${data.location} · ${data.arrangement}`;
+
+const facts = [
+  { label: "Team", value: data.team },
+  { label: "Location", value: place },
+  { label: "Type", value: data.employmentType },
+  data.salary && { label: "Salary", value: data.salary },
+  { label: "Posted", value: formatLongDate(data.posted) },
+  data.closesOn && { label: "Apply by", value: formatLongDate(data.closesOn) },
+  data.reportsTo && { label: "Reports to", value: data.reportsTo },
+].filter((f): f is { label: string; value: string } => Boolean(f));
+---
+
+<Page
+  title={data.title}
+  description={data.summary || `${data.title}, ${data.team} team at Learn Space`}
+  noindex={!data.listed}
+>
+  <article class="job container">
+    <header class="job__head">
+      <a href={`${routes.workWithUs}#open-roles`} class="back">
+        <span class="back__icon" aria-hidden="true" set:html={arrowLeft} />
+        Work with us
+      </a>
+      <p class="job__meta">
+        <span class="job__team">{data.team}</span>
+        <span class="chip">{place}</span>
+        <span class="chip">{data.employmentType}</span>
+        <span>Posted {formatLongDate(data.posted)}</span>
+      </p>
+      <h1 class="job__title" data-lines data-lines-immediate>{data.title}</h1>
+      {data.summary && <p class="job__summary">{data.summary}</p>}
+    </header>
+
+    <aside class="job__side">
+      <div class="summary">
+        <h2 class="summary__label">Role summary</h2>
+        <dl class="summary__rows">
+          {
+            facts.map((f) => (
+              <div class="summary__row">
+                <dt>{f.label}</dt>
+                <dd>{f.value}</dd>
+              </div>
+            ))
+          }
+        </dl>
+        <Button
+          href={applyHref}
+          label="Apply for this role"
+          class="summary__apply"
+          {...data.applyUrl && { target: "_blank", rel: "noopener" }}
+        />
+        <p class="summary__note">
+          We reply within five working days, whatever the outcome.
+          {data.closesOn && ` Applications close on ${formatLongDate(data.closesOn)}.`}
+        </p>
+      </div>
+      <div class="other">
+        <h2 class="other__title">Not the right role?</h2>
+        <p class="other__text">Tell us which problem you want to work on and what you would bring to it.</p>
+        <a href="#contact" class="other__link">
+          Start a conversation
+          <span class="other__arrow" aria-hidden="true" set:html={arrowRight} />
+        </a>
+      </div>
+    </aside>
+
+    {
+      hasDescription && (
+        <div class="job__body">
+          <Content />
+        </div>
+      )
+    }
+  </article>
+
+  {
+    otherRoles.length > 0 && (
+      <section class="more container">
+        <SectionTitle title="Other open roles" rule="grey" />
+        <ul class="more__list">
+          {otherRoles.map((r) => (
+            <li>
+              <RoleRow role={r} />
+            </li>
+          ))}
+        </ul>
+      </section>
+    )
+  }
+</Page>
+
+<style>
+  /* Desktop: the header and description on the left (840px), the summary card on the right (408px) */
+  .job {
+    display: grid;
+    grid-template-columns: minmax(0, 840px) minmax(0, 408px);
+    grid-template-areas:
+      "head side"
+      "body side";
+    grid-template-rows: auto 1fr;
+    justify-content: space-between;
+    column-gap: 64px;
+    padding-top: 48px;
+    padding-bottom: 96px;
+  }
+  .job__head {
+    grid-area: head;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+  }
+  .job__side {
+    grid-area: side;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding-top: 64px;
+  }
+  .job__body {
+    grid-area: body;
+    padding-top: 64px;
+  }
+
+  .back {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--ink);
+  }
+  .back__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-pill);
+    background: var(--paper);
+    filter: drop-shadow(0 1px 1px var(--shadow-color-sm));
+    transition: transform 0.3s ease;
+  }
+  .back:hover .back__icon {
+    transform: translateX(-6px);
+  }
+  .back__icon :global(svg) {
+    width: 24px;
+    height: 24px;
+  }
+
+  .job__meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text-subtle);
+  }
+  .job__team {
+    color: var(--cobalt-600);
+  }
+  .chip {
+    padding: 6px 12px;
+    border: 1px solid var(--rule);
+    border-radius: 100px;
+    font-size: 12px;
+    font-weight: 500;
+    color: #4b5468;
+  }
+  .job__title {
+    font-size: 56px;
+    font-weight: 700;
+    line-height: 64px;
+    color: var(--ink-strong);
+  }
+  .job__summary {
+    max-width: 720px;
+    font-size: 20px;
+    line-height: 32px;
+    color: var(--text-muted);
+  }
+
+  /* The job description: "##" sections with a rule after the title, dotted lists, "###" small labels */
+  .job__body {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    font-size: 16px;
+    line-height: 26px;
+    color: var(--text-muted);
+  }
+  .job__body :global(:is(p, ul, ol, h2, h3, blockquote)) {
+    margin: 0;
+  }
+  .job__body :global(h2) {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    font-size: 32px;
+    font-weight: 400;
+    line-height: var(--lh-normal);
+    color: var(--ink-strong);
+  }
+  .job__body :global(h2)::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--panel-border);
+  }
+  /* 64px between sections (the column's 24px gap plus this) */
+  .job__body :global(* + h2) {
+    margin-top: 40px;
+  }
+  .job__body :global(h3) {
+    font-size: 14px;
+    font-weight: 700;
+    line-height: var(--lh-normal);
+    letter-spacing: 0.5px;
+    color: var(--text-subtle);
+  }
+  .job__body :global(:is(ul, ol)) {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding: 0;
+    list-style: none;
+  }
+  .job__body :global(li) {
+    position: relative;
+    padding-left: 22px;
+  }
+  .job__body :global(ul > li)::before {
+    content: "";
+    position: absolute;
+    top: 10px;
+    left: 0;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--cobalt-600);
+  }
+  .job__body :global(ol) {
+    counter-reset: step;
+  }
+  .job__body :global(ol > li)::before {
+    counter-increment: step;
+    content: counter(step) ".";
+    position: absolute;
+    left: 0;
+    font-weight: 700;
+    color: var(--cobalt-600);
+  }
+  .job__body :global(strong) {
+    color: var(--ink-strong);
+  }
+  .job__body :global(a) {
+    color: var(--cobalt-600);
+    text-decoration: underline;
+  }
+  .job__body :global(blockquote) {
+    padding: 8px 0 8px 18px;
+    border-left: 1px solid var(--cobalt-400);
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 24px;
+    color: var(--ink);
+  }
+
+  .summary {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding: 32px;
+    border-radius: var(--radius-md);
+    background: var(--cobalt-50);
+  }
+  .summary__label {
+    font-size: 14px;
+    font-weight: 700;
+    line-height: var(--lh-normal);
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+    color: var(--text-subtle);
+  }
+  .summary__rows {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+  }
+  .summary__row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 0;
+    border-top: 1px solid #c7d7f0;
+  }
+  .summary__row:first-child {
+    padding-top: 0;
+    border-top: 0;
+  }
+  .summary__row:last-child {
+    padding-bottom: 0;
+  }
+  .summary__row dt {
+    font-size: 14px;
+    color: var(--text-subtle);
+  }
+  .summary__row dd {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 500;
+    text-align: right;
+    color: var(--ink-strong);
+  }
+  .summary :global(.summary__apply) {
+    width: 100%;
+    line-height: 26px;
+  }
+  .summary__note {
+    font-size: 14px;
+    line-height: 22px;
+    color: var(--text-subtle);
+  }
+
+  .other {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 28px;
+    border: 1px solid var(--rule);
+    border-radius: var(--radius-md);
+  }
+  .other__title {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: var(--lh-normal);
+    color: var(--ink-strong);
+  }
+  .other__text {
+    font-size: 14px;
+    line-height: 22px;
+    color: var(--text-muted);
+  }
+  .other__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 16px;
+    line-height: 26px;
+    color: var(--cobalt-600);
+  }
+  .other__arrow {
+    display: inline-flex;
+    transition: transform 0.3s ease;
+  }
+  .other__link:hover .other__arrow {
+    transform: translateX(6px);
+  }
+
+  .more {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    padding-top: 96px;
+    padding-bottom: 96px;
+  }
+  .more__list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  /* Tablet and phone: one column, with the summary card between the intro and the description */
+  @media (max-width: 1023px) {
+    .job {
+      grid-template-columns: minmax(0, 1fr);
+      grid-template-areas:
+        "head"
+        "side"
+        "body";
+      grid-template-rows: auto;
+    }
+    .job__side {
+      padding-top: 48px;
+    }
+    .job__body {
+      padding-top: 64px;
+    }
+  }
+  @media (max-width: 767px) {
+    .job {
+      padding-top: 24px;
+      padding-bottom: 64px;
+    }
+    .job__title {
+      font-size: 36px;
+      line-height: 44px;
+    }
+    .job__summary {
+      font-size: 18px;
+      line-height: 28px;
+    }
+    .job__side {
+      padding-top: 32px;
+    }
+    .job__body {
+      padding-top: 48px;
+    }
+    .job__body :global(h2) {
+      gap: 20px;
+      font-size: 24px;
+    }
+    .job__body :global(* + h2) {
+      margin-top: 24px;
+    }
+    .summary {
+      padding: 24px;
+    }
+    .other {
+      padding: 24px;
+    }
+    .more {
+      gap: 24px;
+      padding-top: 64px;
+      padding-bottom: 64px;
+    }
+  }
+</style>

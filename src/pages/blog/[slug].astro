@@ -7,6 +7,7 @@ import { Image } from "astro:assets";
 import Page from "../../layouts/Page.astro";
 import BlogHeader from "../../components/blog/BlogHeader.astro";
 import { formatLongDate } from "../../lib/content";
+import { imageSource } from "../../lib/images";
 
 export const getStaticPaths = (async () => {
   const posts = await getCollection("blog");
@@ -26,7 +27,7 @@ const hasBody = Boolean(post.body?.trim());
   <article class="article container">
     <BlogHeader as="p" filters={false} />
     <Image
-      src={data.image}
+      {...imageSource(data.image)}
       alt=""
       widths={[1312, 2624]}
       sizes="(max-width: 1440px) 100vw, 1312px"

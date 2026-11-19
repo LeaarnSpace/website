@@ -5,8 +5,14 @@ import Logo from "../components/layout/Logo.astro";
 interface Props {
   title?: string;
   description?: string;
+  /** Keep the page out of search results (e.g. a job shared by link only) */
+  noindex?: boolean;
 }
-const { title = "Learn Space", description = "Researching and building for better learning outcomes." } = Astro.props;
+const {
+  title = "Learn Space",
+  description = "Researching and building for better learning outcomes.",
+  noindex = false,
+} = Astro.props;
 ---
 
 <!doctype html>
@@ -15,6 +21,7 @@ const { title = "Learn Space", description = "Researching and building for bette
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
+    {noindex && <meta name="robots" content="noindex" />}
     <title>{title}</title>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />

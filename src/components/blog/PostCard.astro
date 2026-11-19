@@ -6,21 +6,21 @@ import { Image } from "astro:assets";
 import arrowDark from "../../assets/icons/arrow-dark.svg?raw";
 import play from "../../assets/icons/play.svg?raw";
 import { routes } from "../../data/navigation";
+import { formatLongDate } from "../../lib/content";
+import { imageSource } from "../../lib/images";
 
 interface Props {
   post: CollectionEntry<"blog">;
 }
 const { post } = Astro.props;
 const { data } = post;
-/** "2026-10-07" → "07/10/2026" (the format on the Figma cards) */
-const shortDate = data.date ? data.date.split("-").reverse().join("/") : undefined;
-const meta = [data.duration, shortDate].filter(Boolean);
+const meta = [data.duration, data.date && formatLongDate(data.date)].filter(Boolean);
 ---
 
 <a href={`${routes.blog}/${post.id}`} class="post-card">
   <div class="post-card__media">
     <div class="post-card__frame">
-      <Image src={data.image} alt="" widths={[420, 840]} sizes="420px" class="post-card__img" />
+      <Image {...imageSource(data.image)} alt="" widths={[420, 840]} sizes="420px" class="post-card__img" />
     </div>
     {
       data.duration && (

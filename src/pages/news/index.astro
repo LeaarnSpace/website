@@ -5,11 +5,11 @@ import FilterChips from "../../components/ui/FilterChips.astro";
 import FeaturedNews from "../../components/news/FeaturedNews.astro";
 import NewsRow from "../../components/news/NewsRow.astro";
 import arrow from "../../assets/icons/arrow-dark.svg?raw";
-import { getNewsByDate } from "../../lib/content";
+import { getCategories, getNewsByDate } from "../../lib/content";
 import { routes } from "../../data/navigation";
 
 const [featured, ...rest] = await getNewsByDate();
-const categories = ["Teachers", "Research", "Policy", "Digital", "Finance"];
+const categories = await getCategories("news");
 ---
 
 <Page

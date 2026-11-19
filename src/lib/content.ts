@@ -1,5 +1,16 @@
 // Helpers for reading the blog and news collections in a consistent order and format.
 import { getCollection, type CollectionEntry } from "astro:content";
+import { backofficeCategories, fromBackoffice } from "./backoffice";
+
+/** The filter categories when content comes from the Markdown files rather than the back office */
+const FILE_CATEGORIES = {
+  news: ["Teachers", "Research", "Policy", "Digital", "Finance"],
+  blog: ["Homes", "Teachers", "Students", "Policy", "Culture"],
+};
+
+/** Category filters for the News or Blog page, in order */
+export const getCategories = async (kind: "news" | "blog"): Promise<string[]> =>
+  fromBackoffice ? backofficeCategories(kind) : FILE_CATEGORIES[kind];
 
 const byOrder = <T extends { data: { order: number } }>(a: T, b: T) => a.data.order - b.data.order;
 
@@ -7,10 +18,24 @@ export async function getPosts(limit?: number): Promise<CollectionEntry<"blog">[
   return (await getCollection("blog")).sort(byOrder).slice(0, limit);
 }
 
-/** Roles shown on the site (entries marked hidden: true are left out) */
-export async function getRoles(): Promise<CollectionEntry<"roles">[]> {
-  return (await getCollection("roles", (r) => !r.data.hidden)).sort(byOrder);
+/** Today in Lagos, YYYY-MM-DD */
+const lagosToday = () => new Date(Date.now() + 60 * 60 * 1000).toISOString().slice(0, 10);
+
+/** Roles with a page: not hidden, and not past their closing date (a role closing today is still open) */
+export async function getOpenRoles(): Promise<CollectionEntry<"roles">[]> {
+  const today = lagosToday();
+  return (await getCollection("roles", (r) => !r.data.hidden && (!r.data.closesOn || r.data.closesOn >= today))).sort(
+    byOrder,
+  );
 }
+
+/** Roles on the Work With Us list (link-only roles have a page but aren't listed) */
+export async function getRoles(): Promise<CollectionEntry<"roles">[]> {
+  return (await getOpenRoles()).filter((r) => r.data.listed);
+}
+
+/** A role's page */
+export const rolePath = (role: CollectionEntry<"roles">) => `/work-with-us/${role.id}`;
 
 export async function getNews(limit?: number): Promise<CollectionEntry<"news">[]> {
   return (await getCollection("news")).sort(byOrder).slice(0, limit);
@@ -20,9 +45,6 @@ export async function getNews(limit?: number): Promise<CollectionEntry<"news">[]
 export async function getNewsByDate(): Promise<CollectionEntry<"news">[]> {
   return (await getCollection("news")).sort((a, b) => b.data.date.localeCompare(a.data.date));
 }
-
-/** "2024-05-24" → "2024.05.24", "2022-03" → "2022.03" (the format used on the site) */
-export const formatDotDate = (date: string) => date.replaceAll("-", ".");
 
 const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 

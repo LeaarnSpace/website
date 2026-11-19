@@ -5,11 +5,14 @@ interface Props {
   /** primary: solid cobalt. secondary: white with a cobalt outline */
   variant?: "primary" | "secondary";
   class?: string;
+  /** e.g. "_blank" for a link that opens in a new tab */
+  target?: string;
+  rel?: string;
 }
-const { href, label, variant = "primary", class: className } = Astro.props;
+const { href, label, variant = "primary", class: className, target, rel } = Astro.props;
 ---
 
-<a href={href} class:list={["btn", `btn--${variant}`, className]}>
+<a href={href} class:list={["btn", `btn--${variant}`, className]} target={target} rel={rel}>
   <span class="btn__fill" aria-hidden="true"></span>
   <span class="btn__label">{label}</span>
 </a>
