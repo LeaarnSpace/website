@@ -1,8 +1,8 @@
 // Helpers for reading the blog and news collections in a consistent order and format.
 import { getCollection, type CollectionEntry } from "astro:content";
-import { backofficeCategories, fromBackoffice } from "./backoffice";
+import { backofficeCategories, usesBackoffice } from "./backoffice";
 
-/** The filter categories when content comes from the Markdown files rather than the back office */
+/** The filter categories while that kind still comes from the Markdown files rather than the back office */
 const FILE_CATEGORIES = {
   news: ["Teachers", "Research", "Policy", "Digital", "Finance"],
   blog: ["Homes", "Teachers", "Students", "Policy", "Culture"],
@@ -10,7 +10,7 @@ const FILE_CATEGORIES = {
 
 /** Category filters for the News or Blog page, in order */
 export const getCategories = async (kind: "news" | "blog"): Promise<string[]> =>
-  fromBackoffice ? backofficeCategories(kind) : FILE_CATEGORIES[kind];
+  (await usesBackoffice(kind)) ? backofficeCategories(kind) : FILE_CATEGORIES[kind];
 
 const byOrder = <T extends { data: { order: number } }>(a: T, b: T) => a.data.order - b.data.order;
 

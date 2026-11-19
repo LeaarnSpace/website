@@ -1,19 +1,20 @@
 // Content collections, checked against these schemas when the site builds. Job roles, news and blog posts come from
-// the back office (see backoffice.ts) when BACKOFFICE_URL and WEBSITE_CONTENT_SECRET are set, as they are on the host;
-// without them (e.g. local work on the site) they come from the Markdown files under src/content/. Photos from the
-// back office are full URLs (downloaded and resized by the build); in the files they're paths to local images.
+// the back office (see backoffice.ts) when BACKOFFICE_URL and WEBSITE_CONTENT_SECRET are set, as they are on the host,
+// and staff have added that kind there; otherwise (e.g. local work on the site) from the Markdown files under
+// src/content/. Photos from the back office are full URLs (downloaded and resized by the build); in the files they're
+// paths to local images.
 import { defineCollection, z } from "astro:content";
-import { glob } from "astro/loaders";
-import { backofficeLoader, fromBackoffice } from "./lib/backoffice";
+import { backofficeLoader, fileLoader, fromBackoffice } from "./lib/backoffice";
 
 /** "2024-05-24" or "2022-03" (month only, when the day isn't known) */
 const partialDate = z.string().regex(/^\d{4}-\d{2}(-\d{2})?$/, "Use YYYY-MM-DD or YYYY-MM");
 
-/** A photo: a URL from the back office, or a local image next to a Markdown file */
-const photo = (image: () => z.ZodType<ImageMetadata>) => (fromBackoffice ? z.string().url() : image());
+/** A photo: a URL from the back office, or a local image next to a Markdown file (a kind can use either) */
+const photo = (image: () => z.ZodType<ImageMetadata>) =>
+  fromBackoffice ? z.union([z.string().url(), image()]) : image();
 
 const blog = defineCollection({
-  loader: fromBackoffice ? backofficeLoader("blog") : glob({ pattern: "**/*.md", base: "./src/content/blog" }),
+  loader: fromBackoffice ? backofficeLoader("blog") : fileLoader("blog"),
   schema: ({ image }) =>
     z.object({
       title: z.string(),
@@ -30,7 +31,7 @@ const blog = defineCollection({
 });
 
 const news = defineCollection({
-  loader: fromBackoffice ? backofficeLoader("news") : glob({ pattern: "**/*.md", base: "./src/content/news" }),
+  loader: fromBackoffice ? backofficeLoader("news") : fileLoader("news"),
   schema: ({ image }) =>
     z.object({
       title: z.string(),
@@ -64,7 +65,7 @@ const news = defineCollection({
 const roles = defineCollection({
   // From the back office the entry id is the page's random code; from the files it's the file name. Either way
   // the role's page is /work-with-us/<id>, with the description (or the file's body) as its content.
-  loader: fromBackoffice ? backofficeLoader("roles") : glob({ pattern: "**/*.md", base: "./src/content/roles" }),
+  loader: fromBackoffice ? backofficeLoader("roles") : fileLoader("roles"),
   schema: z.object({
     title: z.string(),
     /** Teams are edited in the back office */
