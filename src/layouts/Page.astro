@@ -8,11 +8,12 @@ import FooterZone from "../components/layout/FooterZone.astro";
 interface Props {
   title: string;
   description?: string;
+  noindex?: boolean;
 }
-const { title, description } = Astro.props;
+const { title, description, noindex } = Astro.props;
 ---
 
-<Base title={`${title} — Learn Space`} description={description}>
+<Base title={`${title} — Learn Space`} description={description} noindex={noindex}>
   <div class="layer layer--flat layer--white layer--lift page-panel">
     <Nav sticky />
     <slot />

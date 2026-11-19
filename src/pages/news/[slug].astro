@@ -9,6 +9,7 @@ import SectionTitle from "../../components/ui/SectionTitle.astro";
 import NewsCard from "../../components/news/NewsCard.astro";
 import arrow from "../../assets/icons/arrow-dark.svg?raw";
 import { getNewsByDate, formatLongDate } from "../../lib/content";
+import { imageSource } from "../../lib/images";
 import { routes } from "../../data/navigation";
 
 export const getStaticPaths = (async () => {
@@ -44,7 +45,7 @@ const byline = [data.author, data.reviewer && `Reviewed by ${data.reviewer}`].fi
         {
           data.image && (
             <Image
-              src={data.image}
+              {...imageSource(data.image)}
               alt=""
               widths={[495, 990]}
               sizes="(max-width: 1023px) 100vw, 495px"

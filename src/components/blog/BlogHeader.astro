@@ -1,8 +1,7 @@
 ---
 // "Blog" heading with its rule and the topic filters (shared by the Blog list and post pages).
 import FilterChips from "../ui/FilterChips.astro";
-
-export const BLOG_TOPICS = ["Homes", "Teachers", "Students", "Policy", "Culture"];
+import { getCategories } from "../../lib/content";
 
 interface Props {
   /** Heading level: h1 on the list page, a visual label on post pages */
@@ -11,6 +10,7 @@ interface Props {
   filters?: boolean;
 }
 const { as: Tag = "h1", filters = true } = Astro.props;
+const topics = filters ? await getCategories("blog") : [];
 ---
 
 <div class="blog-head">
@@ -18,7 +18,7 @@ const { as: Tag = "h1", filters = true } = Astro.props;
     <Tag class="blog-head__title">Blog</Tag>
     <span class="blog-head__rule" aria-hidden="true"></span>
   </div>
-  {filters && <FilterChips options={BLOG_TOPICS} label="Filter posts by topic" />}
+  {filters && <FilterChips options={topics} label="Filter posts by topic" />}
 </div>
 
 <style>

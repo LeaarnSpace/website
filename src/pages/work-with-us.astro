@@ -7,9 +7,6 @@ import NumberedCards from "../components/ui/NumberedCards.astro";
 import BenefitCards from "../components/careers/BenefitCards.astro";
 import RoleBrowser from "../components/careers/RoleBrowser.astro";
 
-// TODO: point at the real application form once it exists (roles without an applyUrl link here)
-const applyFallbackHref = "#open-roles";
-
 const benefits = [
   {
     title: "Fair, transparent pay",
@@ -63,7 +60,7 @@ const stepTiming = "0,1.2;0.43,1.2;0.99,1.01;1.65,0.35";
 
   <section class="open container" id="open-roles">
     <SectionTitle title="Open roles" rule="grey" />
-    <RoleBrowser fallbackHref={applyFallbackHref} />
+    <RoleBrowser />
   </section>
 
   <section class="band band--surface">

@@ -3,7 +3,7 @@
 // left, headline in the middle, round arrow on the right that nudges forward on hover.
 import type { CollectionEntry } from "astro:content";
 import RoundArrow from "../ui/RoundArrow.astro";
-import { formatDotDate } from "../../lib/content";
+import { formatLongDate } from "../../lib/content";
 import { routes } from "../../data/navigation";
 
 interface Props {
@@ -16,7 +16,7 @@ const { story } = Astro.props;
   <span class="news-card__meta">
     <strong>{story.data.category}</strong>
     <span class="news-card__dash" aria-hidden="true"></span>
-    <time datetime={story.data.date}>{formatDotDate(story.data.date)}</time>
+    <time datetime={story.data.date}>{formatLongDate(story.data.date)}</time>
   </span>
   <span class="news-card__title">{story.data.title}</span>
   <RoundArrow />

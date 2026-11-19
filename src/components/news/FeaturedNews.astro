@@ -3,6 +3,8 @@
 import type { CollectionEntry } from "astro:content";
 import { Image } from "astro:assets";
 import RoundArrow from "../ui/RoundArrow.astro";
+import { formatLongDate } from "../../lib/content";
+import { imageSource } from "../../lib/images";
 import { routes } from "../../data/navigation";
 
 interface Props {
@@ -17,7 +19,7 @@ const href = `${routes.news}/${story.id}`;
     story.data.image && (
       <div class="featured__media">
         <Image
-          src={story.data.image}
+          {...imageSource(story.data.image)}
           alt=""
           widths={[617, 1234]}
           sizes="(max-width: 767px) 100vw, 617px"
@@ -28,7 +30,7 @@ const href = `${routes.news}/${story.id}`;
   }
   <div class="featured__copy">
     <p class="featured__meta">
-      <time datetime={story.data.date}>{story.data.date}</time>
+      <time datetime={story.data.date}>{formatLongDate(story.data.date)}</time>
       {story.data.source && <span class="featured__source">{story.data.source}</span>}
     </p>
     <h3 class="featured__title">{story.data.title}</h3>
@@ -108,7 +110,7 @@ const href = `${routes.news}/${story.id}`;
       flex-shrink: 0;
     }
   }
-  /* Phones (Figma News-mobile): smaller photo, a "Read more" text link instead of the round arrow */
+  /* Tablets and phones: a "Read more" text link instead of the round arrow */
   .featured__more {
     display: none;
   }
@@ -120,13 +122,17 @@ const href = `${routes.news}/${story.id}`;
       display: none;
     }
   }
+  /* Phones (Figma News-mobile-390): photo on top, the story under it */
   @media (max-width: 767px) {
     .featured {
+      flex-direction: column;
+      align-items: flex-start;
       gap: 18px;
     }
     .featured__media {
       width: 250px;
       max-width: 100%;
+      height: auto;
       aspect-ratio: 250 / 200;
     }
     .featured__title {
