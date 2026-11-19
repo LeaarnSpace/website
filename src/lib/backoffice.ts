@@ -1,7 +1,9 @@
 // Content edited in the back office, read once per build from its /api/website-content endpoint. Visitors never
 // reach the back office: the site stays static, and publishing there starts a new build. If the back office can't
-// be reached, the build fails and the current site stays live.
-import type { Loader } from "astro/loaders";
+// be reached, the build fails and the current site stays live. A kind nobody has added anything to in the back
+// office yet (not even a draft) still comes from the Markdown files under src/content/, so no page is ever emptied
+// by switching over.
+import { glob, type Loader } from "astro/loaders";
 import { loadEnv } from "vite";
 
 // Settings from the host, or from .env / .env.local when building on your machine (Astro doesn't put those in
@@ -23,6 +25,8 @@ interface BackofficeContent {
   blog: (Item & { body?: string })[];
   /** Category names in the order set in the back office, for the filters */
   categories: { news: string[]; blog: string[] };
+  /** Kinds staff have added anything to; the others come from the Markdown files */
+  started?: Record<Collection, boolean>;
 }
 
 type Collection = "roles" | "news" | "blog";
@@ -46,11 +50,26 @@ async function load(): Promise<BackofficeContent> {
 /** Every collection's content, fetched once however many collections ask */
 export const backofficeContent = () => (cached ??= load());
 
+/** Whether this kind comes from the back office: staff have added something to it there */
+export async function usesBackoffice(collection: Collection) {
+  if (!fromBackoffice) return false;
+  const content = await backofficeContent();
+  return content.started?.[collection] ?? content[collection].length > 0;
+}
+
+/** The Markdown files for a kind, as when the back office isn't set up */
+export const fileLoader = (collection: Collection) => glob({ pattern: "**/*.md", base: `./src/content/${collection}` });
+
 /** A content collection filled from the back office, with each item's Markdown as its body */
 export function backofficeLoader(collection: Collection): Loader {
   return {
     name: `backoffice-${collection}`,
-    load: async ({ store, parseData, renderMarkdown }) => {
+    load: async (context) => {
+      if (!(await usesBackoffice(collection))) {
+        context.logger.info(`Nothing in the back office for ${collection} yet: using the Markdown files`);
+        return fileLoader(collection).load(context);
+      }
+      const { store, parseData, renderMarkdown } = context;
       const items = (await backofficeContent())[collection];
       store.clear();
       for (const item of items) {
